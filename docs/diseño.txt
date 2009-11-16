@@ -20,6 +20,7 @@ v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
 	LOS FANTASMAS
 		son un cuadrado de 50 x 50
 	
+--------------------------------------------------------------------------------------------	
 	
 v2
 	EL TABLERO
@@ -30,4 +31,92 @@ v2
 		
 	EL PAC
 		el pac es de 1 x 1
+		
+--------------------------------------------------------------------------------------------
+
+v3
+
+Creacion del tablero.
+
+Tablero debe guardar las posiciones de los fantasmas y del pac.
+
+Veremos un poco mas abajo que la palabra pisable se utiliza cuando no esta ocupado por una pared 
+o por la casa de los fantasmas. Podemos crear el tablero dando valores a cada posicion del mismo.
+
+El valor 0 si es un casillero pisable(camino libre)
+El valor 1 si es un casillero no pisable(pared o casa de fantasmas).
+El valor 2 que representa los puntos de poder, tmb son pisables. una vez pisado cambia al valor 0.
+El valor 3 representa los premios que van aparecer en pantalla, tmb son pisables, un vez pisado vuelve al valor 0.
+
+Una vez que los fantasmas salen de su casa en la captura del pac,
+estos tampoco podran volver a ingresar, salvo que el pac los coman.
+
+Podemos hacer que la compuerta solo este abierta si hay algun fantasma adentro en caso contrario esta cerrada.
+
+Los fantasmas y el pac tienen una ubicacion inicial.
+
+Los fantamas y el pac tienen un metodo vivir y un atributo de estado, estaVivo.
+Además contienen un atributo para su velocidad.
+
+
+FANTASMAS
+
+Metodo Huir
+
+Cada fantasma tendra un metodo huir, pueden hacerlo de diferente forma.
+En todo caso igualmente se llamará al metodo de la siguiente manera:
+
+_nombreDelFantasma.huir();
+
+Utilizaremos polimorfismo si huyen o no de distinta manera.
+
+Una posible implementacion es...
+
+Obtenemos la posicion donde nos encontramos.
+
+Intentamos ir hacia arriba si el casillero continuo es pisable
+sino vamos hacia abajo,
+si tampoco es posible vamos a la izquierda, 
+y si no queda otra vamos a la derecha.
+
+Este orden podemos cambiarlo para cada fantasma, para que intenten huir en primera instancia para lugares diferentes.
+
+Haciendo esto no estariamos teniendo en cuenta la posicion del pac para alejarnos habria que probarlo.
+
+
+Metodo Atrapar.
+
+Tambien utilizaremos polimorfimo para el metodo atrapar de fantasma y será de la forma:
+
+_nombreDelFantasma.atrapar();
+
+Posibles formas de atraparlo(se me ocurrieron a mi)
+
+-Modo Teletransportacion a una ubicacion cercana a el.
+-Modo invisible y que aparesca cada 5 movimientos.
+-Modo transpasar paredes.
+-Modo vigia, se mueve cuando el pacman entra dentro de un determinado radio.
+
+Depende que forma de atraparlo elegiremos, vemos como implementarlo.
+
+
+
+PAC
+
+El pacman tiene como INVARIANTE moverse solo. Si esta en una esquina tmb tratará de moverse, pero no podra.
+
+Tiene un metodo comer que se lo llamara asi:
+
+_nombreDelPac.comer();
+
+
+
+CONTROLADOR
+
+Además de que se deben controlar los movimientos del Pac, 
+Podemos implementar un metodo pausa que se lo llamará al presionar una tecla de la siguiente manera o a través de un menu.
+
+_nombreDelJuego.pausa();
+
+Debe ser complicado pero dentro de un menu podemos poner, Nuevo Juego, Pausa, Salir.
 		
