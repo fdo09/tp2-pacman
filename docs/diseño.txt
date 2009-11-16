@@ -1,0 +1,33 @@
+v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
+	EL TABLERO
+		el tablero es de 1000 x 1000 posiciones (X, Y)
+		los caminos son de 50 de ancho
+		las paredes son de 50 de ancho
+		Cada personaje se mueve de a posiciones divisoras de 50 (1/2/5/10/25). Para que luego de un movimiento el personaje 
+			quede justo en la posicion de un camino
+		PROBLEMA: Hay limitadas velocidades. Tener en cuenta que al cambiar de nivel los fantasmas van a aumentar su velocidad.
+		POSIBLE SOLUCION: Se podria hacer que no haga falta que las velocidades sean divisores de 50. Ya que en cada llamado a "vivir",
+			el personaje hace la cantidad de llamados a "mover" necesarios segun su velocidad actual. En cada llamado a mover,
+			el personaje se mueve 1 sola posicion, y en cada movimiento verifica si tiene que doblar o no 
+			(segun las teclas presionadas en ese momento). EL FEDE APUESTA POR ESTA SOLUCION
+			
+	
+	El PAC
+		el pac es un cuadrado de 50 x 50
+		tiene referencias de su posicion en la esquina inferior izquierda y en la superior derecha
+		PROBLEMA: como se valida si el pac esta contra una pared
+		
+	LOS FANTASMAS
+		son un cuadrado de 50 x 50
+	
+	
+v2
+	EL TABLERO
+		el tablero es de 10 x 10
+		los caminos son de 1 de ancho
+		las paredes son de 1 de ancho
+		PROBLEMA: cuando un personaje si mueva una posicion, se va a mover el 10% del tablero.
+		
+	EL PAC
+		el pac es de 1 x 1
+		
