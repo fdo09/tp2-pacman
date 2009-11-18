@@ -7,18 +7,7 @@ v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
 		Cada personaje puede doblar en caminos que son posiciones divisoras de 50 y el
 		desplazamiento se puede dar de (1/2/5/10/25) unidades por llamada al metodo vivir, 
 		para que luego de un movimiento el personaje quede justo en la posicion de un camino
-		        	
 	
-	
-	
-	
-	
-		PROBLEMA: Hay limitadas velocidades. Tener en cuenta que al cambiar de nivel los fantasmas van a aumentar su velocidad.
-		POSIBLE SOLUCION: Se podria hacer que no haga falta que las velocidades sean divisores de 50. Ya que en cada llamado a "vivir",
-			el personaje hace la cantidad de llamados a "mover" necesarios segun su velocidad actual. En cada llamado a mover,
-			el personaje se mueve 1 sola posicion, y en cada movimiento verifica si tiene que doblar o no 
-			(segun las teclas presionadas en ese momento). EL FEDE APUESTA POR ESTA SOLUCION
-			
 	
 	El PAC
 		El pacman va a tener dos estados: "Power", "Standard".
@@ -28,19 +17,37 @@ v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
 				
 	LOS FANTASMAS
 		Van a ser 4 y van a tener distintos comportamientos cuando se le llame ela metodo vivir.
-		Van a tener 3 estados: Deambular, Perseguir, Huir.
+		Van a tener 4 estados: Deambular, Perseguir, Huir, Comido.
 		El tablero será el que haga las llamadas al método estado para cambiar los estados de los
 		mismos.
 		Van a poder pedir al tablero la ubicación del pacman cuando esten en estado "Perseguir",
 		cada uno tendra una estrategia de huida distinta.
 		
 	TABLERO
-		Va a tener el control de la posición de todos los objetos.	
+		
+		Va a tener el control de:
+		La posición de todos los objetos.
+		La cantidad de semillas restantes en el tablero.
+		Finalización del juego o del nivel.
+		
+		
+		Tareas a Realizar:
+		Va a hacer las llamadas a los objetos del tablero.
+		Cuando el pacman esta en estado "Power" y un fantasma esta a distancia
+		critica cambia el estado del fantasma a "Comido".
+		Cuando el pacman esta en estado "Standard" y un fantasma esta a distancia
+		critica "Termina la partida".
 
 
 
 
 
+PROBLEMA: Hay limitadas velocidades. Tener en cuenta que al cambiar de nivel los fantasmas van a aumentar su velocidad.
+		POSIBLE SOLUCION: Se podria hacer que no haga falta que las velocidades sean divisores de 50. Ya que en cada llamado a "vivir",
+			el personaje hace la cantidad de llamados a "mover" necesarios segun su velocidad actual. En cada llamado a mover,
+			el personaje se mueve 1 sola posicion, y en cada movimiento verifica si tiene que doblar o no 
+			(segun las teclas presionadas en ese momento). EL FEDE APUESTA POR ESTA SOLUCION
+			
 	
 --------------------------------------------------------------------------------------------	
 	
