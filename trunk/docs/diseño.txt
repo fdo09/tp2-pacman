@@ -1,10 +1,18 @@
 v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
 	EL TABLERO
 		el tablero es de 1000 x 1000 posiciones (X, Y)
-		los caminos son de 50 de ancho
-		las paredes son de 50 de ancho
-		Cada personaje se mueve de a posiciones divisoras de 50 (1/2/5/10/25). Para que luego de un movimiento el personaje 
-			quede justo en la posicion de un camino
+		los caminos son son cada 50 unidades.Los caminos seran multiplos de 50.
+		El 0 y el 1000 tambien son caminos que circumbalan al tablero.
+		
+		Cada personaje puede doblar en caminos que son posiciones divisoras de 50 y el
+		desplazamiento se puede dar de (1/2/5/10/25) unidades por llamada al metodo vivir, 
+		para que luego de un movimiento el personaje quede justo en la posicion de un camino
+		        	
+	
+	
+	
+	
+	
 		PROBLEMA: Hay limitadas velocidades. Tener en cuenta que al cambiar de nivel los fantasmas van a aumentar su velocidad.
 		POSIBLE SOLUCION: Se podria hacer que no haga falta que las velocidades sean divisores de 50. Ya que en cada llamado a "vivir",
 			el personaje hace la cantidad de llamados a "mover" necesarios segun su velocidad actual. En cada llamado a mover,
@@ -13,12 +21,26 @@ v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
 			
 	
 	El PAC
-		el pac es un cuadrado de 50 x 50
-		tiene referencias de su posicion en la esquina inferior izquierda y en la superior derecha
-		PROBLEMA: como se valida si el pac esta contra una pared
+		El pacman va a tener dos estados: "Power", "Standard".
+		Al comer un punto de poder tendrÃ¡ estado "Power" por un determinado tiempo, que sera menor
+		en la medida que se avance en los niveles.
 		
+				
 	LOS FANTASMAS
-		son un cuadrado de 50 x 50
+		Van a ser 4 y van a tener distintos comportamientos cuando se le llame ela metodo vivir.
+		Van a tener 3 estados: Deambular, Perseguir, Huir.
+		El tablero serÃ¡ el que haga las llamadas al mÃ©todo estado para cambiar los estados de los
+		mismos.
+		Van a poder pedir al tablero la ubicaciÃ³n del pacman cuando esten en estado "Perseguir",
+		cada uno tendra una estrategia de huida distinta.
+		
+	TABLERO
+		Va a tener el control de la posiciÃ³n de todos los objetos.	
+
+
+
+
+
 	
 --------------------------------------------------------------------------------------------	
 	
@@ -56,7 +78,7 @@ Podemos hacer que la compuerta solo este abierta si hay algun fantasma adentro e
 Los fantasmas y el pac tienen una ubicacion inicial.
 
 Los fantamas y el pac tienen un metodo vivir y un atributo de estado, estaVivo.
-Además contienen un atributo para su velocidad.
+Ademï¿½s contienen un atributo para su velocidad.
 
 
 FANTASMAS
@@ -64,7 +86,7 @@ FANTASMAS
 Metodo Huir
 
 Cada fantasma tendra un metodo huir, pueden hacerlo de diferente forma.
-En todo caso igualmente se llamará al metodo de la siguiente manera:
+En todo caso igualmente se llamarï¿½ al metodo de la siguiente manera:
 
 _nombreDelFantasma.huir();
 
@@ -86,7 +108,7 @@ Haciendo esto no estariamos teniendo en cuenta la posicion del pac para alejarno
 
 Metodo Atrapar.
 
-Tambien utilizaremos polimorfimo para el metodo atrapar de fantasma y será de la forma:
+Tambien utilizaremos polimorfimo para el metodo atrapar de fantasma y serï¿½ de la forma:
 
 _nombreDelFantasma.atrapar();
 
@@ -103,7 +125,7 @@ Depende que forma de atraparlo elegiremos, vemos como implementarlo.
 
 PAC
 
-El pacman tiene como INVARIANTE moverse solo. Si esta en una esquina tmb tratará de moverse, pero no podra.
+El pacman tiene como INVARIANTE moverse solo. Si esta en una esquina tmb tratarï¿½ de moverse, pero no podra.
 
 Tiene un metodo comer que se lo llamara asi:
 
@@ -113,8 +135,8 @@ _nombreDelPac.comer();
 
 CONTROLADOR
 
-Además de que se deben controlar los movimientos del Pac, 
-Podemos implementar un metodo pausa que se lo llamará al presionar una tecla de la siguiente manera o a través de un menu.
+Ademï¿½s de que se deben controlar los movimientos del Pac, 
+Podemos implementar un metodo pausa que se lo llamarï¿½ al presionar una tecla de la siguiente manera o a travï¿½s de un menu.
 
 _nombreDelJuego.pausa();
 
