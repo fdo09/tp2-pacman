@@ -16,14 +16,18 @@ v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
 		
 				
 	LOS FANTASMAS
-		Van a ser 4 y van a tener distintos comportamientos cuando se le llame ela metodo vivir.
+		Van a ser 4 y van a tener distintos comportamientos cuando se le llame al metodo vivir.
 		Van a tener 4 estados: Deambular, Perseguir, Huir, Comido.
 		El tablero será el que haga las llamadas al método estado para cambiar los estados de los
 		mismos.
 		Van a poder pedir al tablero la ubicación del pacman cuando esten en estado "Perseguir",
 		cada uno tendra una estrategia de huida distinta.
+		Algoritmo de búsqueda fijarse el siguiente:
+		http://es.wikipedia.org/wiki/Algoritmo_de_b%C3%BAsqueda_A*
 		
 	TABLERO
+		Definiciones:
+		Distancia crítica: cuando dos objetos vivos estan a una distancia menor a 2.
 		
 		Va a tener el control de:
 		La posición de todos los objetos.
@@ -33,11 +37,14 @@ v1 - ESTA ES LA VERSION QUE MAS ME GUSTAS
 		
 		Tareas a Realizar:
 		Va a hacer las llamadas a los objetos del tablero.
-		Cuando el pacman esta en estado "Power" y un fantasma esta a distancia
-		critica cambia el estado del fantasma a "Comido".
-		Cuando el pacman esta en estado "Standard" y un fantasma esta a distancia
-		critica "Termina la partida".
-
+		Cuando el pacman esta en estado "Power" y un fantasma esta a "Distancia
+		crítica" cambia el estado del fantasma a "Comido".
+		Cuando el pacman esta en estado "Standard" y un fantasma esta a "Distancia
+		crítica", Termina la partida.
+		A un determinado tiempo cambia el estado de los fantasmas a "Perseguir".
+		Cuando el pacman come un punto de poder cambia el estado de los fantasmas
+		a "Huir".
+		
 
 
 
