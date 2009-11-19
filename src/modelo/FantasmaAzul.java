@@ -12,11 +12,11 @@ public class FantasmaAzul extends Fantasma {
 						
 	}
 
-	public void mover() {
-
+	public void mover(String estado) {
 		//Ver si hay otra forma de hacer esto.
 		
-		super.mover();
+		super.mover(estado);
+		
 
 	}
 
@@ -27,6 +27,7 @@ public class FantasmaAzul extends Fantasma {
 
 	public void atrapar() {
 		// TODO Auto-generated method stub
+
 		
 	}
 
