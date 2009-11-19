@@ -1,8 +1,12 @@
 package modelo;
 
+import java.awt.Event;
+import java.awt.event.*;
+
+
 public class Pac extends Personaje{
 	
-	boolean power;
+	
 	private String estado;
 	private boolean fueComido;
 	private int posicionEnX;
@@ -10,7 +14,7 @@ public class Pac extends Personaje{
 	
 	
 	public Pac (int coordenadaEnX, int coordenadaEnY){
-		this.power = false;
+		
 		this.estado = "Normal";
 		this.fueComido = false;
 		this.posicionEnX = coordenadaEnX;
@@ -18,7 +22,9 @@ public class Pac extends Personaje{
 	}
 
 	public void mover() {
-		// TODO Auto-generated method stub
+
+		/* Depende de la tecla presionada, el Pac se movera en determinada direccion
+		 * siempre y cuando el movimiento sea posible.*/
 		
 	}
 
