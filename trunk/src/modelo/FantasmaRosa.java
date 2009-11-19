@@ -2,7 +2,7 @@ package modelo;
 
 public class FantasmaRosa extends Fantasma {
 
-	private String estado;
+	
 	private boolean fueComido;
 	private int posicionEnX;
 	private int posicionEnY;
@@ -12,8 +12,8 @@ public class FantasmaRosa extends Fantasma {
 						
 	}
 	
-	public void mover() {
-		super.mover();
+	public void mover(String estado) {
+		super.mover(estado);
 	}
 
 	
