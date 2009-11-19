@@ -11,37 +11,24 @@ public class FantasmaRosa extends Fantasma {
 		super(coordenadaEnX, coordenadaEnY);
 						
 	}
-
+	
 	public void mover() {
-		
-		//Ver si hay otra forma de hacer esto.
-		
-		if(this.estado == "Deambular"){
-			
-			this.deambular();
-		}
-		if(this.estado == "Huir"){
-			
-			this.huir();
-		}
-		if(this.estado == "Atrapar"){
-			
-			this.atrapar();
-		}
-
+		super.mover();
 	}
 
-	private void huir() {
+	
+
+	public void huir() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void atrapar() {
+	public void atrapar() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void deambular() {
+	public void deambular() {
 		// TODO Auto-generated method stub
 		
 	}

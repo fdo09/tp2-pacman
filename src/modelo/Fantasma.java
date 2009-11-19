@@ -17,6 +17,23 @@ public abstract class Fantasma extends Personaje {
 		
 	}
 
-	public abstract void mover();
+	public void mover(){
+			if(this.estado == "Deambular"){
+			
+				this.deambular();
+			}
+			if(this.estado == "Huir"){
+			
+				this.huir();
+			}
+			if(this.estado == "Atrapar"){
+			
+				this.atrapar();
+			}
+	}
+	
+	public abstract void huir();
+	public abstract void deambular();
+	public abstract void atrapar();
 	
 }
