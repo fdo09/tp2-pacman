@@ -10,9 +10,12 @@ public class FantasmaRojoTest extends TestCase {
 		
 	}
 	
-	public void testmover() {
+	public void testDeambular() {
 		
 	}
 	
+	public void testAtrapar(){
+		
+	}
 	
 }
