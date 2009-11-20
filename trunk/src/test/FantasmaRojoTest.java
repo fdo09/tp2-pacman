@@ -10,7 +10,7 @@ public class FantasmaRojoTest extends TestCase {
 		
 	}
 	
-	public void testDeambular() {
+	public void testregresar() {
 		
 	}
 	

@@ -7,5 +7,5 @@ public abstract class Personaje {
 	private int posicionEnX;
 	private int posicionEnY;
 
-	public abstract void mover(String estado);
+	public abstract void mover();
 }
