@@ -15,7 +15,17 @@ public class Tablero {
 	}
 
 	public Point posicionPac() {
-		// TODO Auto-generated method stub
+		// TODO Un metodo que devuelva la posicion del pac.
+		return null;
+	}
+
+	public Collection<Point> getCasa() {
+		// TODO Un metodo que devuelva una coleccion con todas las posiciones de la casa.
+		return null;
+	}
+
+	public Casillero getCasillero(Point punto) {
+		// TODO Un metodo que dado un punto me devuelva el casillero en esa posicion
 		return null;
 	}
 	

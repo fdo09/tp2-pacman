@@ -1,6 +1,7 @@
 package modelo;
 
 import java.awt.Point;
+import java.util.Collection;
 
 enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 
@@ -32,8 +33,19 @@ public abstract class Fantasma implements Personaje {
 		}
 	}
 	
+	public void regresar(){
+		Collection<Point> casa = this.tablero.getCasa();
+		
+		for(Point punto : casa){
+			Casillero casilleroAux = tablero.getCasillero(punto);
+			if (casilleroAux == null) {
+				this.posicion = punto;
+				return;
+			}
+		}
+	}
+	
 	public abstract void huir();
-	public abstract void regresar();
 	public abstract void atrapar();
 	
 }
