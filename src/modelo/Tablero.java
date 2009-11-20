@@ -2,7 +2,6 @@ package modelo;
 
 import java.awt.Point;
 import java.util.Collection;
-import java.util.Dictionary;
 import java.util.HashMap;
 
 public class Tablero {
@@ -13,6 +12,11 @@ public class Tablero {
 		//Capacidad inicial es base*altura+1 para prevenir que no se llene el HashMap. 
 		//Ya q se si se llena se tiene que volver a agrandar y eso consume bastantes recursos.
 		this.casilleros = new HashMap<Point, Casillero>(base*altura+1, 1);
+	}
+
+	public Point posicionPac() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

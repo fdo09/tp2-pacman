@@ -1,18 +1,20 @@
 package modelo;
 
+import java.awt.Point;
+
 enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 
 public abstract class Fantasma implements Personaje {
 
-	private int posicionEnX;
-	private int posicionEnY;
-	protected Estados estado; 
+	private Tablero tablero;
+	private Point posicion; 
+	private Estados estado;
 
-	public Fantasma(int coordenadaEnX, int coordenadaEnY) {
+	public Fantasma(Tablero tablero, Point posicion) {
 		
 		this.estado = Estados.ATRAPAR;
-		this.posicionEnX = coordenadaEnX;
-		this.posicionEnY = coordenadaEnY;
+		this.tablero = tablero;
+		this.posicion = posicion;
 		
 	}
 	

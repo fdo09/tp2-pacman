@@ -1,13 +1,15 @@
 package modelo;
 
+import java.awt.Point;
+
 public class FantasmaVerde extends Fantasma {
 
+	private Tablero tablero;
+	private Point posicion;
+	private Estados estado;
 	
-	private int posicionEnX;
-	private int posicionEnY;
-	
-	public FantasmaVerde(int coordenadaEnX, int coordenadaEnY) {
-		super(coordenadaEnX, coordenadaEnY);
+	public FantasmaVerde(Tablero tablero, Point posicion) {
+		super(tablero, posicion);
 						
 	}
 
