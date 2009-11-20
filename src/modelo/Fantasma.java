@@ -2,11 +2,11 @@ package modelo;
 
 enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 
-public abstract class Fantasma extends Personaje {
+public abstract class Fantasma implements Personaje {
 
 	private int posicionEnX;
 	private int posicionEnY;
-	private Estados estado; 
+	protected Estados estado; 
 
 	public Fantasma(int coordenadaEnX, int coordenadaEnY) {
 		
