@@ -1,12 +1,8 @@
 package modelo;
 
-import java.awt.Event;
-import java.awt.event.*;
 
+public class Pac implements Personaje{
 
-public class Pac extends Personaje{
-	
-	
 	
 	private boolean fueComido;
 	private int posicionEnX;
