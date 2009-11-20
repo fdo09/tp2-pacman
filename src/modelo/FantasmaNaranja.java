@@ -13,10 +13,10 @@ public class FantasmaNaranja extends Fantasma {
 	}
 
 	
-	public void mover(String estado) {
+	public void mover() {
 
 		//Ver si hay otra forma de hacer esto.
-		super.mover(estado);
+		super.mover();
 
 	}
 
@@ -30,7 +30,7 @@ public class FantasmaNaranja extends Fantasma {
 		
 	}
 
-	public void deambular() {
+	public void regresar() {
 		// TODO Auto-generated method stub
 		
 	}

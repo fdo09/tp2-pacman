@@ -12,8 +12,8 @@ public class FantasmaRosa extends Fantasma {
 						
 	}
 	
-	public void mover(String estado) {
-		super.mover(estado);
+	public void mover() {
+		super.mover();
 	}
 
 	
@@ -28,7 +28,7 @@ public class FantasmaRosa extends Fantasma {
 		
 	}
 
-	public void deambular() {
+	public void regresar() {
 		// TODO Auto-generated method stub
 		
 	}

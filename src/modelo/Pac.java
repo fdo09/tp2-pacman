@@ -20,7 +20,7 @@ public class Pac extends Personaje{
 		this.posicionEnY = coordenadaEnY;
 	}
 
-	public void mover(String estado) {
+	public void mover() {
 
 		/* Depende de la tecla presionada, el Pac se movera en determinada direccion
 		 * siempre y cuando el movimiento sea posible.*/
