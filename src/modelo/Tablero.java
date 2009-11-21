@@ -28,6 +28,11 @@ public class Tablero {
 		// TODO Un metodo que dado un punto me devuelva el casillero en esa posicion
 		return null;
 	}
+
+	public boolean hayObstaculo(Point unaPosicion) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }
