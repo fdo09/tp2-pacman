@@ -1,7 +1,6 @@
 package modelo;
 
 import java.awt.Point;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 
