@@ -22,6 +22,8 @@ public class Pac implements Personaje{
 	
 	public void vivir(){
 		
+		//Depende que tecla se presione el estado cambiará
+		//por lo tanto el mover pac irá en la direccion correcta.
 		this.mover();
 		
 	}
@@ -32,17 +34,21 @@ public class Pac implements Personaje{
 		
 				case IZQUIERDA:
 					this.desplazarseEnX(-1);
+					break;
 				case ARRIBA:
 					this.desplazarseEnY(1);
+					break;
 				case DERECHA:
 					this.desplazarseEnX(1);
+					break;
 				case ABAJO:
 					this.desplazarseEnY(-1);
+					break;
 				}
 		
 		}
 
-	public void desplazarseEnX(int unValor){
+	private void desplazarseEnX(int unValor){
 		
 		boolean posicionValidaEnX;
 		posicionValidaEnX = this.validarPosicionEnX(unValor);
@@ -53,7 +59,7 @@ public class Pac implements Personaje{
 		}
 	}
 	
-	public void desplazarseEnY(int unValor){
+	private void desplazarseEnY(int unValor){
 		boolean posicionValidaEnY;
 		
 		posicionValidaEnY = this.validarPosicionEnY(unValor);
@@ -67,7 +73,7 @@ public class Pac implements Personaje{
 
 	private boolean validarPosicionEnX(int unValor) {
 
-		Point unaPosicion = new Point();
+		Point unaPosicion = new Point(unValor,(int) this.posicion.getY());
 		
 		unaPosicion.setLocation(this.posicion.getX()+ unValor, (this.posicion.getY()));
 		
