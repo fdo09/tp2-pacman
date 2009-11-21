@@ -30,7 +30,7 @@ public class Tablero {
 	}
 
 	public boolean hayObstaculo(Point unaPosicion) {
-		// TODO Auto-generated method stub
+		//INCLUYE LAS PAREDES FRONTERA SI ?
 		return false;
 	}
 	
