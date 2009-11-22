@@ -11,12 +11,14 @@ public abstract class Fantasma implements Personaje {
 	private Tablero tablero;
 	private Point posicion; 
 	private Estados estado;
+	private Collection<Point> posicionesAdyacentes;
 
 	public Fantasma(Tablero tablero, Point posicion) {
 		
 		this.estado = Estados.ATRAPAR;
 		this.tablero = tablero;
 		this.posicion = posicion;
+		this.posicionesAdyacentes = new ArrayList<Point>();
 		
 	}
 	
@@ -68,26 +70,26 @@ public abstract class Fantasma implements Personaje {
 	public abstract void huir();
 	public abstract void atrapar();
 	
-	protected Collection<Point> calcAdjacentes() {
-		ArrayList<Point> listaAdjacentes = new ArrayList<Point>();
+	protected Collection<Point> obtenerPosicionesAdyacentes() {
+		
 		
 		Point ptoAuxArriba = new Point();
 		ptoAuxArriba.translate(0,1);
-		listaAdjacentes.add(ptoAuxArriba);
+		this.posicionesAdyacentes.add(ptoAuxArriba);
 		
 		Point ptoAuxAbajo = new Point();
 		ptoAuxAbajo.translate(0,-1);
-		listaAdjacentes.add(ptoAuxAbajo);
+		this.posicionesAdyacentes.add(ptoAuxAbajo);
 
 		Point ptoAuxDerecha = new Point();
 		ptoAuxAbajo.translate(1,0);
-		listaAdjacentes.add(ptoAuxDerecha);
+		this.posicionesAdyacentes.add(ptoAuxDerecha);
 		
 		Point ptoAuxIzquierda = new Point();
 		ptoAuxAbajo.translate(-1,0);
-		listaAdjacentes.add(ptoAuxIzquierda);
+		this.posicionesAdyacentes.add(ptoAuxIzquierda);
 		
-		return listaAdjacentes;
+		return this.posicionesAdyacentes;
 	}
 	
 }

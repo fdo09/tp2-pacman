@@ -21,13 +21,13 @@ public class FantasmaAzul extends Fantasma {
 		public void huir() {
 		Point posicionPac = tablero.posicionPac();
 		double distanciaPac = this.posicion.distance(posicionPac);
-		Collection<Point> adjacentes = this.calcAdjacentes();
+		Collection<Point> posicionesVecinas = this.obtenerPosicionesAdyacentes();
 	}
 
 	public void atrapar() {
 		Point posicionPac = tablero.posicionPac();
 		double distanciaPac = this.posicion.distance(posicionPac);
-		Collection<Point> adjacentes = this.calcAdjacentes();
+		Collection<Point> posicionesVecinas = this.obtenerPosicionesAdyacentes();
 		
 	}
 
