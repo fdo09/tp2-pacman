@@ -29,7 +29,7 @@ public class Tablero {
 		return null;
 	}
 
-	public boolean hayObstaculo(Point unaPosicion) {
+	public boolean esValida(Point unaPosicion) {
 		//INCLUYE LAS PAREDES FRONTERA SI ?
 		return false;
 	}
