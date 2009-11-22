@@ -13,6 +13,13 @@ public class FantasmaVerde extends Fantasma {
 						
 	}
 
+	/*
+	 * ESTE FANTASMA, PODRÍA IR POR EL CAMINO MAS LARGO,
+	 * ya que como hizo fede tenemos en una lista todas los movimientos posibles
+	 * y calculamos la distancia al pacman desde ellos.
+	 */
+	
+	
 	public void huir() {
 		// TODO Auto-generated method stub
 		

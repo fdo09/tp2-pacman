@@ -19,7 +19,7 @@ public class FantasmaAzul extends Fantasma {
 	 luego intentar moverse en la menor distancia. Si no se puede (por una pared) tratar de moverse en la segunda menor distancia.... 
 	 */
 
-	public void huir() {
+		public void huir() {
 		Point posicionPac = tablero.posicionPac();
 		double distanciaPac = this.calcularDistancia(posicionPac);
 		Collection<Point> adjacentes = this.calcAdjacentes();
@@ -64,6 +64,10 @@ public class FantasmaAzul extends Fantasma {
 	 * 
 	 * 
 	 * 
+	 */
+	
+	/* Calcular adyacentes, podemos colocarlo en clase fantasma no?
+	 * ya que va a ser comun a todas las clases.
 	 */
 	private Collection<Point> calcAdjacentes() {
 		ArrayList<Point> listaAdjacentes = new ArrayList<Point>();
