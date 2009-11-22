@@ -18,6 +18,13 @@ public class FantasmaVerde extends Fantasma  {
 		
 	}
 			
+	/* 
+	 * 
+	 * Ambos metodos tienen el mismo codigo,no creo que importe refactorizarlo son dos lineas nada mas.
+	 * Lo que estaba pensando es en hacer ciclos for  para que por ejemplo atrapar "atrape tres veces" 
+	 * de esta manera le estamos dando mas velocidad a la hora de atrapar que de huir.
+	 * 
+	 */
 	public void huir() {
 		Collection<Point>posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
 		this.desplazarse(posicionesAdyacentes);
@@ -58,7 +65,15 @@ public class FantasmaVerde extends Fantasma  {
 		return distancia;
 	}
 	
-	
+	/*
+	 * El metodo getMovimientoOptimo podria ir en clase Fantasma, ya que todos tendrían
+	 * que recorrer la lista de vecinos y ver donde moverse,
+	 * lo que tendríamos que hacer a mi gusto es un metodo deambular como habiamos dicho
+	 * entonces de esa manera, al comienzo todos se van a encontrar en posiciones diferentes,
+	 * y a la hora de atrapar van a ir por el camino mas corto, pero nadie va a ir por el mismo
+	 * lugar que otro ya que parten de lugares diferentes, lo mismo a la hora de escapar.
+	 * 
+	 */
 	
 	
 	public Point getMovimientoOptimo(Collection<Point> listaDePosiciones){
