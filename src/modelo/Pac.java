@@ -77,7 +77,7 @@ public class Pac implements Personaje{
 		
 		unaPosicion.translate(unValor, 0);
 		
-		return hayObstaculo(unaPosicion);
+		return tablero.esValida(unaPosicion);
 		
 	}
 	
@@ -87,26 +87,20 @@ public class Pac implements Personaje{
 		
 		unaPosicion.translate(0, unValor);
 		
-		return hayObstaculo(unaPosicion);
+		return tablero.esValida(unaPosicion);
 	}
 
 
-	private boolean hayObstaculo(Point unaPosicion) {
-		if(tablero.hayObstaculo(unaPosicion)){
-			return false;
-		}return true;
-	}
-	
 	
 	public int getX() {
-		// TODO Auto-generated method stub
-		return (int) posicion.getX();
+		
+		return (int) this.posicion.getX();
 	}
 
 
 	public int getY() {
-		// TODO Auto-generated method stub
-		return (int) posicion.getY();
+		
+		return (int) this.posicion.getY();
 	}
 	
 }
