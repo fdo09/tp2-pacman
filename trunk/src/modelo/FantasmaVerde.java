@@ -2,47 +2,45 @@ package modelo;
 
 
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class FantasmaVerde extends Fantasma implements Iterable<Point>  {
+public class FantasmaVerde extends Fantasma  {
 
 	private Tablero tablero;
 	private Point posicion;
 	private Estados estado;
-	private Collection<Point> posicionesAdyacentes;
+	
 			
 	public FantasmaVerde(Tablero tablero, Point posicion){
 		
 		super(tablero, posicion);
-		this.estado = Estados.ATRAPAR;
-		this.posicionesAdyacentes = new ArrayList<Point>();
+		
 	}
 			
 	public void huir() {
-		
-		this.desplazarse();
+		Collection<Point>posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
+		this.desplazarse(posicionesAdyacentes);
 		
 	}
 
 	public void atrapar() {
-		
-		this.desplazarse();
+		Collection<Point>posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
+		this.desplazarse(posicionesAdyacentes);
 		
 	}
 
-	private void desplazarse() {
-		Collection<Point> posicionesVecinas = this.obtenerPosicionesAdyacentes();
-		Point posicionOptima = this.getMovimientoOptimo(posicionesVecinas);
+	private void desplazarse(Collection<Point> listaDePosiciones) {
+		
+		Point posicionOptima = this.getMovimientoOptimo(listaDePosiciones);
 		if(tablero.esValida(posicionOptima)){
 			
 			this.posicion.setLocation(posicionOptima);
 			
 		}
 		else{
-			this.posicionesAdyacentes.remove(posicionOptima);
-			this.desplazarse();
+			listaDePosiciones.remove(posicionOptima);
+			this.desplazarse(listaDePosiciones);
 		}
 	}
 
@@ -102,8 +100,5 @@ public class FantasmaVerde extends Fantasma implements Iterable<Point>  {
 	}
 	
 	
-	public Iterator<Point> iterator() {
-		return this.posicionesAdyacentes.iterator();
-	}
 	
 }
