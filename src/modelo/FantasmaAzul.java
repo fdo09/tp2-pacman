@@ -30,13 +30,24 @@ public class FantasmaAzul extends Fantasma {
 		double distanciaPac = this.calcularDistancia(posicionPac);
 		Collection<Point> adjacentes = this.calcAdjacentes();
 		
+		
 	}
 
 	public void regresar() {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/*
+	 * FEDE TENE EN CUENTA QUE LA CLASE POINT YA TE PROVEE DE UN METODO QUE CALCULA LA DISTANCIA.
+	 * O LA RAIZ CUADRADA DE LA DISTANCIA.
+	 * Point unaPosicion = new Point();
+	 * Point otraPosicion = new Point();
+	 * double distancia = unaPosicion.distance(otraPosicion);
+	 * double raizDeLaDistancia = unaPosicion.distanceSq(otraPosicion);
+	 * 
+	 * Te devuelve un double
+	 * 
+	 */
 	private double calcularDistancia (Point destino){
 		double distanciaX = (this.posicion.getX() - destino.getX());
 		double distanciaY = (this.posicion.getY() - destino.getY());
@@ -44,23 +55,33 @@ public class FantasmaAzul extends Fantasma {
 		return distancia;
 	}
 	
+	
+	/*
+	 * FEDE TENE EN CUENTA QUE LA CLASE POINT TAMBIEN VIENE CON UN METODO TRANSLATE.
+	 * Point unaPosicion = new Point();
+	 * 
+	 * unaPosicion.translate(int arg1,int arg2); LO PODES USAR CON NUMEROS NEGATIVOS.
+	 * 
+	 * 
+	 * 
+	 */
 	private Collection<Point> calcAdjacentes() {
 		ArrayList<Point> listaAdjacentes = new ArrayList<Point>();
 		
 		Point ptoAuxArriba = new Point();
-		ptoAuxArriba.setLocation(this.posicion.getX(), (this.posicion.getY() + 1));
+		ptoAuxArriba.translate(0,1);
 		listaAdjacentes.add(ptoAuxArriba);
 		
 		Point ptoAuxAbajo = new Point();
-		ptoAuxAbajo.setLocation(this.posicion.getX(), (this.posicion.getY() - 1));
+		ptoAuxAbajo.translate(0,-1);
 		listaAdjacentes.add(ptoAuxAbajo);
 
 		Point ptoAuxDerecha = new Point();
-		ptoAuxAbajo.setLocation((this.posicion.getX() + 1), this.posicion.getY());
+		ptoAuxAbajo.translate(1,0);
 		listaAdjacentes.add(ptoAuxDerecha);
 		
 		Point ptoAuxIzquierda = new Point();
-		ptoAuxAbajo.setLocation((this.posicion.getX() - 1), this.posicion.getY());
+		ptoAuxAbajo.translate(-1,0);
 		listaAdjacentes.add(ptoAuxIzquierda);
 		
 		return listaAdjacentes;

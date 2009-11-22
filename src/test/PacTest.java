@@ -21,9 +21,10 @@ public class PacTest extends TestCase {
 		unPacman.mover();
 		
 		
-		
 		assertEquals(posicionEsperada, posicionActual);
 		
 		
 	}
+	
+	
 }

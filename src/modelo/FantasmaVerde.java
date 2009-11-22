@@ -16,6 +16,7 @@ public class FantasmaVerde extends Fantasma {
 	public void huir() {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	public void atrapar() {
