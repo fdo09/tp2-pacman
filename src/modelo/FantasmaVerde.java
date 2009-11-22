@@ -16,6 +16,7 @@ public class FantasmaVerde extends Fantasma implements Iterable<Point>  {
 	public FantasmaVerde(Tablero tablero, Point posicion){
 		
 		super(tablero, posicion);
+		this.estado = Estados.ATRAPAR;
 		this.posicionesAdyacentes = new ArrayList<Point>();
 	}
 			
@@ -39,6 +40,10 @@ public class FantasmaVerde extends Fantasma implements Iterable<Point>  {
 			this.posicion.setLocation(posicionOptima);
 			
 		}
+		else{
+			this.posicionesAdyacentes.remove(posicionOptima);
+			this.desplazarse();
+		}
 	}
 
 	public void regresar() {
@@ -50,33 +55,13 @@ public class FantasmaVerde extends Fantasma implements Iterable<Point>  {
 		
 		Point posicionPac = tablero.posicionPac();
 		
-		double distancia = posicionPac.distanceSq(unaPosicion);
+		double distancia = posicionPac.distance(unaPosicion);
 		
 		return distancia;
 	}
 	
 	
-	private Collection<Point> obtenerPosicionesAdyacentes() {
-		
-		
-		Point ptoAuxArriba = new Point();
-		ptoAuxArriba.translate(0,1);
-		this.posicionesAdyacentes.add(ptoAuxArriba);
-		
-		Point ptoAuxAbajo = new Point();
-		ptoAuxAbajo.translate(0,-1);
-		this.posicionesAdyacentes.add(ptoAuxAbajo);
-
-		Point ptoAuxDerecha = new Point();
-		ptoAuxAbajo.translate(1,0);
-		this.posicionesAdyacentes.add(ptoAuxDerecha);
-		
-		Point ptoAuxIzquierda = new Point();
-		ptoAuxAbajo.translate(-1,0);
-		this.posicionesAdyacentes.add(ptoAuxIzquierda);
-		
-		return this.posicionesAdyacentes;
-	}
+	
 	
 	public Point getMovimientoOptimo(Collection<Point> listaDePosiciones){
 		
