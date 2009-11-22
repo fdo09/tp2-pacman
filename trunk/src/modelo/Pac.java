@@ -55,7 +55,7 @@ public class Pac implements Personaje{
 		
 		if(posicionValidaEnX){
 					
-			this.posicion.setLocation(this.posicion.getX()+ unValor, (this.posicion.getY()));
+			this.posicion.translate(unValor, 0);
 		}
 	}
 	
@@ -66,7 +66,7 @@ public class Pac implements Personaje{
 		
 		if(posicionValidaEnY)
 			{
-			this.posicion.setLocation(this.posicion.getX(), (this.posicion.getY() + unValor));
+			this.posicion.translate(0, unValor);
 			}
 		
 	}
@@ -75,7 +75,7 @@ public class Pac implements Personaje{
 
 		Point unaPosicion = new Point(unValor,(int) this.posicion.getY());
 		
-		unaPosicion.setLocation(this.posicion.getX()+ unValor, (this.posicion.getY()));
+		unaPosicion.translate(unValor, 0);
 		
 		return hayObstaculo(unaPosicion);
 		
@@ -85,7 +85,7 @@ public class Pac implements Personaje{
 
 		Point unaPosicion = new Point();
 		
-		unaPosicion.setLocation(this.posicion.getX(), (this.posicion.getY()+ unValor));
+		unaPosicion.translate(0, unValor);
 		
 		return hayObstaculo(unaPosicion);
 	}
