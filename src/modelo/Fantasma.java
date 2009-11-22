@@ -1,6 +1,7 @@
 package modelo;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Collection;
 
 enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
@@ -66,5 +67,27 @@ public abstract class Fantasma implements Personaje {
 	
 	public abstract void huir();
 	public abstract void atrapar();
+	
+	protected Collection<Point> calcAdjacentes() {
+		ArrayList<Point> listaAdjacentes = new ArrayList<Point>();
+		
+		Point ptoAuxArriba = new Point();
+		ptoAuxArriba.translate(0,1);
+		listaAdjacentes.add(ptoAuxArriba);
+		
+		Point ptoAuxAbajo = new Point();
+		ptoAuxAbajo.translate(0,-1);
+		listaAdjacentes.add(ptoAuxAbajo);
+
+		Point ptoAuxDerecha = new Point();
+		ptoAuxAbajo.translate(1,0);
+		listaAdjacentes.add(ptoAuxDerecha);
+		
+		Point ptoAuxIzquierda = new Point();
+		ptoAuxAbajo.translate(-1,0);
+		listaAdjacentes.add(ptoAuxIzquierda);
+		
+		return listaAdjacentes;
+	}
 	
 }
