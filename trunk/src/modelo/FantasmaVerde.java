@@ -68,6 +68,24 @@ public class FantasmaVerde extends Fantasma  {
 			listaDePosiciones.remove(posicionOptima);
 			this.desplazarse(listaDePosiciones);
 		}
+		
+		
+		
+		
+		while (!listaDePosiciones.isEmpty()){
+			Point posicionOptima = this.getMovimientoOptimo(listaDePosiciones);
+			if(tablero.esValida(posicionOptima)){
+				
+				this.posicion.setLocation(posicionOptima);
+				return;
+				
+			}
+			else{
+				listaDePosiciones.remove(posicionOptima);
+				this.desplazarse(listaDePosiciones);
+			}
+		}
+		
 	}
 
 	
