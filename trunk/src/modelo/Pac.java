@@ -1,6 +1,7 @@
 package modelo;
 
 import java.awt.Point;
+import fijos.*;
 
 enum Direcciones{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class Pac implements Personaje{
@@ -8,15 +9,13 @@ public class Pac implements Personaje{
 
 	private Tablero tablero;
 	private Point posicion;
-	private Direcciones estado;
+	private Direcciones direccion;
 	
 	public Pac (Tablero tablero, Point posicion){
-		
-		
-		
+
 		this.tablero = tablero;
 		this.posicion = posicion;
-		this.estado = Direcciones.DERECHA;
+		this.direccion = Direcciones.DERECHA;
 	}
 	
 	
@@ -30,7 +29,7 @@ public class Pac implements Personaje{
 
 	public void mover() {
 		
-		switch (this.estado){
+		switch (this.direccion){
 		
 				case IZQUIERDA:
 					this.desplazarseEnX(-1);
@@ -88,19 +87,6 @@ public class Pac implements Personaje{
 		unaPosicion.translate(0, unValor);
 		
 		return tablero.esValida(unaPosicion);
-	}
-
-
-	
-	public int getX() {
-		
-		return (int) this.posicion.getX();
-	}
-
-
-	public int getY() {
-		
-		return (int) this.posicion.getY();
 	}
 	
 }

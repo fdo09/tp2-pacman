@@ -2,8 +2,9 @@ package test;
 
 import java.awt.Point;
 
-import modelo.Pac;
-import modelo.Tablero;
+import modelo.*;
+import fijos.*;
+
 import junit.framework.TestCase;
 
 public class PacTest extends TestCase {

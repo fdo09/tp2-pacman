@@ -1,6 +1,7 @@
 package modelo;
 
 import java.awt.Point;
+import fijos.*;
 
 public class FantasmaAmarillo extends Fantasma {
 
