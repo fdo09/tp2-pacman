@@ -1,16 +1,21 @@
 package fijos;
 
-public class PuntoDePoder extends Casillero{
-	
-	private Estados estado;
-	
-	public PuntoDePoder(){
-		this.estado = Estados.VIVO;
+import java.awt.Point;
+
+public class PuntoDePoder extends Casillero {
+
+	public PuntoDePoder() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void comer() {
-		// TODO Auto-generated method stub
+	public PuntoDePoder(Point unaUbicacion) {
+		super(unaUbicacion);
+		// TODO Auto-generated constructor stub
+	}
+
+	public boolean transitable(){
 		
+		return true;
 	}
 
 }

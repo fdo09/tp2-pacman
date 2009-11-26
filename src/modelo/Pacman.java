@@ -3,33 +3,25 @@ package modelo;
 import java.awt.Point;
 import fijos.*;
 
-enum Direcciones{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
-public class Pac implements Personaje{
+enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
+public class Pacman extends Personaje{
 
 
 	private Tablero tablero;
 	private Point posicion;
-	private Direcciones direccion;
+	private Direccion direcciones;
 	
-	public Pac (Tablero tablero, Point posicion){
+	public Pacman (Tablero tablero, Point posicion){
 
 		this.tablero = tablero;
 		this.posicion = posicion;
-		this.direccion = Direcciones.DERECHA;
+		this.direcciones = Direccion.DERECHA;
 	}
 	
 	
-	public void vivir(){
-		
-		//Depende que tecla se presione el estado cambiará
-		//por lo tanto el mover pac irá en la direccion correcta.
-		this.mover();
-		
-	}
-
 	public void mover() {
 		
-		switch (this.direccion){
+		switch (this.direcciones){
 		
 				case IZQUIERDA:
 					this.desplazarseEnX(-1);

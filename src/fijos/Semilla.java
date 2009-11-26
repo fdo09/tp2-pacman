@@ -1,17 +1,21 @@
 package fijos;
 
-public class Semilla extends Casillero{
+import java.awt.Point;
 
-	private Estados estado;
-	
-	public Semilla(){
-		this.estado = Estados.VIVO;
+public class Semilla extends Casillero {
+
+	public Semilla() {
+		// TODO Auto-generated constructor stub
 	}
-	
-	public void comer() {
-		// TODO Auto-generated method stub
+
+	public Semilla(Point unaUbicacion) {
+		super(unaUbicacion);
+		// TODO Auto-generated constructor stub
+	}
+
+	public boolean transitable(){
 		
+		return true;
 	}
-	
-	
+
 }

@@ -17,7 +17,7 @@ public class PacTest extends TestCase {
 		
 		Point posicionEsperada = new Point(2,1);
 		
-		Pac unPacman = new Pac(unTablero,posicionActual);
+		Pacman unPacman = new Pacman(unTablero,posicionActual);
 		
 		unPacman.mover();
 		

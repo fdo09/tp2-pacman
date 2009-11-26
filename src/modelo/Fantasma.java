@@ -8,7 +8,7 @@ import fijos.*;
 
 enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 
-public abstract class Fantasma implements Personaje {
+public abstract class Fantasma extends Personaje {
 
 	private Tablero tablero;
 	private Point posicion; 
@@ -34,26 +34,6 @@ public abstract class Fantasma implements Personaje {
 				this.regresar();
 			//falta ver que se hace cuando esta INMUNE
 		}
-	}
-	
-	protected void moverDerecha(){
-		this.posicion.x += 1;
-		Casillero casillero = tablero.getCasillero(this.posicion);
-	}
-
-	protected void moverIzquierda(){
-		this.posicion.x -= 1;
-		Casillero casillero = tablero.getCasillero(this.posicion);
-	}
-	
-	protected void moverArriba(){
-		this.posicion.y += 1;
-		Casillero casillero = tablero.getCasillero(this.posicion);
-	}
-	
-	protected void moverAbajo(){
-		this.posicion.y -= 1;
-		Casillero casillero = tablero.getCasillero(this.posicion);
 	}
 	
 	public void regresar(){
