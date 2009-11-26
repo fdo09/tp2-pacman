@@ -2,8 +2,10 @@ package modelo;
 
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import fijos.*;
 
 public class FantasmaVerde extends Fantasma  {
 
@@ -18,25 +20,42 @@ public class FantasmaVerde extends Fantasma  {
 		
 	}
 			
-	/* 
-	 * 
-	 * Ambos metodos tienen el mismo codigo,no creo que importe refactorizarlo son dos lineas nada mas.
-	 * Lo que estaba pensando es en hacer ciclos for  para que por ejemplo atrapar "atrape tres veces" 
-	 * de esta manera le estamos dando mas velocidad a la hora de atrapar que de huir.
-	 * 
-	 */
+	
 	public void huir() {
-		Collection<Point>posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
-		this.desplazarse(posicionesAdyacentes);
-		
+		ArrayList<Point> posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
+		this.ordenarPosicionLejana(posicionesAdyacentes);
+		for(Point punto : posicionesAdyacentes){
+			if (tablero.esValida(punto)){
+				this.posicion.setLocation(punto);
+				return;
+			}
+		}
 	}
+		
+	
+	private void ordenarPosicionLejana(Collection<Point> posicionesAdyacentes) {
+		// TODO Un metodo que ordene la lista segun que posicion es la mas lejana al pac
+	}
+
 
 	public void atrapar() {
-		Collection<Point>posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
-		this.desplazarse(posicionesAdyacentes);
+		ArrayList<Point> posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
+		this.ordenarPosicionCercana(posicionesAdyacentes);
+		for(Point punto : posicionesAdyacentes){
+			if (tablero.esValida(punto)){
+				this.posicion.setLocation(punto);
+				return;
+			}
+		}
+	}
+
+	
+	private void ordenarPosicionCercana(Collection<Point> posicionesAdyacentes) {
+		// TODO Un metodo que ordene la lista segun que posicion es la mas cercana al pac
 		
 	}
 
+	
 	private void desplazarse(Collection<Point> listaDePosiciones) {
 		
 		Point posicionOptima = this.getMovimientoOptimo(listaDePosiciones);
@@ -51,10 +70,12 @@ public class FantasmaVerde extends Fantasma  {
 		}
 	}
 
+	
 	public void regresar() {
-		// TODO Auto-generated method stub
+		// TODO Envia al fantasma de vuelta a su casa.
 		
 	}
+	
 	
 	private double calcularDistanciaAPac (Point unaPosicion){
 		

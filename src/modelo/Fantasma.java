@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import fijos.*;
+
 enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 
 public abstract class Fantasma implements Personaje {
@@ -69,9 +71,9 @@ public abstract class Fantasma implements Personaje {
 	public abstract void huir();
 	public abstract void atrapar();
 	
-	protected Collection<Point> obtenerPosicionesAdyacentes() {
+	protected ArrayList<Point> obtenerPosicionesAdyacentes() {
 		
-		Collection<Point> posicionesAdyacentes = new ArrayList<Point>();
+		ArrayList<Point> posicionesAdyacentes = new ArrayList<Point>();
 		
 		Point ptoAuxArriba = new Point();
 		ptoAuxArriba = this.posicion;

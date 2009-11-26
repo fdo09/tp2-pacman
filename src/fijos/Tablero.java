@@ -1,18 +1,24 @@
 package fijos;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+
+import modelo.Personaje;
 
 
 public class Tablero {
 	
 	HashMap<Point, Casillero> casilleros;
+	ArrayList<Personaje> fantasmas;
+	Personaje pac;
 	
 	public Tablero (int base, int altura, Collection<Integer> casilleros){
 		//Capacidad inicial es base*altura+1 para prevenir que no se llene el HashMap. 
 		//Ya q se si se llena se tiene que volver a agrandar y eso consume bastantes recursos.
 		this.casilleros = new HashMap<Point, Casillero>(base*altura+1, 1);
+		this.fantasmas = new ArrayList<Personaje>();
 	}
 
 	public Point posicionPac() {
