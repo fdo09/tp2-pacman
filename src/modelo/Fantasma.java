@@ -11,7 +11,7 @@ enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 public abstract class Fantasma extends Personaje {
 
 	private Tablero tablero;
-	private Point posicion; 
+	private Punto posicion; 
 	private Estados estado;
 	
 
@@ -24,33 +24,30 @@ public abstract class Fantasma extends Personaje {
 	}
 	
 	public void mover(){
+		Punto nuevaPosicion;
+		ArrayList<Point> adjacentesValidos = this.tablero.adjacentes();
 		
 		switch (this.estado){
-			case ATRAPAR:
-				this.atrapar();
-			case HUIR:
-				this.huir();
-			case COMIDO:
-				this.regresar();
-			//falta ver que se hace cuando esta INMUNE
+		case ATRAPAR: case INMUNE:
+			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
+		case HUIR:
+			nuevaPosicion = this.calcularHuida(adjacentesValidos);			
+		case COMIDO:
+			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
 		}
-	}
-	
-	public void regresar(){
-		Collection<Point> casa = this.tablero.getCasa();
 		
-		for(Point punto : casa){
-			Casillero casilleroAux = tablero.getCasillero(punto);
-			if (casilleroAux == null) {
-				this.posicion = punto;
-				return;
-			}
-		}
+		this.posicion.cambiarPosicion(nuevaPosicion);	
 	}
 	
-	public abstract void huir();
-	public abstract void atrapar();
+	abstract Punto calcularHuida(ArrayList<Point> adjacentesValidos);
+
+	abstract Punto calcularAtrapada(ArrayList<Point> adjacentesValidos);
 	
+	public Punto calcularRegreso(ArrayList<Point> adjacentesValidos){
+		
+	}	
+
+	/* Por el momento este codigo no sirve
 	protected ArrayList<Point> obtenerPosicionesAdyacentes() {
 		
 		ArrayList<Point> posicionesAdyacentes = new ArrayList<Point>();
@@ -77,5 +74,5 @@ public abstract class Fantasma extends Personaje {
 		
 		return posicionesAdyacentes;
 	}
-	
+	*/
 }
