@@ -8,7 +8,7 @@ public class PremioAzul extends Premio {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PremioAzul(Point unaUbicacion) {
+	public PremioAzul(Punto unaUbicacion) {
 		super(unaUbicacion);
 		// TODO Auto-generated constructor stub
 	}

@@ -1,6 +1,5 @@
 package fijos;
 
-import java.awt.Point;
 
 public class PuntoDePoder extends Casillero {
 
@@ -8,7 +7,7 @@ public class PuntoDePoder extends Casillero {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PuntoDePoder(Point unaUbicacion) {
+	public PuntoDePoder(Punto unaUbicacion) {
 		super(unaUbicacion);
 		// TODO Auto-generated constructor stub
 	}

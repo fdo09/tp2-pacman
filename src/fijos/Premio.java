@@ -8,12 +8,12 @@ public abstract class Premio extends Casillero {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Premio(Point unaUbicacion) {
+	public Premio(Punto unaUbicacion) {
 		super(unaUbicacion);
 		// TODO Auto-generated constructor stub
 	}
 
-	protected boolean transitable(){
+	public boolean transitable(){
 		
 		return true;
 	}
