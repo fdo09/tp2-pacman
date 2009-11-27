@@ -17,10 +17,5 @@ public abstract class Casillero {
 		this.ubicacion = unaUbicacion;
 	}
 		
-	protected boolean transitable(){
-			
-		return false;
-			
-	}
-
+	protected abstract boolean transitable();
 }
