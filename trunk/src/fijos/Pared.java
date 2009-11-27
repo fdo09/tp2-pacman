@@ -3,8 +3,8 @@ package fijos;
 public class Pared extends Casillero {
 
 	
-	public Pared(){
-		super();
+	public Pared(Punto unaUbicacion){
+		super(unaUbicacion);
 			
 	}
 	

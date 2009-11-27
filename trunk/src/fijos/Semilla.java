@@ -1,6 +1,6 @@
 package fijos;
 
-import java.awt.Point;
+
 
 public class Semilla extends Casillero {
 
@@ -8,7 +8,7 @@ public class Semilla extends Casillero {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Semilla(Point unaUbicacion) {
+	public Semilla(Punto unaUbicacion) {
 		super(unaUbicacion);
 		// TODO Auto-generated constructor stub
 	}

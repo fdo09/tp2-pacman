@@ -5,17 +5,17 @@ import java.awt.Point;
 public abstract class Casillero {
 	
 	
-	private Point ubicacion;
+	private Punto ubicacion;
 	
 	
 	public Casillero(){
 			
 			
 	}
-	public Casillero(Point unaUbicacion){
+	public Casillero(Punto unaUbicacion){
 		
 		this.ubicacion = unaUbicacion;
 	}
 		
-	protected abstract boolean transitable();
+	public abstract boolean transitable();
 }
