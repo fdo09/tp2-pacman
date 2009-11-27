@@ -10,7 +10,7 @@ import fijos.*;
 public class FantasmaVerde extends Fantasma  {
 
 	private Tablero tablero;
-	private Point posicion;
+	private Punto posicion;
 	private Estados estado;
 	
 			
@@ -19,34 +19,16 @@ public class FantasmaVerde extends Fantasma  {
 		super(tablero, posicion);
 		
 	}
-			
-	
-	public void huir() {
-		ArrayList<Point> posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
-		this.ordenarPosicionLejana(posicionesAdyacentes);
-		for(Point punto : posicionesAdyacentes){
-			if (tablero.esValida(punto)){
-				this.posicion.setLocation(punto);
-				return;
-			}
-		}
-	}
 		
 	
-	private void ordenarPosicionLejana(Collection<Point> posicionesAdyacentes) {
-		// TODO Un metodo que ordene la lista segun que posicion es la mas lejana al pac
+	private void calcularMovimiento(ArrayList<Point> posicionesAdyacentes) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
-	public void atrapar() {
-		ArrayList<Point> posicionesAdyacentes = this.obtenerPosicionesAdyacentes();
-		this.ordenarPosicionCercana(posicionesAdyacentes);
-		for(Point punto : posicionesAdyacentes){
-			if (tablero.esValida(punto)){
-				this.posicion.setLocation(punto);
-				return;
-			}
-		}
+	private void ordenarPosicionLejana(Collection<Point> posicionesAdyacentes) {
+		// TODO Un metodo que ordene la lista segun que posicion es la mas lejana al pac
 	}
 
 	
@@ -56,6 +38,28 @@ public class FantasmaVerde extends Fantasma  {
 	}
 
 	
+	private double calcularDistanciaAPac (Point unaPosicion){
+		
+		Punto posicionPac = tablero.posicionPac();
+		
+		double distancia = posicionPac.distance(unaPosicion);
+		
+		return distancia;
+	}
+
+	
+	Punto calcularAtrapada(ArrayList<Point> adjacentesValidos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	Punto calcularHuida(ArrayList<Point> adjacentesValidos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* Por el momento este codigo no sirve
 	private void desplazarse(Collection<Point> listaDePosiciones) {
 		
 		Point posicionOptima = this.getMovimientoOptimo(listaDePosiciones);
@@ -87,22 +91,7 @@ public class FantasmaVerde extends Fantasma  {
 		}
 		
 	}
-
-	
-	public void regresar() {
-		// TODO Envia al fantasma de vuelta a su casa.
-		
-	}
-	
-	
-	private double calcularDistanciaAPac (Point unaPosicion){
-		
-		Point posicionPac = tablero.posicionPac();
-		
-		double distancia = posicionPac.distance(unaPosicion);
-		
-		return distancia;
-	}
+	*/
 	
 	/*
 	 * El metodo getMovimientoOptimo podria ir en clase Fantasma, ya que todos tendrían
@@ -114,7 +103,7 @@ public class FantasmaVerde extends Fantasma  {
 	 * 
 	 */
 	
-	
+	/*Por el momento este codigo no sirve
 	public Point getMovimientoOptimo(Collection<Point> listaDePosiciones){
 		
 				
@@ -152,7 +141,7 @@ public class FantasmaVerde extends Fantasma  {
 		return puntoDeDistanciaMinima;
 		
 	}
-	
+	*/
 	
 	
 }
