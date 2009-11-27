@@ -30,14 +30,35 @@ public abstract class Fantasma extends Personaje {
 		switch (this.estado){
 		case ATRAPAR: case INMUNE:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
+			this.comer(nuevaPosicion);
 		case HUIR:
-			nuevaPosicion = this.calcularHuida(adjacentesValidos);			
+			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
+			this.serComido(nuevaPosicion);
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
 		}
 		
-		this.posicion.cambiarPosicion(nuevaPosicion);	
+		this.posicion.cambiarPosicion(nuevaPosicion);
+		
+		this.comer(nuevaPosicion);
 	}
+	
+	
+	protected void comer(Punto nuevaPosicion) {
+		Punto posicionPac = this.tablero.posicionPac();
+		if(this.posicion.equals(posicionPac)){
+			// El fantasma se come al pac. Definir que se hace.
+		}
+	}
+	
+	
+	protected void serComido(Punto nuevaPosicion){
+		Punto posicionPac = this.tablero.posicionPac();
+		if(this.posicion.equals(posicionPac)){
+			// El pac se come al fantasma. Definir que se hace.
+		}
+	}
+		
 	
 	abstract Punto calcularHuida(ArrayList<Point> adjacentesValidos);
 
