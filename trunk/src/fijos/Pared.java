@@ -8,5 +8,9 @@ public class Pared extends Casillero {
 			
 	}
 	
+	public boolean transitable(){
+		
+		return false;
+	}
 	
 }

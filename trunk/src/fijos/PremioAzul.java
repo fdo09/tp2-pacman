@@ -13,10 +13,7 @@ public class PremioAzul extends Premio {
 		// TODO Auto-generated constructor stub
 	}
 	
-	protected boolean transitable(){
-		
-		return true;
-	}
+	
 
 	
 
