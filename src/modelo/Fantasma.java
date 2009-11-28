@@ -32,32 +32,36 @@ public abstract class Fantasma extends Personaje {
 		switch (this.estado){
 		case ATRAPAR: case INMUNE:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
-			this.comer(nuevaPosicion);
+			this.posicion = nuevaPosicion;
+			this.comer();
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
-			this.serComido(nuevaPosicion);
+			this.posicion = nuevaPosicion;
+			this.serComido();
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
+			this.posicion = nuevaPosicion;
 		}
 		
 		this.posicion = nuevaPosicion;
 	}
 	
 	
-	protected void comer(Punto nuevaPosicion) {
-		Pacman pac = this.tablero.getPac();
-		if(this.posicion.equals(pac.getPosicion())){
-			pac.serComido();
+	protected void comer() {
+		Pacman pacman = this.tablero.getPac();
+		if(this.posicion.equals(pacman.getPosicion())){
+			pacman.serComido();
 		}
 	}
 	
 	
-	protected void serComido(Punto nuevaPosicion){
-		Punto posicionPac = this.tablero.posicionPac();
-		if(this.posicion.equals(posicionPac)){
+	protected void serComido(){
+		Punto posicionPacman = this.tablero.posicionPac();
+		if(this.posicion.equals(posicionPacman)){
 			this.estado = Estados.COMIDO;
 		}
 	}
+	
 	
 	public boolean esComible(){
 		return (this.estado == Estados.HUIR);
