@@ -94,9 +94,9 @@ public class Punto  {
 	
 	//Obtenemos los puntos vecinos a un punto.
 	
-	private int obtenerVecinoIzquierdo() {
-		
-		return (this.X) + 1;
+	private Punto obtenerVecinoIzquierdo() {
+		Punto puntoAux = new Punto (this.X + 1, this.Y);
+		return puntoAux;
 	}
 	
 	private Punto obtenerVecinoDeArriba() {
