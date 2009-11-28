@@ -35,10 +35,10 @@ public class Punto  {
 	 * @param  
 	 * @return int
 	 */
-	public int distancia(Punto unPunto, Punto otroPunto){
+	public int distancia(Punto unPunto){
 		
-		int distanciaEnX = abs(unPunto.X - otroPunto.X);
-		int distanciaEnY = abs(unPunto.Y - otroPunto.Y);
+		int distanciaEnX = abs(this.X - unPunto.X);
+		int distanciaEnY = abs(this.Y - unPunto.Y);
 		
 		int unaDistancia = (int)hypot(distanciaEnX,distanciaEnY);
 		
@@ -53,15 +53,13 @@ public class Punto  {
 		
 		Collection<Punto> vecinos = new ArrayList<Punto>();
 		
-		Punto puntoAuxiliar = unPunto;
-		
-		Punto vecinoIzquierdo = puntoAuxiliar.obtenerVecinoIzquierdo();
+		Punto vecinoIzquierdo = unPunto.obtenerVecinoIzquierdo();
 				
-		Punto vecinoDeArriba = puntoAuxiliar.obtenerVecinoDeArriba();
+		Punto vecinoDeArriba = unPunto.obtenerVecinoDeArriba();
 		
-		Punto vecinoDerecho = puntoAuxiliar.obtenerVecinoDerecho();
+		Punto vecinoDerecho = unPunto.obtenerVecinoDerecho();
 		
-		Punto vecinoDeAbajo = puntoAuxiliar.obtenerVecinoDeAbajo();
+		Punto vecinoDeAbajo = unPunto.obtenerVecinoDeAbajo();
 		
 		vecinos.add(vecinoIzquierdo);
 		
@@ -95,23 +93,23 @@ public class Punto  {
 	//Obtenemos los puntos vecinos a un punto.
 	
 	private Punto obtenerVecinoIzquierdo() {
-		Punto puntoAux = new Punto (this.X + 1, this.Y);
+		Punto puntoAux = new Punto (this.X - 1, this.Y);
 		return puntoAux;
 	}
 	
 	private Punto obtenerVecinoDeArriba() {
-		this.moverHaciaArriba();
-		return this;
+		Punto puntoAux = new Punto (this.X, this.Y + 1);
+		return puntoAux;
 	}
 
 	private Punto obtenerVecinoDerecho() {
-		this.moverHaciaDerecha();
-		return this;
+		Punto puntoAux = new Punto (this.X + 1, this.Y);
+		return puntoAux;
 	}
 	
 	private Punto obtenerVecinoDeAbajo() {
-		this.moverHaciaAbajo();
-		return this;
+		Punto puntoAux = new Punto (this.X, this.Y - 1);
+		return puntoAux;
 	}
 
 	
@@ -123,10 +121,10 @@ public class Punto  {
 	 * @return
 	 */
 	
-	public boolean equals(Punto unPunto, Punto otroPunto){
+	public boolean equals(Punto unPunto){
 		
-		boolean valoresEnXIguales = (unPunto.X == otroPunto.X);
-		boolean valoresEnYIguales = (unPunto.Y == otroPunto.Y);
+		boolean valoresEnXIguales = (this.X == unPunto.X);
+		boolean valoresEnYIguales = (this.Y == unPunto.Y);
 		
 		return (valoresEnXIguales & valoresEnYIguales);
 	}
