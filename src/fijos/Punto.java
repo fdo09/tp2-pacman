@@ -5,6 +5,8 @@ import static java.lang.Math.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
+
 
 
 
@@ -123,23 +125,29 @@ public class Punto  {
 
 	/**
 	 * Devuelve true o false si los puntos son iguales o no respectivamente.
-	 * @param unPunto
+	 * @param unObjeto
 	 * @param otroPunto
 	 * @return
 	 */
 	
-	public boolean equals(Punto unPunto){
+	public boolean equals(Object unObjeto){
 		
+		if (!(unObjeto instanceof Punto))
+			return false;
+		
+		Punto unPunto = (Punto) unObjeto;
+		System.out.println("#######EQUALS#########");
 		boolean valoresEnXIguales = (this.X == unPunto.X);
+		System.out.println(valoresEnXIguales);
 		boolean valoresEnYIguales = (this.Y == unPunto.Y);
-		
-		return (valoresEnXIguales & valoresEnYIguales);
+		System.out.println(valoresEnYIguales);
+		return (valoresEnXIguales && valoresEnYIguales);
 	}
 
 	public void nuevaPosicion(Punto posicionOriginal) {
 		
 		this.X = posicionOriginal.X;
-		this.Y = posicionOriginal.Y;		
+		this.Y = posicionOriginal.Y;
 	}
 
 	
