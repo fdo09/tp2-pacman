@@ -16,13 +16,13 @@ public class PacTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 	
-		unTablero = new Tablero(0, 0, null);
+		unTablero = new Tablero(0, 0);
 		
 		unJugador = new Jugador();
 		
 		posicionActual = new Punto(1,1);
 		
-		unPacman = new Pacman(unTablero,null, posicionActual);
+		unPacman = new Pacman(unTablero,unJugador, posicionActual);
 
 	
 	super.setUp();
@@ -56,7 +56,5 @@ public class PacTest extends TestCase {
 		
 	}
 	
-	
-	
-	
+		
 }
