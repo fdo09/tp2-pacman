@@ -10,6 +10,7 @@ enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 
 public abstract class Fantasma extends Personaje {
 
+	private static final int BIG_INT = 99999;
 	private Tablero tablero;
 	private Punto posicion; 
 	private Estados estado;
@@ -38,7 +39,7 @@ public abstract class Fantasma extends Personaje {
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
 		}
 		
-		this.posicion.cambiarPosicion(nuevaPosicion);
+		this.posicion = nuevaPosicion;
 	}
 	
 	
@@ -62,9 +63,26 @@ public abstract class Fantasma extends Personaje {
 
 	abstract Punto calcularAtrapada(ArrayList<Point> adjacentesValidos);
 	
-	public Punto calcularRegreso(ArrayList<Point> adjacentesValidos){
-		
-	}	
+	public Punto calcularRegreso(Collection<Punto> adjacentesValidos){
+		Punto destino;
+		Punto casaFantasmas = this.tablero.getCasa();
+		this.calcularVecinoCercano(adjacentesValidos, destino);
+	}
+	
+	protected Punto calcularVecinoCercano(Collection<Punto> vecinos, Punto destino){
+		double menorDistancia = BIG_INT;
+		double distanciaAux;
+		Punto vecinoCercano = this.posicion;
+		for (Punto punto : vecinos){
+			distanciaAux = punto.distancia(destino);
+			if (distanciaAux < menorDistancia){
+				menorDistancia = distanciaAux;
+				vecinoCercano = punto;
+			}
+		}
+		return vecinoCercano;
+	}
+
 
 	/* Por el momento este codigo no sirve
 	protected ArrayList<Point> obtenerPosicionesAdyacentes() {
