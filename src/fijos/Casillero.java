@@ -6,8 +6,7 @@ public abstract class Casillero {
 	
 	
 	private Punto ubicacion;
-	
-	
+		
 	public Casillero(){
 			
 			
@@ -17,10 +16,7 @@ public abstract class Casillero {
 		this.ubicacion = unaUbicacion;
 	}
 		
-	protected abstract boolean transitable();
+	public abstract boolean transitable();
 	
-	protected abstract void accionar() {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

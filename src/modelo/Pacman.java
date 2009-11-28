@@ -51,23 +51,47 @@ public class Pacman extends Personaje{
 		}
 
 	private void moverIzquierda() {
-		this.posicion.moverHaciaIzquierda();
-		this.accionarCasillero();
+		
+		Punto vecino = this.posicion.obtenerVecinoIzquierdo();
+		
+		if(tablero.esTransitable(vecino)){
+			
+			this.posicion.moverHaciaIzquierda();
+			this.accionarCasillero();
+		}
 	}
 	
 	private void moverArriba() {
-		this.posicion.moverHaciaArriba();
-		this.accionarCasillero();
+		
+		Punto vecino = this.posicion.obtenerVecinoDeArriba();
+		
+		if(tablero.esTransitable(vecino)){
+			
+			this.posicion.moverHaciaArriba();
+			this.accionarCasillero();
+		}
 	}
 	
 	private void moverDerecha() {
-		this.posicion.moverHaciaDerecha();
-		this.accionarCasillero();
+		
+		Punto vecino = this.posicion.obtenerVecinoDerecho();
+		
+		if(tablero.esTransitable(vecino)){
+			
+			this.posicion.moverHaciaDerecha();
+			this.accionarCasillero();
+		}
 	}
 
 	private void moverAbajo() {
-		this.posicion.moverHaciaAbajo();
-		this.accionarCasillero();
+		
+		Punto vecino = this.posicion.obtenerVecinoDeAbajo();
+		
+		if(tablero.esTransitable(vecino)){
+			
+			this.posicion.moverHaciaAbajo();
+			this.accionarCasillero();
+		}
 	}
 	
 	private void accionarCasillero(){
@@ -89,9 +113,10 @@ public class Pacman extends Personaje{
 				
 				unFantasma.serComido();
 				
-				int puntaje = 500;
-				jugador.sumarPuntos(puntaje);
-												
+				int puntos = 500;
+				
+				this.sumarPuntos(puntos);
+																
 			}
 			
 		}
@@ -109,14 +134,10 @@ public class Pacman extends Personaje{
 		Punto posicionOriginal = new Punto(8,8);
 		this.posicion.nuevaPosicion(posicionOriginal);
 	}
-
 	
-
-
-	
-
-
-	
-	
+	public void sumarPuntos(int puntos){
+				
+		jugador.ganarPuntos(puntos);
+	}
 	
 }

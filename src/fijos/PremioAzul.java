@@ -1,16 +1,26 @@
 package fijos;
 
-import java.awt.Point;
 
 public class PremioAzul extends Premio {
 
-	public PremioAzul() {
-		// TODO Auto-generated constructor stub
-	}
+	private Punto ubicacion;
+	private int puntos;
+	private Tablero tablero;
+	private boolean fuePisado;
+	
+	public PremioAzul(Punto ubicacion, Tablero tablero) {
 
-	public PremioAzul(Punto unaUbicacion) {
-		super(unaUbicacion);
-		// TODO Auto-generated constructor stub
+		super(ubicacion,tablero);
+		this.ubicacion = ubicacion;
+		this.puntos = 3000;
+		this.tablero = tablero;
+		this.fuePisado = false;
+		
+	}
+	
+	public void accionar() {
+		
+		
 	}
 	
 	
