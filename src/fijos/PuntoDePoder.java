@@ -17,7 +17,6 @@ public class PuntoDePoder extends Casillero implements IAccionable{
 
 		super(ubicacion,tablero);
 		this.puntos = 1000;
-		this.tablero = tablero;
 		this.fuePisado = false;
 		
 	}
