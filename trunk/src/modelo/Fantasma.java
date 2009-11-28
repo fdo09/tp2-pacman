@@ -24,9 +24,10 @@ public abstract class Fantasma extends Personaje {
 		
 	}
 	
+	
 	public void mover(){
 		Punto nuevaPosicion;
-		ArrayList<Point> adjacentesValidos = this.tablero.adjacentes();
+		Collection<Punto> adjacentesValidos = this.tablero.adjacentes();
 		
 		switch (this.estado){
 		case ATRAPAR: case INMUNE:
@@ -44,9 +45,9 @@ public abstract class Fantasma extends Personaje {
 	
 	
 	protected void comer(Punto nuevaPosicion) {
-		Punto posicionPac = this.tablero.posicionPac();
-		if(this.posicion.equals(posicionPac)){
-			// El fantasma se come al pac. Definir que se hace.
+		Pacman pac = this.tablero.getPac();
+		if(this.posicion.equals(pac.getPosicion())){
+			pac.serComido();
 		}
 	}
 	
@@ -54,14 +55,17 @@ public abstract class Fantasma extends Personaje {
 	protected void serComido(Punto nuevaPosicion){
 		Punto posicionPac = this.tablero.posicionPac();
 		if(this.posicion.equals(posicionPac)){
-			// El pac se come al fantasma. Definir que se hace.
+			this.estado = Estados.COMIDO;
 		}
 	}
-		
 	
-	abstract Punto calcularHuida(ArrayList<Point> adjacentesValidos);
+	public boolean esComible(){
+		return (this.estado == Estados.HUIR);
+	}
+	
+	abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
 
-	abstract Punto calcularAtrapada(ArrayList<Point> adjacentesValidos);
+	abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
 	
 	public Punto calcularRegreso(Collection<Punto> adjacentesValidos){
 		Punto destino;
@@ -81,6 +85,10 @@ public abstract class Fantasma extends Personaje {
 			}
 		}
 		return vecinoCercano;
+	}
+	
+	public Punto getPosicion(){
+		return this.posicion;
 	}
 
 
