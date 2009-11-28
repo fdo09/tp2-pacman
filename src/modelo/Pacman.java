@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import fijos.Casillero;
 import fijos.IAccionable;
@@ -104,7 +105,7 @@ public class Pacman extends Personaje{
 	
 	private void comer(){
 		
-		ArrayList<Fantasma> fantasmas = tablero.obtenerFantasmas();
+		Collection<Fantasma> fantasmas = tablero.obtenerFantasmas();
 		
 		for(Fantasma unFantasma : fantasmas){
 			

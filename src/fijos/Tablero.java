@@ -1,6 +1,6 @@
 package fijos;
 
-
+import modelo.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -18,9 +18,9 @@ import modelo.Personaje;
 public class Tablero {
 	
 	HashMap<Punto, Casillero> casilleros;
-	ArrayList<Personaje> fantasmas;
-	Personaje pacman;
-	Casillero casa;
+	ArrayList<Fantasma> fantasmas;
+	Pacman pacman;
+	Punto casa;
 	Casillero casilla;
 	Punto nuevo;
 	
@@ -28,7 +28,7 @@ public class Tablero {
 		//Capacidad inicial es base*altura+1 para prevenir que no se llene el HashMap. 
 		//Ya q se si se llena se tiene que volver a agrandar y eso consume bastantes recursos.
 		this.casilleros = new HashMap<Punto, Casillero>(base*altura+1, 1);
-		this.fantasmas = new ArrayList<Personaje>();
+		this.fantasmas = new ArrayList<Fantasma>();
 	}
 
 	public Pacman obtenerPacman() {
@@ -40,12 +40,16 @@ public class Tablero {
 		this.casilleros.put(punto, nuevo);
 	}
 
-	public Casillero getCasa() {
+	public Punto obtenerCasa() {
 		return casa;
 	}
 
 	public Casillero getCasillero(Punto punto) {
 		return this.casilleros.get(punto);
+	}
+	
+	public Collection<Fantasma> obtenerFantasmas(){
+		return this.fantasmas;
 	}
 
 	
