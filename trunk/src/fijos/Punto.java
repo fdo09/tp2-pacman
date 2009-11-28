@@ -96,22 +96,22 @@ public class Punto  {
 	
 	private Punto obtenerVecinoIzquierdo() {
 		
-		this.X--;
+		this.moverHaciaIzquierda();
 		return this;
 		
 	}
 	private Punto obtenerVecinoDeArriba() {
-		this.Y++;
+		this.moverHaciaArriba();
 		return this;
 	}
 
 	private Punto obtenerVecinoDerecho() {
-		this.X++;
+		this.moverHaciaDerecha();
 		return this;
 	}
 	
 	private Punto obtenerVecinoDeAbajo() {
-		this.Y--;
+		this.moverHaciaAbajo();
 		return this;
 	}
 
