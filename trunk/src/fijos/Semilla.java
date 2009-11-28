@@ -13,7 +13,6 @@ public class Semilla extends Casillero implements IAccionable {
 		
 		super(ubicacion, tablero);
 		this.puntos = 200;
-		this.tablero = tablero;
 		this.fuePisado = false;
 	}
 

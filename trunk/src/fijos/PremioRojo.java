@@ -14,7 +14,6 @@ public class PremioRojo extends Premio {
 
 		super(ubicacion,tablero);
 		this.puntos = 5000;
-		this.tablero = tablero;
 		this.fuePisado = false;
 		
 	}
