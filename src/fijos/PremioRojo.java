@@ -1,5 +1,7 @@
 package fijos;
 
+import modelo.Pacman;
+
 
 public class PremioRojo extends Premio {
 
@@ -18,13 +20,8 @@ public class PremioRojo extends Premio {
 		
 	}
 	
-	public void accionar() {
-		
-		
-	}
-
 	
 	
-
-
 }
+
+

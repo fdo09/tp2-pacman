@@ -1,5 +1,7 @@
 package fijos;
 
+import modelo.Pacman;
+
 
 public abstract class Premio extends Casillero implements IAccionable{
 
@@ -23,6 +25,15 @@ public abstract class Premio extends Casillero implements IAccionable{
 		return true;
 	}
 	
-	public void accionar(){}
+	public void accionar() {
+		
+		if (!fuePisado){
+			
+			Pacman pacman = tablero.obtenerPacman();
+			pacman.sumarPuntos(this.puntos);
+			
+			fuePisado = true;
+		}
+	}
 
 }

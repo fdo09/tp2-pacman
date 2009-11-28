@@ -26,6 +26,7 @@ public class PuntoTest extends TestCase {
 		
 	}
 	public void testDistancia(){
+		
 		int distanciaEsperada = 1;
 		
 		/*
@@ -36,6 +37,7 @@ public class PuntoTest extends TestCase {
 		
 		assertEquals(distanciaEsperada,distancia1);
 		
+		
 		// punto3 = (1,3)
 		
 		int distancia2 = punto1.distancia(punto3);
@@ -44,7 +46,9 @@ public class PuntoTest extends TestCase {
 		
 		assertEquals(distanciaEsperada,distancia2);
 		
+				
 		//punto4 = (3,3)
+		
 		
 		int distancia3 = punto1.distancia(punto4);
 		
@@ -56,8 +60,7 @@ public class PuntoTest extends TestCase {
 	
 	public void testObtenerVecinosAdyacentes(){
 		
-		
-		
+				
 		ArrayList<Punto> vecinosDePunto3 = new ArrayList<Punto>();
 		
 		vecinosDePunto3 = (ArrayList<Punto>) punto3.obtenerPuntosAdyacentes();
