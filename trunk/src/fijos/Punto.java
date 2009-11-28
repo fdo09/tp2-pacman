@@ -1,23 +1,135 @@
 package fijos;
 
-public class Punto {
+import static java.lang.Math.*;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+
+
+/**
+ * @author Julián D'Ambrosio
+ *
+ */
+public class Punto  {
 	private int X;
 	private int Y;
 	
-	public Punto( int X, int Y) {
+	public Punto(int X, int Y) {
 		this.X = X;
 		this.Y = Y;
 	}
 	
 	public int getPuntoX(){
-		
-		return X;
+	
+		return this.X;
 	}
 	
 	public int getPuntoY(){
-		return Y;
+		return this.Y;
 	}
 	
+	/**
+	 * Calcula la distancia entre dos puntos y devuelve un int.
+	 * @param  
+	 * @param  
+	 * @return int
+	 */
+	public int distancia(Punto unPunto, Punto otroPunto){
+		
+		int distanciaEnX = abs(unPunto.X - otroPunto.X);
+		int distanciaEnY = abs(unPunto.Y - otroPunto.Y);
+		
+		int unaDistancia = (int)hypot(distanciaEnX,distanciaEnY);
+		
+		return unaDistancia;
+		
+	}
+	
+	/**Devuelve una colección de objetos de clase Punto adyacentes al pasado por parametro.
+	 * @return Collection<Punto>
+	 */
+	public Collection<Punto> obtenerPuntosAdyacentes(Punto unPunto){
+		
+		Collection<Punto> vecinos = new ArrayList<Punto>();
+		
+		Punto vecinoIzquierdo = unPunto.obtenerVecinoIzquierdo();
+				
+		Punto vecinoDeArriba = unPunto.obtenerVecinoDeArriba();
+		
+		Punto vecinoDerecho = unPunto.obtenerVecinoDerecho();
+		
+		Punto vecinoDeAbajo = unPunto.obtenerVecinoDeAbajo();
+		
+		vecinos.add(vecinoIzquierdo);
+		
+		vecinos.add(vecinoDerecho);
+		
+		vecinos.add(vecinoDeArriba);
+		
+		vecinos.add(vecinoDeAbajo);
+		
+		return vecinos;
+				
+	}
+	
+	// Aquí tenemos los cuatro posibles desplazamientos de un punto.
+	
+	private void moverHaciaIzquierda() {
+		this.X--;
+	}
+	private void moverHaciaArriba() {
+		this.Y++;
+	}
+
+	private void moverHaciaDerecha() {
+		this.X++;
+	}
+	
+	private void moverHaciaAbajo() {
+		this.Y--;
+	}
+	
+	//Obtenemos los puntos vecinos a un punto.
+	
+	private Punto obtenerVecinoIzquierdo() {
+		
+		this.X--;
+		return this;
+		
+	}
+	private Punto obtenerVecinoDeArriba() {
+		this.Y++;
+		return this;
+	}
+
+	private Punto obtenerVecinoDerecho() {
+		this.X++;
+		return this;
+	}
+	
+	private Punto obtenerVecinoDeAbajo() {
+		this.Y--;
+		return this;
+	}
+
+	
+
+	/**
+	 * Devuelve true o false si los puntos son iguales o no respectivamente.
+	 * @param unPunto
+	 * @param otroPunto
+	 * @return
+	 */
+	
+	public boolean equals(Punto unPunto, Punto otroPunto){
+		
+		boolean valoresEnXIguales = (unPunto.X == otroPunto.X);
+		boolean valoresEnYIguales = (unPunto.Y == otroPunto.Y);
+		
+		return (valoresEnXIguales & valoresEnYIguales);
+	}
+
 	
 	
 }
