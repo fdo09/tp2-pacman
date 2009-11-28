@@ -2,28 +2,61 @@ package test;
 
 import junit.framework.TestCase;
 import modelo.Pacman;
+import fijos.Jugador;
 import fijos.Punto;
 import fijos.Tablero;
 
 public class PacTest extends TestCase {
 
-	public void testMoverIzquierda(){
+	private Tablero unTablero;
+	private Jugador unJugador;
+	private Punto posicionActual;
+	private Pacman unPacman;
+
+	
+	protected void setUp() throws Exception {
+	
+		unTablero = new Tablero(0, 0, null);
 		
-		Tablero unTablero = new Tablero(0, 0, null);
+		unJugador = new Jugador();
 		
-		Punto posicionActual = new Punto(1,1);
+		posicionActual = new Punto(1,1);
 		
-		Pacman unPacman = new Pacman(unTablero,posicionActual);
-				
+		unPacman = new Pacman(unTablero,null, posicionActual);
+
+	
+	super.setUp();
+	
+	}
+
+	public void testMover(){
+		
+			
 		unPacman.mover();
 		
-		Punto posicionEsperada = new Punto(1,1);
+		Punto posicionEsperada = new Punto(2,1);
 		
+		boolean puntosIguales = (posicionEsperada.equals(unPacman.obtenerPosicion()));
 		
-		assertEquals(posicionEsperada, posicionActual);
+		assertTrue(puntosIguales);
+						
+	}
+	
+	public void testSerComido(){
+		
+		unPacman.serComido();
+		
+		Punto posicionEsperada = new Punto(8,8);
+		
+		boolean puntosIguales = (posicionEsperada.equals(unPacman.obtenerPosicion()));
+		
+		assertTrue(puntosIguales);
+		
 		
 		
 	}
+	
+	
 	
 	
 }
