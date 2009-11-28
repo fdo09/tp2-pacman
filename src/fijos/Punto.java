@@ -7,6 +7,7 @@ import java.util.Collection;
 
 
 
+
 /**
  * @author Julián D'Ambrosio
  *
@@ -69,9 +70,9 @@ public class Punto  {
 		
 		vecinos.add(vecinoIzquierdo);
 		
-		vecinos.add(vecinoDerecho);
-		
 		vecinos.add(vecinoDeArriba);
+		
+		vecinos.add(vecinoDerecho);
 		
 		vecinos.add(vecinoDeAbajo);
 		
@@ -133,6 +134,12 @@ public class Punto  {
 		boolean valoresEnYIguales = (this.Y == unPunto.Y);
 		
 		return (valoresEnXIguales & valoresEnYIguales);
+	}
+
+	public void nuevaPosicion(Punto posicionOriginal) {
+		
+		this.X = posicionOriginal.X;
+		this.Y = posicionOriginal.Y;		
 	}
 
 	

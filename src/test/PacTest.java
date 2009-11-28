@@ -1,25 +1,23 @@
 package test;
 
-import java.awt.Point;
-
-import modelo.*;
-import fijos.*;
-
 import junit.framework.TestCase;
+import modelo.Pacman;
+import fijos.Punto;
+import fijos.Tablero;
 
 public class PacTest extends TestCase {
 
-	public void testMover(){
+	public void testMoverIzquierda(){
 		
 		Tablero unTablero = new Tablero(0, 0, null);
 		
-		Point posicionActual = new Point(1,1);
-		
-		Point posicionEsperada = new Point(2,1);
+		Punto posicionActual = new Punto(1,1);
 		
 		Pacman unPacman = new Pacman(unTablero,posicionActual);
-		
+				
 		unPacman.mover();
+		
+		Punto posicionEsperada = new Punto(1,1);
 		
 		
 		assertEquals(posicionEsperada, posicionActual);

@@ -1,7 +1,7 @@
 package test;
 
 import java.util.ArrayList;
-import java.util.Collection;
+
 
 import fijos.Punto;
 import junit.framework.TestCase;
@@ -58,9 +58,9 @@ public class PuntoTest extends TestCase {
 		
 		
 		
-		Collection<Punto> vecinosDePunto3 = new ArrayList<Punto>();
+		ArrayList<Punto> vecinosDePunto3 = new ArrayList<Punto>();
 		
-		vecinosDePunto3 = punto3.obtenerPuntosAdyacentes();
+		vecinosDePunto3 = (ArrayList<Punto>) punto3.obtenerPuntosAdyacentes();
 		
 		//punto3 = (1,3)
 		
@@ -71,19 +71,19 @@ public class PuntoTest extends TestCase {
 		
 		boolean contieneVecino;
 		
-		contieneVecino = vecinosDePunto3.contains(vecinoIzquierdo);
+		contieneVecino = vecinosDePunto3.get(0).equals(vecinoIzquierdo);
 		
 		assertTrue(contieneVecino);
 		
-		contieneVecino = vecinosDePunto3.contains(vecinoDeArriba);
+		contieneVecino = vecinosDePunto3.get(1).equals((vecinoDeArriba));
 		
 		assertTrue(contieneVecino);
 		
-		contieneVecino = vecinosDePunto3.contains(vecinoDerecho);
+		contieneVecino = vecinosDePunto3.get(2).equals((vecinoDerecho));
 		
 		assertTrue(contieneVecino);
 		
-		contieneVecino = vecinosDePunto3.contains(vecinoDeAbajo);
+		contieneVecino = vecinosDePunto3.get(3).equals((vecinoDeAbajo));
 		
 		assertTrue(contieneVecino);
 	
@@ -95,9 +95,9 @@ public class PuntoTest extends TestCase {
 		
 		//punto3 = (1,3)
 		
-		Collection<Punto> vecinosDePunto3 = new ArrayList<Punto>();
+		ArrayList<Punto> vecinosDePunto3 = new ArrayList<Punto>();
 		
-		vecinosDePunto3 = punto3.obtenerPuntosAdyacentes();
+		vecinosDePunto3 = (ArrayList<Punto>) punto3.obtenerPuntosAdyacentes();
 		
 		assertEquals(tamanioListaVecinos, vecinosDePunto3.size());
 				
@@ -113,8 +113,10 @@ public class PuntoTest extends TestCase {
 		
 		Punto posicionEsperada = new Punto(0,1);
 		
-		assertEquals(posicionEsperada,punto1);
+		boolean puntosIguales = (posicionEsperada.equals(punto1));
 		
+		assertTrue(puntosIguales);
+				
 	}
 	
 	public void testMoverHaciaArriba(){
@@ -127,7 +129,10 @@ public class PuntoTest extends TestCase {
 		
 		Punto posicionEsperada = new Punto(1,2);
 		
-		assertEquals(posicionEsperada,punto1);
+		boolean puntosIguales = (posicionEsperada.equals(punto1));
+		
+		assertTrue(puntosIguales);
+		
 		
 	}
 
@@ -141,7 +146,10 @@ public class PuntoTest extends TestCase {
 	
 		Punto posicionEsperada = new Punto(2,1);
 	
-		assertEquals(posicionEsperada,punto1);
+		boolean puntosIguales = (posicionEsperada.equals(punto1));
+		
+		assertTrue(puntosIguales);
+		
 	
 	}
 
@@ -155,7 +163,10 @@ public class PuntoTest extends TestCase {
 	
 		Punto posicionEsperada = new Punto(1,0);
 	
-		assertEquals(posicionEsperada,punto1);
+		boolean puntosIguales = (posicionEsperada.equals(punto1));
+		
+		assertTrue(puntosIguales);
+		
 	
 	}
 

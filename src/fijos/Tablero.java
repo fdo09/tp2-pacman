@@ -99,6 +99,13 @@ public class Tablero {
 	
 	
 	}
+
+	
+
+	public ArrayList<Punto> obtenerPosicionesDeFantasmas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
