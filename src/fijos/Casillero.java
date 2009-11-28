@@ -1,5 +1,4 @@
 package fijos;
-import java.awt.Point;
 
 
 public abstract class Casillero {
