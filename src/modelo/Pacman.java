@@ -1,9 +1,7 @@
 package modelo;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
-import fijos.Casillero;
 import fijos.IAccionable;
 import fijos.Jugador;
 import fijos.Punto;
@@ -59,6 +57,7 @@ public class Pacman extends Personaje{
 		if(tablero.esTransitable(vecino)){
 			
 			this.posicion.moverHaciaIzquierda();
+			this.comer();
 			this.accionarCasillero();
 		}
 	}
@@ -70,6 +69,7 @@ public class Pacman extends Personaje{
 		if(tablero.esTransitable(vecino)){
 			
 			this.posicion.moverHaciaArriba();
+			this.comer();
 			this.accionarCasillero();
 		}
 	}
@@ -81,6 +81,7 @@ public class Pacman extends Personaje{
 		if(tablero.esTransitable(vecino)){
 			
 			this.posicion.moverHaciaDerecha();
+			this.comer();
 			this.accionarCasillero();
 		}
 	}
@@ -92,6 +93,7 @@ public class Pacman extends Personaje{
 		if(tablero.esTransitable(vecino)){
 			
 			this.posicion.moverHaciaAbajo();
+			this.comer();
 			this.accionarCasillero();
 		}
 	}

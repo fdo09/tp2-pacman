@@ -5,16 +5,15 @@ import modelo.Pacman;
 
 public abstract class Premio extends Casillero implements IAccionable{
 
-	private Punto ubicacion;
+
 	private int puntos;
 	private Tablero tablero;
 	private boolean fuePisado;
 	
 	public Premio(Punto ubicacion, Tablero tablero) {
 
-		this.ubicacion = ubicacion;
+		super(ubicacion,tablero);
 		this.puntos = 3000;
-		this.tablero = tablero;
 		this.fuePisado = false;
 		
 	}
