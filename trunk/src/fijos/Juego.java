@@ -4,6 +4,7 @@ public class Juego {
 	
 	private Tablero tablero;
 	private int nivel;
+	private Jugador jugador;
 	
 	public Juego(){
 		
