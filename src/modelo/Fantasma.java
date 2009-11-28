@@ -24,6 +24,9 @@ public abstract class Fantasma extends Personaje {
 		
 	}
 	
+	abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
+
+	abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
 	
 	public void mover(){
 		Punto nuevaPosicion;
@@ -67,9 +70,6 @@ public abstract class Fantasma extends Personaje {
 		return (this.estado == Estados.HUIR);
 	}
 	
-	abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
-
-	abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
 	
 	public Punto calcularRegreso(Collection<Punto> adjacentesValidos){
 		Punto destino;
