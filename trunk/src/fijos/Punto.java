@@ -11,9 +11,15 @@ import java.util.Collection;
  * @author Julián D'Ambrosio
  *
  */
+
 public class Punto  {
 	private int X;
 	private int Y;
+	
+	public Punto(){
+		this.X = 0;
+		this.Y = 0;
+	}
 	
 	public Punto(int X, int Y) {
 		this.X = X;
@@ -49,17 +55,17 @@ public class Punto  {
 	/**Devuelve una colección de objetos de clase Punto adyacentes al pasado por parametro.
 	 * @return Collection<Punto>
 	 */
-	public Collection<Punto> obtenerPuntosAdyacentes(Punto unPunto){
+	public Collection<Punto> obtenerPuntosAdyacentes(){
 		
 		Collection<Punto> vecinos = new ArrayList<Punto>();
 		
-		Punto vecinoIzquierdo = unPunto.obtenerVecinoIzquierdo();
+		Punto vecinoIzquierdo = this.obtenerVecinoIzquierdo();
 				
-		Punto vecinoDeArriba = unPunto.obtenerVecinoDeArriba();
+		Punto vecinoDeArriba = this.obtenerVecinoDeArriba();
 		
-		Punto vecinoDerecho = unPunto.obtenerVecinoDerecho();
+		Punto vecinoDerecho = this.obtenerVecinoDerecho();
 		
-		Punto vecinoDeAbajo = unPunto.obtenerVecinoDeAbajo();
+		Punto vecinoDeAbajo = this.obtenerVecinoDeAbajo();
 		
 		vecinos.add(vecinoIzquierdo);
 		
@@ -75,18 +81,18 @@ public class Punto  {
 	
 	// Aquí tenemos los cuatro posibles desplazamientos de un punto.
 	
-	private void moverHaciaIzquierda() {
+	public void moverHaciaIzquierda() {
 		this.X--;
 	}
-	private void moverHaciaArriba() {
+	public void moverHaciaArriba() {
 		this.Y++;
 	}
 
-	private void moverHaciaDerecha() {
+	public void moverHaciaDerecha() {
 		this.X++;
 	}
 	
-	private void moverHaciaAbajo() {
+	public void moverHaciaAbajo() {
 		this.Y--;
 	}
 	
