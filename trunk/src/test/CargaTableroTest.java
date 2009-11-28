@@ -1,61 +1,58 @@
 package test;
 
 // import fijos.*;
+import fijos.*;
 import junit.framework.TestCase;
 import java.io.File;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+
+
 
 
 
 public class CargaTableroTest extends TestCase {
+	private Tablero tablero1;
 	
-	
-	public void testCargarTablero(){
-		// Tablero nuevo = new Tablero(29,29,null);
-		try {
-			File file = new File("xml/tablero.xml");
-			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(file);
-			doc.getDocumentElement().normalize();
-			NodeList nodeLst = doc.getElementsByTagName("fila");
-			for ( int s = 0; s < nodeLst.getLength(); s++){
-				Node fstNode = nodeLst.item(s);
-				if ( fstNode.getNodeType() == Node.ELEMENT_NODE){
-					
-					Element fstElmnt = (Element) fstNode;
-					NodeList fstNmElemLst = fstElmnt.getElementsByTagName("casillero");
-					for ( int i = 0; i < fstNmElemLst.getLength(); i++){
-						Element fir = (Element) fstNmElemLst.item(i);
-						NodeList fstNm = fir.getChildNodes();
-						System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
-						}
-					
-				}
-				
-				
-					
-										
-					
-				
-				
-			}
-			
-			
-		}
-		catch(Exception e){
-			System.out.println ("Error al procesar el fichero de favoritos: " + e.getMessage());
-		    e.printStackTrace();
+protected void setUp() throws Exception {
 		
-		}
+	   tablero1 = new Tablero(30,30);
+	   
+		
+		super.setUp();
+		
+	}
+
+	public void testTableroCargaManual(){
+		Punto punto1 = new Punto(1,1);
+		Punto punto2 = new Punto(2,1);
+		Punto punto3 = new Punto(3,1);
+		Casillero casilla1 = new Semilla(punto1, tablero1);
+		Casillero casilla2 = new Pared(punto2, tablero1);
+		Casillero casilla3 = new PuntoDePoder(punto3, tablero1);
+		tablero1.addCasillero(punto1, casilla1);
+		tablero1.addCasillero(punto2, casilla2);
+		tablero1.addCasillero(punto3, casilla3);
+		assertTrue(tablero1.esTransitable(punto1));
+		assertFalse(tablero1.esTransitable(punto2));
+		assertTrue(tablero1.esTransitable(punto3));
+		Casillero casilla4 = tablero1.getCasillero(punto2);
+		assertFalse(casilla4.transitable());
 		
 		
 	}
+	
+	
+	public void testCargarTablero(){
+		CargaTablero cargador = new CargaTablero();
+		File file = new File("xml/tablero.xml");
+		cargador.Cargador(tablero1, file);
+		Punto punto = new Punto(1,1);
+		Casillero casilla1 = tablero1.getCasillero(punto);
+		boolean ver = casilla1.transitable();
+		assertTrue(ver);
+	
+		
+		
+		}
 	
 	
 }
