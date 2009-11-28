@@ -18,4 +18,9 @@ public abstract class Casillero {
 	}
 		
 	public abstract boolean transitable();
+	
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
+	}
 }

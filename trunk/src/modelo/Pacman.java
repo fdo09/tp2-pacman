@@ -1,84 +1,115 @@
 package modelo;
 
-import java.awt.Point;
-import fijos.*;
+import java.util.ArrayList;
+
+import fijos.Casillero;
+import fijos.Jugador;
+import fijos.Punto;
+import fijos.Tablero;
 
 enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class Pacman extends Personaje{
 
 
 	private Tablero tablero;
-	private Point posicion;
-	private Direccion direcciones;
+	private Punto posicion;
+	private Direccion direccion;
+	private Jugador jugador;
 	
-	public Pacman (Tablero tablero, Point posicion){
+	public Pacman (Tablero tablero, Punto posicion){
 
 		this.tablero = tablero;
 		this.posicion = posicion;
-		this.direcciones = Direccion.DERECHA;
+		this.direccion = Direccion.DERECHA;
 	}
 	
 	
 	public void mover() {
 		
-		switch (this.direcciones){
+		switch (this.direccion){
 		
 				case IZQUIERDA:
-					this.desplazarseEnX(-1);
+					this.moverIzquierda();
 					break;
 				case ARRIBA:
-					this.desplazarseEnY(1);
+					this.moverArriba();
 					break;
 				case DERECHA:
-					this.desplazarseEnX(1);
+					this.moverDerecha();
 					break;
 				case ABAJO:
-					this.desplazarseEnY(-1);
+					this.moverAbajo();
 					break;
 				}
 		
 		}
 
-	private void desplazarseEnX(int unValor){
-		
-		boolean posicionValidaEnX;
-		posicionValidaEnX = this.validarPosicionEnX(unValor);
-		
-		if(posicionValidaEnX){
-					
-			this.posicion.translate(unValor, 0);
-		}
+	private void moverIzquierda() {
+		this.posicion.moverHaciaIzquierda();
+		this.accionarCasillero();
 	}
 	
-	private void desplazarseEnY(int unValor){
-		boolean posicionValidaEnY;
+	private void moverArriba() {
+		this.posicion.moverHaciaArriba();
+		this.accionarCasillero();
+	}
+	
+	private void moverDerecha() {
+		this.posicion.moverHaciaDerecha();
+		this.accionarCasillero();
+	}
+
+	private void moverAbajo() {
+		this.posicion.moverHaciaAbajo();
+		this.accionarCasillero();
+	}
+	
+	private void accionarCasillero(){
 		
-		posicionValidaEnY = this.validarPosicionEnY(unValor);
+		Casillero unCasillero = tablero.getCasillero(this.posicion);
+		unCasillero.accionar();
 		
-		if(posicionValidaEnY)
-			{
-			this.posicion.translate(0, unValor);
+	}
+	
+	private void comer(){
+		
+		ArrayList<Fantasma> fantasmas = tablero.obtenerFantasmas();
+		
+		for(Fantasma unFantasma : fantasmas){
+			
+			boolean posicionesIguales = (unFantasma.getPosicion().equals(unaPosicion));
+			
+			if(posicionesIguales & unFantasma.esComible()){
+				
+				unFantasma.serComido();
+				
+				jugador.sumarPuntos();
+												
 			}
+			
+		}
 		
 	}
 
-	private boolean validarPosicionEnX(int unValor) {
-
-		Point unaPosicion = new Point(unValor,(int) this.posicion.getY());
+	public void serComido(){
 		
-		unaPosicion.translate(unValor, 0);
-		
-		return tablero.esValida(unaPosicion);
-		
+		jugador.restarVida();
+		this.regresarAPosicionOriginal();
 	}
 	
-	private boolean validarPosicionEnY(int unValor) {
-
-		Point unaPosicion = new Point();
+	private void regresarAPosicionOriginal(){
 		
-		unaPosicion.translate(0, unValor);
-		
-		return tablero.esValida(unaPosicion);
+		Punto posicionOriginal = new Punto(8,8);
+		this.posicion.nuevaPosicion(posicionOriginal);
 	}
+
+	
+
+
+	
+
+
+	
+	
 	
 }

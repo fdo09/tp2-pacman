@@ -6,6 +6,12 @@ public class Juego {
 	private int nivel;
 	
 	public Juego(){
+		
+	}
+
+	public void perder() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
