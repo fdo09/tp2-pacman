@@ -53,13 +53,15 @@ public class Punto  {
 		
 		Collection<Punto> vecinos = new ArrayList<Punto>();
 		
-		Punto vecinoIzquierdo = unPunto.obtenerVecinoIzquierdo();
+		Punto puntoAuxiliar = unPunto;
+		
+		Punto vecinoIzquierdo = puntoAuxiliar.obtenerVecinoIzquierdo();
 				
-		Punto vecinoDeArriba = unPunto.obtenerVecinoDeArriba();
+		Punto vecinoDeArriba = puntoAuxiliar.obtenerVecinoDeArriba();
 		
-		Punto vecinoDerecho = unPunto.obtenerVecinoDerecho();
+		Punto vecinoDerecho = puntoAuxiliar.obtenerVecinoDerecho();
 		
-		Punto vecinoDeAbajo = unPunto.obtenerVecinoDeAbajo();
+		Punto vecinoDeAbajo = puntoAuxiliar.obtenerVecinoDeAbajo();
 		
 		vecinos.add(vecinoIzquierdo);
 		
