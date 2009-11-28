@@ -10,7 +10,7 @@ public class Jugador {
 	public Jugador(){
 		
 		this.nombre = "";
-		this.cantVidas = 0;
+		this.cantVidas = 3;
 		this.puntos = 0;
 		
 	}
@@ -34,7 +34,12 @@ public class Jugador {
 			
 			juego.perder();
 						
-		}
+		}		
+	}
+	
+	public void sumarVida(){
+		
+		this.cantVidas += 1;
 	}
 
 }

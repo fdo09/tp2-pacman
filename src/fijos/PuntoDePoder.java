@@ -1,15 +1,21 @@
 package fijos;
 
+import java.util.ArrayList;
+
+import modelo.Fantasma;
+
 
 public class PuntoDePoder extends Casillero {
 
-	public PuntoDePoder() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public PuntoDePoder(Punto unaUbicacion) {
+	private Punto ubicacion;
+	private int puntos;
+	private Tablero tablero;
+	
+	public PuntoDePoder(Punto unaUbicacion, Tablero tablero) {
 		super(unaUbicacion);
-		// TODO Auto-generated constructor stub
+		this.puntos = 1000;
+		this.tablero = tablero;
+		
 	}
 
 	public boolean transitable(){
@@ -17,4 +23,19 @@ public class PuntoDePoder extends Casillero {
 		return true;
 	}
 
+	
+	public void accionar() {
+		
+		ArrayList<Fantasma> fantasmas = tablero.obtenerFantasmas();
+		
+		for(Fantasma unFantasma : fantasmas){
+			
+			unFantasma.mover();
+			
+		}
+		
+		
+	}
+
+	
 }
