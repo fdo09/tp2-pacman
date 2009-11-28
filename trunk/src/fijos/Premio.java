@@ -1,27 +1,28 @@
 package fijos;
 
-import java.awt.Point;
 
-public abstract class Premio extends Casillero {
+public abstract class Premio extends Casillero implements IAccionable{
 
-	public Premio() {
-		// TODO Auto-generated constructor stub
+	private Punto ubicacion;
+	private int puntos;
+	private Tablero tablero;
+	private boolean fuePisado;
+	
+	public Premio(Punto ubicacion, Tablero tablero) {
+
+		this.ubicacion = ubicacion;
+		this.puntos = 3000;
+		this.tablero = tablero;
+		this.fuePisado = false;
+		
 	}
-
-	public Premio(Punto unaUbicacion) {
-		super(unaUbicacion);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public boolean transitable(){
 		
 		return true;
 	}
 	
-	protected void darPremio(){
-		
-		//Dar un premio.(Ver que tipo de premio dar si vida o puntaje.)
-		
-	}
+	public void accionar(){}
 
 }

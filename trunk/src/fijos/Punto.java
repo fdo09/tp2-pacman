@@ -99,22 +99,22 @@ public class Punto  {
 	
 	//Obtenemos los puntos vecinos a un punto.
 	
-	private Punto obtenerVecinoIzquierdo() {
+	public Punto obtenerVecinoIzquierdo() {
 		Punto puntoAux = new Punto (this.X - 1, this.Y);
 		return puntoAux;
 	}
 	
-	private Punto obtenerVecinoDeArriba() {
+	public Punto obtenerVecinoDeArriba() {
 		Punto puntoAux = new Punto (this.X, this.Y + 1);
 		return puntoAux;
 	}
 
-	private Punto obtenerVecinoDerecho() {
+	public Punto obtenerVecinoDerecho() {
 		Punto puntoAux = new Punto (this.X + 1, this.Y);
 		return puntoAux;
 	}
 	
-	private Punto obtenerVecinoDeAbajo() {
+	public Punto obtenerVecinoDeAbajo() {
 		Punto puntoAux = new Punto (this.X, this.Y - 1);
 		return puntoAux;
 	}
