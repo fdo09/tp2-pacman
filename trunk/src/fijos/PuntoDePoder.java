@@ -1,6 +1,7 @@
 package fijos;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import modelo.Fantasma;
 import modelo.Pacman;
@@ -31,7 +32,7 @@ public class PuntoDePoder extends Casillero implements IAccionable{
 	public void accionar() {
 		
 		if(!fuePisado){
-			ArrayList<Fantasma> fantasmas = tablero.obtenerFantasmas();
+			Collection<Fantasma> fantasmas = tablero.obtenerFantasmas();
 			
 				for(Fantasma unFantasma : fantasmas){
 			
