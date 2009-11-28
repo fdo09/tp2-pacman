@@ -18,15 +18,26 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 public class Punto  {
 	private int X;
 	private int Y;
+	private int hashCode;
 	
 	public Punto(){
 		this.X = 0;
 		this.Y = 0;
+		this.hashCode = 0;
 	}
 	
 	public Punto(int X, int Y) {
 		this.X = X;
 		this.Y = Y;
+		this.hashCode = 0;
+	}
+	
+	public int hashCode(){
+		if (this.hashCode == 0) {
+			this.hashCode += this.X;
+			this.hashCode += this.Y;
+		}
+		return this.hashCode;
 	}
 	
 	public int getPuntoX(){
