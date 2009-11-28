@@ -1,13 +1,12 @@
 package modelo;
 
-import java.awt.Point;
-
+import fijos.Punto;
 import fijos.Tablero;
 
 public abstract class Personaje{
 
 	private Tablero tablero;
-	private Point posicion; 
+	private Punto posicion; 
 	
 	public abstract void mover();
 	

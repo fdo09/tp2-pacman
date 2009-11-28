@@ -12,7 +12,7 @@ public class TableroTest extends TestCase{
 	public void testTablero(){
 		
 		
-		Tablero unTablero = new Tablero();
+		Tablero unTablero = new Tablero(4,4);
 		Punto unPunto = new Punto(1,1);
 		Punto otroPunto = new Punto(1,1);
 		Casillero unCasillero = new Semilla(unPunto, unTablero);
