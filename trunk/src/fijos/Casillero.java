@@ -17,9 +17,9 @@ public abstract class Casillero {
 		this.ubicacion = unaUbicacion;
 	}
 		
-	public abstract boolean transitable();
+	protected abstract boolean transitable();
 	
-	public void accionar() {
+	protected abstract void accionar() {
 		// TODO Auto-generated method stub
 		
 	}

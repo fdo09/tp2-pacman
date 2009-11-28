@@ -16,13 +16,19 @@ public class Pacman extends Personaje{
 	private Direccion direccion;
 	private Jugador jugador;
 	
-	public Pacman (Tablero tablero, Punto posicion){
+	public Pacman (Tablero tablero, Jugador jugador ,Punto posicion){
 
 		this.tablero = tablero;
+		this.jugador = jugador;
 		this.posicion = posicion;
 		this.direccion = Direccion.DERECHA;
 	}
 	
+	public Punto obtenerPosicion(){
+		
+		return this.posicion;
+		
+	}
 	
 	public void mover() {
 		
@@ -77,13 +83,14 @@ public class Pacman extends Personaje{
 		
 		for(Fantasma unFantasma : fantasmas){
 			
-			boolean posicionesIguales = (unFantasma.getPosicion().equals(unaPosicion));
+			boolean posicionesIguales = (this.posicion.equals(unFantasma.getPosicion()));
 			
 			if(posicionesIguales & unFantasma.esComible()){
 				
 				unFantasma.serComido();
 				
-				jugador.sumarPuntos();
+				int puntaje = 500;
+				jugador.sumarPuntos(puntaje);
 												
 			}
 			
