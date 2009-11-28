@@ -51,7 +51,7 @@ public class CargaTablero {
 						}
 						tab.addCasillero(nuevo, casilla);
 						System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
-						System.out.println(tab.equals(nuevo));
+						System.out.println(tab.esTransitable(nuevo));
 					}
 			   }
 	    	}		
