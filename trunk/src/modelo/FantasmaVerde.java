@@ -1,10 +1,8 @@
 package modelo;
 
 
-import java.awt.Point;
-import java.util.ArrayList;
+
 import java.util.Collection;
-import java.util.Iterator;
 import fijos.*;
 
 public class FantasmaVerde extends Fantasma  {
@@ -14,47 +12,22 @@ public class FantasmaVerde extends Fantasma  {
 	private Estados estado;
 	
 			
-	public FantasmaVerde(Tablero tablero, Point posicion){
+	public FantasmaVerde(Tablero tablero, Punto posicion){
 		
 		super(tablero, posicion);
 		
 	}
-		
-	
-	private void calcularMovimiento(ArrayList<Point> posicionesAdyacentes) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
-	private void ordenarPosicionLejana(Collection<Point> posicionesAdyacentes) {
-		// TODO Un metodo que ordene la lista segun que posicion es la mas lejana al pac
-	}
-
-	
-	private void ordenarPosicionCercana(Collection<Point> posicionesAdyacentes) {
-		// TODO Un metodo que ordene la lista segun que posicion es la mas cercana al pac
-		
-	}
-
-	
-	private double calcularDistanciaAPac (Point unaPosicion){
-		
-		Punto posicionPac = tablero.posicionPac();
-		
-		double distancia = posicionPac.distance(unaPosicion);
-		
-		return distancia;
-	}
-
-	
-	Punto calcularAtrapada(ArrayList<Point> adjacentesValidos) {
+	@Override
+	Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	Punto calcularHuida(ArrayList<Point> adjacentesValidos) {
+	@Override
+	Punto calcularHuida(Collection<Punto> adjacentesValidos) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,25 +1,30 @@
 package modelo;
 
-import java.awt.Point;
+import java.util.Collection;
+
 import fijos.*;
 
 public class FantasmaAmarillo extends Fantasma {
+	
+	private Tablero tablero;
+	private Punto posicion;
+	private Estados estado;
 
-	public FantasmaAmarillo(Tablero tablero, Point posicion) {
+	public FantasmaAmarillo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public void atrapar() {
+	Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		// TODO Auto-generated method stub
-
+		return null;
 	}
 
-	@Override
-	public void huir() {
-		// TODO Auto-generated method stub
 
+	@Override
+	Punto calcularHuida(Collection<Punto> adjacentesValidos) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

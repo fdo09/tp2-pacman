@@ -1,7 +1,5 @@
 package modelo;
 
-import java.awt.Point;
-import java.util.ArrayList;
 import java.util.Collection;
 
 import fijos.*;
@@ -45,21 +43,20 @@ public abstract class Fantasma extends Personaje {
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
 			this.posicion = nuevaPosicion;
 		}
-		
-		this.posicion = nuevaPosicion;
 	}
 	
 	
 	protected void comer() {
-		Pacman pacman = this.tablero.getPac();
-		if(this.posicion.equals(pacman.getPosicion())){
+		Pacman pacman = this.tablero.obtenerPacman();
+		if(this.posicion.equals(pacman.obtenerPosicion())){
 			pacman.serComido();
 		}
 	}
 	
 	
 	protected void serComido(){
-		Punto posicionPacman = this.tablero.posicionPac();
+		Pacman pacman = this.tablero.obtenerPacman();
+		Punto posicionPacman = pacman.obtenerPosicion();
 		if(this.posicion.equals(posicionPacman)){
 			this.estado = Estados.COMIDO;
 		}
@@ -72,9 +69,8 @@ public abstract class Fantasma extends Personaje {
 	
 	
 	public Punto calcularRegreso(Collection<Punto> adjacentesValidos){
-		Punto destino;
-		Punto casaFantasmas = this.tablero.getCasa();
-		this.calcularVecinoCercano(adjacentesValidos, destino);
+		Punto destino = this.tablero.obtenerCasa();
+		return this.calcularVecinoCercano(adjacentesValidos, destino);
 	}
 	
 	protected Punto calcularVecinoCercano(Collection<Punto> vecinos, Punto destino){
