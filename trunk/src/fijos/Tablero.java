@@ -19,8 +19,9 @@ public class Tablero {
 	
 	HashMap<Punto, Casillero> casilleros;
 	ArrayList<Personaje> fantasmas;
+	Personaje pacman;
+	Casillero casa;
 	Casillero casilla;
-	Personaje pac;
 	Punto nuevo;
 	
 	public Tablero (int base, int altura, Collection<Integer> casilleros){
@@ -30,9 +31,8 @@ public class Tablero {
 		this.fantasmas = new ArrayList<Personaje>();
 	}
 
-	public Punto posicionPac() {
-		// TODO Un metodo que devuelva la posicion del pac.
-		return null;
+	public Pacman obtenerPacman() {
+		return this.pacman;
 	}
 	
 	public void addCasillero(Punto punto, Casillero nuevo){
@@ -40,13 +40,11 @@ public class Tablero {
 		this.casilleros.put(punto, nuevo);
 	}
 
-	public Collection<Punto> getCasa() {
-		// TODO Un metodo que devuelva una coleccion con todas las posiciones de la casa.
-		return null;
+	public Casillero getCasa() {
+		return casa;
 	}
 
 	public Casillero getCasillero(Punto punto) {
-		// TODO Un metodo que dado un punto me devuelva el casillero en esa posicion
 		return this.casilleros.get(punto);
 	}
 
