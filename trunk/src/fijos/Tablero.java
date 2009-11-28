@@ -49,10 +49,22 @@ public class Tablero {
 	}
 
 	
-	public boolean esValida(Punto unaPosicion) {
-		//INCLUYE LAS PAREDES FRONTERA SI ?
-		return false;
+	public boolean esTransitable(Punto unaPosicion) {
+		Casillero casillero = this.casilleros.get(unaPosicion);
+		return casillero.transitable();
 	}
+	
+	
+	public Collection<Punto> obtenerAdjacentesValidos(Punto centro){
+		Collection<Punto> adjacentes = centro.obtenerPuntosAdyacentes();
+		Collection<Punto> adjacentesValidos = new ArrayList<Punto>();
+		for(Punto punto : adjacentes){
+			if (esTransitable(punto))
+				adjacentesValidos.add(punto);
+		}
+		return adjacentesValidos;
+	}
+	
 	
 	public void cargaTablero (File file){
 		

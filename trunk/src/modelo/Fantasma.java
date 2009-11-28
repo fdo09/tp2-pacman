@@ -30,7 +30,7 @@ public abstract class Fantasma extends Personaje {
 	
 	public void mover(){
 		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = this.tablero.adjacentes();
+		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
 		
 		switch (this.estado){
 		case ATRAPAR: case INMUNE:
