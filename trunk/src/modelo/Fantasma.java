@@ -91,6 +91,11 @@ public abstract class Fantasma extends Personaje {
 		return this.posicion;
 	}
 
+	public void cambiarEstado() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	/* Por el momento este codigo no sirve
 	protected ArrayList<Point> obtenerPosicionesAdyacentes() {
