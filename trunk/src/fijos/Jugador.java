@@ -9,7 +9,7 @@ public class Jugador {
 	
 	public Jugador(){
 		
-		this.nombre = " ";
+		this.nombre = "Jugador Desconocido";
 		this.cantVidas = 3;
 		this.puntos = 0;
 		
