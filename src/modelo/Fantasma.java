@@ -15,7 +15,7 @@ public abstract class Fantasma extends Personaje {
 	private Estados estado;
 	
 
-	public Fantasma(Tablero tablero, Point posicion) {
+	public Fantasma(Tablero tablero, Punto posicion) {
 		
 		this.estado = Estados.ATRAPAR;
 		this.tablero = tablero;
@@ -39,8 +39,6 @@ public abstract class Fantasma extends Personaje {
 		}
 		
 		this.posicion.cambiarPosicion(nuevaPosicion);
-		
-		this.comer(nuevaPosicion);
 	}
 	
 	
