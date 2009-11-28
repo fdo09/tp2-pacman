@@ -5,7 +5,7 @@ import modelo.Pacman;
 
 public class PremioAzul extends Premio {
 
-	private Punto ubicacion;
+	
 	private int puntos;
 	private Tablero tablero;
 	private boolean fuePisado;
@@ -13,11 +13,24 @@ public class PremioAzul extends Premio {
 	public PremioAzul(Punto ubicacion, Tablero tablero) {
 
 		super(ubicacion,tablero);
-		this.ubicacion = ubicacion;
 		this.puntos = 3000;
-		this.tablero = tablero;
 		this.fuePisado = false;
 		
+	}
+	public boolean transitable(){
+		
+		return true;
+	}
+	
+	public void accionar() {
+		
+		if (!fuePisado){
+			
+			Pacman pacman = tablero.obtenerPacman();
+			pacman.sumarPuntos(this.puntos);
+			
+			fuePisado = true;
+		}
 	}
 	
 

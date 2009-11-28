@@ -1,6 +1,6 @@
 package fijos;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collection;
 
 import modelo.Fantasma;
@@ -9,14 +9,14 @@ import modelo.Pacman;
 
 public class PuntoDePoder extends Casillero implements IAccionable{
 
-	private Punto ubicacion;
+	
 	private int puntos;
 	private Tablero tablero;
 	private boolean fuePisado;
 	
 	public PuntoDePoder(Punto ubicacion, Tablero tablero) {
 
-		this.ubicacion = ubicacion;
+		super(ubicacion,tablero);
 		this.puntos = 1000;
 		this.tablero = tablero;
 		this.fuePisado = false;

@@ -6,14 +6,12 @@ public abstract class Casillero {
 	
 	
 	private Punto ubicacion;
+	private Tablero tablero;
 		
-	public Casillero(){
-			
-			
-	}
-	public Casillero(Punto unaUbicacion){
+	public Casillero(Punto ubicacion, Tablero tablero){
 		
-		this.ubicacion = unaUbicacion;
+		this.ubicacion = ubicacion;
+		this.tablero = tablero;
 	}
 		
 	public abstract boolean transitable();
