@@ -34,7 +34,7 @@ public class PuntoDePoder extends Casillero implements IAccionable{
 			
 				for(Fantasma unFantasma : fantasmas){
 			
-					unFantasma.mover();
+					unFantasma.cambiarEstado();
 			
 				}
 				Pacman pacman = tablero.obtenerPacman();
