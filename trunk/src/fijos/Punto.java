@@ -94,12 +94,11 @@ public class Punto  {
 	
 	//Obtenemos los puntos vecinos a un punto.
 	
-	private Punto obtenerVecinoIzquierdo() {
+	private int obtenerVecinoIzquierdo() {
 		
-		this.moverHaciaIzquierda();
-		return this;
-		
+		return (this.X) + 1;
 	}
+	
 	private Punto obtenerVecinoDeArriba() {
 		this.moverHaciaArriba();
 		return this;
