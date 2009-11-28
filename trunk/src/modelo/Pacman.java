@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayList;
 
 import fijos.Casillero;
+import fijos.IAccionable;
 import fijos.Jugador;
 import fijos.Punto;
 import fijos.Tablero;
@@ -96,7 +97,7 @@ public class Pacman extends Personaje{
 	
 	private void accionarCasillero(){
 		
-		Casillero unCasillero = tablero.getCasillero(this.posicion);
+		IAccionable unCasillero = (IAccionable) tablero.getCasillero(this.posicion);
 		unCasillero.accionar();
 		
 	}
