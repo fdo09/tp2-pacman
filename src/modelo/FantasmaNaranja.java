@@ -11,10 +11,37 @@ public class FantasmaNaranja extends Fantasma {
 
 	private Tablero tablero;
 	private Punto posicion;
+	private Estados estado;
 	
 	public FantasmaNaranja(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-						
+		this.estado = Estados.ATRAPAR;
+								
+	}
+	
+	
+	/*Realiza un movimiento segun la estrategia asignada, este fantasma es capar de realizar apoyo
+	 * al fantasma que se encuentra mas cerca del Pacman, si el esta mas cerca que otro fantasma intentará
+	 * atraparlo. A la hora de huir, se acercará al fantasma que se encuentra mas lejos, si el esta mas lejos, 
+	 * seguirá huyendo.
+	 */
+	public void mover(){
+		Punto nuevaPosicion;
+		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
+		
+		switch (this.estado){
+		case ATRAPAR:
+			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
+			this.posicion = nuevaPosicion;
+			this.comer();
+		case HUIR:
+			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
+			this.posicion = nuevaPosicion;
+			this.serComido();
+		case COMIDO:
+			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
+			this.posicion = nuevaPosicion;
+		}
 	}
 	
 	
@@ -24,11 +51,13 @@ public class FantasmaNaranja extends Fantasma {
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		if (fantasmaMasCercano.equals(this.posicion)){
 			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-			ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
-			return pila.peekFirst();
+			ArrayDeque<Punto> posicionesAPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+			return posicionesAPacman.peekFirst();
 		}
-		else 
-			return fantasmaMasCercano;
+		else {
+			ArrayDeque<Punto> posicionesAFantasmaCercano = fantasmaMasCercano.obtenerPosicionesOrdenadas(adjacentesValidos);
+			return posicionesAFantasmaCercano.peekFirst();
+		}
 	}
 
 
@@ -38,11 +67,14 @@ public class FantasmaNaranja extends Fantasma {
 		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
 		if (fantasmaMasLejano.equals(this.posicion)){
 			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-			ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
-			return pila.peekLast();
+			ArrayDeque<Punto> posicionesAPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+			return posicionesAPacman.peekLast();
 		}
-		else 
-			return fantasmaMasLejano;
+		else {
+			ArrayDeque<Punto> posicionesAFantasmaCercano = fantasmaMasLejano.obtenerPosicionesOrdenadas(adjacentesValidos);
+			return posicionesAFantasmaCercano.peekLast();
+		}
+			
 	}
 
 }
