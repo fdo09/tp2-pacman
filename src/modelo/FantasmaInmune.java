@@ -14,7 +14,7 @@ public class FantasmaInmune extends Fantasma  {
     Punto destino;
 	private Tablero tablero;
 	private Punto posicion;
-	private Estados estado;
+	
 	
 			
 	public FantasmaInmune(Tablero tablero, Punto posicion){
