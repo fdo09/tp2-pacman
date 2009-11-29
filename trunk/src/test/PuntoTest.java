@@ -27,22 +27,22 @@ public class PuntoTest extends TestCase {
 	}
 	public void testDistancia(){
 		
-		int distanciaEsperada = 1;
+		double distanciaEsperada = 1.0;
 		
 		/*
 		 * punto1 = (1,1)
 		 * punto2 = (1,2)
 		 */
-		int distancia1 = punto1.distancia(punto2);
+		double distancia1 = punto1.distancia(punto2);
 		
 		assertEquals(distanciaEsperada,distancia1);
 		
 		
 		// punto3 = (1,3)
 		
-		int distancia2 = punto1.distancia(punto3);
+		double distancia2 = punto1.distancia(punto3);
 		
-		distanciaEsperada = 2;
+		distanciaEsperada = 2.0;
 		
 		assertEquals(distanciaEsperada,distancia2);
 		
@@ -50,9 +50,9 @@ public class PuntoTest extends TestCase {
 		//punto4 = (4,4)
 		
 		
-		int distancia3 = punto1.distancia(punto4);
+		double distancia3 = punto1.distancia(punto4);
 		
-		distanciaEsperada = 4;
+		distanciaEsperada = 4.242640687119285;
 		
 		assertEquals(distanciaEsperada,distancia3);
 		

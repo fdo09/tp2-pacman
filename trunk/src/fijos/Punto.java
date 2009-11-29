@@ -56,12 +56,12 @@ public class Punto  {
 	 * @param  
 	 * @return int
 	 */
-	public int distancia(Punto unPunto){
+	public double distancia(Punto unPunto){
 		
-		int distanciaEnX = abs(this.X - unPunto.X);
-		int distanciaEnY = abs(this.Y - unPunto.Y);
+		double distanciaEnX = abs(this.X - unPunto.X);
+		double distanciaEnY = abs(this.Y - unPunto.Y);
 		
-		int unaDistancia = (int)hypot(distanciaEnX,distanciaEnY);
+		double unaDistancia = hypot(distanciaEnX,distanciaEnY);
 		
 		return unaDistancia;
 		
