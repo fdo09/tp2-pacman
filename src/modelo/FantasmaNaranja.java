@@ -1,10 +1,10 @@
 package modelo;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Collection;
 
-import fijos.*;
+import fijos.Punto;
+import fijos.Tablero;
 
 public class FantasmaNaranja extends Fantasma {
 
@@ -34,8 +34,15 @@ public class FantasmaNaranja extends Fantasma {
 
 	@Override
 	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
+		if (fantasmaMasLejano.equals(this.posicion)){
+			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+			ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+			return pila.peekLast();
+		}
+		else 
+			return fantasmaMasLejano;
 	}
 
 }
