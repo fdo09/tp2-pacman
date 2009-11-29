@@ -10,7 +10,7 @@ public class FantasmaAzul extends Fantasma {
 
 	private Tablero tablero;
 	private Punto posicion;
-	private Estados estado;
+	
 	
 	public FantasmaAzul(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
