@@ -1,12 +1,11 @@
 package fijos;
 
-import static java.lang.Math.*;
+import static java.lang.Math.abs;
+import static java.lang.Math.hypot;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
-
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 
 
@@ -18,7 +17,6 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 public class Punto  {
 	
-	private static final int BIG_INT = 99999;
 	private int X;
 	private int Y;
 	private int hashCode;
@@ -166,7 +164,7 @@ public class Punto  {
 	
 	public ArrayDeque<Punto> ordenarPosicionesPorDistancia(Collection<Punto> listaDeUbicaciones){
 		ArrayDeque<Punto> pilaPosiciones = new ArrayDeque<Punto>();
-		for (Punto punto : listaDeUbicaciones){
+		for (int i = 0; i<=listaDeUbicaciones.size(); i++){
 			Punto puntoAux;
 			puntoAux = this.calcularPosicionLejana(listaDeUbicaciones);
 			pilaPosiciones.push(puntoAux);
