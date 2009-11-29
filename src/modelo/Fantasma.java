@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
 
 import fijos.*;
@@ -8,7 +9,6 @@ enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
 
 public abstract class Fantasma extends Personaje {
 
-	private static final int BIG_INT = 99999;
 	private Tablero tablero;
 	private Punto posicion; 
 	private Estados estado;
@@ -22,9 +22,9 @@ public abstract class Fantasma extends Personaje {
 		
 	}
 	
-	abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
+	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
 
-	abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
+	protected abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
 	
 	public void mover(){
 		Punto nuevaPosicion;
@@ -68,24 +68,12 @@ public abstract class Fantasma extends Personaje {
 	}
 	
 	
-	public Punto calcularRegreso(Collection<Punto> adjacentesValidos){
+	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
 		Punto destino = this.tablero.obtenerCasa();
-		return this.calcularVecinoCercano(adjacentesValidos, destino);
+		ArrayDeque<Punto> pila = destino.ordenarPosicionesPorDistancia(adjacentesValidos);
+		return pila.pop();
 	}
-	
-	protected Punto calcularVecinoCercano(Collection<Punto> vecinos, Punto destino){
-		double menorDistancia = BIG_INT;
-		double distanciaAux;
-		Punto vecinoCercano = this.posicion;
-		for (Punto punto : vecinos){
-			distanciaAux = punto.distancia(destino);
-			if (distanciaAux < menorDistancia){
-				menorDistancia = distanciaAux;
-				vecinoCercano = punto;
-			}
-		}
-		return vecinoCercano;
-	}
+
 	
 	public Punto getPosicion(){
 		return this.posicion;
