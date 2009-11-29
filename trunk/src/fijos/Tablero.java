@@ -15,6 +15,7 @@ public class Tablero {
 	ArrayList<Fantasma> fantasmas;
 	Pacman pacman;
 	Punto casa;
+	Punto dimension;
 	Casillero casilla;
 	Punto nuevo;
 	      
@@ -76,6 +77,9 @@ public class Tablero {
 	public ArrayList<Punto> obtenerPosicionesDeFantasmas() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public Punto obtenerDimension() {
+		return this.dimension;
 	}
 	
 	
