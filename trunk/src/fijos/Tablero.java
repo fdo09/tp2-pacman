@@ -17,8 +17,7 @@ public class Tablero {
 	Punto casa;
 	Casillero casilla;
 	Punto nuevo;
-	      // Aca Modifique el tablero "No se porque tiene que recibir una coleccion de casilleros
-		  // public Tablero (int base, int altura, Collection<Integer> casilleros){
+	      
 	public Tablero (int base, int altura){
 		//Capacidad inicial es base*altura+1 para prevenir que no se llene el HashMap. 
 		//Ya q se si se llena se tiene que volver a agrandar y eso consume bastantes recursos.
@@ -29,7 +28,10 @@ public class Tablero {
 	public Tablero(){
 		
 	}
-
+	
+	public boolean estaVacio(){
+		return this.casilleros.isEmpty();
+	}
 	public Pacman obtenerPacman() {
 		return this.pacman;
 	}
