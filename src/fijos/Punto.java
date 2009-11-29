@@ -147,11 +147,11 @@ public class Punto  {
 			return false;
 		
 		Punto unPunto = (Punto) unObjeto;
-		System.out.println("#######EQUALS#########");
+
 		boolean valoresEnXIguales = (this.X == unPunto.X);
-		System.out.println(valoresEnXIguales);
+	
 		boolean valoresEnYIguales = (this.Y == unPunto.Y);
-		System.out.println(valoresEnYIguales);
+	
 		return (valoresEnXIguales && valoresEnYIguales);
 	}
 
@@ -160,6 +160,21 @@ public class Punto  {
 		this.X = posicionOriginal.X;
 		this.Y = posicionOriginal.Y;
 	}
+	
+	public Punto calcularVecinoCercano(Collection<Punto> listaDeUbicaciones, Punto unPunto){
+		double menorDistancia = BIG_INT;
+		double distanciaAux;
+		Punto vecinoCercano = this.posicion;
+		for (Punto punto : vecinos){
+			distanciaAux = punto.distancia(destino);
+			if (distanciaAux < menorDistancia){
+				menorDistancia = distanciaAux;
+				vecinoCercano = punto;
+			}
+		}
+		return vecinoCercano;
+	}
+	
 
 	
 	
