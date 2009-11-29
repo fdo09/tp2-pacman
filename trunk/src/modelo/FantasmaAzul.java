@@ -23,15 +23,15 @@ public class FantasmaAzul extends Fantasma {
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		ArrayDeque<Punto> pilaPosicones = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(this.posicion)){
-			return pila.peekFirst();
+			return pilaPosicones.peekFirst();
 		}
 		else {
-			Punto movimiento1 = pila.pop();
+			Punto movimiento1 = pilaPosicones.pop();
 			try{
-				Punto movimiento2 = pila.pop();
+				Punto movimiento2 = pilaPosicones.pop();
 				return movimiento2;
 			}
 			catch(NoSuchElementException error){
@@ -42,8 +42,25 @@ public class FantasmaAzul extends Fantasma {
 
 
 	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
+		
+		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		ArrayDeque<Punto> pilaPosiciones = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+
+		if(fantasmaMasCercano.equals(this.posicion)){
+			return pilaPosiciones.peekLast();
+		}
+		else {
+			Punto movimiento1 = pilaPosiciones.removeLast();
+			try{
+				Punto movimiento2 = pilaPosiciones.removeLast();
+				return movimiento2;
+			}
+			catch(NoSuchElementException error){
+				return movimiento1;
+			}
+		}
 	}
 	
 }
