@@ -6,7 +6,7 @@ import java.util.Collection;
 
 import fijos.*;
 
-enum Estados{ATRAPAR, HUIR, INMUNE, COMIDO};
+enum Estados{ATRAPAR, HUIR, COMIDO};
 
 public abstract class Fantasma extends Personaje {
 
@@ -14,12 +14,14 @@ public abstract class Fantasma extends Personaje {
 	private Punto posicion; 
 	private Estados estado;
 	
+	
 
 	public Fantasma(Tablero tablero, Punto posicion) {
 		
 		this.estado = Estados.ATRAPAR;
 		this.tablero = tablero;
 		this.posicion = posicion;
+		
 		
 	}
 	
@@ -32,7 +34,7 @@ public abstract class Fantasma extends Personaje {
 		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
 		
 		switch (this.estado){
-		case ATRAPAR: case INMUNE:
+		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
 			this.posicion = nuevaPosicion;
 			this.comer();
