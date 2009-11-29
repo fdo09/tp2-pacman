@@ -8,8 +8,7 @@ import fijos.*;
 public class FantasmaAmarillo extends Fantasma {
 	
 	private Tablero tablero;
-	private Punto posicion;
-	private Estados estado;
+	
 
 	public FantasmaAmarillo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
@@ -18,14 +17,14 @@ public class FantasmaAmarillo extends Fantasma {
 
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		return pila.peekFirst();
 	}
 
 
 	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		return pila.peekLast();
 	}
 

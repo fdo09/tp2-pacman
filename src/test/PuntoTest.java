@@ -1,10 +1,10 @@
 package test;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 
-
-import fijos.Punto;
 import junit.framework.TestCase;
+import fijos.Punto;
 
 public class PuntoTest extends TestCase {
 
@@ -19,7 +19,7 @@ public class PuntoTest extends TestCase {
 		punto1 = new Punto(1,1);
 		punto2 = new Punto(1,2);
 		punto3 = new Punto(1,3);
-		punto4 = new Punto(3,3);
+		punto4 = new Punto(4,4);
 	
 		
 		super.setUp();
@@ -47,12 +47,12 @@ public class PuntoTest extends TestCase {
 		assertEquals(distanciaEsperada,distancia2);
 		
 				
-		//punto4 = (3,3)
+		//punto4 = (4,4)
 		
 		
 		int distancia3 = punto1.distancia(punto4);
 		
-		distanciaEsperada = 2;
+		distanciaEsperada = 4;
 		
 		assertEquals(distanciaEsperada,distancia3);
 		
@@ -171,6 +171,52 @@ public class PuntoTest extends TestCase {
 		assertTrue(puntosIguales);
 		
 	
+	}
+	
+	public void testEquals(){
+		
+		//punto1 = (1,1)
+		
+		Punto unPunto = new Punto (1,1);
+		
+		boolean puntosIguales = (unPunto.equals(punto1));
+		
+		assertTrue(puntosIguales);
+		
+	}
+	
+	public void testOrdenarPosicionesPorDistancia(){
+		
+		ArrayList<Punto> listaDePuntos = new ArrayList<Punto>();
+		
+		//Agregamos a la lista en forma desordenada.
+		
+		listaDePuntos.add(punto4);
+		listaDePuntos.add(punto2);
+		listaDePuntos.add(punto3);
+		
+		
+		
+		ArrayDeque<Punto> listaOrdenada = punto1.obtenerPosicionesOrdenadas(listaDePuntos);
+		
+		Punto elementoEsperado = listaOrdenada.pop();
+		
+		//El elemento a menor distancia es el punto2.
+		
+		assertEquals(elementoEsperado,punto2);
+		
+		
+		//Le sigue el punto3
+		elementoEsperado = listaOrdenada.pop();
+		
+		assertEquals(elementoEsperado,punto3);
+		
+		//Por último el punto4.
+		elementoEsperado = listaOrdenada.pop();
+		
+		assertEquals(elementoEsperado,punto4);
+		
+		
 	}
 
 }

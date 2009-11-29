@@ -24,7 +24,7 @@ public class FantasmaNaranja extends Fantasma {
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		if (fantasmaMasCercano.equals(this.posicion)){
 			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-			ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+			ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 			return pila.peekFirst();
 		}
 		else 
@@ -38,7 +38,7 @@ public class FantasmaNaranja extends Fantasma {
 		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
 		if (fantasmaMasLejano.equals(this.posicion)){
 			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-			ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+			ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 			return pila.peekLast();
 		}
 		else 

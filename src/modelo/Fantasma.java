@@ -71,7 +71,7 @@ public abstract class Fantasma extends Personaje {
 	
 	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
 		Punto destino = this.tablero.obtenerCasa();
-		ArrayDeque<Punto> pila = destino.ordenarPosicionesPorDistancia(adjacentesValidos);
+		ArrayDeque<Punto> pila = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
 		return pila.pop();
 	}
 
@@ -93,7 +93,7 @@ public abstract class Fantasma extends Personaje {
 		
 		ArrayDeque<Punto> posicionesDeFantasmasOrdenadas;
 		
-		posicionesDeFantasmasOrdenadas = posicionDelPacman.ordenarPosicionesPorDistancia(posicionesDeFantasmas);
+		posicionesDeFantasmasOrdenadas = posicionDelPacman.obtenerPosicionesOrdenadas(posicionesDeFantasmas);
 		
 		return posicionesDeFantasmasOrdenadas;
 	}
