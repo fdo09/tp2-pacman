@@ -77,7 +77,7 @@ public class Punto  {
 		Punto vecinoIzquierdo = this.obtenerVecinoIzquierdo();
 				
 		Punto vecinoDeArriba = this.obtenerVecinoDeArriba();
-		
+				
 		Punto vecinoDerecho = this.obtenerVecinoDerecho();
 		
 		Punto vecinoDeAbajo = this.obtenerVecinoDeAbajo();
@@ -162,9 +162,9 @@ public class Punto  {
 		this.Y = posicionOriginal.Y;
 	}
 	
-	public ArrayDeque<Punto> ordenarPosicionesPorDistancia(Collection<Punto> listaDeUbicaciones){
+	public ArrayDeque<Punto> obtenerPosicionesOrdenadas(Collection<Punto> listaDeUbicaciones){
 		ArrayDeque<Punto> pilaPosiciones = new ArrayDeque<Punto>();
-		for (int i = 0; i<=listaDeUbicaciones.size(); i++){
+		while(!listaDeUbicaciones.isEmpty()){
 			Punto puntoAux;
 			puntoAux = this.calcularPosicionLejana(listaDeUbicaciones);
 			pilaPosiciones.push(puntoAux);
