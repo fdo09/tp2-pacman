@@ -1,8 +1,4 @@
 package fijos;
-import modelo.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -11,7 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import modelo.Personaje;
+
 
 public class CargaTablero {
 	
@@ -46,12 +42,18 @@ public class CargaTablero {
 							casilla = new Semilla(nuevo, tab);
 						}else if (tipoDeCasillero.equals("pared")){
 							casilla = new Pared(nuevo, tab);
+						}else if (tipoDeCasillero.equals("PremioRojo")){
+							casilla = new PremioRojo(nuevo, tab);
+						}else if (tipoDeCasillero.equals("PremioAzul")){
+							casilla = new PremioAzul(nuevo, tab);
+						}else if (tipoDeCasillero.equals("casa")){
+							casilla = new Casa(nuevo, tab);
 						}else {
 							casilla = new PuntoDePoder(nuevo,tab);
 						}
 						tab.addCasillero(nuevo, casilla);
-						System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
-						System.out.println(tab.esTransitable(nuevo));
+						// System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
+						// System.out.println(tab.esTransitable(nuevo));
 					}
 			   }
 	    	}		

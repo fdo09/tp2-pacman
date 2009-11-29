@@ -1,32 +1,43 @@
 package test;
 
+import java.io.File;
+
+import fijos.*;
 import junit.framework.TestCase;
-import fijos.Casillero;
-import fijos.Punto;
-import fijos.Semilla;
-import fijos.Tablero;
 
-public class TableroTest extends TestCase{
+public class TableroTest extends TestCase {
 
 	
-	public void testTablero(){
-		
-		
-		Tablero unTablero = new Tablero(4,4);
-		Punto unPunto = new Punto(1,1);
-		Punto otroPunto = new Punto(1,1);
-		Casillero unCasillero = new Semilla(unPunto, unTablero);
-		
-		unTablero.addCasillero(unPunto, unCasillero);
-		
-		boolean transitable = unTablero.esTransitable(otroPunto);
-		
-		assertTrue(transitable);
-		
-	}
+	private Tablero tab;
 	
+	protected void setUp() throws Exception {
+			
+		   tab = new Tablero(32,32);
+		   CargaTablero cargador = new CargaTablero();
+		   File file = new File("xml/tablero.xml");
+		   cargador.Cargador(tab, file);
+		   super.setUp();
+			
+		}
+
+	  public void testEsTransitable(){
+		  Punto nuevo = new Punto(1,1);
+		  assertTrue(tab.esTransitable(nuevo));
+	  }
+	  
+	  public void testEstaVacio(){
+		  assertFalse(tab.estaVacio());
+	  }
+	  
+	  public void testAddCasillero(){
+		  Punto nuevo = new Punto(31,31);
+		  Casillero casilla1 = new Semilla(nuevo,tab);
+		  tab.addCasillero(nuevo, casilla1);
+		  assertTrue(tab.esTransitable(nuevo));
+	  }
 	
 	
 	
 	
 }
+
