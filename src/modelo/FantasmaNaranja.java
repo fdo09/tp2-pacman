@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -15,59 +16,24 @@ public class FantasmaNaranja extends Fantasma {
 		super(tablero, posicion);
 						
 	}
-
-	public void mover(){
-		
-		ArrayList<Punto> posicionesDeFantasmas = (ArrayList<Punto>) obtenerDistanciasDeFantasmas();
-		
-		ArrayList<Punto> vecinosValidos = (ArrayList<Punto>) tablero.obtenerAdjacentesValidos(this.posicion);
-		
-		for(Punto unVecinoValido: vecinosValidos){
-			
-			int distanciaMinima = 99999;
-			
-			int distancia = unVecinoValido.distancia(posicionesDeFantasmas.get(0));
-			
-			if(distancia<distanciaMinima){
-				
-				if(!this.posicion.equals(posicionesDeFantasmas.get(0))){
-					
-					this.posicion.nuevaPosicion(unVecinoValido);
-				}
-				//Lo tengo que revisar, falta.
-			}
-			
+	
+	
+	@Override
+	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
+		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
+		if (fantasmaMasCercano.equals(this.posicion)){
+			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+			ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+			return pila.peekFirst();
 		}
-		
-		
-		
-		
-		
-		
-		
-	}
-
-	private Collection<Punto> obtenerDistanciasDeFantasmas() {
-		
-		ArrayList<Punto> posicionesDeFantasmas = tablero.obtenerPosicionesDeFantasmas();
-		
-		Punto posicionDelPacman = tablero.obtenerPosicionDelPacman();
-		
-		ArrayList<Punto> posicionesDeFantasmasOrdenadas;
-		
-		posicionesDeFantasmasOrdenadas = posicionDelPacman.ordenarPosicionesPorDistancia(posicionesDeFantasmas);
-		
-		return posicionesDeFantasmasOrdenadas;
-	}
-	@Override
-	Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
-		// TODO Auto-generated method stub
-		return null;
+		else 
+			return fantasmaMasCercano;
 	}
 
 
 	@Override
-	Punto calcularHuida(Collection<Punto> adjacentesValidos) {
+	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
 		// TODO Auto-generated method stub
 		return null;
 	}

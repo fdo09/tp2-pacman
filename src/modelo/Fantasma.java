@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import fijos.*;
@@ -84,33 +85,19 @@ public abstract class Fantasma extends Personaje {
 		
 	}
 
-
-	/* Por el momento este codigo no sirve
-	protected ArrayList<Point> obtenerPosicionesAdyacentes() {
+	protected ArrayDeque<Punto> obtenerFantasmasOrdenadosPorDistancia() {
 		
-		ArrayList<Point> posicionesAdyacentes = new ArrayList<Point>();
+		ArrayList<Punto> posicionesDeFantasmas = tablero.obtenerPosicionesDeFantasmas();
 		
-		Point ptoAuxArriba = new Point();
-		ptoAuxArriba = this.posicion;
-		ptoAuxArriba.translate(0,1);
-		posicionesAdyacentes.add(ptoAuxArriba);
+		Punto posicionDelPacman = tablero.obtenerPacman().obtenerPosicion();
 		
-		Point ptoAuxAbajo = new Point();
-		ptoAuxAbajo = this.posicion;
-		ptoAuxAbajo.translate(0,-1);
-		posicionesAdyacentes.add(ptoAuxAbajo);
-
-		Point ptoAuxDerecha = new Point();
-		ptoAuxDerecha = this.posicion;
-		ptoAuxDerecha.translate(1,0);
-		posicionesAdyacentes.add(ptoAuxDerecha);
+		ArrayDeque<Punto> posicionesDeFantasmasOrdenadas;
 		
-		Point ptoAuxIzquierda = new Point();
-		ptoAuxIzquierda = this.posicion;
-		ptoAuxIzquierda.translate(-1,0);
-		posicionesAdyacentes.add(ptoAuxIzquierda);
+		posicionesDeFantasmasOrdenadas = posicionDelPacman.ordenarPosicionesPorDistancia(posicionesDeFantasmas);
 		
-		return posicionesAdyacentes;
+		return posicionesDeFantasmasOrdenadas;
 	}
-	*/
+	
+	
 }
+	
