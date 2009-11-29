@@ -2,6 +2,7 @@ package fijos;
 
 import static java.lang.Math.*;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -16,6 +17,8 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
  */
 
 public class Punto  {
+	
+	private static final int BIG_INT = 99999;
 	private int X;
 	private int Y;
 	private int hashCode;
@@ -161,18 +164,29 @@ public class Punto  {
 		this.Y = posicionOriginal.Y;
 	}
 	
-	public Punto calcularVecinoCercano(Collection<Punto> listaDeUbicaciones, Punto unPunto){
-		double menorDistancia = BIG_INT;
+	public ArrayDeque<Punto> ordenarPosicionesPorDistancia(Collection<Punto> listaDeUbicaciones){
+		ArrayDeque<Punto> pilaPosiciones = new ArrayDeque<Punto>();
+		for (Punto punto : listaDeUbicaciones){
+			Punto puntoAux;
+			puntoAux = this.calcularPosicionLejana(listaDeUbicaciones);
+			pilaPosiciones.push(puntoAux);
+			listaDeUbicaciones.remove(puntoAux);
+		}
+		return pilaPosiciones;
+	}
+		
+	private Punto calcularPosicionLejana(Collection<Punto> vecinos){
+		double mayorDistancia = 0;
 		double distanciaAux;
-		Punto vecinoCercano = this.posicion;
+		Punto ptoMasCercano = this;
 		for (Punto punto : vecinos){
-			distanciaAux = punto.distancia(destino);
-			if (distanciaAux < menorDistancia){
-				menorDistancia = distanciaAux;
-				vecinoCercano = punto;
+			distanciaAux = punto.distancia(this);
+			if (distanciaAux > mayorDistancia){
+				mayorDistancia = distanciaAux;
+				ptoMasCercano = punto;
 			}
 		}
-		return vecinoCercano;
+		return ptoMasCercano;
 	}
 	
 

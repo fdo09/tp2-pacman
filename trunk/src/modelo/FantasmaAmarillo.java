@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayDeque;
 import java.util.Collection;
 
 import fijos.*;
@@ -14,17 +15,18 @@ public class FantasmaAmarillo extends Fantasma {
 		super(tablero, posicion);
 	}
 
-	@Override
-	Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
-		// TODO Auto-generated method stub
-		return null;
+
+	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
+		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+		return pila.peekFirst();
 	}
 
 
-	@Override
-	Punto calcularHuida(Collection<Punto> adjacentesValidos) {
-		// TODO Auto-generated method stub
-		return null;
+	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
+		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		ArrayDeque<Punto> pila = posicionPacman.ordenarPosicionesPorDistancia(adjacentesValidos);
+		return pila.peekLast();
 	}
 
 }
