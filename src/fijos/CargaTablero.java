@@ -42,10 +42,6 @@ public class CargaTablero {
 							casilla = new Semilla(nuevo, tab);
 						}else if (tipoDeCasillero.equals("pared")){
 							casilla = new Pared(nuevo, tab);
-						}else if (tipoDeCasillero.equals("PremioRojo")){
-							casilla = new PremioRojo(nuevo, tab);
-						}else if (tipoDeCasillero.equals("PremioAzul")){
-							casilla = new PremioAzul(nuevo, tab);
 						}else if (tipoDeCasillero.equals("casa")){
 							casilla = new Casa(nuevo, tab);
 						}else {
