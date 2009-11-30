@@ -24,8 +24,14 @@ public class FantasmaInmune extends Fantasma  {
 	}
 
 
-	@Override
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, el fantasma tiene un rango de vision, en el que si el pacman se encuentra dentro de ese rango,
+		 * devuelve el adjacente mas cercano al pacman
+		 * En cambio si el pacman no esta en ese rango de vision, el fantasma se mueve hacia una posicion valida aleatoria del tableo
+		 * Una vez que llega a esa posicion aleatoria, calcula otra y se dirige hacia ella. 
+		 */
 			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
 			double distanciaPacman = this.posicion.distancia(posicionPacman);
 			
@@ -59,8 +65,14 @@ public class FantasmaInmune extends Fantasma  {
 	}
 
 
-	@Override
 	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, el fantasma tiene un rango de vision, en el que si el pacman se encuentra dentro de ese rango,
+		 * devuelve el adjacente mas lejano al pacman
+		 * En cambio si el pacman no esta en ese rango de vision, el fantasma se mueve hacia una posicion valida aleatoria del tableo
+		 * Una vez que llega a esa posicion aleatoria, calcula otra y se dirige hacia ella. 
+		 */
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
 		double distanciaPacman = this.posicion.distancia(posicionPacman);
 		

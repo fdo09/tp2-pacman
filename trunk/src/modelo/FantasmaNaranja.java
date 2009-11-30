@@ -45,8 +45,12 @@ public class FantasmaNaranja extends Fantasma {
 	}
 	
 	
-	@Override
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, si este fantasma es el mas cercano al pacman, devulve el adjacente mas ceracno al pacman.
+		 * En cambio si no es el mas cercano, devuelve el adjacente mas cercano al fantasma mas cercano. 
+		 */
 		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		if (fantasmaMasCercano.equals(this.posicion)){
@@ -61,8 +65,12 @@ public class FantasmaNaranja extends Fantasma {
 	}
 
 
-	@Override
 	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, si este fantasma es el mas lejano al pacman, devulve el adjacente mas lejano al pacman.
+		 * En cambio si no es el mas lejano, devuelve el adjacente mas cercano al fantasma mas cercano. 
+		 */
 		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
 		if (fantasmaMasLejano.equals(this.posicion)){
@@ -72,7 +80,7 @@ public class FantasmaNaranja extends Fantasma {
 		}
 		else {
 			ArrayDeque<Punto> posicionesAFantasmaCercano = fantasmaMasLejano.obtenerPosicionesOrdenadas(adjacentesValidos);
-			return posicionesAFantasmaCercano.peekLast();
+			return posicionesAFantasmaCercano.peekFirst();
 		}
 			
 	}

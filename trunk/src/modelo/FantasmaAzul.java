@@ -19,6 +19,12 @@ public class FantasmaAzul extends Fantasma {
 	
 	
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, si este fantasma es el mas cercano al pacman, devulve el adjacente mas ceracno al pacman.
+		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas cercano al pacman. En caso de que no haya 
+		 * una segunda posicion valida, devuelve la primera. 
+		 */
 		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
@@ -42,6 +48,12 @@ public class FantasmaAzul extends Fantasma {
 
 
 	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, si este fantasma es el mas cercano al pacman, devulve el adjacente mas lejano al pacman.
+		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas lejano al pacman. En caso de que no haya 
+		 * una segunda posicion valida, devuelve la primera. 
+		 */
 		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		

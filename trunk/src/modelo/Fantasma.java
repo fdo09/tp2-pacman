@@ -30,6 +30,11 @@ public abstract class Fantasma extends Personaje {
 	protected abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
 	
 	public void mover(){
+		/*
+		 * Realiza el movimiento del fantasma de acuerdo a su estado y su estrategia. La estrategia esta implementada en 
+		 * cada fantasma.
+		 * Luego de moverse verifica si esta en la misma posicion que el pacman para comerselo o ser comido por él.
+		 */
 		Punto nuevaPosicion;
 		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
 		
