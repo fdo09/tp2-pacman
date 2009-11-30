@@ -4,6 +4,7 @@ import modelo.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 
 
 import modelo.Personaje;
@@ -33,6 +34,26 @@ public class Tablero {
 	public boolean estaVacio(){
 		return this.casilleros.isEmpty();
 	}
+	
+	public void addFantasma(Fantasma fantasma){
+		this.fantasmas.add(fantasma);
+	}
+	
+	public Punto posicionFantasma(Fantasma fantasma){
+		Fantasma nuevoFantasma;
+		Iterator<Fantasma> f = fantasmas.iterator();
+		while (f.hasNext()){
+			nuevoFantasma = f.next();
+				if (nuevoFantasma == fantasma){
+					return fantasma.getPosicion();
+				}
+		    }
+		return null;
+		
+		
+
+	}
+	
 	public Pacman obtenerPacman() {
 		return this.pacman;
 	}
