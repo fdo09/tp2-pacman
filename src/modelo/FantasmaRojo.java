@@ -26,6 +26,11 @@ public class FantasmaRojo extends Fantasma {
 
 		
 	public void mover(){
+		/*
+		 * Este fantama redefine el metodo "comer" agergandole una llamada al metodo definirInteligencia.
+		 * Esto es para llevar un contador que modifique el estado de inteligencia del fantasma. La estrategia para atrapar
+		 * o huir depende de este estado de inteligencia		
+		 */
 		Punto nuevaPosicion;
 		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
 		this.definirInteligencia();
@@ -61,6 +66,13 @@ public class FantasmaRojo extends Fantasma {
 
 	
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, si el estado de intelgencia es "INTELIGENTE" 
+		 * devuelve  el adjacente valido que esta a menor distancia del pacman.
+		 * En cambio si el estado de inteligencia es "TONTO", 
+		 * devuelve el adjacente valido que esta a mayor distancia del pacman.
+		 */
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
 		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		if(this.intel == Inteligencias.INTELIGENTE)
@@ -72,6 +84,13 @@ public class FantasmaRojo extends Fantasma {
 
 
 	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
+		/*
+		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
+		 * En esta estrategia, si el estado de intelgencia es "INTELIGENTE" 
+		 * devuelve  el adjacente valido que esta a mayor distancia del pacman.
+		 * En cambio si el estado de inteligencia es "TONTO", 
+		 * devuelve el adjacente valido que esta a menor distancia del pacman.
+		 */
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
 		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		if(this.intel == Inteligencias.INTELIGENTE)
