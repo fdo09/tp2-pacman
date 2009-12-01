@@ -4,6 +4,7 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Random;
 
 import fijos.*;
@@ -37,15 +38,15 @@ public class FantasmaInmune extends Fantasma  {
 			
 			if(distanciaPacman < VISION){
 				posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-				ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
-				return pila.peekFirst();
+				LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+				return posicionesOrdenadasPacman.peekFirst();
 			}
 			else{
 				if(this.posicion.equals(destino))
 					this.calcularPosicionDestino();
 				
-				ArrayDeque<Punto> pila = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
-				return pila.peekFirst();
+				LinkedList<Punto> posicionesOrdenadasDestino = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
+				return posicionesOrdenadasDestino.peekFirst();
 			}
 	}
 
@@ -78,15 +79,15 @@ public class FantasmaInmune extends Fantasma  {
 		
 		if(distanciaPacman < VISION){
 			posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-			ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
-			return pila.peekLast();
+			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+			return posicionesOrdenadasPacman.peekLast();
 		}
 		else{
 			if(this.posicion.equals(destino))
 				this.calcularPosicionDestino();
 			
-			ArrayDeque<Punto> pila = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
-			return pila.peekLast();
+			LinkedList<Punto> posicionesOrdenadasDestino = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
+			return posicionesOrdenadasDestino.peekLast();
 		}
 	}
 	

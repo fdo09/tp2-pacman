@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import fijos.Punto;
 import fijos.Tablero;
@@ -51,15 +52,15 @@ public class FantasmaNaranja extends Fantasma {
 		 * En esta estrategia, si este fantasma es el mas cercano al pacman, devulve el adjacente mas ceracno al pacman.
 		 * En cambio si no es el mas cercano, devuelve el adjacente mas cercano al fantasma mas cercano. 
 		 */
-		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		if (fantasmaMasCercano.equals(this.posicion)){
 			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-			ArrayDeque<Punto> posicionesAPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
-			return posicionesAPacman.peekFirst();
+			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+			return posicionesOrdenadasPacman.peekFirst();
 		}
 		else {
-			ArrayDeque<Punto> posicionesAFantasmaCercano = fantasmaMasCercano.obtenerPosicionesOrdenadas(adjacentesValidos);
+			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasCercano.obtenerPosicionesOrdenadas(adjacentesValidos);
 			return posicionesAFantasmaCercano.peekFirst();
 		}
 	}
@@ -71,15 +72,15 @@ public class FantasmaNaranja extends Fantasma {
 		 * En esta estrategia, si este fantasma es el mas lejano al pacman, devulve el adjacente mas lejano al pacman.
 		 * En cambio si no es el mas lejano, devuelve el adjacente mas cercano al fantasma mas cercano. 
 		 */
-		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
 		if (fantasmaMasLejano.equals(this.posicion)){
 			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-			ArrayDeque<Punto> posicionesAPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+			LinkedList<Punto> posicionesAPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 			return posicionesAPacman.peekLast();
 		}
 		else {
-			ArrayDeque<Punto> posicionesAFantasmaCercano = fantasmaMasLejano.obtenerPosicionesOrdenadas(adjacentesValidos);
+			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasLejano.obtenerPosicionesOrdenadas(adjacentesValidos);
 			return posicionesAFantasmaCercano.peekFirst();
 		}
 			

@@ -3,6 +3,7 @@ package modelo;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import fijos.*;
 
@@ -78,8 +79,9 @@ public abstract class Fantasma extends Personaje {
 	
 	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
 		Punto destino = this.tablero.obtenerCasa();
-		ArrayDeque<Punto> pila = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
-		return pila.pop();
+		LinkedList<Punto> posicionesDestino = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
+		return posicionesDestino.pop();
+		
 	}
 
 	
@@ -92,13 +94,13 @@ public abstract class Fantasma extends Personaje {
 		
 	}
 
-	protected ArrayDeque<Punto> obtenerFantasmasOrdenadosPorDistancia() {
+	protected LinkedList<Punto> obtenerFantasmasOrdenadosPorDistancia() {
 		
-		ArrayList<Punto> posicionesDeFantasmas = tablero.obtenerPosicionesDeFantasmas();
+		LinkedList<Punto> posicionesDeFantasmas = tablero.obtenerPosicionesDeFantasmas();
 		
 		Punto posicionDelPacman = tablero.obtenerPacman().obtenerPosicion();
 		
-		ArrayDeque<Punto> posicionesDeFantasmasOrdenadas;
+		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
 		
 		posicionesDeFantasmasOrdenadas = posicionDelPacman.obtenerPosicionesOrdenadas(posicionesDeFantasmas);
 		

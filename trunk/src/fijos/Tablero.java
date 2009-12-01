@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 
 import modelo.Personaje;
@@ -95,7 +96,7 @@ public class Tablero {
 	
 	
 
-	public ArrayList<Punto> obtenerPosicionesDeFantasmas() {
+	public LinkedList<Punto> obtenerPosicionesDeFantasmas() {
 		// TODO Auto-generated method stub
 		return null;
 	}

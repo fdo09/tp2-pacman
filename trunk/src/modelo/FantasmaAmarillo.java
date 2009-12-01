@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import fijos.*;
 
@@ -21,8 +22,8 @@ public class FantasmaAmarillo extends Fantasma {
 		 * Esta estrategia devuelve siempre el adjacente valido que esta a menor distancia del pacman
 		 */
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
-		return pila.peekFirst();
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		return posicionesOrdenadasPacman.peekFirst();
 	}
 
 
@@ -32,8 +33,8 @@ public class FantasmaAmarillo extends Fantasma {
 		 * Esta estrategia devuelve siempre el adjacente valido que esta a mayor distancia del pacman
 		 */
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
-		return pila.peekLast();
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		return posicionesOrdenadasPacman.peekLast();
 	}
 
 }
