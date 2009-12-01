@@ -26,7 +26,7 @@ public class FantasmaAmarillo extends Fantasma {
 	}
 
 
-	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {+
+	protected Punto calcularHuida(Collection<Punto> adjacentesValidos) {
 		/*
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
 		 * Esta estrategia devuelve siempre el adjacente valido que esta a mayor distancia del pacman
