@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 import fijos.*;
@@ -25,19 +26,19 @@ public class FantasmaAzul extends Fantasma {
 		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas cercano al pacman. En caso de que no haya 
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
-		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pilaPosicones = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(this.posicion)){
-			return pilaPosicones.peekFirst();
+			return posicionesOrdenadasPacman.peekFirst();
 		}
 		else {
-			Punto movimiento1 = pilaPosicones.pop();
+			Punto movimiento1 = posicionesOrdenadasPacman.pop();
 			try{
-				Punto movimiento2 = pilaPosicones.pop();
+				Punto movimiento2 = posicionesOrdenadasPacman.pop();
 				return movimiento2;
 			}
 			catch(NoSuchElementException error){
@@ -54,19 +55,19 @@ public class FantasmaAzul extends Fantasma {
 		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas lejano al pacman. En caso de que no haya 
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
-		ArrayDeque<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pilaPosiciones = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(this.posicion)){
-			return pilaPosiciones.peekLast();
+			return posicionesOrdenadasPacman.peekLast();
 		}
 		else {
-			Punto movimiento1 = pilaPosiciones.removeLast();
+			Punto movimiento1 = posicionesOrdenadasPacman.removeLast();
 			try{
-				Punto movimiento2 = pilaPosiciones.removeLast();
+				Punto movimiento2 = posicionesOrdenadasPacman.removeLast();
 				return movimiento2;
 			}
 			catch(NoSuchElementException error){

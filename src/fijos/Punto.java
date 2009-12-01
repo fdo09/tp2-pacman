@@ -6,6 +6,7 @@ import static java.lang.Math.hypot;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 
 
 
@@ -162,8 +163,8 @@ public class Punto  {
 		this.Y = posicionOriginal.Y;
 	}
 	
-	public ArrayDeque<Punto> obtenerPosicionesOrdenadas(Collection<Punto> listaDeUbicaciones){
-		ArrayDeque<Punto> pilaPosiciones = new ArrayDeque<Punto>();
+	public LinkedList<Punto> obtenerPosicionesOrdenadas(Collection<Punto> listaDeUbicaciones){
+		LinkedList<Punto> pilaPosiciones = new LinkedList<Punto>();
 		while(!listaDeUbicaciones.isEmpty()){
 			Punto puntoAux;
 			puntoAux = this.calcularPosicionLejana(listaDeUbicaciones);

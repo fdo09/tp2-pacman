@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import fijos.*;
 
@@ -74,11 +75,11 @@ public class FantasmaRojo extends Fantasma {
 		 * devuelve el adjacente valido que esta a mayor distancia del pacman.
 		 */
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		if(this.intel == Inteligencias.INTELIGENTE)
-			return pila.peekFirst();
+			return posicionesOrdenadasPacman.peekFirst();
 		else
-			return pila.peekLast();
+			return posicionesOrdenadasPacman.peekLast();
 
 	}
 
@@ -92,11 +93,11 @@ public class FantasmaRojo extends Fantasma {
 		 * devuelve el adjacente valido que esta a menor distancia del pacman.
 		 */
 		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
-		ArrayDeque<Punto> pila = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		if(this.intel == Inteligencias.INTELIGENTE)
-			return pila.peekLast();
+			return posicionesOrdenadasPacman.peekLast();
 		else
-			return pila.peekFirst();
+			return posicionesOrdenadasPacman.peekFirst();
 	}
 
 }
