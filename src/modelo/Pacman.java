@@ -3,7 +3,7 @@ package modelo;
 import java.util.Collection;
 
 import fijos.IAccionable;
-import fijos.Jugador;
+// import fijos.Jugador;
 import fijos.Punto;
 import fijos.Tablero;
 
@@ -14,14 +14,16 @@ public class Pacman extends Personaje{
 	private Tablero tablero;
 	private Punto posicion;
 	private Direccion direccion;
-	private Jugador jugador;
+	private int puntos;
+    // private Jugador jugador;
 	
-	public Pacman (Tablero tablero, Jugador jugador ,Punto posicion){
-
+	// public Pacman (Tablero tablero, Jugador jugador ,Punto posicion){
+	public Pacman (Tablero tablero ,Punto posicion){
 		this.tablero = tablero;
-		this.jugador = jugador;
+		// this.jugador = jugador;
 		this.posicion = posicion;
 		this.direccion = Direccion.DERECHA;
+		this.puntos = 0;
 	}
 	
 	public Punto obtenerPosicion(){
@@ -129,7 +131,7 @@ public class Pacman extends Personaje{
 
 	public void serComido(){
 		
-		jugador.restarVida();
+		// jugador.restarVida();
 		this.regresarAPosicionOriginal();
 	}
 	
@@ -140,8 +142,8 @@ public class Pacman extends Personaje{
 	}
 	
 	public void sumarPuntos(int puntos){
-				
-		jugador.ganarPuntos(puntos);
+				this.puntos = puntos;
+		// jugador.ganarPuntos(puntos);
 	}
 	
 }

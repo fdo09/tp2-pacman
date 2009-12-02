@@ -19,15 +19,15 @@ public class CargaPersonajesTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 			
-		   tab = new Tablero(32,32);
+		   
 		   CargaTablero cargador = new CargaTablero();
 		   File file = new File("xml/tablero.xml");
-		   cargador.Cargador(tab, file);
-		   Punto puntoAzul = new Punto(16,13);
-		   Punto puntoRojo = new Punto(16,14);
-		   Punto puntoNaranja = new Punto(16,15);
-		   Punto puntoAmarillo = new Punto(16,16);
-		   Punto puntoInmune = new Punto(14,14);
+		   tab = cargador.Cargador(file);
+		   Punto puntoAzul = new Punto(15,12);
+		   Punto puntoRojo = new Punto(15,13);
+		   Punto puntoNaranja = new Punto(15,14);
+		   Punto puntoAmarillo = new Punto(15,15);
+		   Punto puntoInmune = new Punto(13,12);
 		   fantasmaAzul = new FantasmaAzul(tab, puntoAzul);
 		   fantasmaRojo = new FantasmaRojo(tab, puntoRojo);
 		   fantasmaNaranja = new FantasmaNaranja(tab, puntoNaranja);
@@ -45,7 +45,7 @@ public class CargaPersonajesTest extends TestCase {
 		}
 	
 	public void testUbicacionFantasma(){
-		Punto puntoPrueba = new Punto (16,13);
+		Punto puntoPrueba = new Punto (15,12);
 		assertEquals(puntoPrueba, tab.posicionFantasma(fantasmaAzul));
 	}
 	
@@ -62,5 +62,17 @@ public class CargaPersonajesTest extends TestCase {
 		assertEquals(5,r);
 			
  	}
-	
+/*
+	public void testUbicarFantasmaTipo(){
+		Collection <Fantasma> cantFantasmas;
+		cantFantasmas = tab.obtenerFantasmas();
+		Iterator <Fantasma> itera = cantFantasmas.iterator();
+		Fantasma nuevoFantasma;
+		while (itera.hasNext()){
+			nuevoFantasma = itera.next();
+			
+			
+		}
+	}
+*/
 }

@@ -15,13 +15,13 @@ public class CargaTablero {
 		
 	}
 	
-	public void Cargador(Tablero tab,File file){
+	public Tablero Cargador(File file){
 		
 		Casillero casilla;
 		Punto nuevo;
-
+		Tablero tab;
 		try {
-			
+			tab = new Tablero(32,32);
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(file);
@@ -52,7 +52,8 @@ public class CargaTablero {
 						// System.out.println(tab.esTransitable(nuevo));
 					}
 			   }
-	    	}		
+	    	}
+			return tab;
 		}
 		catch(Exception e){
 			System.out.println ("Error al procesar el fichero de favoritos: " + e.getMessage());
@@ -62,7 +63,7 @@ public class CargaTablero {
 		
 	
 		
-		
+		return null;
 		
 	}
 

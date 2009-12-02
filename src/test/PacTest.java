@@ -2,14 +2,14 @@ package test;
 
 import junit.framework.TestCase;
 import modelo.Pacman;
-import fijos.Jugador;
+// import fijos.Jugador;
 import fijos.Punto;
 import fijos.Tablero;
 
 public class PacTest extends TestCase {
 
 	private Tablero unTablero;
-	private Jugador unJugador;
+	// private Jugador unJugador;
 	private Punto posicionActual;
 	private Pacman unPacman;
 
@@ -18,12 +18,12 @@ public class PacTest extends TestCase {
 	
 		unTablero = new Tablero(0, 0);
 		
-		unJugador = new Jugador();
+		// unJugador = new Jugador();
 		
 		posicionActual = new Punto(1,1);
 		
-		unPacman = new Pacman(unTablero,unJugador, posicionActual);
-
+		// unPacman = new Pacman(unTablero,unJugador, posicionActual);
+		unPacman = new Pacman(unTablero, posicionActual);
 	
 	super.setUp();
 	

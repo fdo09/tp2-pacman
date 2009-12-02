@@ -34,7 +34,7 @@ public abstract class Fantasma extends Personaje {
 		/*
 		 * Realiza el movimiento del fantasma de acuerdo a su estado y su estrategia. La estrategia esta implementada en 
 		 * cada fantasma.
-		 * Luego de moverse verifica si esta en la misma posicion que el pacman para comerselo o ser comido por él.
+		 * Luego de moverse verifica si esta en la misma posicion que el pacman para comerselo o ser comido por ï¿½l.
 		 */
 		Punto nuevaPosicion;
 		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
@@ -91,6 +91,7 @@ public abstract class Fantasma extends Personaje {
 
 	public void cambiarEstado() {
 		// TODO Auto-generated method stub
+		this.estado = Estados.HUIR;
 		
 	}
 

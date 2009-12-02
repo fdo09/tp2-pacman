@@ -5,7 +5,7 @@ public abstract class Casillero {
 	
 	
 	private Punto ubicacion;
-	private Tablero tablero;
+	protected Tablero tablero;
 		
 	public Casillero(Punto ubicacion, Tablero tablero){
 		
@@ -14,6 +14,8 @@ public abstract class Casillero {
 	}
 		
 	public abstract boolean transitable();
+	
+	public abstract void accionar();
 	
 
 }

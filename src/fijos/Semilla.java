@@ -2,7 +2,7 @@ package fijos;
 
 import modelo.Pacman;
 
-public class Semilla extends Casillero implements IAccionable {
+public class Semilla extends Casillero {
 	
 	
 	private int puntos;
