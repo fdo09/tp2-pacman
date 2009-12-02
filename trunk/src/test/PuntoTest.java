@@ -1,7 +1,7 @@
 package test;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import junit.framework.TestCase;
 import fijos.Punto;
@@ -197,7 +197,7 @@ public class PuntoTest extends TestCase {
 		
 		
 		
-		ArrayDeque<Punto> listaOrdenada = punto1.obtenerPosicionesOrdenadas(listaDePuntos);
+		LinkedList<Punto> listaOrdenada = punto1.obtenerPosicionesOrdenadas(listaDePuntos);
 		
 		Punto elementoEsperado = listaOrdenada.pop();
 		
