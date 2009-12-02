@@ -51,6 +51,11 @@ public class FantasmaNaranjaTest extends TestCase {
 			
 		}
 	
+	public void testAtrapar(){
+		assertFalse(fantasmaNaranja.esComible());
+		
+	}	
+	
 	
 	public void testHuir(){
 		   	Casillero nuevoPunto;
@@ -65,7 +70,11 @@ public class FantasmaNaranjaTest extends TestCase {
 		
 	}
 	
-	public void testAtrapar(){
-		
-	}	
+	public void testnuevaPosicion(){
+		fantasmaNaranja.mover();
+		Punto nuevo = new Punto(14,14);
+		assertEquals(nuevo, fantasmaNaranja.getPosicion());
+	}
+	
+	
 }
