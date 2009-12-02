@@ -14,6 +14,10 @@ public class Pared extends Casillero {
 		return false;
 	}
 	
+	public void accionar(){
+		
+	}
+	
 	
 	
 	

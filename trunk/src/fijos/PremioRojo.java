@@ -15,6 +15,10 @@ public class PremioRojo extends Premio {
 		
 	}
 	
+	public void accionar(){
+		
+	}
+	
 }
 
 

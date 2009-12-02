@@ -1,5 +1,6 @@
 package fijos;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import modelo.Fantasma;
@@ -10,7 +11,7 @@ public class PuntoDePoder extends Casillero implements IAccionable{
 
 	
 	private int puntos;
-	private Tablero tablero;
+	// private Tablero tablero;
 	private boolean fuePisado;
 	
 	public PuntoDePoder(Punto ubicacion, Tablero tablero) {
@@ -30,14 +31,14 @@ public class PuntoDePoder extends Casillero implements IAccionable{
 	public void accionar() {
 		
 		if(!fuePisado){
-			Collection<Fantasma> fantasmas = tablero.obtenerFantasmas();
+			ArrayList<Fantasma> fantasmas = super.tablero.obtenerFantasmas();
 			
 				for(Fantasma unFantasma : fantasmas){
 			
 					unFantasma.cambiarEstado();
 			
 				}
-				Pacman pacman = tablero.obtenerPacman();
+				Pacman pacman = super.tablero.obtenerPacman();
 				pacman.sumarPuntos(this.puntos);
 		
 				this.fuePisado = true;

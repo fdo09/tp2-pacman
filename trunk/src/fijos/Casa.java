@@ -12,5 +12,9 @@ public class Casa extends Casillero {
 		// TODO Auto-generated method stub
 		return true;
 	}
+	
+	public void accionar(){
+		
+	}
 
 }

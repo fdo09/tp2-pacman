@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 
-import modelo.Personaje;
+
 
 
 public class Tablero {
@@ -51,8 +51,10 @@ public class Tablero {
 		    }
 		return null;
 		
-		
-
+	}
+	
+	public void addPacman(Pacman pacman){
+		this.pacman = pacman;
 	}
 	
 	public Pacman obtenerPacman() {
@@ -72,7 +74,7 @@ public class Tablero {
 		return this.casilleros.get(punto);
 	}
 	
-	public Collection<Fantasma> obtenerFantasmas(){
+	public ArrayList<Fantasma> obtenerFantasmas(){
 		return this.fantasmas;
 	}
 
