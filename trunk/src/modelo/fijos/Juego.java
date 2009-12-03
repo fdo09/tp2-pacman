@@ -5,7 +5,7 @@ enum EstadosJuego{EN_CURSO,GANADO,PERDIDO}
 public class Juego {
 	
 	private static Juego instancia = new Juego();
-	public static final String ARCHIVO= "xml/tablero.txt";
+	public static final String ARCHIVO= "xml/tablero.xml";
 	private Tablero tablero;
 	private int nivel;
 	private Jugador jugador;

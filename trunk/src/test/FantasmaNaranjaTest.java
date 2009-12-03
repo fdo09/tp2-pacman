@@ -3,6 +3,7 @@ package test;
 import junit.framework.TestCase;
 import modelo.fijos.CargaTablero;
 import modelo.fijos.Casillero;
+import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
@@ -24,6 +25,7 @@ public class FantasmaNaranjaTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		
+			
 		   CargaTablero cargador = new CargaTablero();
 		   tab = cargador.cargar("xml/tablero.xml");
 		   Punto puntoAzul = new Punto(15,12);
