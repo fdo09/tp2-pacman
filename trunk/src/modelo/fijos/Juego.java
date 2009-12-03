@@ -15,6 +15,7 @@ public class Juego {
 	private Juego(){
 		CargaTablero cargador = new CargaTablero();
 		this.tablero = cargador.cargar(ARCHIVO);
+		this.tablero.cargarPersonajes();
 		this.nivel = 1;
 		this.jugador = new Jugador("Player1", 3, 0);
 		this.estadoJuego = EstadosJuego.EN_CURSO;
