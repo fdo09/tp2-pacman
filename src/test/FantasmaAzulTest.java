@@ -20,12 +20,14 @@ public class FantasmaAzulTest extends TestCase {
 		
 			
 		   CargaTablero cargador = new CargaTablero();
+		  
 		   tab = cargador.cargar("xml/miniTablero.xml");
 		   
 		   Punto puntoAzul = new Punto(2,2);
 		  
 		   fantasmaAzul = new FantasmaAzul(tab, puntoAzul);
 		   
+		  
 		   tab.addFantasma(fantasmaAzul);
 		  
 		   Punto puntoPacman = new Punto(2,4);

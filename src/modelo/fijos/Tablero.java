@@ -31,16 +31,17 @@ public class Tablero {
 		this.casilleros = new HashMap<Punto, Casillero>(base*altura+1, 1);
 		this.fantasmas = new ArrayList<Fantasma>();
 		
-		this.cargarPersonajes();
+		
 	}
 	
-	private void cargarPersonajes() {
-		this.fantasmas.add(new FantasmaRojo(this, casa));
-		this.fantasmas.add(new FantasmaAmarillo(this, casa));
-		this.fantasmas.add(new FantasmaNaranja(this, casa));
-		this.fantasmas.add(new FantasmaAzul(this, casa));
-		this.fantasmas.add(new FantasmaInmune(this, casa));
-		this.pacman = new Pacman(this, this.inicioPacman);
+	public void cargarPersonajes() {
+		
+		this.addFantasma(new FantasmaRojo(this, casa));
+		this.addFantasma(new FantasmaAmarillo(this, casa));
+		this.addFantasma(new FantasmaNaranja(this, casa));
+		this.addFantasma(new FantasmaAzul(this, casa));
+		this.addFantasma(new FantasmaInmune(this, casa));
+		this.addPacman(new Pacman(this, this.inicioPacman));
 	}
 
 	public boolean estaVacio(){
