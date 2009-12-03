@@ -110,8 +110,16 @@ public class Tablero {
 	
 
 	public LinkedList<Punto> obtenerPosicionesDeFantasmas() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		LinkedList<Punto> posicionesDeFantasmas = new LinkedList<Punto>();
+		
+		for(Fantasma unFantasma : this.fantasmas ){
+			
+			posicionesDeFantasmas.add(unFantasma.getPosicion());
+			
+					
+		}
+		return posicionesDeFantasmas;
 	}
 	public Punto obtenerDimension() {
 		return this.dimension;
