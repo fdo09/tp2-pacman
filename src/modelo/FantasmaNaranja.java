@@ -1,6 +1,5 @@
 package modelo;
 
-import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -8,7 +7,6 @@ import fijos.Punto;
 import fijos.Tablero;
 
 public class FantasmaNaranja extends Fantasma {
-
 
 	private Tablero tablero;
 	private Punto posicion;

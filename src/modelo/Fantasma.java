@@ -1,16 +1,16 @@
 package modelo;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import fijos.*;
+import fijos.Punto;
+import fijos.Tablero;
 
 enum Estados{ATRAPAR, HUIR, COMIDO};
 
 public abstract class Fantasma extends Personaje {
 
+	public int PUNTOS = 200; 
 	private Tablero tablero;
 	private Punto posicion; 
 	private Estados estado;
@@ -88,6 +88,7 @@ public abstract class Fantasma extends Personaje {
 	public Punto getPosicion(){
 		return this.posicion;
 	}
+	
 
 	public void cambiarEstado() {
 		// TODO Auto-generated method stub

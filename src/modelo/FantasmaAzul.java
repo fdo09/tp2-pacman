@@ -1,11 +1,11 @@
 package modelo;
 
-import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-import fijos.*;
+import fijos.Punto;
+import fijos.Tablero;
 
 public class FantasmaAzul extends Fantasma {
 
