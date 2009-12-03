@@ -6,7 +6,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import modelo.moviles.*;
+import modelo.moviles.Fantasma;
+import modelo.moviles.FantasmaAmarillo;
+import modelo.moviles.FantasmaAzul;
+import modelo.moviles.FantasmaInmune;
+import modelo.moviles.FantasmaNaranja;
+import modelo.moviles.FantasmaRojo;
+import modelo.moviles.Pacman;
 
 
 public class Tablero {

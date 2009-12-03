@@ -1,10 +1,9 @@
 package test;
 
 import junit.framework.TestCase;
-import modelo.moviles.Pacman;
-// import fijos.Jugador;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
+import modelo.moviles.Pacman;
 
 public class PacTest extends TestCase {
 

@@ -2,7 +2,10 @@ package modelo.moviles;
 
 import java.util.Collection;
 
-import modelo.fijos.*;
+import modelo.fijos.Casillero;
+import modelo.fijos.Juego;
+import modelo.fijos.Punto;
+import modelo.fijos.Tablero;
 
 enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class Pacman extends Personaje{

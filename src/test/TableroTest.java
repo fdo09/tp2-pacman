@@ -1,9 +1,11 @@
 package test;
 
-import java.io.File;
-
-import modelo.fijos.*;
 import junit.framework.TestCase;
+import modelo.fijos.CargaTablero;
+import modelo.fijos.Casillero;
+import modelo.fijos.Punto;
+import modelo.fijos.Semilla;
+import modelo.fijos.Tablero;
 
 public class TableroTest extends TestCase {
 
