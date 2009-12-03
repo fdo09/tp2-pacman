@@ -2,8 +2,8 @@ package test;
 
 import java.io.File;
 
-import moviles.*;
-import fijos.*;
+import modelo.moviles.*;
+import modelo.fijos.*;
 import java.util.Collection;
 import java.util.Iterator;
 import junit.framework.TestCase;

@@ -1,7 +1,7 @@
 package test;
 
 // import fijos.*;
-import fijos.*;
+import modelo.fijos.*;
 import junit.framework.TestCase;
 import java.io.File;
 
