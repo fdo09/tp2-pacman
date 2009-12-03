@@ -3,7 +3,7 @@ package modelo;
 import java.util.Collection;
 
 import fijos.IAccionable;
-// import fijos.Jugador;
+import fijos.Juego;
 import fijos.Punto;
 import fijos.Tablero;
 
@@ -14,16 +14,11 @@ public class Pacman extends Personaje{
 	private Tablero tablero;
 	private Punto posicion;
 	private Direccion direccion;
-	private int puntos;
-    // private Jugador jugador;
 	
-	// public Pacman (Tablero tablero, Jugador jugador ,Punto posicion){
 	public Pacman (Tablero tablero ,Punto posicion){
 		this.tablero = tablero;
-		// this.jugador = jugador;
 		this.posicion = posicion;
 		this.direccion = Direccion.DERECHA;
-		this.puntos = 0;
 	}
 	
 	public Punto obtenerPosicion(){
@@ -110,23 +105,16 @@ public class Pacman extends Personaje{
 	private void comer(){
 		
 		Collection<Fantasma> fantasmas = tablero.obtenerFantasmas();
-		
 		for(Fantasma unFantasma : fantasmas){
 			
 			boolean posicionesIguales = (this.posicion.equals(unFantasma.getPosicion()));
-			
-			if(posicionesIguales & unFantasma.esComible()){
+			if(posicionesIguales && unFantasma.esComible()){
 				
 				unFantasma.serComido();
-				
-				int puntos = 500;
-				
-				this.sumarPuntos(puntos);
+				Juego.getInstancia().getJugador().ganarPuntos(unFantasma.PUNTOS);
 																
 			}
-			
 		}
-		
 	}
 
 	public void serComido(){
@@ -140,10 +128,6 @@ public class Pacman extends Personaje{
 		Punto posicionOriginal = new Punto(8,8);
 		this.posicion.nuevaPosicion(posicionOriginal);
 	}
-	
-	public void sumarPuntos(int puntos){
-				this.puntos = puntos;
-		// jugador.ganarPuntos(puntos);
-	}
+
 	
 }

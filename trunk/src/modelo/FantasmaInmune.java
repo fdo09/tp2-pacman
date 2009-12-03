@@ -2,12 +2,12 @@ package modelo;
 
 
 
-import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Random;
 
-import fijos.*;
+import fijos.Punto;
+import fijos.Tablero;
 
 public class FantasmaInmune extends Fantasma  {
 
