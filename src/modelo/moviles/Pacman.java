@@ -107,11 +107,15 @@ public class Pacman extends Personaje{
 		for(Fantasma unFantasma : fantasmas){
 			
 			boolean posicionesIguales = (this.posicion.equals(unFantasma.getPosicion()));
-			if(posicionesIguales && unFantasma.esComible()){
-				
+			if(!posicionesIguales){
+				return;
+			}
+			if(unFantasma.esComible()){
 				unFantasma.serComido();
-				Juego.getInstancia().getJugador().ganarPuntos(unFantasma.PUNTOS);
-																
+				Juego.getInstancia().getJugador().ganarPuntos(unFantasma.PUNTOS);							
+			}
+			else{
+				this.serComido();
 			}
 		}
 	}
