@@ -3,7 +3,6 @@ package fijos;
 import static java.lang.Math.abs;
 import static java.lang.Math.hypot;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;

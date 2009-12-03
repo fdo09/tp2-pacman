@@ -15,8 +15,7 @@ public class CargaTableroTest extends TestCase {
 protected void setUp() throws Exception {
 		
 	   CargaTablero cargador = new CargaTablero();
-	   File file = new File("xml/tablero.xml");
-	   tab = cargador.Cargador(file);
+	   tab = cargador.cargar("xml/tablero.xml");
 	   super.setUp();
 		
 	}
