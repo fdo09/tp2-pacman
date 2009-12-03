@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import junit.framework.TestCase;
-import fijos.Punto;
+import modelo.fijos.Punto;
 
 public class PuntoTest extends TestCase {
 

@@ -2,8 +2,8 @@ package test;
 
 import java.io.File;
 
-import moviles.*;
-import fijos.*;
+import modelo.moviles.*;
+import modelo.fijos.*;
 import junit.framework.TestCase;
 
 public class FantasmaNaranjaTest extends TestCase {

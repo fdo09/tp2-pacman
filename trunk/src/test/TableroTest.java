@@ -2,7 +2,7 @@ package test;
 
 import java.io.File;
 
-import fijos.*;
+import modelo.fijos.*;
 import junit.framework.TestCase;
 
 public class TableroTest extends TestCase {
