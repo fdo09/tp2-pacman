@@ -1,7 +1,9 @@
 package fijos;
 import java.io.File;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -15,13 +17,14 @@ public class CargaTablero {
 		
 	}
 	
-	public Tablero Cargador(File file){
+	public Tablero cargar(String path){
 		
-		Casillero casilla;
-		Punto nuevo;
-		Tablero tab;
+		Casillero casilleroAux;
+		Punto posicion;
+		Tablero tablero;
+		File file = new File(path);
 		try {
-			tab = new Tablero(32,32);
+			tablero = new Tablero(32,32);
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(file);
@@ -36,24 +39,24 @@ public class CargaTablero {
 					for ( int i = 0; i < fstNmElemLst.getLength(); i++){
 						Element fir = (Element) fstNmElemLst.item(i);
 						NodeList fstNm = fir.getChildNodes();
-						nuevo = new Punto(s, i);
+						posicion = new Punto(s, i);
 						String tipoDeCasillero = ((Node)fstNm.item(0)).getNodeValue();
 						if ( tipoDeCasillero.equals("semilla")){
-							casilla = new Semilla(nuevo, tab);
+							casilleroAux = new Semilla(posicion, tablero);
 						}else if (tipoDeCasillero.equals("pared")){
-							casilla = new Pared(nuevo, tab);
+							casilleroAux = new Pared(posicion, tablero);
 						}else if (tipoDeCasillero.equals("casa")){
-							casilla = new Casa(nuevo, tab);
+							casilleroAux = new Casa(posicion, tablero);
 						}else {
-							casilla = new PuntoDePoder(nuevo,tab);
+							casilleroAux = new PuntoDePoder(posicion,tablero);
 						}
-						tab.addCasillero(nuevo, casilla);
+						tablero.addCasillero(posicion, casilleroAux);
 						// System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
 						// System.out.println(tab.esTransitable(nuevo));
 					}
 			   }
 	    	}
-			return tab;
+			return tablero;
 		}
 		catch(Exception e){
 			System.out.println ("Error al procesar el fichero de favoritos: " + e.getMessage());

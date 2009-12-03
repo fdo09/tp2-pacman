@@ -1,11 +1,12 @@
 package fijos;
 
-import modelo.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import modelo.*;
 
 
 
@@ -13,25 +14,32 @@ import java.util.LinkedList;
 
 public class Tablero {
 	
-	HashMap<Punto, Casillero> casilleros;
-	ArrayList<Fantasma> fantasmas;
-	Pacman pacman;
-	Punto casa;
-	Punto dimension;
-	Casillero casilla;
-	Punto nuevo;
+	private HashMap<Punto, Casillero> casilleros;
+	private ArrayList<Fantasma> fantasmas;
+	private Pacman pacman;
+	private Punto casa;
+	private Punto inicioPacman;
+	private Punto dimension;
+
 	      
 	public Tablero (int base, int altura){
 		//Capacidad inicial es base*altura+1 para prevenir que no se llene el HashMap. 
 		//Ya q se si se llena se tiene que volver a agrandar y eso consume bastantes recursos.
 		this.casilleros = new HashMap<Punto, Casillero>(base*altura+1, 1);
 		this.fantasmas = new ArrayList<Fantasma>();
-	}
-	// Lo hago de prueba Marcelo
-	public Tablero(){
 		
+		this.cargarPersonajes();
 	}
 	
+	private void cargarPersonajes() {
+		this.fantasmas.add(new FantasmaRojo(this, casa));
+		this.fantasmas.add(new FantasmaAmarillo(this, casa));
+		this.fantasmas.add(new FantasmaNaranja(this, casa));
+		this.fantasmas.add(new FantasmaAzul(this, casa));
+		this.fantasmas.add(new FantasmaInmune(this, casa));
+		this.pacman = new Pacman(this, this.inicioPacman);
+	}
+
 	public boolean estaVacio(){
 		return this.casilleros.isEmpty();
 	}

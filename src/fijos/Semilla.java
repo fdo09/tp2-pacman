@@ -1,18 +1,13 @@
 package fijos;
 
-import modelo.Pacman;
-
 public class Semilla extends Casillero {
 	
-	
-	private int puntos;
-	private Tablero tablero;
+	private static final int PUNTOS = 50;
 	private boolean fuePisado; 
 	
 	public Semilla(Punto ubicacion, Tablero tablero) {
 		
 		super(ubicacion, tablero);
-		this.puntos = 200;
 		this.fuePisado = false;
 	}
 
@@ -26,8 +21,7 @@ public class Semilla extends Casillero {
 		
 		if (!fuePisado){
 			
-			Pacman pacman = tablero.obtenerPacman();
-			pacman.sumarPuntos(this.puntos);
+			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
 			fuePisado = true;
 		}

@@ -5,7 +5,6 @@ public class Jugador {
 	private String nombre;
 	private int cantVidas;
 	private int puntos;
-	private Juego juego;
 	
 	public Jugador(){
 		
@@ -32,7 +31,7 @@ public class Jugador {
 		this.cantVidas -=1;
 		if(this.cantVidas == 0){
 			
-			juego.perder();
+			Juego.getInstancia().perder();
 						
 		}		
 	}

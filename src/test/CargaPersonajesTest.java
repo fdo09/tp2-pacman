@@ -21,8 +21,7 @@ public class CargaPersonajesTest extends TestCase {
 			
 		   
 		   CargaTablero cargador = new CargaTablero();
-		   File file = new File("xml/tablero.xml");
-		   tab = cargador.Cargador(file);
+		   tab = cargador.cargar("xml/tablero.xml");
 		   Punto puntoAzul = new Punto(15,12);
 		   Punto puntoRojo = new Punto(15,13);
 		   Punto puntoNaranja = new Punto(15,14);
