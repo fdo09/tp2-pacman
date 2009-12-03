@@ -6,7 +6,7 @@ public class Casa extends Casillero {
 		super(ubicacion, tablero);
 	}
 
-	@Override
+	
 	public boolean transitable() {
 		return true;
 	}

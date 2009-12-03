@@ -113,6 +113,9 @@ public class Pacman extends Personaje{
 			if(unFantasma.esComible()){
 				unFantasma.serComido();
 				Juego.getInstancia().getJugador().ganarPuntos(unFantasma.PUNTOS);							
+			}if(!unFantasma.esComible()){
+				
+				this.serComido();
 			}
 			else{
 				this.serComido();
