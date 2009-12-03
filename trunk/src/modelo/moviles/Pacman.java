@@ -11,10 +11,12 @@ public class Pacman extends Personaje{
 	private Tablero tablero;
 	private Punto posicion;
 	private Direccion direccion;
+	private Punto posicionInicial;
 	
 	public Pacman (Tablero tablero ,Punto posicion){
 		this.tablero = tablero;
 		this.posicion = posicion;
+		this.posicionInicial = posicion;
 		this.direccion = Direccion.DERECHA;
 	}
 	
@@ -116,14 +118,13 @@ public class Pacman extends Personaje{
 
 	public void serComido(){
 		
-		// jugador.restarVida();
+		Juego.getInstancia().getJugador().restarVida();
 		this.regresarAPosicionOriginal();
 	}
 	
 	private void regresarAPosicionOriginal(){
 		
-		Punto posicionOriginal = new Punto(8,8);
-		this.posicion.nuevaPosicion(posicionOriginal);
+		this.posicion = this.posicionInicial;
 	}
 
 	
