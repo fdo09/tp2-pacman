@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tablero>
-	<dimension x=28 y=30>
     <fila id="1" >
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
