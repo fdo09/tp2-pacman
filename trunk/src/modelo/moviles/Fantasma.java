@@ -90,7 +90,7 @@ public abstract class Fantasma extends Personaje {
 
 
 	public void cambiarEstado() {
-		// TODO Auto-generated method stub
+		
 		this.estado = Estados.HUIR;
 		
 	}
