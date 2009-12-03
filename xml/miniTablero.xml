@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tablero>
+    <fila id="1" >
+        <casillero num="1">pared</casillero>
+        <casillero num="2">pared</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">pared</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    <fila id="2">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">semilla</casillero>
+        <casillero num="3">semilla</casillero>
+        <casillero num="4">semilla</casillero>
+        <casillero num="5">PuntoDePoder</casillero>
+        <casillero num="6">semilla</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    <fila id="3">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">semilla</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">semilla</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    <fila id="4">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">semilla</casillero>
+        <casillero num="3">semilla</casillero>
+        <casillero num="4">semilla</casillero>
+        <casillero num="5">semilla</casillero>
+        <casillero num="6">semilla</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    <fila id="5">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">semilla</casillero>
+        <casillero num="3">casa</casillero>
+        <casillero num="4">casa</casillero>
+        <casillero num="5">casa</casillero>
+        <casillero num="6">semilla</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    <fila id="6">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">semilla</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">semilla</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    <fila id="7">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">semilla</casillero>
+        <casillero num="3">semilla</casillero>
+        <casillero num="4">semilla</casillero>
+        <casillero num="5">PuntoDePoder</casillero>
+        <casillero num="6">semilla</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    <fila id="8" >
+        <casillero num="1">pared</casillero>
+        <casillero num="2">pared</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">pared</casillero>
+        <casillero num="7">pared</casillero>
+    </fila>
+    
+    
+</tablero>
