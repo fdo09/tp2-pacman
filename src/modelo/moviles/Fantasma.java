@@ -10,11 +10,10 @@ enum Estados{ATRAPAR, HUIR, COMIDO};
 
 public abstract class Fantasma extends Personaje {
 
-	public int PUNTOS = 200; 
 	private Tablero tablero;
 	private Punto posicion; 
 	private Estados estado;
-	
+	private int puntos;
 	
 
 	public Fantasma(Tablero tablero, Punto posicion) {
@@ -22,13 +21,13 @@ public abstract class Fantasma extends Personaje {
 		this.estado = Estados.ATRAPAR;
 		this.tablero = tablero;
 		this.posicion = posicion;
-		
-		
 	}
 	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
 
 	protected abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
+	
+	protected abstract int obtenerPuntos();
 	
 	public void mover(){
 		/*
@@ -88,7 +87,7 @@ public abstract class Fantasma extends Personaje {
 	public Punto getPosicion(){
 		return this.posicion;
 	}
-	
+
 
 	public void cambiarEstado() {
 		// TODO Auto-generated method stub

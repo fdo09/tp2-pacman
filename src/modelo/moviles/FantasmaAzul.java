@@ -9,12 +9,15 @@ import modelo.fijos.Tablero;
 
 public class FantasmaAzul extends Fantasma {
 
+	public static final int PUNTOS = 200;
 	private Tablero tablero;
 	private Punto posicion;
+	private int puntos;
 	
 	
 	public FantasmaAzul(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
+		this.puntos = PUNTOS;
 						
 	}
 	
@@ -74,6 +77,10 @@ public class FantasmaAzul extends Fantasma {
 				return movimiento1;
 			}
 		}
+	}
+	
+	public int obtenerPuntos() {
+		return this.puntos;
 	}
 	
 }

@@ -11,16 +11,19 @@ import modelo.fijos.Tablero;
 
 public class FantasmaInmune extends Fantasma  {
 
+	public static final int PUNTOS = 200;
     public static final int VISION = 10;
     Punto destino;
 	private Tablero tablero;
 	private Punto posicion;
+	private int puntos;
 	
 	
 			
 	public FantasmaInmune(Tablero tablero, Punto posicion){
 	
 		super(tablero, posicion);
+		this.puntos = PUNTOS;
 		
 	}
 
@@ -95,6 +98,10 @@ public class FantasmaInmune extends Fantasma  {
 	public boolean esComible(){
 		//EL fantasmaInmune nunca puede ser comido
 		return false;
+	}
+	
+	public int obtenerPuntos() {
+		return this.puntos;
 	}
 	
 }

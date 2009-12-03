@@ -10,10 +10,12 @@ public class FantasmaAmarillo extends Fantasma {
 	
 	public static final int PUNTOS = 200;
 	private Tablero tablero;
+	private int puntos;
 	
 
 	public FantasmaAmarillo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
+		this.puntos = PUNTOS;
 	}
 
 
@@ -38,4 +40,8 @@ public class FantasmaAmarillo extends Fantasma {
 		return posicionesOrdenadasPacman.peekLast();
 	}
 
+	public int obtenerPuntos() {
+		return this.puntos;
+	}
+	
 }

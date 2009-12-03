@@ -10,9 +10,11 @@ enum Inteligencias{INTELIGENTE, TONTO};
 
 public class FantasmaRojo extends Fantasma {
 
+	public static final int PUNTOS = 200;
 	private Tablero tablero;
 	private Estados estado;
 	private Punto posicion;
+	private int puntos;
 	private int contadorInteligencia;
 	private Inteligencias intel;
 	public static final int CAMBIO_INTELIGENCIA = 20;
@@ -23,6 +25,7 @@ public class FantasmaRojo extends Fantasma {
 		super(tablero, posicion);
 		this.estado = Estados.ATRAPAR;
 		this.intel = Inteligencias.INTELIGENTE;
+		this.puntos = PUNTOS;
 	}
 
 		
@@ -98,6 +101,10 @@ public class FantasmaRojo extends Fantasma {
 			return posicionesOrdenadasPacman.peekLast();
 		else
 			return posicionesOrdenadasPacman.peekFirst();
+	}
+	
+	public int obtenerPuntos() {
+		return this.puntos;
 	}
 
 }
