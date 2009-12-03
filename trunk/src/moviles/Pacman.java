@@ -1,11 +1,8 @@
-package modelo;
+package moviles;
 
 import java.util.Collection;
 
-import fijos.IAccionable;
-import fijos.Juego;
-import fijos.Punto;
-import fijos.Tablero;
+import fijos.*;
 
 enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class Pacman extends Personaje{
@@ -97,7 +94,7 @@ public class Pacman extends Personaje{
 	
 	private void accionarCasillero(){
 		
-		IAccionable unCasillero = (IAccionable) tablero.getCasillero(this.posicion);
+		Casillero unCasillero = tablero.getCasillero(this.posicion);
 		unCasillero.accionar();
 		
 	}

@@ -2,7 +2,7 @@ package test;
 
 import java.io.File;
 
-import modelo.*;
+import moviles.*;
 import fijos.*;
 import java.util.Collection;
 import java.util.Iterator;

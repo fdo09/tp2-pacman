@@ -2,10 +2,10 @@ package fijos;
 
 import java.util.ArrayList;
 
-import modelo.Fantasma;
+import moviles.Fantasma;
 
 
-public class PuntoDePoder extends Casillero implements IAccionable{
+public class PuntoDePoder extends Casillero{
 
 	private static final int PUNTOS = 500;
 	private boolean fuePisado;

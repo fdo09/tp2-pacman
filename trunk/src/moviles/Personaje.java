@@ -1,4 +1,4 @@
-package modelo;
+package moviles;
 
 import fijos.Punto;
 import fijos.Tablero;

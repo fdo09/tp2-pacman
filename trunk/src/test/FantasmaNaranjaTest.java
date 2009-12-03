@@ -2,17 +2,8 @@ package test;
 
 import java.io.File;
 
-import modelo.*;
-import modelo.FantasmaAmarillo;
-import modelo.FantasmaAzul;
-import modelo.FantasmaInmune;
-import modelo.FantasmaNaranja;
-import modelo.FantasmaRojo;
-import modelo.Pacman;
+import moviles.*;
 import fijos.*;
-import fijos.CargaTablero;
-import fijos.Punto;
-import fijos.Tablero;
 import junit.framework.TestCase;
 
 public class FantasmaNaranjaTest extends TestCase {

@@ -1,7 +1,7 @@
 package test;
 
 import junit.framework.TestCase;
-import modelo.Pacman;
+import moviles.Pacman;
 // import fijos.Jugador;
 import fijos.Punto;
 import fijos.Tablero;
