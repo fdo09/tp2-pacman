@@ -2,7 +2,7 @@ package fijos;
 
 
 
-public abstract class Premio extends Casillero implements IAccionable{
+public abstract class Premio extends Casillero{
 
 	private boolean fuePisado;
 	
