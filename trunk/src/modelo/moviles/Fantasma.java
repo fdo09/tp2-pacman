@@ -10,8 +10,8 @@ enum Estados{ATRAPAR, HUIR, COMIDO};
 
 public abstract class Fantasma extends Personaje {
 
-	private Tablero tablero;
-	private Punto posicion; 
+	protected Tablero tablero;
+	protected Punto posicion; 
 	private Estados estado;
 	private int puntos;
 	

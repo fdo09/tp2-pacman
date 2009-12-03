@@ -9,8 +9,8 @@ import modelo.fijos.Tablero;
 public class FantasmaNaranja extends Fantasma {
 
 	public static final int PUNTOS = 200;
-	private Tablero tablero;
-	private Punto posicion;
+	// private Tablero tablero;
+	// private Punto posicion;
 	private Estados estado;
 	private int puntos;
 	
@@ -23,14 +23,13 @@ public class FantasmaNaranja extends Fantasma {
 	
 	
 	/*Realiza un movimiento segun la estrategia asignada, este fantasma es capar de realizar apoyo
-	 * al fantasma que se encuentra mas cerca del Pacman, si el esta mas cerca que otro fantasma intentará
-	 * atraparlo. A la hora de huir, se acercará al fantasma que se encuentra mas lejos, si el esta mas lejos, 
-	 * seguirá huyendo.
+	 * al fantasma que se encuentra mas cerca del Pacman, si el esta mas cerca que otro fantasma intentarï¿½
+	 * atraparlo. A la hora de huir, se acercarï¿½ al fantasma que se encuentra mas lejos, si el esta mas lejos, 
+	 * seguirï¿½ huyendo.
 	 */
 	public void mover(){
 		Punto nuevaPosicion;
 		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
-		
 		switch (this.estado){
 		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
