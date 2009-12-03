@@ -3,7 +3,8 @@ package modelo.moviles;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import modelo.fijos.*;
+import modelo.fijos.Punto;
+import modelo.fijos.Tablero;
 
 enum Estados{ATRAPAR, HUIR, COMIDO};
 

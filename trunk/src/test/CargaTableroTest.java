@@ -1,9 +1,11 @@
 package test;
 
 // import fijos.*;
-import modelo.fijos.*;
 import junit.framework.TestCase;
-import java.io.File;
+import modelo.fijos.CargaTablero;
+import modelo.fijos.Casillero;
+import modelo.fijos.Punto;
+import modelo.fijos.Tablero;
 
 
 
