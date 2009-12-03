@@ -13,7 +13,7 @@ import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 import junit.framework.TestCase;
 
-public class FantasmaAzulTest extends TestCase {
+public class FantasmaInmuneTest extends TestCase {
 
 	private Tablero tab;
 	private Fantasma fantasmaAzul;
@@ -49,8 +49,9 @@ public class FantasmaAzulTest extends TestCase {
 			
 		}
 	
+	
 	public void testAtrapar(){
-		assertFalse(fantasmaAzul.esComible());
+		assertFalse(fantasmaInmune.esComible());
 		
 	}	
 	
@@ -60,7 +61,7 @@ public class FantasmaAzulTest extends TestCase {
 		   	Punto nuevo = new Punto(1,4);
 		   	nuevoPunto = tab.getCasillero(nuevo);
 		   	nuevoPunto.accionar();
-		   	assertTrue(fantasmaAzul.esComible());
+		   	assertTrue(fantasmaInmune.esComible());
 		   	
 	}
 	
@@ -69,8 +70,8 @@ public class FantasmaAzulTest extends TestCase {
 	}
 	
 	public void testnuevaPosicion(){
-		fantasmaAzul.mover();
+		fantasmaInmune.mover();
 		Punto nuevo = new Punto(14,14);
-		assertEquals(nuevo, fantasmaAzul.getPosicion());
+		assertEquals(nuevo, fantasmaInmune.getPosicion());
 	}
 }
