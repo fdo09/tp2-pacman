@@ -35,10 +35,12 @@ public class FantasmaNaranja extends Fantasma {
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
 			this.posicion = nuevaPosicion;
 			this.comer();
+			break;
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
 			this.posicion = nuevaPosicion;
 			this.serComido();
+			break;
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
 			this.posicion = nuevaPosicion;
