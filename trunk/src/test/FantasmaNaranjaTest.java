@@ -3,13 +3,10 @@ package test;
 import junit.framework.TestCase;
 import modelo.fijos.CargaTablero;
 import modelo.fijos.Casillero;
-import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
-import modelo.moviles.FantasmaAmarillo;
 import modelo.moviles.FantasmaAzul;
-import modelo.moviles.FantasmaInmune;
 import modelo.moviles.FantasmaNaranja;
 import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
@@ -69,19 +66,44 @@ public class FantasmaNaranjaTest extends TestCase {
 		   	
 	}
 	
-	public void testregresar() {
-		
-	}
-	
-	public void testnuevaPosicion(){
+	public void testMoverAtrapar(){
 		fantasmaNaranja.mover();
-		// Punto nuevo = new Punto(14,14);
 		Punto nuevo = new Punto(3,4);
 		assertEquals(nuevo, fantasmaNaranja.getPosicion());
 		}
 	
-	public void testMoverAtrapar(){
-		
+	public void testMoverHuir(){
+		Casillero nuevoPunto;
+		fantasmaNaranja.mover();
+	   	Punto nuevo = new Punto(1,4);
+	   	nuevoPunto = tab.getCasillero(nuevo);
+	   	nuevoPunto.accionar(); //es punto de poder
+	   	fantasmaNaranja.mover();
+	   	Punto nuevoCasillero = new Punto(3,3);
+		assertEquals(nuevoCasillero, fantasmaNaranja.getPosicion());
+	   
 	}
 	
+	public void testSerComido(){
+		Casillero nuevoPunto;
+		Punto nuevo = new Punto(1,4);
+	   	nuevoPunto = tab.getCasillero(nuevo); // Tomo del tablero el Casillero que es punto de Poder
+	   	nuevoPunto.accionar(); //es punto de poder
+		Punto nuevaUbicacion = new Punto(3,4);
+		pacman.setPosicion(nuevaUbicacion);
+		Punto puntoP = pacman.obtenerPosicion();
+		fantasmaNaranja.mover();
+		Punto puntoFN = fantasmaNaranja.getPosicion();
+		assertEquals(puntoP, puntoFN);
+	}
+	
+	public void testComerPacman(){
+		Punto nuevaUbicacion = new Punto(3,4);
+		pacman.setPosicion(nuevaUbicacion);
+		Punto puntoP = pacman.obtenerPosicion();
+		fantasmaNaranja.mover();
+		Punto puntoFN = fantasmaNaranja.getPosicion();
+		assertEquals(puntoP, puntoFN);
+		
+	}
 }

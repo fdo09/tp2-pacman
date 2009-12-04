@@ -5,8 +5,8 @@ import modelo.fijos.Tablero;
 
 public abstract class Personaje{
 
-	private Tablero tablero;
-	private Punto posicion; 
+	protected Tablero tablero;
+	protected Punto posicion; 
 	
 	public abstract void mover();
 	
