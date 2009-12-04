@@ -77,10 +77,11 @@ public class FantasmaNaranjaTest extends TestCase {
 		fantasmaNaranja.mover();
 		// Punto nuevo = new Punto(14,14);
 		Punto nuevo = new Punto(3,4);
-		Punto prueba = fantasmaNaranja.getPosicion();
-		// assertEquals(nuevo, fantasmaNaranja.getPosicion());
-		assertEquals(nuevo, prueba);
-	}
+		assertEquals(nuevo, fantasmaNaranja.getPosicion());
+		}
 	
+	public void testMoverAtrapar(){
+		
+	}
 	
 }

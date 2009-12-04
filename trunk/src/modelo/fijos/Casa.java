@@ -8,7 +8,7 @@ public class Casa extends Casillero {
 
 	
 	public boolean transitable() {
-		return true;
+		return false;
 	}
 	
 	public void accionar(){
