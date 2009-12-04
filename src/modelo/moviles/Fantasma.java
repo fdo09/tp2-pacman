@@ -11,7 +11,8 @@ enum Estados{ATRAPAR, HUIR, COMIDO};
 public abstract class Fantasma extends Personaje {
 
 	protected Tablero tablero;
-	protected Punto posicion; 
+	protected Punto posicion;
+	protected Punto casa;
 	private Estados estado;
 	private int puntos;
 	
@@ -21,6 +22,7 @@ public abstract class Fantasma extends Personaje {
 		this.estado = Estados.ATRAPAR;
 		this.tablero = tablero;
 		this.posicion = posicion;
+		this.casa = posicion;
 	}
 	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
@@ -43,10 +45,12 @@ public abstract class Fantasma extends Personaje {
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
 			this.posicion = nuevaPosicion;
 			this.comer();
+			break; //FEDE no lo borres
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
 			this.posicion = nuevaPosicion;
 			this.serComido();
+			break;
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
 			this.posicion = nuevaPosicion;
@@ -67,6 +71,7 @@ public abstract class Fantasma extends Personaje {
 		Punto posicionPacman = pacman.obtenerPosicion();
 		if(this.posicion.equals(posicionPacman)){
 			this.estado = Estados.COMIDO;
+			this.posicion = this.casa;
 		}
 	}
 	

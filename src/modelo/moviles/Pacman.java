@@ -11,8 +11,6 @@ enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class Pacman extends Personaje{
 
 
-	private Tablero tablero;
-	private Punto posicion;
 	private Direccion direccion;
 	private Punto posicionInicial;
 	
@@ -20,13 +18,17 @@ public class Pacman extends Personaje{
 		this.tablero = tablero;
 		this.posicion = posicion;
 		this.posicionInicial = posicion;
-		this.direccion = Direccion.DERECHA;
+		this.direccion = Direccion.IZQUIERDA;
 	}
 	
 	public Punto obtenerPosicion(){
 		
 		return this.posicion;
 		
+	}
+	
+	public void setPosicion(Punto nuevaUbicacion){
+		this.posicion = nuevaUbicacion;
 	}
 	
 	public void mover() {
