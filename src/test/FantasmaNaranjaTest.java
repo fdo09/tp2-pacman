@@ -12,7 +12,7 @@ import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 
 public class FantasmaNaranjaTest extends TestCase {
-	private Tablero tab;
+	/*private Tablero tab;
 	private Fantasma fantasmaAzul;
 	private Fantasma fantasmaRojo;
 	private Fantasma fantasmaNaranja;
@@ -105,5 +105,5 @@ public class FantasmaNaranjaTest extends TestCase {
 		Punto puntoFN = fantasmaNaranja.getPosicion();
 		assertEquals(puntoP, puntoFN);
 		
-	}
+	}*/
 }

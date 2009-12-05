@@ -72,6 +72,7 @@ public abstract class Fantasma extends Personaje {
 		if(this.posicion.equals(posicionPacman)){
 			this.estado = Estados.COMIDO;
 			this.posicion = this.casa;
+			this.estado = Estados.ATRAPAR;
 		}
 	}
 	
@@ -113,6 +114,10 @@ public abstract class Fantasma extends Personaje {
 		return posicionesDeFantasmasOrdenadas;
 	}
 	
+	public void setPosicion(Punto nuevaUbicacion){
+		this.posicion = nuevaUbicacion;
+	}
+
 	
 }
 	
