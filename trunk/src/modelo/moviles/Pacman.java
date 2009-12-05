@@ -15,8 +15,7 @@ public class Pacman extends Personaje{
 	private Punto posicionInicial;
 	
 	public Pacman (Tablero tablero ,Punto posicion){
-		this.tablero = tablero;
-		this.posicion = posicion;
+		super();
 		this.posicionInicial = posicion;
 		this.direccion = Direccion.IZQUIERDA;
 	}
@@ -27,9 +26,7 @@ public class Pacman extends Personaje{
 		
 	}
 	
-	public void setPosicion(Punto nuevaUbicacion){
-		this.posicion = nuevaUbicacion;
-	}
+	
 	
 	public void mover() {
 		
