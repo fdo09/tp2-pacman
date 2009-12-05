@@ -9,15 +9,10 @@ import modelo.fijos.Tablero;
 public class FantasmaNaranja extends Fantasma {
 
 	public static final int PUNTOS = 200;
-	// private Tablero tablero;
-	// private Punto posicion;
-	private Estados estado;
-	private int puntos;
 	
 	public FantasmaNaranja(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		this.estado = Estados.ATRAPAR;
-		this.puntos = PUNTOS;
+		super.setPuntos(PUNTOS);
 								
 	}
 	
@@ -29,21 +24,21 @@ public class FantasmaNaranja extends Fantasma {
 	 */
 	public void mover(){
 		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
-		switch (this.estado){
+		Collection<Punto> adjacentesValidos = this.getTablero().obtenerAdjacentesValidos(super.getPosicion());
+		switch (super.getEstado()){
 		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
-			this.posicion = nuevaPosicion;
+			super.setPosicion(nuevaPosicion);
 			this.comer();
 			break;
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
-			this.posicion = nuevaPosicion;
+			super.setPosicion(nuevaPosicion);
 			this.serComido();
 			break;
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
-			this.posicion = nuevaPosicion;
+			this.setPosicion(nuevaPosicion);
 		}
 	}
 	
@@ -56,8 +51,8 @@ public class FantasmaNaranja extends Fantasma {
 		 */
 		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
-		if (fantasmaMasCercano.equals(this.posicion)){
-			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		if (fantasmaMasCercano.equals(super.getPosicion())){
+			Punto posicionPacman = getTablero().obtenerPacman().obtenerPosicion();
 			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 			return posicionesOrdenadasPacman.peekFirst();
 		}
@@ -76,8 +71,8 @@ public class FantasmaNaranja extends Fantasma {
 		 */
 		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
-		if (fantasmaMasLejano.equals(this.posicion)){
-			Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		if (fantasmaMasLejano.equals(super.getPosicion())){
+			Punto posicionPacman = getTablero().obtenerPacman().obtenerPosicion();
 			LinkedList<Punto> posicionesAPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 			return posicionesAPacman.peekLast();
 		}
@@ -88,8 +83,4 @@ public class FantasmaNaranja extends Fantasma {
 			
 	}
 	
-	public int obtenerPuntos() {
-		return this.puntos;
-	}
-
 }

@@ -10,14 +10,11 @@ import modelo.fijos.Tablero;
 public class FantasmaAzul extends Fantasma {
 
 	public static final int PUNTOS = 200;
-	private Tablero tablero;
-	private Punto posicion;
-	private int puntos;
 	
 	
 	public FantasmaAzul(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		this.puntos = PUNTOS;
+		super.setPuntos(PUNTOS);
 						
 	}
 	
@@ -32,10 +29,10 @@ public class FantasmaAzul extends Fantasma {
 		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
-		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 
-		if(fantasmaMasCercano.equals(this.posicion)){
+		if(fantasmaMasCercano.equals(super.getPosicion())){
 			return posicionesOrdenadasPacman.peekFirst();
 		}
 		else {
@@ -61,10 +58,10 @@ public class FantasmaAzul extends Fantasma {
 		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
-		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 
-		if(fantasmaMasCercano.equals(this.posicion)){
+		if(fantasmaMasCercano.equals(super.getPosicion())){
 			return posicionesOrdenadasPacman.peekLast();
 		}
 		else {
@@ -77,10 +74,6 @@ public class FantasmaAzul extends Fantasma {
 				return movimiento1;
 			}
 		}
-	}
-	
-	public int obtenerPuntos() {
-		return this.puntos;
 	}
 	
 }

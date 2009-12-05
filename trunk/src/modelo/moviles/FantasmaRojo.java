@@ -11,10 +11,6 @@ enum Inteligencias{INTELIGENTE, TONTO};
 public class FantasmaRojo extends Fantasma {
 
 	public static final int PUNTOS = 200;
-	private Tablero tablero;
-	private Estados estado;
-	private Punto posicion;
-	private int puntos;
 	private int contadorInteligencia;
 	private Inteligencias intel;
 	public static final int CAMBIO_INTELIGENCIA = 20;
@@ -23,9 +19,8 @@ public class FantasmaRojo extends Fantasma {
 	
 	public FantasmaRojo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		this.estado = Estados.ATRAPAR;
 		this.intel = Inteligencias.INTELIGENTE;
-		this.puntos = PUNTOS;
+		super.setPuntos(PUNTOS);
 	}
 
 		
@@ -36,21 +31,21 @@ public class FantasmaRojo extends Fantasma {
 		 * o huir depende de este estado de inteligencia		
 		 */
 		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
+		Collection<Punto> adjacentesValidos = super.getTablero().obtenerAdjacentesValidos(super.getPosicion());
 		this.definirInteligencia();
 		
-		switch (this.estado){
+		switch (super.getEstado()){
 		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
-			this.posicion = nuevaPosicion;
+			super.setPosicion(nuevaPosicion);
 			this.comer();
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
-			this.posicion = nuevaPosicion;
+			super.setPosicion(nuevaPosicion);
 			this.serComido();
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
-			this.posicion = nuevaPosicion;
+			super.setPosicion(nuevaPosicion);
 		}
 	}
 
@@ -77,7 +72,7 @@ public class FantasmaRojo extends Fantasma {
 		 * En cambio si el estado de inteligencia es "TONTO", 
 		 * devuelve el adjacente valido que esta a mayor distancia del pacman.
 		 */
-		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		if(this.intel == Inteligencias.INTELIGENTE)
 			return posicionesOrdenadasPacman.peekFirst();
@@ -95,7 +90,7 @@ public class FantasmaRojo extends Fantasma {
 		 * En cambio si el estado de inteligencia es "TONTO", 
 		 * devuelve el adjacente valido que esta a menor distancia del pacman.
 		 */
-		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		if(this.intel == Inteligencias.INTELIGENTE)
 			return posicionesOrdenadasPacman.peekLast();
@@ -103,8 +98,4 @@ public class FantasmaRojo extends Fantasma {
 			return posicionesOrdenadasPacman.peekFirst();
 	}
 	
-	public int obtenerPuntos() {
-		return this.puntos;
-	}
-
 }

@@ -10,22 +10,18 @@ import modelo.fijos.Tablero;
 enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class Pacman extends Personaje{
 
-
 	private Direccion direccion;
-	private Punto posicionInicial;
 	
 	public Pacman (Tablero tablero ,Punto posicion){
-		super();
-		this.posicionInicial = posicion;
+		super(tablero, posicion);
 		this.direccion = Direccion.IZQUIERDA;
 	}
 	
 	public Punto obtenerPosicion(){
 		
-		return this.posicion;
+		return super.getPosicion();
 		
 	}
-	
 	
 	
 	public void mover() {
@@ -50,11 +46,11 @@ public class Pacman extends Personaje{
 
 	private void moverIzquierda() {
 		
-		Punto vecino = this.posicion.obtenerVecinoIzquierdo();
+		Punto vecino = this.getPosicion().obtenerVecinoIzquierdo();
 		
-		if(tablero.esTransitable(vecino)){
+		if(super.getTablero().esTransitable(vecino)){
 			
-			this.posicion.moverHaciaIzquierda();
+			this.getPosicion().moverHaciaIzquierda();
 			this.comer();
 			this.accionarCasillero();
 		}
@@ -62,11 +58,11 @@ public class Pacman extends Personaje{
 	
 	private void moverArriba() {
 		
-		Punto vecino = this.posicion.obtenerVecinoDeArriba();
+		Punto vecino = this.getPosicion().obtenerVecinoDeArriba();
 		
-		if(tablero.esTransitable(vecino)){
+		if(super.getTablero().esTransitable(vecino)){
 			
-			this.posicion.moverHaciaArriba();
+			this.getPosicion().moverHaciaArriba();
 			this.comer();
 			this.accionarCasillero();
 		}
@@ -74,11 +70,11 @@ public class Pacman extends Personaje{
 	
 	private void moverDerecha() {
 		
-		Punto vecino = this.posicion.obtenerVecinoDerecho();
+		Punto vecino = this.getPosicion().obtenerVecinoDerecho();
 		
-		if(tablero.esTransitable(vecino)){
+		if(super.getTablero().esTransitable(vecino)){
 			
-			this.posicion.moverHaciaDerecha();
+			this.getPosicion().moverHaciaDerecha();
 			this.comer();
 			this.accionarCasillero();
 		}
@@ -86,11 +82,11 @@ public class Pacman extends Personaje{
 
 	private void moverAbajo() {
 		
-		Punto vecino = this.posicion.obtenerVecinoDeAbajo();
+		Punto vecino = this.getPosicion().obtenerVecinoDeAbajo();
 		
-		if(tablero.esTransitable(vecino)){
+		if(super.getTablero().esTransitable(vecino)){
 			
-			this.posicion.moverHaciaAbajo();
+			this.getPosicion().moverHaciaAbajo();
 			this.comer();
 			this.accionarCasillero();
 		}
@@ -98,17 +94,17 @@ public class Pacman extends Personaje{
 	
 	private void accionarCasillero(){
 		
-		Casillero unCasillero = tablero.getCasillero(this.posicion);
+		Casillero unCasillero = super.getTablero().getCasillero(this.getPosicion());
 		unCasillero.accionar();
 		
 	}
 	
 	private void comer(){
 		
-		Collection<Fantasma> fantasmas = tablero.obtenerFantasmas();
+		Collection<Fantasma> fantasmas = super.getTablero().obtenerFantasmas();
 		for(Fantasma unFantasma : fantasmas){
 			
-			boolean posicionesIguales = (this.posicion.equals(unFantasma.getPosicion()));
+			boolean posicionesIguales = (this.getPosicion().equals(unFantasma.getPosicion()));
 			if(!posicionesIguales){
 				return;
 			}
@@ -133,7 +129,7 @@ public class Pacman extends Personaje{
 	
 	private void regresarAPosicionOriginal(){
 		
-		this.posicion = this.posicionInicial;
+		this.setPosicion(super.getPosicionInicial());
 	}
 
 	

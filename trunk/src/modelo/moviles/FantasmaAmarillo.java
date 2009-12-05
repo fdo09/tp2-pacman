@@ -9,13 +9,11 @@ import modelo.fijos.Tablero;
 public class FantasmaAmarillo extends Fantasma {
 	
 	public static final int PUNTOS = 200;
-	private Tablero tablero;
-	private int puntos;
 	
 
 	public FantasmaAmarillo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		this.puntos = PUNTOS;
+		super.setPuntos(PUNTOS);
 	}
 
 
@@ -24,7 +22,7 @@ public class FantasmaAmarillo extends Fantasma {
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
 		 * Esta estrategia devuelve siempre el adjacente valido que esta a menor distancia del pacman
 		 */
-		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		return posicionesOrdenadasPacman.peekFirst();
 	}
@@ -35,13 +33,9 @@ public class FantasmaAmarillo extends Fantasma {
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
 		 * Esta estrategia devuelve siempre el adjacente valido que esta a mayor distancia del pacman
 		 */
-		Punto posicionPacman = tablero.obtenerPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
 		return posicionesOrdenadasPacman.peekLast();
-	}
-
-	public int obtenerPuntos() {
-		return this.puntos;
 	}
 	
 }

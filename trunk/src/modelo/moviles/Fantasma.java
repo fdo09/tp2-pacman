@@ -10,26 +10,17 @@ enum Estados{ATRAPAR, HUIR, COMIDO};
 
 public abstract class Fantasma extends Personaje {
 
-	protected Tablero tablero;
-	protected Punto posicion;
-	protected Punto casa;
 	private Estados estado;
 	private int puntos;
-	
 
 	public Fantasma(Tablero tablero, Punto posicion) {
-		
-		this.estado = Estados.ATRAPAR;
-		this.tablero = tablero;
-		this.posicion = posicion;
-		this.casa = posicion;
+		super(tablero, posicion);
+		this.setEstado(Estados.ATRAPAR);
 	}
 	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
 
 	protected abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
-	
-	protected abstract int obtenerPuntos();
 	
 	public void mover(){
 		/*
@@ -38,52 +29,52 @@ public abstract class Fantasma extends Personaje {
 		 * Luego de moverse verifica si esta en la misma posicion que el pacman para comerselo o ser comido por �l.
 		 */
 		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = this.tablero.obtenerAdjacentesValidos(this.posicion);
+		Collection<Punto> adjacentesValidos = this.getTablero().obtenerAdjacentesValidos(this.getPosicion());
 		
-		switch (this.estado){
+		switch (this.getEstado()){
 		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
-			this.posicion = nuevaPosicion;
+			this.setPosicion(nuevaPosicion);
 			this.comer();
 			break; //FEDE no lo borres
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
-			this.posicion = nuevaPosicion;
+			this.setPosicion(nuevaPosicion);
 			this.serComido();
 			break;
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
-			this.posicion = nuevaPosicion;
+			this.setPosicion(nuevaPosicion);
 		}
 	}
 	
 	
 	protected void comer() {
-		Pacman pacman = this.tablero.obtenerPacman();
-		if(this.posicion.equals(pacman.obtenerPosicion())){
+		Pacman pacman = this.getTablero().obtenerPacman();
+		if(this.getPosicion().equals(pacman.obtenerPosicion())){
 			pacman.serComido();
 		}
 	}
 	
 	
 	protected void serComido(){
-		Pacman pacman = this.tablero.obtenerPacman();
+		Pacman pacman = this.getTablero().obtenerPacman();
 		Punto posicionPacman = pacman.obtenerPosicion();
-		if(this.posicion.equals(posicionPacman)){
-			this.estado = Estados.COMIDO;
-			this.posicion = this.casa;
+		if(this.getPosicion().equals(posicionPacman)){
+			this.setEstado(Estados.COMIDO);
+			this.setPosicion(super.getPosicionInicial());
 			this.estado = Estados.ATRAPAR;
 		}
 	}
 	
 	
 	public boolean esComible(){
-		return (this.estado == Estados.HUIR);
+		return (this.getEstado() == Estados.HUIR);
 	}
 	
 	
 	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
-		Punto destino = this.tablero.obtenerCasa();
+		Punto destino = this.getTablero().obtenerCasa();
 		LinkedList<Punto> posicionesDestino = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
 		return posicionesDestino.pop();
 		
@@ -91,21 +82,21 @@ public abstract class Fantasma extends Personaje {
 
 	
 	public Punto getPosicion(){
-		return this.posicion;
+		return super.getPosicion();
 	}
 
 
 	public void cambiarEstado() {
 		
-		this.estado = Estados.HUIR;
+		this.setEstado(Estados.HUIR);
 		
 	}
 
 	protected LinkedList<Punto> obtenerFantasmasOrdenadosPorDistancia() {
 		
-		LinkedList<Punto> posicionesDeFantasmas = tablero.obtenerPosicionesDeFantasmas();
+		LinkedList<Punto> posicionesDeFantasmas = getTablero().obtenerPosicionesDeFantasmas();
 		
-		Punto posicionDelPacman = tablero.obtenerPacman().obtenerPosicion();
+		Punto posicionDelPacman = getTablero().obtenerPacman().obtenerPosicion();
 		
 		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
 		
@@ -113,9 +104,37 @@ public abstract class Fantasma extends Personaje {
 		
 		return posicionesDeFantasmasOrdenadas;
 	}
-	
-	public void setPosicion(Punto nuevaUbicacion){
-		this.posicion = nuevaUbicacion;
+
+	public int obtenerPuntos() {
+		return this.puntos;
+	}
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+
+	public int getPuntos() {
+		return puntos;
+	}
+
+	public void setTablero(Tablero tablero) {
+		super.setTablero(tablero);
+	}
+
+	public Tablero getTablero() {
+		return super.getTablero();
+	}
+
+	public void setEstado(Estados estado) {
+		this.estado = estado;
+	}
+
+	public Estados getEstado() {
+		return estado;
+	}
+
+	public void setPosicion(Punto posicion) {
+		super.setPosicion(posicion);
 	}
 
 	
