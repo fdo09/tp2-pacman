@@ -26,7 +26,7 @@ public class PuntoDePoder extends Casillero{
 	public void accionar() {
 		
 		if(!fuePisado){
-			ArrayList<Fantasma> fantasmas = super.tablero.obtenerFantasmas();
+			ArrayList<Fantasma> fantasmas = super.tablero.getFantasmas();
 			
 				for(Fantasma unFantasma : fantasmas){
 			

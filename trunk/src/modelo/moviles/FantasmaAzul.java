@@ -26,11 +26,11 @@ public class FantasmaAzul extends Fantasma {
 		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas cercano al pacman. En caso de que no haya 
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
-		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
-		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(super.getPosicion())){
 			return posicionesOrdenadasPacman.peekFirst();
@@ -55,11 +55,11 @@ public class FantasmaAzul extends Fantasma {
 		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas lejano al pacman. En caso de que no haya 
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
-		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
-		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(super.getPosicion())){
 			return posicionesOrdenadasPacman.peekLast();

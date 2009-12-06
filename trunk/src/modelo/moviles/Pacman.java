@@ -46,7 +46,7 @@ public class Pacman extends Personaje{
 
 	private void moverIzquierda() {
 		
-		Punto vecino = this.getPosicion().obtenerVecinoIzquierdo();
+		Punto vecino = this.getPosicion().getVecinoIzquierdo();
 		
 		if(super.getTablero().esTransitable(vecino)){
 			
@@ -58,7 +58,7 @@ public class Pacman extends Personaje{
 	
 	private void moverArriba() {
 		
-		Punto vecino = this.getPosicion().obtenerVecinoDeArriba();
+		Punto vecino = this.getPosicion().getVecinoDeArriba();
 		
 		if(super.getTablero().esTransitable(vecino)){
 			
@@ -70,7 +70,7 @@ public class Pacman extends Personaje{
 	
 	private void moverDerecha() {
 		
-		Punto vecino = this.getPosicion().obtenerVecinoDerecho();
+		Punto vecino = this.getPosicion().getVecinoDerecho();
 		
 		if(super.getTablero().esTransitable(vecino)){
 			
@@ -82,7 +82,7 @@ public class Pacman extends Personaje{
 
 	private void moverAbajo() {
 		
-		Punto vecino = this.getPosicion().obtenerVecinoDeAbajo();
+		Punto vecino = this.getPosicion().getVecinoDeAbajo();
 		
 		if(super.getTablero().esTransitable(vecino)){
 			
@@ -101,7 +101,7 @@ public class Pacman extends Personaje{
 	
 	private void comer(){
 		
-		Collection<Fantasma> fantasmas = super.getTablero().obtenerFantasmas();
+		Collection<Fantasma> fantasmas = super.getTablero().getFantasmas();
 		for(Fantasma unFantasma : fantasmas){
 			
 			boolean posicionesIguales = (this.getPosicion().equals(unFantasma.getPosicion()));

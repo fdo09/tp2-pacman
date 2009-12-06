@@ -70,17 +70,17 @@ public class Punto  {
 	/**Devuelve una colección de objetos de clase Punto adyacentes al pasado por parametro.
 	 * @return Collection<Punto>
 	 */
-	public Collection<Punto> obtenerPuntosAdyacentes(){
+	public Collection<Punto> getPuntosAdyacentes(){
 		
 		Collection<Punto> vecinos = new ArrayList<Punto>();
 		
-		Punto vecinoIzquierdo = this.obtenerVecinoIzquierdo();
+		Punto vecinoIzquierdo = this.getVecinoIzquierdo();
 				
-		Punto vecinoDeArriba = this.obtenerVecinoDeArriba();
+		Punto vecinoDeArriba = this.getVecinoDeArriba();
 				
-		Punto vecinoDerecho = this.obtenerVecinoDerecho();
+		Punto vecinoDerecho = this.getVecinoDerecho();
 		
-		Punto vecinoDeAbajo = this.obtenerVecinoDeAbajo();
+		Punto vecinoDeAbajo = this.getVecinoDeAbajo();
 		
 		vecinos.add(vecinoIzquierdo);
 		
@@ -113,22 +113,22 @@ public class Punto  {
 	
 	//Obtenemos los puntos vecinos a un punto.
 	
-	public Punto obtenerVecinoIzquierdo() {
+	public Punto getVecinoIzquierdo() {
 		Punto puntoAux = new Punto (this.X - 1, this.Y);
 		return puntoAux;
 	}
 	
-	public Punto obtenerVecinoDeArriba() {
+	public Punto getVecinoDeArriba() {
 		Punto puntoAux = new Punto (this.X, this.Y - 1);
 		return puntoAux;
 	}
 
-	public Punto obtenerVecinoDerecho() {
+	public Punto getVecinoDerecho() {
 		Punto puntoAux = new Punto (this.X + 1, this.Y);
 		return puntoAux;
 	}
 	
-	public Punto obtenerVecinoDeAbajo() {
+	public Punto getVecinoDeAbajo() {
 		Punto puntoAux = new Punto (this.X, this.Y + 1);
 		return puntoAux;
 	}
@@ -162,25 +162,38 @@ public class Punto  {
 		this.Y = posicionOriginal.Y;
 	}
 	
-	public LinkedList<Punto> obtenerPosicionesOrdenadas(Collection<Punto> listaDeUbicaciones){
+	public LinkedList<Punto> getPosicionesOrdenadas(Collection<Punto> listaDeUbicaciones){
+		
 		LinkedList<Punto> pilaPosiciones = new LinkedList<Punto>();
+		
 		while(!listaDeUbicaciones.isEmpty()){
+			
 			Punto puntoAux;
+			
 			puntoAux = this.calcularPosicionLejana(listaDeUbicaciones);
+			
 			pilaPosiciones.push(puntoAux);
+			
 			listaDeUbicaciones.remove(puntoAux);
 		}
 		return pilaPosiciones;
 	}
 		
 	private Punto calcularPosicionLejana(Collection<Punto> vecinos){
+		
 		double mayorDistancia = 0;
 		double distanciaAux;
+		
 		Punto ptoMasLejano = this;
+		
 		for (Punto punto : vecinos){
+			
 			distanciaAux = punto.distancia(this);
+			
 			if (distanciaAux > mayorDistancia){
+				
 				mayorDistancia = distanciaAux;
+				
 				ptoMasLejano = punto;
 			}
 		}

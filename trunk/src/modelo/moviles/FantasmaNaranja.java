@@ -24,7 +24,7 @@ public class FantasmaNaranja extends Fantasma {
 	 */
 	public void mover(){
 		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = this.getTablero().obtenerAdjacentesValidos(super.getPosicion());
+		Collection<Punto> adjacentesValidos = this.getTablero().getAdjacentesValidos(super.getPosicion());
 		switch (super.getEstado()){
 		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
@@ -49,15 +49,22 @@ public class FantasmaNaranja extends Fantasma {
 		 * En esta estrategia, si este fantasma es el mas cercano al pacman, devulve el adjacente mas ceracno al pacman.
 		 * En cambio si no es el mas cercano, devuelve el adjacente mas cercano al fantasma mas cercano. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
+		
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
+		
 		if (fantasmaMasCercano.equals(super.getPosicion())){
-			Punto posicionPacman = getTablero().obtenerPacman().obtenerPosicion();
-			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+			
+			Punto posicionPacman = getTablero().getPacman().obtenerPosicion();
+			
+			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
+			
 			return posicionesOrdenadasPacman.peekFirst();
 		}
 		else {
-			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasCercano.obtenerPosicionesOrdenadas(adjacentesValidos);
+			
+			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasCercano.getPosicionesOrdenadas(adjacentesValidos);
+			
 			return posicionesAFantasmaCercano.peekFirst();
 		}
 	}
@@ -69,15 +76,22 @@ public class FantasmaNaranja extends Fantasma {
 		 * En esta estrategia, si este fantasma es el mas lejano al pacman, devulve el adjacente mas lejano al pacman.
 		 * En cambio si no es el mas lejano, devuelve el adjacente mas cercano al fantasma mas cercano. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.obtenerFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
+		
 		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
+		
 		if (fantasmaMasLejano.equals(super.getPosicion())){
-			Punto posicionPacman = getTablero().obtenerPacman().obtenerPosicion();
-			LinkedList<Punto> posicionesAPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+			
+			Punto posicionPacman = getTablero().getPacman().obtenerPosicion();
+			
+			LinkedList<Punto> posicionesAPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
+			
 			return posicionesAPacman.peekLast();
 		}
 		else {
-			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasLejano.obtenerPosicionesOrdenadas(adjacentesValidos);
+			
+			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasLejano.getPosicionesOrdenadas(adjacentesValidos);
+			
 			return posicionesAFantasmaCercano.peekFirst();
 		}
 			

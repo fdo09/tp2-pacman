@@ -63,7 +63,7 @@ public class PuntoTest extends TestCase {
 				
 		ArrayList<Punto> vecinosDePunto3 = new ArrayList<Punto>();
 		
-		vecinosDePunto3 = (ArrayList<Punto>) punto3.obtenerPuntosAdyacentes();
+		vecinosDePunto3 = (ArrayList<Punto>) punto3.getPuntosAdyacentes();
 		
 		//punto3 = (1,3)
 		
@@ -100,7 +100,7 @@ public class PuntoTest extends TestCase {
 		
 		ArrayList<Punto> vecinosDePunto3 = new ArrayList<Punto>();
 		
-		vecinosDePunto3 = (ArrayList<Punto>) punto3.obtenerPuntosAdyacentes();
+		vecinosDePunto3 = (ArrayList<Punto>) punto3.getPuntosAdyacentes();
 		
 		assertEquals(tamanioListaVecinos, vecinosDePunto3.size());
 				
@@ -197,7 +197,7 @@ public class PuntoTest extends TestCase {
 		
 		
 		
-		LinkedList<Punto> listaOrdenada = punto1.obtenerPosicionesOrdenadas(listaDePuntos);
+		LinkedList<Punto> listaOrdenada = punto1.getPosicionesOrdenadas(listaDePuntos);
 		
 		Punto elementoEsperado = listaOrdenada.pop();
 		
