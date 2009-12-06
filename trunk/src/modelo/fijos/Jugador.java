@@ -40,5 +40,6 @@ public class Jugador {
 		
 		this.cantVidas += 1;
 	}
-
+	
+	
 }

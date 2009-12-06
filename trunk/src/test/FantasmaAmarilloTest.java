@@ -3,6 +3,7 @@ package test;
 import junit.framework.TestCase;
 import modelo.fijos.CargaTablero;
 import modelo.fijos.Casillero;
+import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
@@ -11,6 +12,8 @@ import modelo.moviles.Pacman;
 
 public class FantasmaAmarilloTest extends TestCase {
 
+
+	
 	private Tablero tab;
 	
 	private Fantasma fantasmaAmarillo;
@@ -18,6 +21,9 @@ public class FantasmaAmarilloTest extends TestCase {
 	private Pacman pacman;
 
 	protected void setUp() throws Exception {
+		
+		
+		 
 		
 		   CargaTablero cargador = new CargaTablero();
 		   
@@ -158,7 +164,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		   	
 	}
 	
-	public void testregresar() {
+	public void testRegresar() {
 		
 		fantasmaAmarillo.cambiarEstado();//Ahora huye
 		
@@ -170,10 +176,11 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
 		
-		
-		
+	
 		
 	}
+	
+	
 	
 	
 }

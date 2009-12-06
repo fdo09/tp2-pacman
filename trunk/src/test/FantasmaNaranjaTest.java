@@ -7,9 +7,7 @@ import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
 import modelo.moviles.FantasmaAmarillo;
-import modelo.moviles.FantasmaAzul;
 import modelo.moviles.FantasmaNaranja;
-import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 
 public class FantasmaNaranjaTest extends TestCase {
@@ -29,7 +27,7 @@ private Tablero tab;
 		   		 
 		   //Agrego FantasmaNaranja a tablero.
 		   
-		   Punto ubicacionNaranja = new Punto(4,2);
+		   Punto ubicacionNaranja = new Punto(3,1);
 		 		  
 		   fantasmaNaranja = new FantasmaNaranja(tab, ubicacionNaranja);
 		 
@@ -38,7 +36,7 @@ private Tablero tab;
 		   
 		   //Agrego FantasmaAmarillo a tablero.
 		   
-		   Punto ubicacionAmarillo = new Punto(7,3);
+		   Punto ubicacionAmarillo = new Punto(6,2);
 	 		  
 		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
@@ -48,7 +46,7 @@ private Tablero tab;
 		   
 		   //Agrego Pacman a tablero.
 		 
-		   Punto puntoPacman = new Punto(2,4);
+		   Punto puntoPacman = new Punto(1,3);
 		   
 		   pacman = new Pacman(tab, puntoPacman);
 		   
@@ -61,7 +59,7 @@ private Tablero tab;
 	public void testAtrapar(){
 		
 		
-		Punto posicionEsperada = new Punto (3,2);
+		Punto posicionEsperada = new Punto (2,1);
 		
 		fantasmaNaranja.mover();
 		
@@ -91,8 +89,6 @@ private Tablero tab;
 		
 		fantasmaNaranja.mover();
 		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
 		assertEquals(pacman.obtenerPosicion(), fantasmaNaranja.getPosicion());
 		
 		//-----------
@@ -103,9 +99,13 @@ private Tablero tab;
 	
 	public void testAtrapar2(){
 		
-		Punto nuevaUbicacionAmarillo = new Punto(4,4);
+		Punto nuevaUbicacionAmarillo = new Punto(1,4);
 		
 		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
+		
+		Punto nuevaUbicacionNaranja = new Punto(3,1);
+		
+		fantasmaNaranja.setPosicion(nuevaUbicacionNaranja);
 		
 		Punto posicionEsperada = new Punto (3,2);
 		
@@ -115,6 +115,13 @@ private Tablero tab;
 		
 		//---------
 		
+		posicionEsperada.moverHaciaDerecha();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//-----------
 		
 		posicionEsperada.moverHaciaDerecha();
 		
@@ -122,11 +129,43 @@ private Tablero tab;
 		
 		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
 		
-		assertEquals(fantasmaAmarillo.getPosicion(), fantasmaNaranja.getPosicion());
+		//-----------
+		
+		
+		posicionEsperada.moverHaciaDerecha();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
 		
 		//-----------
 		
-		posicionEsperada.moverHaciaDerecha();
+	
+		posicionEsperada.moverHaciaArriba();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//-----------
+		
+		posicionEsperada.moverHaciaArriba();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//-----------
+		
+		posicionEsperada.moverHaciaIzquierda();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+				
+		//-----------
+		
+		posicionEsperada.moverHaciaIzquierda();
 		
 		fantasmaNaranja.mover();
 		
@@ -134,20 +173,14 @@ private Tablero tab;
 		
 		assertEquals(pacman.obtenerPosicion(), fantasmaNaranja.getPosicion());
 		
-		//-----------
-		
-		
 	}	
-	
-	
-	
 	
 	
 	public void testHuir(){
 		
 		Casillero unCasillero; 
 		
-	   	Punto unPunto = new Punto(2,5);
+	   	Punto unPunto = new Punto(6,4);
 		
 	   	unCasillero = tab.getCasillero(unPunto);
 	   	
@@ -159,7 +192,7 @@ private Tablero tab;
 	 	assertTrue(fantasmaAmarillo.esComible());
 	   	
 	 	
-		Punto posicionEsperada = new Punto (5,2);
+		Punto posicionEsperada = new Punto (4,1);
 		
 		fantasmaNaranja.mover();
 		

@@ -12,7 +12,7 @@ public class Juego {
 	private EstadosJuego estadoJuego;
 
 
-	private Juego(){
+	public Juego(){
 		CargaTablero cargador = new CargaTablero();
 		this.tablero = cargador.cargar(ARCHIVO);
 		this.tablero.cargarPersonajes();
