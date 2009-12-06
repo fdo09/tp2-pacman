@@ -29,9 +29,9 @@ public class FantasmaAmarilloTest extends TestCase {
 		   tab = cargador.cargar("xml/miniTablero.xml");
 		 
 		   
-		   //Agrego FantasmaAmarillo al tablero.
+		   //Agrego FantasmaAmarillo al tablero, sale desde su casa.
 		   
-		   Punto ubicacionAmarillo = new Punto(3,2);
+		   Punto ubicacionAmarillo = new Punto(3,5);
 		 		  
 		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
@@ -56,7 +56,7 @@ public class FantasmaAmarilloTest extends TestCase {
 	public void testAtrapar(){
 		
 		
-		Punto posicionEsperada = new Punto (4,2);
+		Punto posicionEsperada = new Punto (3,4);
 		
 		fantasmaAmarillo.mover();
 		
@@ -81,16 +81,10 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		//-----------
 		
-		posicionEsperada.moverHaciaAbajo();
+		posicionEsperada.moverHaciaDerecha();
 		
 		fantasmaAmarillo.mover();
 		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
-		
-		//-----------
-		posicionEsperada.moverHaciaAbajo();
-		
-		fantasmaAmarillo.mover();
 		
 		assertTrue(pacman.obtenerPosicion().equals(fantasmaAmarillo.getPosicion()));
 		
@@ -115,13 +109,21 @@ public class FantasmaAmarilloTest extends TestCase {
 	   	assertTrue(fantasmaAmarillo.esComible());
 	   	
 	   	
-		Punto posicionEsperada = new Punto (2,2);
+		Punto posicionEsperada = new Punto (3,4);
 		
 		fantasmaAmarillo.mover();
 		
 		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//---------
+		
+		posicionEsperada.moverHaciaIzquierda();
+		
+		fantasmaAmarillo.mover();
+		
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		
+		//-----------
 		
 		posicionEsperada.moverHaciaIzquierda();
 		
@@ -140,17 +142,6 @@ public class FantasmaAmarilloTest extends TestCase {
 		//-----------
 		
 		
-		 /* Vuelve a subir porque se da cuenta que si baja uno mas se acerca 
-		al Pacman*/
-		
-		posicionEsperada.moverHaciaArriba();
-		
-		fantasmaAmarillo.mover();
-		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
-		
-		//-----------		
-		
 		   	
 	}
 	
@@ -166,7 +157,6 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
 		
-	
 	}
 	
 	
