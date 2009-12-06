@@ -3,7 +3,6 @@ package test;
 import junit.framework.TestCase;
 import modelo.fijos.CargaTablero;
 import modelo.fijos.Casillero;
-import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
@@ -41,7 +40,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		 
 		   //Agrego Pacman al tablero.
 		   
-		   Punto puntoPacman = new Punto(6,2);
+		   Punto puntoPacman = new Punto(6,4);
 		   
 		   pacman = new Pacman(tab, puntoPacman);
 		   
@@ -51,6 +50,8 @@ public class FantasmaAmarilloTest extends TestCase {
 		   super.setUp();
 			
 		}
+	
+	
 	
 	public void testAtrapar(){
 		
@@ -80,6 +81,20 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		//-----------
 		
+		posicionEsperada.moverHaciaAbajo();
+		
+		fantasmaAmarillo.mover();
+		
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		
+		//-----------
+		posicionEsperada.moverHaciaAbajo();
+		
+		fantasmaAmarillo.mover();
+		
+		assertTrue(pacman.obtenerPosicion().equals(fantasmaAmarillo.getPosicion()));
+		
+		//-----------
 		
 	}	
 	
@@ -91,7 +106,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		Casillero unCasillero; 
 		
-	   	Punto unPunto = new Punto(2,5);
+	   	Punto unPunto = new Punto(5,2);
 		
 	   	unCasillero = tab.getCasillero(unPunto); // punto de poder
 	   	
@@ -108,7 +123,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		//---------
 		
-		posicionEsperada.moverHaciaAbajo();
+		posicionEsperada.moverHaciaIzquierda();
 		
 		fantasmaAmarillo.mover();
 		
@@ -117,6 +132,18 @@ public class FantasmaAmarilloTest extends TestCase {
 		//-----------
 		
 		posicionEsperada.moverHaciaAbajo();
+		
+		fantasmaAmarillo.mover();
+		
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		
+		//-----------
+		
+		
+		 /* Vuelve a subir porque se da cuenta que si baja uno mas se acerca 
+		al Pacman*/
+		
+		posicionEsperada.moverHaciaArriba();
 		
 		fantasmaAmarillo.mover();
 		
@@ -131,7 +158,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.cambiarEstado();//Ahora huye
 		
-		Punto puntoDeChoque = new Punto(5,2);
+		Punto puntoDeChoque = new Punto(5,4);
 		
 		fantasmaAmarillo.setPosicion(puntoDeChoque);
 		
@@ -140,7 +167,6 @@ public class FantasmaAmarilloTest extends TestCase {
 		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
 		
 	
-		
 	}
 	
 	
