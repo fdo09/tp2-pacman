@@ -15,13 +15,13 @@ public class TableroTest extends TestCase {
 	protected void setUp() throws Exception {
 			
 		   CargaTablero cargador = new CargaTablero();
-		   tab = cargador.cargar("xml/tablero.xml");
+		   tab = cargador.cargar("xml/miniTablero.xml");
 		   super.setUp();
 			
 		}
 
 	  public void testEsTransitable(){
-		  Punto nuevo = new Punto(1,1);
+		  Punto nuevo = new Punto(2,2);
 		  assertTrue(tab.esTransitable(nuevo));
 	  }
 	  
