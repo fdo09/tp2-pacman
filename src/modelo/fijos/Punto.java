@@ -176,15 +176,15 @@ public class Punto  {
 	private Punto calcularPosicionLejana(Collection<Punto> vecinos){
 		double mayorDistancia = 0;
 		double distanciaAux;
-		Punto ptoMasCercano = this;
+		Punto ptoMasLejano = this;
 		for (Punto punto : vecinos){
 			distanciaAux = punto.distancia(this);
-			if (distanciaAux >= mayorDistancia){
+			if (distanciaAux > mayorDistancia){
 				mayorDistancia = distanciaAux;
-				ptoMasCercano = punto;
+				ptoMasLejano = punto;
 			}
 		}
-		return ptoMasCercano;
+		return ptoMasLejano;
 	}
 	
 

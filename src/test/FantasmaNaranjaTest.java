@@ -27,7 +27,7 @@ private Tablero tab;
 		   		 
 		   //Agrego FantasmaNaranja a tablero.
 		   
-		   Punto ubicacionNaranja = new Punto(3,1);
+		   Punto ubicacionNaranja = new Punto(1,4);
 		 		  
 		   fantasmaNaranja = new FantasmaNaranja(tab, ubicacionNaranja);
 		 
@@ -36,7 +36,7 @@ private Tablero tab;
 		   
 		   //Agrego FantasmaAmarillo a tablero.
 		   
-		   Punto ubicacionAmarillo = new Punto(6,2);
+		   Punto ubicacionAmarillo = new Punto(1,2);
 	 		  
 		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
@@ -46,7 +46,7 @@ private Tablero tab;
 		   
 		   //Agrego Pacman a tablero.
 		 
-		   Punto puntoPacman = new Punto(1,3);
+		   Punto puntoPacman = new Punto(6,7);
 		   
 		   pacman = new Pacman(tab, puntoPacman);
 		   
@@ -59,7 +59,10 @@ private Tablero tab;
 	public void testAtrapar(){
 		
 		
-		Punto posicionEsperada = new Punto (2,1);
+		/* El FantasmaAmarillo esta mas lejos del Pacman, por lo tanto el FantasmaNaranja
+		   va directo en busca del mismo*/
+		
+		Punto posicionEsperada = new Punto (2,4);
 		
 		fantasmaNaranja.mover();
 		
@@ -68,7 +71,7 @@ private Tablero tab;
 		//---------
 		
 		
-		posicionEsperada.moverHaciaArriba();
+		posicionEsperada.moverHaciaDerecha();
 		
 		fantasmaNaranja.mover();
 		
@@ -76,6 +79,13 @@ private Tablero tab;
 		
 		//-----------
 		
+		posicionEsperada.moverHaciaDerecha();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//-----------
 		
 		posicionEsperada.moverHaciaDerecha();
 		
@@ -86,6 +96,32 @@ private Tablero tab;
 		//-----------
 		
 		posicionEsperada.moverHaciaDerecha();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//-----------
+		
+		posicionEsperada.moverHaciaAbajo();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//-----------
+		
+
+		posicionEsperada.moverHaciaAbajo();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//-----------
+		
+
+		posicionEsperada.moverHaciaAbajo();
 		
 		fantasmaNaranja.mover();
 		
@@ -99,15 +135,20 @@ private Tablero tab;
 	
 	public void testAtrapar2(){
 		
-		Punto nuevaUbicacionAmarillo = new Punto(1,4);
+		
+		/* Ubico al FantasmaAmarillo mas cerca del Pacman que el FantasmaNaranaja,
+		 * por lo tanto primero tendrá que acercarse a el, y luego ir ambos en busca del Pacman.
+		 * 
+		 */
+		
+		Punto nuevaUbicacionAmarillo = new Punto(4,7);
 		
 		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
 		
-		Punto nuevaUbicacionNaranja = new Punto(3,1);
 		
-		fantasmaNaranja.setPosicion(nuevaUbicacionNaranja);
+		//Comienzan los movimientos.
 		
-		Punto posicionEsperada = new Punto (3,2);
+		Punto posicionEsperada = new Punto (1,5);
 		
 		fantasmaNaranja.mover();
 		
@@ -115,7 +156,8 @@ private Tablero tab;
 		
 		//---------
 		
-		posicionEsperada.moverHaciaDerecha();
+				
+		posicionEsperada.moverHaciaAbajo();
 		
 		fantasmaNaranja.mover();
 		
@@ -123,16 +165,8 @@ private Tablero tab;
 		
 		//-----------
 		
-		posicionEsperada.moverHaciaDerecha();
 		
-		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
-		//-----------
-		
-		
-		posicionEsperada.moverHaciaDerecha();
+		posicionEsperada.moverHaciaAbajo();
 		
 		fantasmaNaranja.mover();
 		
@@ -141,7 +175,7 @@ private Tablero tab;
 		//-----------
 		
 	
-		posicionEsperada.moverHaciaArriba();
+		posicionEsperada.moverHaciaDerecha();
 		
 		fantasmaNaranja.mover();
 		
@@ -149,7 +183,7 @@ private Tablero tab;
 		
 		//-----------
 		
-		posicionEsperada.moverHaciaArriba();
+		posicionEsperada.moverHaciaDerecha();
 		
 		fantasmaNaranja.mover();
 		
@@ -157,26 +191,38 @@ private Tablero tab;
 		
 		//-----------
 		
-		posicionEsperada.moverHaciaIzquierda();
+		posicionEsperada.moverHaciaDerecha();
 		
 		fantasmaNaranja.mover();
 		
 		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		assertEquals(fantasmaAmarillo.getPosicion(),fantasmaNaranja.getPosicion());
 				
 		//-----------
 		
-		posicionEsperada.moverHaciaIzquierda();
+		posicionEsperada.moverHaciaDerecha();
 		
 		fantasmaNaranja.mover();
 		
 		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
 		
+				
+		//-----------
+		
+		posicionEsperada.moverHaciaDerecha();
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
 		assertEquals(pacman.obtenerPosicion(), fantasmaNaranja.getPosicion());
+		
+		//-----------
 		
 	}	
 	
 	
 	public void testHuir(){
+		
 		
 		Casillero unCasillero; 
 		
