@@ -32,7 +32,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		   
 		   //Agrego FantasmaAmarillo al tablero.
 		   
-		   Punto ubicacionAmarillo = new Punto(3,3);
+		   Punto ubicacionAmarillo = new Punto(3,2);
 		 		  
 		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
@@ -55,7 +55,7 @@ public class FantasmaAmarilloTest extends TestCase {
 	public void testAtrapar(){
 		
 		
-		Punto posicionEsperada = new Punto (3,2);
+		Punto posicionEsperada = new Punto (4,2);
 		
 		fantasmaAmarillo.mover();
 		
@@ -64,33 +64,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		//---------
 		
 		
-		posicionEsperada.moverHaciaIzquierda();
-		
-		fantasmaAmarillo.mover();
-		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
-		
-		//-----------
-		
-		
-		posicionEsperada.moverHaciaAbajo();
-		
-		fantasmaAmarillo.mover();
-		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
-		
-		//-----------
-		
-		posicionEsperada.moverHaciaAbajo();
-		
-		fantasmaAmarillo.mover();
-		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
-		
-		//-----------
-		
-		
-		posicionEsperada.moverHaciaAbajo();
+		posicionEsperada.moverHaciaDerecha();
 		
 		fantasmaAmarillo.mover();
 		
@@ -117,16 +91,16 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		Casillero unCasillero; 
 		
-	   	Punto unPunto = new Punto(1,4);
+	   	Punto unPunto = new Punto(2,5);
 		
-	   	unCasillero = tab.getCasillero(unPunto);
+	   	unCasillero = tab.getCasillero(unPunto); // punto de poder
 	   	
 	   	unCasillero.accionar();
 	   	
 	   	assertTrue(fantasmaAmarillo.esComible());
 	   	
 	   	
-		Punto posicionEsperada = new Punto (3,4);
+		Punto posicionEsperada = new Punto (2,2);
 		
 		fantasmaAmarillo.mover();
 		
@@ -134,7 +108,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		//---------
 		
-		posicionEsperada.moverHaciaDerecha();
+		posicionEsperada.moverHaciaAbajo();
 		
 		fantasmaAmarillo.mover();
 		
@@ -142,24 +116,13 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		//-----------
 		
-		posicionEsperada.moverHaciaArriba();
+		posicionEsperada.moverHaciaAbajo();
 		
 		fantasmaAmarillo.mover();
 		
 		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
-		//-----------
-		
-		
-		posicionEsperada.moverHaciaArriba();
-		
-		fantasmaAmarillo.mover();
-		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
-		
-		//-----------
-		
-		
+		//-----------		
 		
 		   	
 	}
@@ -168,7 +131,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.cambiarEstado();//Ahora huye
 		
-		Punto puntoDeChoque = new Punto(6,1);
+		Punto puntoDeChoque = new Punto(5,2);
 		
 		fantasmaAmarillo.setPosicion(puntoDeChoque);
 		

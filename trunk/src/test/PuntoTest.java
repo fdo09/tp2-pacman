@@ -74,19 +74,19 @@ public class PuntoTest extends TestCase {
 		
 		boolean contieneVecino;
 		
-		contieneVecino = vecinosDePunto3.get(0).equals(vecinoIzquierdo);
+		contieneVecino = vecinosDePunto3.contains(vecinoIzquierdo);
 		
 		assertTrue(contieneVecino);
 		
-		contieneVecino = vecinosDePunto3.get(1).equals((vecinoDeArriba));
+		contieneVecino = vecinosDePunto3.contains(vecinoDeArriba);
 		
 		assertTrue(contieneVecino);
 		
-		contieneVecino = vecinosDePunto3.get(2).equals((vecinoDerecho));
+		contieneVecino = vecinosDePunto3.contains(vecinoDerecho);
 		
 		assertTrue(contieneVecino);
 		
-		contieneVecino = vecinosDePunto3.get(3).equals((vecinoDeAbajo));
+		contieneVecino = vecinosDePunto3.contains(vecinoDeAbajo);
 		
 		assertTrue(contieneVecino);
 	
@@ -124,15 +124,15 @@ public class PuntoTest extends TestCase {
 	
 	public void testMoverHaciaArriba(){
 		
+		//punto2 = (1,2)
+		
+		punto2.moverHaciaArriba();
+		
 		//punto1 = (1,1)
 		
-		punto1.moverHaciaArriba();
+		Punto posicionEsperada = new Punto(1,1);
 		
-		//punto1 = (1,2)
-		
-		Punto posicionEsperada = new Punto(1,2);
-		
-		boolean puntosIguales = (posicionEsperada.equals(punto1));
+		boolean puntosIguales = (posicionEsperada.equals(punto2));
 		
 		assertTrue(puntosIguales);
 		
@@ -162,9 +162,9 @@ public class PuntoTest extends TestCase {
 	
 		punto1.moverHaciaAbajo();
 	
-		//punto1 = (1,0)
+		//punto1 = (1,2)
 	
-		Punto posicionEsperada = new Punto(1,0);
+		Punto posicionEsperada = new Punto(1,2);
 	
 		boolean puntosIguales = (posicionEsperada.equals(punto1));
 		
