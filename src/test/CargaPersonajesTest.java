@@ -57,7 +57,7 @@ public class CargaPersonajesTest extends TestCase {
 	
 	public void testCantidadDeFantasmas(){
 		Collection <Fantasma> cantFantasmas;
-		cantFantasmas = tab.obtenerFantasmas();
+		cantFantasmas = tab.getFantasmas();
 		Iterator <Fantasma> itera = cantFantasmas.iterator();
 		int r = 0;
 		while (itera.hasNext()){

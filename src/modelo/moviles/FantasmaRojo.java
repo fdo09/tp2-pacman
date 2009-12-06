@@ -31,7 +31,7 @@ public class FantasmaRojo extends Fantasma {
 		 * o huir depende de este estado de inteligencia		
 		 */
 		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = super.getTablero().obtenerAdjacentesValidos(super.getPosicion());
+		Collection<Punto> adjacentesValidos = super.getTablero().getAdjacentesValidos(super.getPosicion());
 		this.definirInteligencia();
 		
 		switch (super.getEstado()){
@@ -39,10 +39,12 @@ public class FantasmaRojo extends Fantasma {
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
 			super.setPosicion(nuevaPosicion);
 			this.comer();
+		
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
 			super.setPosicion(nuevaPosicion);
 			this.serComido();
+		
 		case COMIDO:
 			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
 			super.setPosicion(nuevaPosicion);
@@ -72,8 +74,10 @@ public class FantasmaRojo extends Fantasma {
 		 * En cambio si el estado de inteligencia es "TONTO", 
 		 * devuelve el adjacente valido que esta a mayor distancia del pacman.
 		 */
-		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
-		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
+		
 		if(this.intel == Inteligencias.INTELIGENTE)
 			return posicionesOrdenadasPacman.peekFirst();
 		else
@@ -90,8 +94,10 @@ public class FantasmaRojo extends Fantasma {
 		 * En cambio si el estado de inteligencia es "TONTO", 
 		 * devuelve el adjacente valido que esta a menor distancia del pacman.
 		 */
-		Punto posicionPacman = super.getTablero().obtenerPacman().obtenerPosicion();
-		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.obtenerPosicionesOrdenadas(adjacentesValidos);
+		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		
+		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
+		
 		if(this.intel == Inteligencias.INTELIGENTE)
 			return posicionesOrdenadasPacman.peekLast();
 		else

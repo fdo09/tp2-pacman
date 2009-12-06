@@ -53,14 +53,20 @@ public class Tablero {
 	}
 	
 	public Punto posicionFantasma(Fantasma fantasma){
+		
 		Fantasma nuevoFantasma;
+		
 		Iterator<Fantasma> f = fantasmas.iterator();
+		
 		while (f.hasNext()){
+			
 			nuevoFantasma = f.next();
-				if (nuevoFantasma == fantasma){
-					return fantasma.getPosicion();
-				}
-		    }
+				
+			if (nuevoFantasma == fantasma){
+					
+				return fantasma.getPosicion();
+			}
+		}
 		return null;
 		
 	}
@@ -69,39 +75,48 @@ public class Tablero {
 		this.pacman = pacman;
 	}
 	
-	public Pacman obtenerPacman() {
+	public Pacman getPacman() {
 		return this.pacman;
 	}
 	
 	public void addCasillero(Punto punto, Casillero nuevo){
-		//agrega un casillero con una ubicacion
+		
 		this.casilleros.put(punto, nuevo);
 	}
 
-	public Punto obtenerCasa() {
+	public Punto getCasa() {
+		
 		return casa;
 	}
 
 	public Casillero getCasillero(Punto punto) {
+		
 		return this.casilleros.get(punto);
 	}
 	
-	public ArrayList<Fantasma> obtenerFantasmas(){
+	public ArrayList<Fantasma> getFantasmas(){
+		
 		return this.fantasmas;
 	}
 
 	
 	public boolean esTransitable(Punto unaPosicion) {
+		
 		Casillero casillero = this.casilleros.get(unaPosicion);
 		return casillero.transitable();
 	}
 	
 	
-	public Collection<Punto> obtenerAdjacentesValidos(Punto centro){
-		Collection<Punto> adjacentes = centro.obtenerPuntosAdyacentes();
+	public Collection<Punto> getAdjacentesValidos(Punto centro){
+		
+		Collection<Punto> adjacentes = centro.getPuntosAdyacentes();
+		
 		Collection<Punto> adjacentesValidos = new ArrayList<Punto>();
+		
 		for(Punto punto : adjacentes){
+			
 			if (esTransitable(punto))
+				
 				adjacentesValidos.add(punto);
 		}
 		return adjacentesValidos;
@@ -110,7 +125,7 @@ public class Tablero {
 	
 	
 
-	public LinkedList<Punto> obtenerPosicionesDeFantasmas() {
+	public LinkedList<Punto> getPosicionesDeFantasmas() {
 		
 		LinkedList<Punto> posicionesDeFantasmas = new LinkedList<Punto>();
 		
@@ -122,7 +137,7 @@ public class Tablero {
 		}
 		return posicionesDeFantasmas;
 	}
-	public Punto obtenerDimension() {
+	public Punto getDimension() {
 		return this.dimension;
 	}
 	

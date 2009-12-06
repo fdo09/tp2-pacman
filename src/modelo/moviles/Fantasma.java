@@ -29,7 +29,7 @@ public abstract class Fantasma extends Personaje {
 		 * Luego de moverse verifica si esta en la misma posicion que el pacman para comerselo o ser comido por �l.
 		 */
 		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = this.getTablero().obtenerAdjacentesValidos(this.getPosicion());
+		Collection<Punto> adjacentesValidos = this.getTablero().getAdjacentesValidos(this.getPosicion());
 		
 		switch (this.getEstado()){
 		case ATRAPAR:
@@ -50,7 +50,7 @@ public abstract class Fantasma extends Personaje {
 	
 	
 	protected void comer() {
-		Pacman pacman = this.getTablero().obtenerPacman();
+		Pacman pacman = this.getTablero().getPacman();
 		if(this.getPosicion().equals(pacman.obtenerPosicion())){
 			pacman.serComido();
 		}
@@ -58,11 +58,16 @@ public abstract class Fantasma extends Personaje {
 	
 	
 	protected void serComido(){
-		Pacman pacman = this.getTablero().obtenerPacman();
+		
+		Pacman pacman = this.getTablero().getPacman();
 		Punto posicionPacman = pacman.obtenerPosicion();
+		
 		if(this.getPosicion().equals(posicionPacman)){
+			
 			this.setEstado(Estados.COMIDO);
+			
 			this.setPosicion(super.getPosicionInicial());
+			
 			this.estado = Estados.ATRAPAR;
 		}
 	}
@@ -74,8 +79,8 @@ public abstract class Fantasma extends Personaje {
 	
 	
 	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
-		Punto destino = this.getTablero().obtenerCasa();
-		LinkedList<Punto> posicionesDestino = destino.obtenerPosicionesOrdenadas(adjacentesValidos);
+		Punto destino = this.getTablero().getCasa();
+		LinkedList<Punto> posicionesDestino = destino.getPosicionesOrdenadas(adjacentesValidos);
 		return posicionesDestino.pop();
 		
 	}
@@ -92,15 +97,15 @@ public abstract class Fantasma extends Personaje {
 		
 	}
 
-	protected LinkedList<Punto> obtenerFantasmasOrdenadosPorDistancia() {
+	protected LinkedList<Punto> getFantasmasOrdenadosPorDistancia() {
 		
-		LinkedList<Punto> posicionesDeFantasmas = getTablero().obtenerPosicionesDeFantasmas();
+		LinkedList<Punto> posicionesDeFantasmas = getTablero().getPosicionesDeFantasmas();
 		
-		Punto posicionDelPacman = getTablero().obtenerPacman().obtenerPosicion();
+		Punto posicionDelPacman = getTablero().getPacman().obtenerPosicion();
 		
 		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
 		
-		posicionesDeFantasmasOrdenadas = posicionDelPacman.obtenerPosicionesOrdenadas(posicionesDeFantasmas);
+		posicionesDeFantasmasOrdenadas = posicionDelPacman.getPosicionesOrdenadas(posicionesDeFantasmas);
 		
 		return posicionesDeFantasmasOrdenadas;
 	}

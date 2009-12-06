@@ -1,53 +1,72 @@
 package test;
 
 import junit.framework.TestCase;
+import modelo.fijos.CargaTablero;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
+import modelo.moviles.Fantasma;
+import modelo.moviles.FantasmaAmarillo;
 import modelo.moviles.Pacman;
 
 public class PacTest extends TestCase {
 
-	private Tablero unTablero;
-	// private Jugador unJugador;
-	private Punto posicionActual;
-	private Pacman unPacman;
 
+	private Tablero tab;
 	
+	private Fantasma fantasmaAmarillo;
+	
+	private Pacman pacman;
+
 	protected void setUp() throws Exception {
-	
-		unTablero = new Tablero(0, 0);
+				
+		 
 		
-		// unJugador = new Jugador();
-		
-		posicionActual = new Punto(1,1);
-		
-		// unPacman = new Pacman(unTablero,unJugador, posicionActual);
-		unPacman = new Pacman(unTablero, posicionActual);
+		   CargaTablero cargador = new CargaTablero();
+		   
+		   tab = cargador.cargar("xml/miniTablero.xml");
+		 
+		   
+		   //Agrego FantasmaAmarillo al tablero
+		   
+		   Punto ubicacionAmarillo = new Punto(4,2);
+		 		  
+		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
+		 
+		   tab.addFantasma(fantasmaAmarillo);
+		   
+		 
+		   //Agrego Pacman al tablero.
+		   
+		   Punto puntoPacman = new Punto(6,2);
+		   
+		   pacman = new Pacman(tab, puntoPacman);
+		   
+		   tab.addPacman(pacman);
+		   
+		   
+		   super.setUp();
+			
+		}
 	
-	super.setUp();
-	
-	}
 
 	public void testMover(){
 		
 			
-		unPacman.mover();
+		pacman.mover();
 		
-		Punto posicionEsperada = new Punto(2,1);
-		
-		boolean puntosIguales = (posicionEsperada.equals(unPacman.obtenerPosicion()));
-		
-		assertTrue(puntosIguales);
+		Punto posicionEsperada = new Punto(5,2);
+
+		assertEquals(posicionEsperada, pacman.getPosicion());
 						
 	}
 	
 	public void testSerComido(){
 		
-		unPacman.serComido();
+		pacman.serComido();
 		
 		Punto posicionEsperada = new Punto(8,8);
 		
-		boolean puntosIguales = (posicionEsperada.equals(unPacman.obtenerPosicion()));
+		boolean puntosIguales = (posicionEsperada.equals(pacman.obtenerPosicion()));
 		
 		assertTrue(puntosIguales);
 		
