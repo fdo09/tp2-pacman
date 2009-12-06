@@ -39,7 +39,7 @@ public class CargaTablero {
 					for ( int i = 0; i < fstNmElemLst.getLength(); i++){
 						Element fir = (Element) fstNmElemLst.item(i);
 						NodeList fstNm = fir.getChildNodes();
-						posicion = new Punto(s, i);
+						posicion = new Punto(i, s);
 						String tipoDeCasillero = ((Node)fstNm.item(0)).getNodeValue();
 						if ( tipoDeCasillero.equals("semilla")){
 							casilleroAux = new Semilla(posicion, tablero);
