@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tablero>
-    <fila id="0" >
+    <fila id="0">
 		<casillero num="0">pared</casillero>
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
@@ -11,7 +11,7 @@
         <casillero num="7">pared</casillero>
     </fila>
 
-    <fila id="1" >
+    <fila id="1">
 		<casillero num="0">pared</casillero>
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
