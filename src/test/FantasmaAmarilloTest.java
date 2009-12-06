@@ -65,35 +65,20 @@ public class FantasmaAmarilloTest extends TestCase {
 		//---------
 		
 		
-		posicionEsperada.moverHaciaDerecha();
+		//Evaluamos la posicion final del FantasmaAmarillo, debe ir a su derecha hasta atrapar al Pacman.
 		
 		fantasmaAmarillo.mover();
-		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
-		
-		//-----------
-		
-		posicionEsperada.moverHaciaDerecha();
-		
+		fantasmaAmarillo.mover();
 		fantasmaAmarillo.mover();
 		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		Punto encuentroConPacman = new Punto(6,4);
 		
-		//-----------
-		
-		posicionEsperada.moverHaciaDerecha();
-		
-		fantasmaAmarillo.mover();
-		
-		
-		assertTrue(pacman.obtenerPosicion().equals(fantasmaAmarillo.getPosicion()));
+		assertEquals(encuentroConPacman,fantasmaAmarillo.getPosicion());
+		assertEquals(pacman.obtenerPosicion(),fantasmaAmarillo.getPosicion());
 		
 		//-----------
 		
 	}	
-	
-	
-	
 	
 	
 	public void testHuir(){
@@ -108,17 +93,14 @@ public class FantasmaAmarilloTest extends TestCase {
 	   	
 	   	unCasillero.accionar();
 	   	
-	   	assertTrue(fantasmaAmarillo.esComible());
-	   	
-	   	
-	   	
+	   	   	
 	   	//Comienzan los movimientos.
 	   	
 		Punto posicionEsperada = new Punto (3,4);
 		
 		fantasmaAmarillo.mover();
 		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		assertEquals(posicionEsperada,fantasmaAmarillo.getPosicion());
 		
 		//---------
 		
@@ -126,7 +108,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		assertEquals(posicionEsperada,fantasmaAmarillo.getPosicion());
 		
 		//-----------
 		
@@ -134,7 +116,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		assertEquals(posicionEsperada,fantasmaAmarillo.getPosicion());
 		
 		//-----------
 		
@@ -142,12 +124,25 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
+		assertEquals(posicionEsperada,fantasmaAmarillo.getPosicion());
 		
 		//-----------
 		
+				   	
+	}
+	public void testHuir2(){
 		
-		   	
+		//Acciono un punto de poder, para cambiar el estado del fantasma.
+		
+		Casillero unCasillero; 
+		
+	   	Punto unPunto = new Punto(5,2);
+		
+	   	unCasillero = tab.getCasillero(unPunto); // Punto de poder
+	   	
+	   	unCasillero.accionar();
+	   	
+	   	assertTrue(fantasmaAmarillo.esComible());
 	}
 	
 	public void testRegresar() {

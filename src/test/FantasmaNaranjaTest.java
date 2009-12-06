@@ -70,65 +70,29 @@ private Tablero tab;
 		
 		//---------
 		
-		
-		posicionEsperada.moverHaciaDerecha();
-		
-		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
-		//-----------
-		
-		posicionEsperada.moverHaciaDerecha();
+		//Evaluamos la posicion del fantasma a mitad de camino, no hay otro posible movimiento mas que hacia la derecha.
 		
 		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
-		//-----------
-		
-		posicionEsperada.moverHaciaDerecha();
-		
+		fantasmaNaranja.mover();
+		fantasmaNaranja.mover();
 		fantasmaNaranja.mover();
 		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		Punto mitadDeCamino = new Punto(6,4);
 		
-		//-----------
+		assertEquals(mitadDeCamino, fantasmaNaranja.getPosicion());
 		
-		posicionEsperada.moverHaciaDerecha();
+		//---------
 		
-		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
-		//-----------
-		
-		posicionEsperada.moverHaciaAbajo();
+		//Evaluamos la posicion final del fantasma, no hay otro posible movimiento mas que para abajo.
 		
 		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
-		//-----------
-		
-
-		posicionEsperada.moverHaciaAbajo();
-		
+		fantasmaNaranja.mover();
 		fantasmaNaranja.mover();
 		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		Punto finalDelCamino = new Punto(6,7);
 		
-		//-----------
-		
-
-		posicionEsperada.moverHaciaAbajo();
-		
-		fantasmaNaranja.mover();
-		
-		assertEquals(pacman.obtenerPosicion(), fantasmaNaranja.getPosicion());
-		
-		//-----------
-		
+		assertEquals(finalDelCamino, fantasmaNaranja.getPosicion());
+		assertEquals(pacman.getPosicion(), fantasmaNaranja.getPosicion());
 		
 	}	
 	
@@ -175,45 +139,28 @@ private Tablero tab;
 		//-----------
 		
 	
-		posicionEsperada.moverHaciaDerecha();
+		//Evaluamos la posición del FantasmaNaranaja, tiene que estar en la misma que el FantasmaAmarillo.
 		
 		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
-		//-----------
-		
-		posicionEsperada.moverHaciaDerecha();
-		
+		fantasmaNaranja.mover();
 		fantasmaNaranja.mover();
 		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		Punto encuentro = new Punto (4,7);
 		
-		//-----------
-		
-		posicionEsperada.moverHaciaDerecha();
-		
-		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		assertEquals(encuentro, fantasmaNaranja.getPosicion());
 		assertEquals(fantasmaAmarillo.getPosicion(),fantasmaNaranja.getPosicion());
 				
 		//-----------
 		
-		posicionEsperada.moverHaciaDerecha();
+		
+		//Luego de moverse dos veces debe encontrarse con el Pacman.
 		
 		fantasmaNaranja.mover();
-		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
-		
-				
-		//-----------
-		
-		posicionEsperada.moverHaciaDerecha();
-		
 		fantasmaNaranja.mover();
 		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		Punto posicionFinal = new Punto(6,7);
+		
+		assertEquals(posicionFinal, fantasmaNaranja.getPosicion());
 		assertEquals(pacman.obtenerPosicion(), fantasmaNaranja.getPosicion());
 		
 		//-----------
@@ -224,21 +171,34 @@ private Tablero tab;
 	public void testHuir(){
 		
 		
+		//Reubicamos a los fantasmas.	
+	   	
+	   	Punto nuevaUbicacionNaranja = new Punto(6,4);
+		
+		fantasmaNaranja.setPosicion(nuevaUbicacionNaranja);
+		
+		Punto nuevaUbicacionAmarillo = new Punto(6,6);
+		
+		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
+		
+		//---------
+		
+		
+		//Activamos el casillero Punto de Poder para que los Fantasmas huyan.
+		
 		Casillero unCasillero; 
 		
-	   	Punto unPunto = new Punto(6,4);
+	   	Punto unPunto = new Punto(5,2);
 		
 	   	unCasillero = tab.getCasillero(unPunto);
 	   	
 	   	unCasillero.accionar();
 	   	
 	   	
-	   	assertTrue(fantasmaNaranja.esComible());
-	   	
-	 	assertTrue(fantasmaAmarillo.esComible());
-	   	
+		
+		//Comienzan los movimientos.
 	 	
-		Punto posicionEsperada = new Punto (4,1);
+		Punto posicionEsperada = new Punto (6,3);
 		
 		fantasmaNaranja.mover();
 		
@@ -246,27 +206,111 @@ private Tablero tab;
 		
 		//---------
 		
-		posicionEsperada.moverHaciaAbajo();
+		//Sube hasta la esquina superior izquierda.
+		
+		Punto mitadDeCamino = new Punto (6,2);
 		
 		fantasmaNaranja.mover();
 		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
 		
-		//-----------
+		assertEquals(mitadDeCamino, fantasmaNaranja.getPosicion());
 		
-		posicionEsperada.moverHaciaAbajo();
+		//---------
+		
+		//Termina en la esquina superior derecha.
 		
 		fantasmaNaranja.mover();
+		fantasmaNaranja.mover();
+		fantasmaNaranja.mover();
+		fantasmaNaranja.mover();
+		fantasmaNaranja.mover();
 		
-		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		Punto ultimoCasillero = new Punto (1,2);
+		
+		assertEquals(ultimoCasillero, fantasmaNaranja.getPosicion());
 		
 		//-----------
+		
+	}
 	
+	public void testHuir2(){
+		
+		
+		//Reubicamos a los fantasmas.	
+	   	
+	   	Punto nuevaUbicacionNaranja = new Punto(6,4);
+		
+		fantasmaNaranja.setPosicion(nuevaUbicacionNaranja);
+		
+		Punto nuevaUbicacionAmarillo = new Punto(3,4);
+		
+		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
+		
+		
+		//Activamos el casillero Punto de Poder para que los Fantasmas huyan.
+		
+		Casillero unCasillero; 
+		
+	   	Punto unPunto = new Punto(5,2);
+		
+	   	unCasillero = tab.getCasillero(unPunto);
+	   	
+	   	unCasillero.accionar();
+	   	
+	   			
+		//---------
+	   		   	
+		
+		//Comienzan los movimientos.
+	 	
+		Punto posicionEsperada = new Punto (5,4);
+		
+		fantasmaNaranja.mover();
+		
+		assertEquals(posicionEsperada, fantasmaNaranja.getPosicion());
+		
+		//---------
+		
+		//Se mueve en unica dirección hasta llegar al FantasmaAmarillo.
+		
+		fantasmaNaranja.mover();
+		fantasmaNaranja.mover();
+		
+		Punto ultimoCasillero = new Punto (3,4);
+		
+		assertEquals(ultimoCasillero, fantasmaNaranja.getPosicion());
+		assertEquals(fantasmaAmarillo.getPosicion(), fantasmaNaranja.getPosicion());
+		
+		fantasmaNaranja.mover();
+		
+		ultimoCasillero.moverHaciaIzquierda();
+		
+		assertEquals(ultimoCasillero, fantasmaNaranja.getPosicion());
+		
+		//-----------
 		
 		
 		   	
 	}
+	public void testHuirEstado(){
+		
+		//Activamos el casillero Punto de Poder para que los Fantasmas huyan.
+		
+		Casillero unCasillero; 
+		
+	   	Punto unPunto = new Punto(5,2);
+		
+	   	unCasillero = tab.getCasillero(unPunto);
+	   	
+	   	unCasillero.accionar();
+	   	
+	   	
+	   	//Ambos fantasmas ahora deben ser comibles.
+	   	
+	   	assertTrue(fantasmaNaranja.esComible());
+	   	
+	 	assertTrue(fantasmaAmarillo.esComible());
 	
 	
-	
+	}
 }
