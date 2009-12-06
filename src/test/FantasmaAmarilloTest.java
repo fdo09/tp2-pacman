@@ -12,7 +12,6 @@ import modelo.moviles.Pacman;
 public class FantasmaAmarilloTest extends TestCase {
 
 
-	
 	private Tablero tab;
 	
 	private Fantasma fantasmaAmarillo;
@@ -22,34 +21,32 @@ public class FantasmaAmarilloTest extends TestCase {
 	protected void setUp() throws Exception {
 		
 		
-		 
-		
-		   CargaTablero cargador = new CargaTablero();
+		CargaTablero cargador = new CargaTablero();
 		   
-		   tab = cargador.cargar("xml/miniTablero.xml");
+		tab = cargador.cargar("xml/miniTablero.xml");
 		 
 		   
-		   //Agrego FantasmaAmarillo al tablero, sale desde su casa.
+		//Agrego FantasmaAmarillo al tablero, sale desde su casa.
 		   
-		   Punto ubicacionAmarillo = new Punto(3,5);
+		Punto ubicacionAmarillo = new Punto(3,5);
 		 		  
-		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
+		fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
-		   tab.addFantasma(fantasmaAmarillo);
+		tab.addFantasma(fantasmaAmarillo);
 		   
 		 
-		   //Agrego Pacman al tablero.
+		//Agrego Pacman al tablero.
 		   
-		   Punto puntoPacman = new Punto(6,4);
+		Punto puntoPacman = new Punto(6,4);
 		   
-		   pacman = new Pacman(tab, puntoPacman);
+		pacman = new Pacman(tab, puntoPacman);
 		   
-		   tab.addPacman(pacman);
+		tab.addPacman(pacman);
 		   
 		   
-		   super.setUp();
+		super.setUp();
 			
-		}
+	}
 	
 	
 	
@@ -145,19 +142,7 @@ public class FantasmaAmarilloTest extends TestCase {
 	   	assertTrue(fantasmaAmarillo.esComible());
 	}
 	
-	public void testRegresar() {
-		
-		fantasmaAmarillo.cambiarEstado();//Ahora huye
-		
-		Punto puntoDeChoque = new Punto(5,4);
-		
-		fantasmaAmarillo.setPosicion(puntoDeChoque);
-		
-		pacman.mover(); // se mueve a la izquierda y se choca con el fantasma.
-		
-		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
-		
-	}
+	
 	
 	
 	
