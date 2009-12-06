@@ -98,16 +98,21 @@ public class FantasmaAmarilloTest extends TestCase {
 	
 	public void testHuir(){
 		
+		//Acciono un punto de poder, para cambiar el estado del fantasma.
+		
 		Casillero unCasillero; 
 		
 	   	Punto unPunto = new Punto(5,2);
 		
-	   	unCasillero = tab.getCasillero(unPunto); // punto de poder
+	   	unCasillero = tab.getCasillero(unPunto); // Punto de poder
 	   	
 	   	unCasillero.accionar();
 	   	
 	   	assertTrue(fantasmaAmarillo.esComible());
 	   	
+	   	
+	   	
+	   	//Comienzan los movimientos.
 	   	
 		Punto posicionEsperada = new Punto (3,4);
 		
@@ -133,7 +138,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		//-----------
 		
-		posicionEsperada.moverHaciaAbajo();
+		posicionEsperada.moverHaciaArriba();
 		
 		fantasmaAmarillo.mover();
 		
