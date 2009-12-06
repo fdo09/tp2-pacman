@@ -20,19 +20,27 @@ public class FantasmaAmarilloTest extends TestCase {
 	protected void setUp() throws Exception {
 		
 		   CargaTablero cargador = new CargaTablero();
+		   
 		   tab = cargador.cargar("xml/miniTablero.xml");
 		 
-		   Punto puntoAmarillo = new Punto(4,4);
+		   
+		   //Agrego FantasmaAmarillo al tablero.
+		   
+		   Punto ubicacionAmarillo = new Punto(3,3);
 		 		  
-		   fantasmaAmarillo = new FantasmaAmarillo(tab, puntoAmarillo);
+		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
 		   tab.addFantasma(fantasmaAmarillo);
+		   
 		 
-		   Punto puntoPacman = new Punto(7,3);
+		   //Agrego Pacman al tablero.
+		   
+		   Punto puntoPacman = new Punto(6,2);
 		   
 		   pacman = new Pacman(tab, puntoPacman);
 		   
 		   tab.addPacman(pacman);
+		   
 		   
 		   super.setUp();
 			
@@ -41,11 +49,11 @@ public class FantasmaAmarilloTest extends TestCase {
 	public void testAtrapar(){
 		
 		
-		Punto posicionEsperada = new Punto (4,3);
+		Punto posicionEsperada = new Punto (3,2);
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//---------
 		
@@ -54,7 +62,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -63,7 +71,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -71,7 +79,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -80,7 +88,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -88,7 +96,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -103,7 +111,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		Casillero unCasillero; 
 		
-	   	Punto unPunto = new Punto(2,5);
+	   	Punto unPunto = new Punto(1,4);
 		
 	   	unCasillero = tab.getCasillero(unPunto);
 	   	
@@ -112,11 +120,11 @@ public class FantasmaAmarilloTest extends TestCase {
 	   	assertTrue(fantasmaAmarillo.esComible());
 	   	
 	   	
-		Punto posicionEsperada = new Punto (5,4);
+		Punto posicionEsperada = new Punto (3,4);
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//---------
 		
@@ -124,7 +132,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -132,7 +140,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -141,7 +149,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.mover();
 		
-		assertEquals(posicionEsperada, fantasmaAmarillo.getPosicion());
+		assertTrue(posicionEsperada.equals(fantasmaAmarillo.getPosicion()));
 		
 		//-----------
 		
@@ -154,15 +162,13 @@ public class FantasmaAmarilloTest extends TestCase {
 		
 		fantasmaAmarillo.cambiarEstado();//Ahora huye
 		
-		Punto casa = new Punto (5,4);
-		
-		Punto puntoDeChoque = new Punto(7,2);
+		Punto puntoDeChoque = new Punto(6,1);
 		
 		fantasmaAmarillo.setPosicion(puntoDeChoque);
 		
 		pacman.mover(); // se mueve a la izquierda y se choca con el fantasma.
 		
-		assertEquals(casa, fantasmaAmarillo.getPosicion());
+		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
 		
 		
 		
