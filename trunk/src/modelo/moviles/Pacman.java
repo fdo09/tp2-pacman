@@ -94,7 +94,8 @@ public class Pacman extends Personaje{
 	
 	private void accionarCasillero(){
 		
-		Casillero unCasillero = super.getTablero().getCasillero(this.getPosicion());
+		
+		Casillero unCasillero = super.getTablero().getCasillero(this.obtenerPosicion());
 		unCasillero.accionar();
 		
 	}
@@ -111,9 +112,6 @@ public class Pacman extends Personaje{
 			if(unFantasma.esComible()){
 				unFantasma.serComido();
 				Juego.getInstancia().getJugador().ganarPuntos(unFantasma.obtenerPuntos());							
-			}if(!unFantasma.esComible()){
-				
-				this.serComido();
 			}
 			else{
 				this.serComido();

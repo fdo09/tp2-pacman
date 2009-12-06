@@ -28,7 +28,7 @@ public class PacTest extends TestCase {
 		   
 		   //Agrego FantasmaAmarillo al tablero
 		   
-		   Punto ubicacionAmarillo = new Punto(4,2);
+		   Punto ubicacionAmarillo = new Punto(4,5);//Lo ubico en su casa.
 		 		  
 		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
@@ -51,12 +51,29 @@ public class PacTest extends TestCase {
 
 	public void testMover(){
 		
-			
+		//Ubico en la posicion (4,2) al fantasma para producir luego el choque con el Pacman.
+		
+		Punto nuevaUbicacionAmarillo = new Punto(4,2);
+		
+		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
+		
+		//---------
+		
+		
+		//El pacman por defecto se mueve a la izquierda.
+		
 		pacman.mover();
 		
-		Punto posicionEsperada = new Punto(5,2);
-
-		assertEquals(posicionEsperada, pacman.getPosicion());
+		assertTrue(fantasmaAmarillo.esComible());//Tiene que ser comible ya que no es el FantasmaInmune
+		
+		//---------
+		
+		
+		pacman.mover();//Al no mover al fantasma, el Pacman se encuentra en el mismo casillero que FAmarillo.
+		
+		assertEquals(fantasmaAmarillo.getPosicionInicial(),fantasmaAmarillo.getPosicion()); //Debe volver a su casa que es la posición inicial.
+		
+		
 						
 	}
 	
