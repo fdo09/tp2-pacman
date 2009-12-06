@@ -97,39 +97,39 @@ public class Punto  {
 	// Aquí tenemos los cuatro posibles desplazamientos de un punto.
 	
 	public void moverHaciaIzquierda() {
-		this.X--;
+		this.Y--;
 	}
 	public void moverHaciaArriba() {
-		this.Y++;
+		this.X--;
 	}
 
 	public void moverHaciaDerecha() {
-		this.X++;
+		this.Y++;
 	}
 	
 	public void moverHaciaAbajo() {
-		this.Y--;
+		this.X++;
 	}
 	
 	//Obtenemos los puntos vecinos a un punto.
 	
 	public Punto obtenerVecinoIzquierdo() {
-		Punto puntoAux = new Punto (this.X - 1, this.Y);
+		Punto puntoAux = new Punto (this.X , this.Y - 1);
 		return puntoAux;
 	}
 	
 	public Punto obtenerVecinoDeArriba() {
-		Punto puntoAux = new Punto (this.X, this.Y + 1);
+		Punto puntoAux = new Punto (this.X - 1, this.Y );
 		return puntoAux;
 	}
 
 	public Punto obtenerVecinoDerecho() {
-		Punto puntoAux = new Punto (this.X + 1, this.Y);
+		Punto puntoAux = new Punto (this.X, this.Y + 1);
 		return puntoAux;
 	}
 	
 	public Punto obtenerVecinoDeAbajo() {
-		Punto puntoAux = new Punto (this.X, this.Y - 1);
+		Punto puntoAux = new Punto (this.X + 1, this.Y);
 		return puntoAux;
 	}
 
@@ -179,7 +179,7 @@ public class Punto  {
 		Punto ptoMasCercano = this;
 		for (Punto punto : vecinos){
 			distanciaAux = punto.distancia(this);
-			if (distanciaAux > mayorDistancia){
+			if (distanciaAux >= mayorDistancia){
 				mayorDistancia = distanciaAux;
 				ptoMasCercano = punto;
 			}
