@@ -3,14 +3,10 @@ package modelo.fijos;
 
 
 public abstract class Premio extends Casillero{
-
-	private boolean fuePisado;
 	
 	public Premio(Punto ubicacion, Tablero tablero) {
 
-		super(ubicacion,tablero);
-		this.fuePisado = false;
-		
+		super(ubicacion,tablero);		
 	}
 	
 

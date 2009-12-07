@@ -26,7 +26,7 @@ public class FantasmaInmuneTest extends TestCase {
 	protected void setUp() throws Exception {
 		
 		   CargaTablero cargador = new CargaTablero();
-		   tab = cargador.cargar("xml/tablero.xml");
+		   tab = cargador.cargar("xml/miniTablero.xml");
 		   Punto puntoAzul = new Punto(15,12);
 		   Punto puntoRojo = new Punto(15,13);
 		   Punto puntoNaranja = new Punto(15,14);
@@ -58,10 +58,11 @@ public class FantasmaInmuneTest extends TestCase {
 	
 	public void testHuir(){
 		   	Casillero nuevoPunto;
-		   	Punto nuevo = new Punto(1,4);
+		   	Punto nuevo = new Punto(5,2);
 		   	nuevoPunto = tab.getCasillero(nuevo);
 		   	nuevoPunto.accionar();
-		   	assertTrue(fantasmaInmune.esComible());
+		   	assertTrue(fantasmaAmarillo.esComible());
+		   	assertFalse(fantasmaInmune.esComible());
 		   	
 	}
 	

@@ -51,7 +51,7 @@ public class CargaPersonajesTest extends TestCase {
 	
 	public void testUbicacionFantasma(){
 		Punto puntoPrueba = new Punto (15,12);
-		assertEquals(puntoPrueba, tab.posicionFantasma(fantasmaAzul));
+		assertEquals(puntoPrueba, fantasmaAzul.getPosicion());
 	}
 	
 	
