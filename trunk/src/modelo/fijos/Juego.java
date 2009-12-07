@@ -25,6 +25,10 @@ public class Juego {
 	public static Juego getInstancia(){
 		return instancia;
 	}
+	
+	public static void reiniciarJuego(){
+		instancia = new Juego();
+	}
 
 
 	public Jugador getJugador(){  
