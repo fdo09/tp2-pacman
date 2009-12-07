@@ -32,12 +32,12 @@ public class FantasmaInmune extends Fantasma  {
 		 * En cambio si el pacman no esta en ese rango de vision, el fantasma se mueve hacia una posicion valida aleatoria del tableo
 		 * Una vez que llega a esa posicion aleatoria, calcula otra y se dirige hacia ella. 
 		 */
-			Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+			Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 			double distanciaPacman = super.getPosicion().distancia(posicionPacman);
 			
 			if(distanciaPacman < VISION){
 				
-				posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+				posicionPacman = super.getTablero().getPacman().getPosicion();
 				
 				LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 				
@@ -82,12 +82,12 @@ public class FantasmaInmune extends Fantasma  {
 		 * En cambio si el pacman no esta en ese rango de vision, el fantasma se mueve hacia una posicion valida aleatoria del tableo
 		 * Una vez que llega a esa posicion aleatoria, calcula otra y se dirige hacia ella. 
 		 */
-		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		double distanciaPacman = super.getPosicion().distancia(posicionPacman);
 		
 		if(distanciaPacman < VISION){
 			
-			posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+			posicionPacman = super.getTablero().getPacman().getPosicion();
 			
 			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 			

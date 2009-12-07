@@ -71,7 +71,7 @@ public class FantasmaAmarilloTest extends TestCase {
 		Punto encuentroConPacman = new Punto(6,4);
 		
 		assertEquals(encuentroConPacman,fantasmaAmarillo.getPosicion());
-		assertEquals(pacman.obtenerPosicion(),fantasmaAmarillo.getPosicion());
+		assertEquals(pacman.getPosicion(),fantasmaAmarillo.getPosicion());
 		
 		//-----------
 		

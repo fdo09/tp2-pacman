@@ -22,7 +22,7 @@ public class FantasmaAmarillo extends Fantasma {
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
 		 * Esta estrategia devuelve siempre el adjacente valido que esta a menor distancia del pacman
 		 */
-		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 		return posicionesOrdenadasPacman.peekFirst();
 	}
@@ -33,7 +33,7 @@ public class FantasmaAmarillo extends Fantasma {
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
 		 * Esta estrategia devuelve siempre el adjacente valido que esta a mayor distancia del pacman
 		 */
-		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 		return posicionesOrdenadasPacman.peekLast();
 	}

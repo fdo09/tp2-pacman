@@ -17,12 +17,6 @@ public class Pacman extends Personaje{
 		this.direccion = Direccion.IZQUIERDA;
 	}
 	
-	public Punto obtenerPosicion(){
-		
-		return super.getPosicion();
-		
-	}
-	
 	
 	public void mover() {
 		
@@ -95,7 +89,7 @@ public class Pacman extends Personaje{
 	private void accionarCasillero(){
 		
 		
-		Casillero unCasillero = super.getTablero().getCasillero(this.obtenerPosicion());
+		Casillero unCasillero = super.getTablero().getCasillero(this.getPosicion());
 		unCasillero.accionar();
 		
 	}
