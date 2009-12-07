@@ -11,7 +11,6 @@ import modelo.fijos.Tablero;
 
 public class FantasmaInmune extends Fantasma  {
 
-	public static final int PUNTOS = 200;
     public static final int VISION = 10;
     Punto destino;	
 	
@@ -19,7 +18,6 @@ public class FantasmaInmune extends Fantasma  {
 	public FantasmaInmune(Tablero tablero, Punto posicion){
 	
 		super(tablero, posicion);
-		super.setPuntos(PUNTOS);
 		
 	}
 

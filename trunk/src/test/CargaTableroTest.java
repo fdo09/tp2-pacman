@@ -29,14 +29,14 @@ protected void setUp() throws Exception {
 		}
 	
 	public void testPruebaDeCarga(){
-		Punto nuevo = new Punto(5,5);
+		Punto nuevo = new Punto(1,2);
 		Casillero casillaver = tab.getCasillero(nuevo);
 		assertTrue(casillaver.transitable());
 	}
 	
 	public void testPruebaDeCargaCompleta(){
-		for(int x = 0; x <= 8; x++){
-			for(int y = 0; y <= 8; y++){
+		for(int x = 0; x <= 7; x++){
+			for(int y = 0; y <= 9; y++){
 				assertTrue(tab.getCasillero(new Punto(x, y)) != null);
 			}
 		}

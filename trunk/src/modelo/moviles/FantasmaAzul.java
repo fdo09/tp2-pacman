@@ -7,10 +7,7 @@ import java.util.NoSuchElementException;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
-public class FantasmaAzul extends Fantasma {
-
-	public static final int PUNTOS = 200;
-	
+public class FantasmaAzul extends Fantasma {	
 	
 	public FantasmaAzul(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);

@@ -7,12 +7,9 @@ import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
 public class FantasmaNaranja extends Fantasma {
-
-	public static final int PUNTOS = 200;
 	
 	public FantasmaNaranja(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		super.setPuntos(PUNTOS);
 								
 	}
 	
