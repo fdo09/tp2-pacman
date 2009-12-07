@@ -18,32 +18,24 @@ public class FantasmaAzulTest extends TestCase {
 
 	protected void setUp() throws Exception {
 		
-			
-		   CargaTablero cargador = new CargaTablero();
-		  
-		   tab = cargador.cargar("xml/miniTablero.xml");
-		   
-		   Punto puntoAzul = new Punto(2,2);
-		  
-		   fantasmaAzul = new FantasmaAzul(tab, puntoAzul);
-		   
-		  
-		   tab.addFantasma(fantasmaAzul);
-		  
-		   Punto puntoPacman = new Punto(2,4);
-		    
-		   pacman = new Pacman(tab, puntoPacman);
-		   
-		   tab.addPacman(pacman);
-		   
-		   super.setUp();
-			
-		}
+		CargaTablero cargador = new CargaTablero();
+		tab = cargador.cargar("xml/miniTablero.xml");
+		
+		Punto puntoAzul = new Punto(2,2);
+		fantasmaAzul = new FantasmaAzul(tab, puntoAzul);
+		tab.addFantasma(fantasmaAzul);
+		
+		Punto puntoPacman = new Punto(4,2);
+		pacman = new Pacman(tab, puntoPacman);
+		tab.addPacman(pacman);
+		
+		super.setUp();
+	}
 	
 	public void testAtrapar(){
 		fantasmaAzul.mover();
 		
-		Punto movimientoEsperado = new Punto(2,3);
+		Punto movimientoEsperado = new Punto(3,2);
 		
 		assertEquals(movimientoEsperado, fantasmaAzul.getPosicion());
 		
@@ -51,12 +43,15 @@ public class FantasmaAzulTest extends TestCase {
 	
 	
 	public void testHuir(){
-		   	Casillero nuevoPunto;
-		   	Punto nuevo = new Punto(1,4);
-		   	nuevoPunto = tab.getCasillero(nuevo);
-		   	nuevoPunto.accionar();
-		   	assertTrue(fantasmaAzul.esComible());
-		   	
+		Casillero nuevoPunto;
+		Punto nuevo = new Punto(5,2);
+		nuevoPunto = tab.getCasillero(nuevo);
+		nuevoPunto.accionar();
+		assertTrue(fantasmaAzul.esComible());
+		
+		fantasmaAzul.mover();
+		Punto posicionEsperada = new Punto(1,2);
+		assertEquals(posicionEsperada, fantasmaAzul.getPosicion());
 	}
 	
 	public void testregresar() {
@@ -66,7 +61,7 @@ public class FantasmaAzulTest extends TestCase {
 	public void testnuevaPosicion(){
 		fantasmaAzul.mover();
 		
-		Punto nuevo = new Punto(3,4);
+		Punto nuevo = new Punto(3,2);
 		Punto prueba = fantasmaAzul.getPosicion();
 		
 		assertEquals(nuevo, prueba);
