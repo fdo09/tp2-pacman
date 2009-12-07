@@ -10,7 +10,6 @@ enum Inteligencias{INTELIGENTE, TONTO};
 
 public class FantasmaRojo extends Fantasma {
 
-	public static final int PUNTOS = 200;
 	private int contadorInteligencia;
 	private Inteligencias intel;
 	public static final int CAMBIO_INTELIGENCIA = 20;
@@ -20,7 +19,6 @@ public class FantasmaRojo extends Fantasma {
 	public FantasmaRojo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
 		this.intel = Inteligencias.INTELIGENTE;
-		super.setPuntos(PUNTOS);
 	}
 
 		

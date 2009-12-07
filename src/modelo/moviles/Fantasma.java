@@ -3,6 +3,7 @@ package modelo.moviles;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
@@ -12,10 +13,12 @@ public abstract class Fantasma extends Personaje {
 
 	private Estados estado;
 	private int puntos;
+	public static final int PUNTOS = 200;
 
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
 		this.setEstado(Estados.ATRAPAR);
+		this.puntos = PUNTOS;
 	}
 	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
@@ -43,8 +46,8 @@ public abstract class Fantasma extends Personaje {
 			this.serComido();
 			break;
 		case COMIDO:
-			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
-			this.setPosicion(nuevaPosicion);
+			this.setPosicion(this.getPosicionInicial());
+			this.setEstado(Estados.ATRAPAR);
 		}
 	}
 	
@@ -62,13 +65,9 @@ public abstract class Fantasma extends Personaje {
 		Pacman pacman = this.getTablero().getPacman();
 		if(this.getPosicion().equals(pacman.getPosicion()))
 		{
-		
-			this.setEstado(Estados.COMIDO);
-			
 			this.setPosicion(super.getPosicionInicial());
-			
+			Juego.getInstancia().getJugador().ganarPuntos(Fantasma.PUNTOS);
 			this.estado = Estados.ATRAPAR;
-		
 		}
 	}
 	
@@ -107,10 +106,6 @@ public abstract class Fantasma extends Personaje {
 		posicionesDeFantasmasOrdenadas = posicionDelPacman.getPosicionesOrdenadas(posicionesDeFantasmas);
 		
 		return posicionesDeFantasmasOrdenadas;
-	}
-
-	public int obtenerPuntos() {
-		return this.puntos;
 	}
 
 	public void setPuntos(int puntos) {

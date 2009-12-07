@@ -6,14 +6,10 @@ import java.util.LinkedList;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
-public class FantasmaAmarillo extends Fantasma {
-	
-	public static final int PUNTOS = 200;
-	
+public class FantasmaAmarillo extends Fantasma {	
 
 	public FantasmaAmarillo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		super.setPuntos(PUNTOS);
 	}
 
 
