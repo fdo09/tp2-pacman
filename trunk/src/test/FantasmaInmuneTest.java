@@ -27,11 +27,11 @@ public class FantasmaInmuneTest extends TestCase {
 		
 		   CargaTablero cargador = new CargaTablero();
 		   tab = cargador.cargar("xml/miniTablero.xml");
-		   Punto puntoAzul = new Punto(15,12);
-		   Punto puntoRojo = new Punto(15,13);
-		   Punto puntoNaranja = new Punto(15,14);
-		   Punto puntoAmarillo = new Punto(15,15);
-		   Punto puntoInmune = new Punto(13,12);
+		   Punto puntoAzul = new Punto(2,5);
+		   Punto puntoRojo = new Punto(3,5);
+		   Punto puntoNaranja = new Punto(4,5);
+		   Punto puntoAmarillo = new Punto(5,5);
+		   Punto puntoInmune = new Punto(6,5);
 		   fantasmaAzul = new FantasmaAzul(tab, puntoAzul);
 		   fantasmaRojo = new FantasmaRojo(tab, puntoRojo);
 		   fantasmaNaranja = new FantasmaNaranja(tab, puntoNaranja);
@@ -42,7 +42,7 @@ public class FantasmaInmuneTest extends TestCase {
 		   tab.addFantasma(fantasmaNaranja);
 		   tab.addFantasma(fantasmaAmarillo);
 		   tab.addFantasma(fantasmaInmune);
-		   Punto puntoPacman = new Punto(29,10);
+		   Punto puntoPacman = new Punto(6,2);
 		   pacman = new Pacman(tab, puntoPacman);
 		   tab.addPacman(pacman);
 		   super.setUp();
@@ -72,7 +72,7 @@ public class FantasmaInmuneTest extends TestCase {
 	
 	public void testnuevaPosicion(){
 		fantasmaInmune.mover();
-		Punto nuevo = new Punto(14,14);
+		Punto nuevo = new Punto(6,4);
 		assertEquals(nuevo, fantasmaInmune.getPosicion());
 	}
 }

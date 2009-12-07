@@ -11,40 +11,24 @@ import modelo.moviles.Pacman;
 
 public class PacmanTest extends TestCase {
 
-
 	private Tablero tab;
-	
 	private Fantasma fantasmaAmarillo;
-	
 	private Pacman pacman;
-
 	protected void setUp() throws Exception {
-				
-		 
-		 
 		
+			Juego.reiniciarJuego();
 		   CargaTablero cargador = new CargaTablero();
-		   
 		   tab = cargador.cargar("xml/miniTablero.xml");
-		 
 		   
 		   //Agrego FantasmaAmarillo al tablero
-		   
-		   Punto ubicacionAmarillo = new Punto(4,5);//Lo ubico en su casa.
-		 		  
+		   Punto ubicacionAmarillo = new Punto(4,5);//Lo ubico en su casa.  
 		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
-		 
 		   tab.addFantasma(fantasmaAmarillo);
 		   
-		 
 		   //Agrego Pacman al tablero.
-		   
 		   Punto puntoPacman = new Punto(6,2);
-		   
 		   pacman = new Pacman(tab, puntoPacman);
-		   
 		   tab.addPacman(pacman);
-		   
 		   
 		   super.setUp();
 			
@@ -54,34 +38,34 @@ public class PacmanTest extends TestCase {
 	public void testMover(){
 		
 		//Ubico en la posicion (4,2) al fantasma para producir luego el choque con el Pacman.
-		
 		Punto nuevaUbicacionAmarillo = new Punto(4,2);
-		
 		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
-		
 		//---------
 		
-		
 		//El pacman por defecto se mueve a la izquierda.
-		
+		Punto posicionPacman = pacman.getPosicion();
+		posicionPacman = posicionPacman.getVecinoIzquierdo();
 		pacman.mover();
 		
-		assertTrue(fantasmaAmarillo.esComible());//Tiene que ser comible ya que no es el FantasmaInmune
+		assertEquals(posicionPacman, pacman.getPosicion());
 		
+		assertTrue(fantasmaAmarillo.esComible());//Tiene que ser comible ya que no es el FantasmaInmune
 		//---------
 		
 		//Al no mover al fantasma, el Pacman se encuentra en el mismo casillero que FAmarillo.
-				
+		posicionPacman = posicionPacman.getVecinoIzquierdo();
 		pacman.mover();
 		
+		assertEquals(posicionPacman, pacman.getPosicion());
+		
 		//Debe volver a su casa que es la posición inicial(4,5)
+		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
 		
-		assertEquals(fantasmaAmarillo.getPosicionInicial(),fantasmaAmarillo.getPosicion()); 
+		int puntosAcumulados = 750; //500 de punto de poder + 200 de fantasma + 50 de semilla
 		
-		int puntosGanados = 750;//500 del punto de poder, 200 del fantasma comido, 50 del casillero semilla.
-		
-		assertEquals(puntosGanados, Juego.getInstancia().getJugador().getPuntos());		
+		assertEquals(puntosAcumulados, Juego.getInstancia().getJugador().getPuntos());
 	}
+	
 	
 	public void testSerComido(){
 		
