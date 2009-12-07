@@ -8,15 +8,25 @@ public class Jugador {
 	
 	public Jugador(){
 		
-		this.nombre = "Jugador Desconocido";
+		this.setNombre("Jugador Desconocido");
 		this.cantVidas = 3;
 		this.puntos = 0;
 		
 	}
 	
+	public int getCantVidas() {
+		return this.cantVidas;
+	}
+
+	
+	public int getPuntos() {
+		return puntos;
+	}
+
+
 	public Jugador(String nombre, int cantDeVidas, int puntos){
 		
-		this.nombre = nombre;
+		this.setNombre(nombre);
 		this.cantVidas = cantDeVidas;
 		this.puntos = puntos;
 		
@@ -39,6 +49,14 @@ public class Jugador {
 	public void sumarVida(){
 		
 		this.cantVidas += 1;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getNombre() {
+		return this.nombre;
 	}
 	
 	
