@@ -2,13 +2,14 @@ package test;
 
 import junit.framework.TestCase;
 import modelo.fijos.CargaTablero;
+import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
 import modelo.moviles.FantasmaAmarillo;
 import modelo.moviles.Pacman;
 
-public class PacTest extends TestCase {
+public class PacmanTest extends TestCase {
 
 
 	private Tablero tab;
@@ -19,6 +20,7 @@ public class PacTest extends TestCase {
 
 	protected void setUp() throws Exception {
 				
+		 
 		 
 		
 		   CargaTablero cargador = new CargaTablero();
@@ -68,27 +70,28 @@ public class PacTest extends TestCase {
 		
 		//---------
 		
+		//Al no mover al fantasma, el Pacman se encuentra en el mismo casillero que FAmarillo.
+				
+		pacman.mover();
 		
-		pacman.mover();//Al no mover al fantasma, el Pacman se encuentra en el mismo casillero que FAmarillo.
+		//Debe volver a su casa que es la posición inicial(4,5)
 		
-		assertEquals(fantasmaAmarillo.getPosicionInicial(),fantasmaAmarillo.getPosicion()); //Debe volver a su casa que es la posición inicial.
+		assertEquals(fantasmaAmarillo.getPosicionInicial(),fantasmaAmarillo.getPosicion()); 
 		
+		int puntosGanados = 750;//500 del punto de poder, 200 del fantasma comido, 50 del casillero semilla.
 		
-						
+		assertEquals(puntosGanados, Juego.getInstancia().getJugador().getPuntos());		
 	}
 	
 	public void testSerComido(){
 		
 		pacman.serComido();
 		
-		Punto posicionEsperada = new Punto(8,8);
+		assertEquals(pacman.getPosicionInicial(),pacman.getPosicion()); 
 		
-		boolean puntosIguales = (posicionEsperada.equals(pacman.getPosicion()));
+		int cantidadDeVidas = 2;
 		
-		assertTrue(puntosIguales);
-		
-		
-		
+		assertEquals(cantidadDeVidas, Juego.getInstancia().getJugador().getCantVidas());		
 	}
 	
 		
