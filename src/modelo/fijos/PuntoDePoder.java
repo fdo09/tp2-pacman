@@ -8,13 +8,10 @@ import modelo.moviles.Fantasma;
 public class PuntoDePoder extends Casillero{
 
 	private static final int PUNTOS = 500;
-	private boolean fuePisado;
 	
 	public PuntoDePoder(Punto ubicacion, Tablero tablero) {
 
-		super(ubicacion,tablero);
-		this.fuePisado = false;
-		
+		super(ubicacion,tablero);		
 	}
 
 	public boolean transitable(){
@@ -25,8 +22,8 @@ public class PuntoDePoder extends Casillero{
 	
 	public void accionar() {
 		
-		if(!fuePisado){
-			ArrayList<Fantasma> fantasmas = super.tablero.getFantasmas();
+		if(!fuePisado()){
+			ArrayList<Fantasma> fantasmas = super.getTablero().getFantasmas();
 			
 				for(Fantasma unFantasma : fantasmas){
 			
@@ -35,7 +32,7 @@ public class PuntoDePoder extends Casillero{
 				}
 				Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 		
-				this.fuePisado = true;
+				this.setFuePisado(true);
 		}
 
 	}

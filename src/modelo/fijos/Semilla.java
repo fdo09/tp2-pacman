@@ -3,12 +3,10 @@ package modelo.fijos;
 public class Semilla extends Casillero {
 	
 	private static final int PUNTOS = 50;
-	private boolean fuePisado; 
 	
 	public Semilla(Punto ubicacion, Tablero tablero) {
 		
 		super(ubicacion, tablero);
-		this.fuePisado = false;
 	}
 
 	public boolean transitable(){
@@ -19,11 +17,11 @@ public class Semilla extends Casillero {
 		
 	public void accionar() {
 		
-		if (!fuePisado){
+		if (!fuePisado()){
 			
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
-			fuePisado = true;
+			setFuePisado(true);
 		}
 	}
 

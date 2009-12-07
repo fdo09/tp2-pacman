@@ -51,25 +51,7 @@ public class Tablero {
 	public void addFantasma(Fantasma fantasma){
 		this.fantasmas.add(fantasma);
 	}
-	
-	public Punto posicionFantasma(Fantasma fantasma){
-		
-		Fantasma nuevoFantasma;
-		
-		Iterator<Fantasma> f = fantasmas.iterator();
-		
-		while (f.hasNext()){
-			
-			nuevoFantasma = f.next();
-				
-			if (nuevoFantasma == fantasma){
-					
-				return fantasma.getPosicion();
-			}
-		}
-		return null;
-		
-	}
+
 	
 	public void addPacman(Pacman pacman){
 		this.pacman = pacman;
