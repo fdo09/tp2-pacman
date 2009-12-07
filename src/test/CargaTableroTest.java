@@ -17,7 +17,7 @@ public class CargaTableroTest extends TestCase {
 protected void setUp() throws Exception {
 		
 	   CargaTablero cargador = new CargaTablero();
-	   tab = cargador.cargar("xml/tablero.xml");
+	   tab = cargador.cargar("xml/miniTablero.xml");
 	   super.setUp();
 		
 	}
@@ -32,6 +32,14 @@ protected void setUp() throws Exception {
 		Punto nuevo = new Punto(5,5);
 		Casillero casillaver = tab.getCasillero(nuevo);
 		assertTrue(casillaver.transitable());
+	}
+	
+	public void testPruebaDeCargaCompleta(){
+		for(int x = 0; x <= 8; x++){
+			for(int y = 0; y <= 8; y++){
+				assertTrue(tab.getCasillero(new Punto(x, y)) != null);
+			}
+		}
 	}
 	
 	

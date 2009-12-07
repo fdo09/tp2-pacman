@@ -19,7 +19,7 @@ public class CargaTablero {
 	
 	public Tablero cargar(String path){
 		
-		Casillero casilleroAux;
+		Casillero casilleroAux = null;
 		Punto posicion;
 		Tablero tablero;
 		File file = new File(path);
@@ -47,7 +47,7 @@ public class CargaTablero {
 							casilleroAux = new Pared(posicion, tablero);
 						}else if (tipoDeCasillero.equals("casa")){
 							casilleroAux = new Casa(posicion, tablero);
-						}else {
+						}else if (tipoDeCasillero.equals("PuntoDePoder")){
 							casilleroAux = new PuntoDePoder(posicion,tablero);
 						}
 						tablero.addCasillero(posicion, casilleroAux);

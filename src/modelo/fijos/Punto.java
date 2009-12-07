@@ -34,10 +34,8 @@ public class Punto  {
 	}
 	
 	public int hashCode(){
-		if (this.hashCode == 0) {
-			this.hashCode += this.X;
-			this.hashCode += this.Y;
-		}
+		this.hashCode = this.X;
+		this.hashCode += this.Y;
 		return this.hashCode;
 	}
 	

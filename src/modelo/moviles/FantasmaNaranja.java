@@ -55,7 +55,7 @@ public class FantasmaNaranja extends Fantasma {
 		
 		if (fantasmaMasCercano.equals(super.getPosicion())){
 			
-			Punto posicionPacman = getTablero().getPacman().obtenerPosicion();
+			Punto posicionPacman = getTablero().getPacman().getPosicion();
 			
 			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 			
@@ -82,7 +82,7 @@ public class FantasmaNaranja extends Fantasma {
 		
 		if (fantasmaMasLejano.equals(super.getPosicion())){
 			
-			Punto posicionPacman = getTablero().getPacman().obtenerPosicion();
+			Punto posicionPacman = getTablero().getPacman().getPosicion();
 			
 			LinkedList<Punto> posicionesAPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 			

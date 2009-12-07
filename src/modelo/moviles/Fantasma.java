@@ -51,7 +51,7 @@ public abstract class Fantasma extends Personaje {
 	
 	protected void comer() {
 		Pacman pacman = this.getTablero().getPacman();
-		if(this.getPosicion().equals(pacman.obtenerPosicion())){
+		if(this.getPosicion().equals(pacman.getPosicion())){
 			pacman.serComido();
 		}
 	}
@@ -60,7 +60,7 @@ public abstract class Fantasma extends Personaje {
 	protected void serComido(){
 		
 		Pacman pacman = this.getTablero().getPacman();
-		if(this.getPosicion().equals(pacman.obtenerPosicion()))
+		if(this.getPosicion().equals(pacman.getPosicion()))
 		{
 		
 			this.setEstado(Estados.COMIDO);
@@ -100,7 +100,7 @@ public abstract class Fantasma extends Personaje {
 		
 		LinkedList<Punto> posicionesDeFantasmas = getTablero().getPosicionesDeFantasmas();
 		
-		Punto posicionDelPacman = getTablero().getPacman().obtenerPosicion();
+		Punto posicionDelPacman = getTablero().getPacman().getPosicion();
 		
 		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
 		

@@ -22,7 +22,7 @@ public abstract class Personaje{
 	}
 
 	public Punto getPosicion() {
-		return posicion;
+		return this.posicion;
 	}
 
 	public void setTablero(Tablero tablero) {

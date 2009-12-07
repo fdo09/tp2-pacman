@@ -83,7 +83,7 @@ public class PacTest extends TestCase {
 		
 		Punto posicionEsperada = new Punto(8,8);
 		
-		boolean puntosIguales = (posicionEsperada.equals(pacman.obtenerPosicion()));
+		boolean puntosIguales = (posicionEsperada.equals(pacman.getPosicion()));
 		
 		assertTrue(puntosIguales);
 		

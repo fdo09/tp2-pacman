@@ -161,7 +161,7 @@ private Tablero tab;
 		Punto posicionFinal = new Punto(6,7);
 		
 		assertEquals(posicionFinal, fantasmaNaranja.getPosicion());
-		assertEquals(pacman.obtenerPosicion(), fantasmaNaranja.getPosicion());
+		assertEquals(pacman.getPosicion(), fantasmaNaranja.getPosicion());
 		
 		//-----------
 		

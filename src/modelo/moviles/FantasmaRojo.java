@@ -74,7 +74,7 @@ public class FantasmaRojo extends Fantasma {
 		 * En cambio si el estado de inteligencia es "TONTO", 
 		 * devuelve el adjacente valido que esta a mayor distancia del pacman.
 		 */
-		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 		
@@ -94,7 +94,7 @@ public class FantasmaRojo extends Fantasma {
 		 * En cambio si el estado de inteligencia es "TONTO", 
 		 * devuelve el adjacente valido que esta a menor distancia del pacman.
 		 */
-		Punto posicionPacman = super.getTablero().getPacman().obtenerPosicion();
+		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 		
