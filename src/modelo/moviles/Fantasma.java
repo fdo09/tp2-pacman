@@ -59,14 +59,18 @@ public abstract class Fantasma extends Personaje {
 	
 	protected void serComido(){
 		
-		//this.setEstado(Estados.COMIDO);
-			
-		this.setPosicion(super.getPosicionInicial());
-			
-		this.estado = Estados.ATRAPAR;
+		Pacman pacman = this.getTablero().getPacman();
+		if(this.getPosicion().equals(pacman.obtenerPosicion()))
+		{
 		
+			this.setEstado(Estados.COMIDO);
+			
+			this.setPosicion(super.getPosicionInicial());
+			
+			this.estado = Estados.ATRAPAR;
+		
+		}
 	}
-	
 	
 	public boolean esComible(){
 		return (this.getEstado() == Estados.HUIR);
