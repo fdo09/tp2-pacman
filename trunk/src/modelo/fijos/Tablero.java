@@ -23,6 +23,7 @@ public class Tablero {
 	private Punto casa;
 	private Punto inicioPacman;
 	private Punto dimension;
+	private int semillasRestantes;
 
 	      
 	public Tablero (int base, int altura){
@@ -30,8 +31,7 @@ public class Tablero {
 		//Ya q se si se llena se tiene que volver a agrandar y eso consume bastantes recursos.
 		this.casilleros = new HashMap<Punto, Casillero>(base*altura+1, 1);
 		this.fantasmas = new ArrayList<Fantasma>();
-		
-		
+		this.semillasRestantes = 0;
 	}
 	
 	public void cargarPersonajes() {
@@ -121,6 +121,18 @@ public class Tablero {
 	}
 	public Punto getDimension() {
 		return this.dimension;
+	}
+
+	public int getSemillasRestantes() {
+		return this.semillasRestantes;
+	}
+
+	public void setSemillasRestantes(int semillasRestantes) {
+		this.semillasRestantes = semillasRestantes;
+	}
+
+	public void restarSemilla() {
+		this.semillasRestantes -= 1;
 	}
 	
 	

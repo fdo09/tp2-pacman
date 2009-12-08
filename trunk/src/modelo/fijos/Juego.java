@@ -5,7 +5,7 @@ enum EstadosJuego{EN_CURSO,GANADO,PERDIDO}
 public class Juego {
 	
 	private static Juego instancia = new Juego();
-	public static final String ARCHIVO= "xml/tablero.xml";
+	public static final String ARCHIVO = "xml/tablero.xml";
 	private Tablero tablero;
 	private int nivel;
 	private Jugador jugador;
@@ -22,6 +22,20 @@ public class Juego {
 	}
 
 	
+	public boolean juegoEnCurso(){
+		if(this.jugador.getCantVidas() == 0){
+			this.estadoJuego = EstadosJuego.PERDIDO;
+			return false;
+		}
+		else if(this.tablero.getSemillasRestantes() == 0){
+			this.estadoJuego = EstadosJuego.GANADO;
+			return false;
+		}
+		else
+			return true;
+	}
+	
+	
 	public static Juego getInstancia(){
 		return instancia;
 	}
@@ -34,20 +48,15 @@ public class Juego {
 	public Jugador getJugador(){  
 		return this.jugador; 
 	}
-	
-	
-	public void perder() {
-		this.estadoJuego = EstadosJuego.PERDIDO;
-	}
-	
-	
-	public void ganar(){
-		this.estadoJuego = EstadosJuego.GANADO;
-	}
 
 	
 	public EstadosJuego obtenerEstado(){
 		return this.estadoJuego;
+	}
+
+
+	public Tablero getTablero() {
+		return tablero;
 	}
 	
 }
