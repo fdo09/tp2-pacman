@@ -1,6 +1,7 @@
 package modelo.vista;
 
 import java.awt.Color;
+
 import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
 
 public class VistaCasillero extends Cuadrado {
@@ -8,6 +9,8 @@ public class VistaCasillero extends Cuadrado {
 	public VistaCasillero(){
 		super(25, 25);
 		setColor(Color.RED);
+		
+		
 	}
 
 }
