@@ -59,7 +59,9 @@ public class MuestraTablero {
 						VistaCasillero vis$i = new VistaCasillero();
 						if ( tipoDeCasillero.equals("semilla")){
 							
-							vis$i.setColor(Color.GREEN);
+							vis$i.setColor(Color.CYAN);
+							
+											
 							
 							
 						}else if (tipoDeCasillero.equals("pared")){
@@ -70,13 +72,13 @@ public class MuestraTablero {
 							
 						}else if (tipoDeCasillero.equals("casa")){
 							
-							vis$i.setColor(Color.YELLOW);
+							vis$i.setColor(Color.GREEN);
 							
 							
 														
 						}else if (tipoDeCasillero.equals("PuntoDePoder")){
 							
-							vis$i.setColor(Color.RED);
+							vis$i.setColor(Color.YELLOW);
 							
 							
 						}
