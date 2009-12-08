@@ -78,7 +78,7 @@ public abstract class Fantasma extends Personaje implements Integrante{
 	
 	
 	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
-		Punto destino = this.getTablero().getCasa();
+		Punto destino = super.getPosicionInicial();
 		LinkedList<Punto> posicionesDestino = destino.getPosicionesOrdenadas(adjacentesValidos);
 		return posicionesDestino.pop();
 		

@@ -20,7 +20,7 @@ public class Tablero {
 	private HashMap<Punto, Casillero> casilleros;
 	private ArrayList<Fantasma> fantasmas;
 	private Pacman pacman;
-	private Punto casa;
+	private ArrayList<Punto> casas;
 	private Punto inicioPacman;
 	private Punto dimension;
 	private int semillasRestantes;
@@ -35,12 +35,12 @@ public class Tablero {
 	}
 	
 	public void cargarPersonajes() {
-		
-		this.addFantasma(new FantasmaRojo(this, casa));
-		this.addFantasma(new FantasmaAmarillo(this, casa));
-		this.addFantasma(new FantasmaNaranja(this, casa));
-		this.addFantasma(new FantasmaAzul(this, casa));
-		this.addFantasma(new FantasmaInmune(this, casa));
+		Punto puntoAux = new Punto (0,0);
+		this.addFantasma(new FantasmaRojo(this, puntoAux));
+		this.addFantasma(new FantasmaAmarillo(this, puntoAux));
+		this.addFantasma(new FantasmaNaranja(this, puntoAux));
+		this.addFantasma(new FantasmaAzul(this, puntoAux));
+		this.addFantasma(new FantasmaInmune(this, puntoAux));
 		this.addPacman(new Pacman(this, this.inicioPacman));
 	}
 
@@ -49,7 +49,16 @@ public class Tablero {
 	}
 	
 	public void addFantasma(Fantasma fantasma){
-		this.fantasmas.add(fantasma);
+		for(Punto posicionCasa : casas){
+			Casa casa = (Casa) this.casilleros.get(posicionCasa);
+			if(casa.isOcupada()){
+				fantasma.setPosicion(posicionCasa);
+				this.fantasmas.add(fantasma);
+				return;
+			}
+			
+		}
+		throw new CasasLlenasException();
 	}
 
 	
@@ -65,11 +74,7 @@ public class Tablero {
 		
 		this.casilleros.put(punto, nuevo);
 	}
-
-	public Punto getCasa() {
-		
-		return casa;
-	}
+	
 
 	public Casillero getCasillero(Punto punto) {
 		
