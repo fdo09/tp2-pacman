@@ -95,6 +95,8 @@ public class MuestraTablero {
 							vistaPuntoDePoder.setPosicionable(cas$i);
 							controlador.agregarDibujable(vistaPuntoDePoder);
 							
+							
+							
 						}
 						
 						

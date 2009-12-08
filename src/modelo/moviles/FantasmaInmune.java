@@ -107,6 +107,16 @@ public class FantasmaInmune extends Fantasma  {
 		return false;
 	}
 	
+	public int getX() {
+		
+		return super.getPosicion().getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return super.getPosicion().getPuntoY();
+	}
 
 	
 }
