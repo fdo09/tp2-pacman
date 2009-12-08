@@ -61,8 +61,7 @@ public class MuestraTablero {
 							
 							vis$i.setColor(Color.CYAN);
 							
-							vis$i.setPosicionable(cas$i);
-							controlador.agregarDibujable(vis$i);
+							serVisible(controlador, cas$i, vis$i);
 							
 							VistaSemilla vistaSemilla = new VistaSemilla();
 							vistaSemilla.setPosicionable(cas$i);
@@ -75,16 +74,14 @@ public class MuestraTablero {
 						}else if (tipoDeCasillero.equals("pared")){
 							
 							vis$i.setColor(Color.BLUE);
-							vis$i.setPosicionable(cas$i);
-							controlador.agregarDibujable(vis$i);
+							serVisible(controlador, cas$i, vis$i);
 							
 						
 							
 						}else if (tipoDeCasillero.equals("casa")){
 							
 							vis$i.setColor(Color.GREEN);
-							vis$i.setPosicionable(cas$i);
-							controlador.agregarDibujable(vis$i);
+							serVisible(controlador, cas$i, vis$i);
 							
 							
 														
@@ -92,8 +89,7 @@ public class MuestraTablero {
 							
 							vis$i.setColor(Color.CYAN);
 							
-							vis$i.setPosicionable(cas$i);
-							controlador.agregarDibujable(vis$i);
+							serVisible(controlador, cas$i, vis$i);
 							
 							VistaPuntoDePoder vistaPuntoDePoder = new VistaPuntoDePoder();
 							vistaPuntoDePoder.setPosicionable(cas$i);
@@ -125,6 +121,12 @@ public class MuestraTablero {
 		
 		
 		
+	}
+
+	private static void serVisible(ControladorJuego controlador,
+			PosicionCasillero cas$i, VistaCasillero vis$i) {
+		vis$i.setPosicionable(cas$i);
+		controlador.agregarDibujable(vis$i);
 	}
 
 }
