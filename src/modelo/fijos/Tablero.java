@@ -32,6 +32,7 @@ public class Tablero {
 		this.casilleros = new HashMap<Punto, Casillero>(base*altura+1, 1);
 		this.fantasmas = new ArrayList<Fantasma>();
 		this.semillasRestantes = 0;
+		this.casas = new ArrayList<Punto>();
 	}
 	
 	public void cargarPersonajes() {
@@ -127,7 +128,15 @@ public class Tablero {
 	public Punto getDimension() {
 		return this.dimension;
 	}
+	
+	public void setDimension(Punto nuevaDimension){
+		this.dimension = nuevaDimension;
+	}
 
+	public void agregarCasa (Punto nuevaCasa){
+		this.casas.add(nuevaCasa);
+	}
+	
 	public int getSemillasRestantes() {
 		return this.semillasRestantes;
 	}
