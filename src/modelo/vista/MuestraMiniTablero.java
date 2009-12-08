@@ -61,18 +61,18 @@ public class MuestraMiniTablero {
 						VistaCasillero vis$i = new VistaCasillero();
 						if ( tipoDeCasillero.equals("semilla")){
 							
-							vis$i.setColor(Color.BLUE);
+							vis$i.setColor(Color.GREEN);
 							
 							
 						}else if (tipoDeCasillero.equals("pared")){
 							
-							vis$i.setColor(Color.GRAY);
+							vis$i.setColor(Color.BLUE);
 							
 						
 							
 						}else if (tipoDeCasillero.equals("casa")){
 							
-							vis$i.setColor(Color.WHITE);
+							vis$i.setColor(Color.YELLOW);
 							
 							
 														
