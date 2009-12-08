@@ -22,6 +22,8 @@ public class Semilla extends Casillero {
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
 			setFuePisado(true);
+			
+			Juego.getInstancia().getTablero().restarSemilla();;
 		}
 	}
 
