@@ -102,8 +102,9 @@ public class MuestraTablero {
 						
 						// System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
 						// System.out.println(tab.esTransitable(nuevo));
-						if ( r == 1){ r = 25;}
-						else {	r = r + 25; }
+						//if ( r == 1){ r = 25;}
+						//else {	r = r + 25; }
+						r = r + 25;
 					}
 			   }
 			  n = n + 25;
