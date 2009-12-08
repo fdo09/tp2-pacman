@@ -61,29 +61,47 @@ public class MuestraTablero {
 							
 							vis$i.setColor(Color.CYAN);
 							
+							vis$i.setPosicionable(cas$i);
+							controlador.agregarDibujable(vis$i);
+							
+							VistaSemilla vistaSemilla = new VistaSemilla();
+							vistaSemilla.setPosicionable(cas$i);
+							controlador.agregarDibujable(vistaSemilla);
+							
+							
 											
 							
 							
 						}else if (tipoDeCasillero.equals("pared")){
 							
 							vis$i.setColor(Color.BLUE);
+							vis$i.setPosicionable(cas$i);
+							controlador.agregarDibujable(vis$i);
 							
 						
 							
 						}else if (tipoDeCasillero.equals("casa")){
 							
 							vis$i.setColor(Color.GREEN);
+							vis$i.setPosicionable(cas$i);
+							controlador.agregarDibujable(vis$i);
 							
 							
 														
 						}else if (tipoDeCasillero.equals("PuntoDePoder")){
 							
-							vis$i.setColor(Color.YELLOW);
+							vis$i.setColor(Color.CYAN);
 							
+							vis$i.setPosicionable(cas$i);
+							controlador.agregarDibujable(vis$i);
+							
+							VistaPuntoDePoder vistaPuntoDePoder = new VistaPuntoDePoder();
+							vistaPuntoDePoder.setPosicionable(cas$i);
+							controlador.agregarDibujable(vistaPuntoDePoder);
 							
 						}
-						vis$i.setPosicionable(cas$i);
-						controlador.agregarDibujable(vis$i);
+						
+						
 						// System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
 						// System.out.println(tab.esTransitable(nuevo));
 						if ( r == 1){ r = 25;}
