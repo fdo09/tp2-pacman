@@ -13,14 +13,16 @@ public class VentanaPrincipal extends Frame {
 
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		this.controladorJuego = unControladorJuego;
-		this.setTitle("Tablero PACMAN");
+		this.setTitle("ALGO3 - MAN");
 		// this.setSize(300, 300);
-		this.setSize(705,680);
+		this.setSize(705,655);
 		this.setResizable(false);
 		// panel = new Panel(222,242,controladorJuego);
 		panel = new Panel(666,726,controladorJuego);
 		
 		this.add(panel);
+		
+		
 		
 		
 		/*Button boton = new Button();

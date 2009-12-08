@@ -36,7 +36,7 @@ public class MuestraTablero {
 		
 		File file = new File("xml/Tablero.xml");
 		try {
-			int n = 25;
+			int n = 0;
 			int r = 0;
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
@@ -49,7 +49,7 @@ public class MuestraTablero {
 					
 					Element fstElmnt = (Element) fstNode;
 					NodeList fstNmElemLst = fstElmnt.getElementsByTagName("casillero");
-					r = 1;
+					r = 0;
 					for ( int i = 0; i < fstNmElemLst.getLength(); i++){
 						
 						Element fir = (Element) fstNmElemLst.item(i);
