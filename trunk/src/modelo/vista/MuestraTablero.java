@@ -64,7 +64,7 @@ public class MuestraTablero {
 							
 						}else if (tipoDeCasillero.equals("pared")){
 							
-							vis$i.setColor(Color.BLACK);
+							vis$i.setColor(Color.BLUE);
 							
 						
 							
