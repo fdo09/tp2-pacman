@@ -1,6 +1,5 @@
 package modelo.vista;
 
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
@@ -16,15 +15,17 @@ public class VentanaPrincipal extends Frame {
 		this.controladorJuego = unControladorJuego;
 		this.setTitle("Tablero PACMAN");
 		// this.setSize(300, 300);
-		this.setSize(900,900);
+		this.setSize(705,680);
 		this.setResizable(false);
 		// panel = new Panel(222,242,controladorJuego);
 		panel = new Panel(666,726,controladorJuego);
+		
 		this.add(panel);
 		
-		Button boton = new Button();
+		
+		/*Button boton = new Button();
 		boton.setLabel("Boton");
-		this.add(boton);
+		this.add(boton);*/
 		
 		this.setBackground(Color.black);
 		panel.setBackground(Color.black);
