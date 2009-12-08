@@ -72,5 +72,15 @@ public class FantasmaAzul extends Fantasma {
 			}
 		}
 	}
+	public int getX() {
+		
+		return super.getPosicion().getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return super.getPosicion().getPuntoY();
+	}
 	
 }

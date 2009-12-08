@@ -6,10 +6,11 @@ import java.util.LinkedList;
 import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
+import modelo.vista.Integrante;
 
 enum Estados{ATRAPAR, HUIR, COMIDO};
 
-public abstract class Fantasma extends Personaje {
+public abstract class Fantasma extends Personaje implements Integrante{
 
 	private Estados estado;
 	private int puntos;

@@ -102,4 +102,14 @@ public class FantasmaRojo extends Fantasma {
 			return posicionesOrdenadasPacman.peekFirst();
 	}
 	
+	public int getX() {
+		
+		return super.getPosicion().getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return super.getPosicion().getPuntoY();
+	}
 }

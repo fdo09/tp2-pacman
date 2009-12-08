@@ -33,5 +33,17 @@ public class FantasmaAmarillo extends Fantasma {
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 		return posicionesOrdenadasPacman.peekLast();
 	}
+
+
+	public int getX() {
+		
+		return super.getPosicion().getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return super.getPosicion().getPuntoY();
+	}
 	
 }
