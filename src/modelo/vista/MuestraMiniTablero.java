@@ -27,7 +27,7 @@ public class MuestraMiniTablero {
 		PosicionTablero unTablero = new PosicionTablero(200,200);
 		ControladorJuego controlador = new ControladorJuego();
 	
-		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
+		VentanaPrincipalMini ventana = new VentanaPrincipalMini(controlador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);
 		VistaTablero vistaTablero = new VistaTablero();
@@ -38,7 +38,7 @@ public class MuestraMiniTablero {
 		
 		File file = new File("xml/miniTablero.xml");
 		try {
-			int n = 25;
+			int n = 0;
 			int r = 0;
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
@@ -51,7 +51,7 @@ public class MuestraMiniTablero {
 					
 					Element fstElmnt = (Element) fstNode;
 					NodeList fstNmElemLst = fstElmnt.getElementsByTagName("casillero");
-					r = 1;
+					r = 0;
 					for ( int i = 0; i < fstNmElemLst.getLength(); i++){
 						
 						Element fir = (Element) fstNmElemLst.item(i);
