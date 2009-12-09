@@ -72,10 +72,12 @@ private Tablero tab;
 		
 		//Evaluamos la posicion del fantasma a mitad de camino, no hay otro posible movimiento mas que hacia la derecha.
 		
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
+		int movimientos = 4;
+		
+		for(int i = 0; i<movimientos;i++){
+			
+			fantasmaNaranja.mover();
+		}
 		
 		Punto mitadDeCamino = new Punto(6,4);
 		
@@ -85,9 +87,12 @@ private Tablero tab;
 		
 		//Evaluamos la posicion final del fantasma, no hay otro posible movimiento mas que para abajo.
 		
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
+		movimientos = 3;
+		
+		for(int i = 0; i<movimientos;i++){
+			
+			fantasmaNaranja.mover();
+		}
 		
 		Punto finalDelCamino = new Punto(6,7);
 		
@@ -141,9 +146,12 @@ private Tablero tab;
 	
 		//Evaluamos la posición del FantasmaNaranaja, tiene que estar en la misma que el FantasmaAmarillo.
 		
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
+		int movimientos = 3;
+		
+		for(int i = 0; i<movimientos;i++){
+			
+			fantasmaNaranja.mover();
+		}
 		
 		Punto encuentro = new Punto (4,7);
 		
@@ -219,11 +227,12 @@ private Tablero tab;
 		
 		//Termina en la esquina superior derecha.
 		
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
-		fantasmaNaranja.mover();
+		int movimientos = 5;
+		
+		for(int i = 0; i<movimientos;i++){
+			
+			fantasmaNaranja.mover();
+		}
 		
 		Punto ultimoCasillero = new Punto (1,2);
 		
