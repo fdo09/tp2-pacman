@@ -2,13 +2,16 @@ package modelo.moviles;
 
 import java.util.Collection;
 
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+import ar.uba.fi.algo3.titiritero.Posicionable;
+
 import modelo.fijos.Casillero;
 import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
 enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
-public class Pacman extends Personaje{
+public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 
 	private Direccion direccion;
 	
@@ -121,6 +124,24 @@ public class Pacman extends Personaje{
 	private void regresarAPosicionOriginal(){
 		
 		this.setPosicion(super.getPosicionInicial());
+	}
+
+
+	public int getX() {
+		
+		return 25 * super.getPosicion().getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return 25 * super.getPosicion().getPuntoY();
+	}
+
+
+	public void vivir() {
+		this.moverIzquierda();
+		
 	}
 
 	

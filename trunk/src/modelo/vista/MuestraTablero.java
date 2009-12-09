@@ -135,9 +135,12 @@ public class MuestraTablero {
 		    e.printStackTrace();
 		
 		}
-		Punto puntoPacman = new Punto(6,2);
+		Punto puntoPacman = new Punto(15,21);
 		Pacman pacman = new Pacman(tablero, puntoPacman);
+		VistaPacman vistaPacman = new VistaPacman();
+		vistaPacman.setPosicionable(pacman);
 		tablero.addPacman(pacman);
+		
 		// Un Fantasma Rojo
 		Punto nuevoPuntoRojo = new Punto(26,1);
 		FantasmaRojo fantasmaRojo = new FantasmaRojo(tablero, nuevoPuntoRojo);
@@ -152,14 +155,17 @@ public class MuestraTablero {
 		vistaAmarillo.setPosicionable(fantasmaAmarillo);
 		
 		
+		controlador.agregarObjetoVivo(pacman);
 		controlador.agregarObjetoVivo(fantasmaRojo);
 		controlador.agregarObjetoVivo(fantasmaAmarillo);
+		
+		controlador.agregarDibujable(vistaPacman);
 		controlador.agregarDibujable(nuevoRojo);
 		controlador.agregarDibujable(vistaAmarillo);
 		controlador.agregarMouseClickObservador(vistaTablero);
 		
 		
-		controlador.setIntervaloSimulacion(100);
+		controlador.setIntervaloSimulacion(300);
 		controlador.comenzarJuego();
 		
 		
