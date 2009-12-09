@@ -7,6 +7,7 @@ import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.vista.Integrante;
+import modelo.fijos.Punto;
 
 enum Estados{ATRAPAR, HUIR, COMIDO};
 
@@ -14,12 +15,14 @@ public abstract class Fantasma extends Personaje implements Integrante{
 
 	private Estados estado;
 	private int puntos;
+	private Punto casa;
 	public static final int PUNTOS = 200;
 
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
 		this.setEstado(Estados.ATRAPAR);
 		this.puntos = PUNTOS;
+		this.casa = posicion;
 	}
 	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
@@ -76,9 +79,12 @@ public abstract class Fantasma extends Personaje implements Integrante{
 		return (this.getEstado() == Estados.HUIR);
 	}
 	
+	protected Punto getCasa(){
+		return this.casa;
+	}
 	
 	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
-		Punto destino = super.getPosicionInicial();
+		Punto destino = this.getCasa();
 		LinkedList<Punto> posicionesDestino = destino.getPosicionesOrdenadas(adjacentesValidos);
 		return posicionesDestino.pop();
 		
