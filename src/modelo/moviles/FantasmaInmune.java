@@ -6,10 +6,12 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Random;
 
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
-public class FantasmaInmune extends Fantasma  {
+public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 
     public static final int VISION = 10;
     Punto destino;	
@@ -109,14 +111,18 @@ public class FantasmaInmune extends Fantasma  {
 	
 	public int getX() {
 		
-		return super.getPosicion().getPuntoX();
+		return 25 * super.getPosicion().getPuntoX();
+		
 	}
 
 
 	public int getY() {
 		
-		return super.getPosicion().getPuntoY();
+		return 25 * super.getPosicion().getPuntoY();
 	}
 
-	
+	public void vivir(){
+		
+		super.mover();
+	}
 }

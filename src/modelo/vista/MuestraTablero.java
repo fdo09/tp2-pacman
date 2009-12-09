@@ -142,26 +142,56 @@ public class MuestraTablero {
 		tablero.addPacman(pacman);
 		
 		// Un Fantasma Rojo
-		Punto nuevoPuntoRojo = new Punto(26,1);
-		FantasmaRojo fantasmaRojo = new FantasmaRojo(tablero, nuevoPuntoRojo);
-		VistaFantasmaRojo nuevoRojo = new VistaFantasmaRojo();
-		nuevoRojo.setPosicionable(fantasmaRojo);
+		Punto ubicacionRojo = new Punto(26,1);
+		FantasmaRojo fantasmaRojo = new FantasmaRojo(tablero, ubicacionRojo);
+		VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo();
+		vistaRojo.setPosicionable(fantasmaRojo);
+		tablero.addFantasma(fantasmaRojo);
 		
 		// Un Fantasma Amarillo
-		Punto nuevoAmarillo = new Punto(2,1);
-		FantasmaAmarillo fantasmaAmarillo = new FantasmaAmarillo(tablero, nuevoAmarillo);
-		VistaFantasma vistaAmarillo = new VistaFantasma();
-	    vistaAmarillo.setColor(Color.YELLOW);
-		vistaAmarillo.setPosicionable(fantasmaAmarillo);
+		Punto ubicacionAmarillo = new Punto(2,1);
+		FantasmaAmarillo fantasmaAmarillo = new FantasmaAmarillo(tablero, ubicacionAmarillo);
+		VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo();
+	    vistaAmarillo.setPosicionable(fantasmaAmarillo);
+	    tablero.addFantasma(fantasmaAmarillo);
 		
-		
+	    //Un Fantasma Inmune
+		Punto ubicacionInmune = new Punto(20,21);
+		FantasmaInmune fantasmaInmune = new FantasmaInmune(tablero, ubicacionInmune);
+		VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune();
+		vistaInmune.setPosicionable(fantasmaInmune);
+		tablero.addFantasma(fantasmaInmune);
+	    
+	    // Un Fantasma Naranja
+		Punto ubicacionNaranja = new Punto(6,1);
+		FantasmaNaranja fantasmaNaranja = new FantasmaNaranja(tablero, ubicacionNaranja);
+		VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja();
+		vistaNaranja.setPosicionable(fantasmaNaranja);
+		tablero.addFantasma(fantasmaNaranja);
+	    
+	 // Un Fantasma Azul
+		Punto ubicacionAzul = new Punto(12,11);
+		FantasmaAzul fantasmaAzul = new FantasmaAzul(tablero, ubicacionAzul);
+		VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
+		vistaAzul.setPosicionable(fantasmaAzul);
+		tablero.addFantasma(fantasmaAzul);
+	    
 		controlador.agregarObjetoVivo(pacman);
 		controlador.agregarObjetoVivo(fantasmaRojo);
 		controlador.agregarObjetoVivo(fantasmaAmarillo);
+		controlador.agregarObjetoVivo(fantasmaInmune);
+		controlador.agregarObjetoVivo(fantasmaNaranja);
+		controlador.agregarObjetoVivo(fantasmaAzul);
+		
+		
 		
 		controlador.agregarDibujable(vistaPacman);
-		controlador.agregarDibujable(nuevoRojo);
+		controlador.agregarDibujable(vistaRojo);
 		controlador.agregarDibujable(vistaAmarillo);
+		controlador.agregarDibujable(vistaInmune);
+		controlador.agregarDibujable(vistaNaranja);
+		controlador.agregarDibujable(vistaAzul);
+				
 		controlador.agregarMouseClickObservador(vistaTablero);
 		
 		
