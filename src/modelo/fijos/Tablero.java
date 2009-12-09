@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 import modelo.moviles.Fantasma;
 import modelo.moviles.FantasmaAmarillo;
@@ -20,7 +21,7 @@ public class Tablero {
 	private HashMap<Punto, Casillero> casilleros;
 	private ArrayList<Fantasma> fantasmas;
 	private Pacman pacman;
-	private ArrayList<Punto> casas;
+	private LinkedList<Punto> casas;
 	private Punto inicioPacman;
 	private Punto dimension;
 	private int semillasRestantes;
@@ -32,34 +33,44 @@ public class Tablero {
 		this.casilleros = new HashMap<Punto, Casillero>(base*altura+1, 1);
 		this.fantasmas = new ArrayList<Fantasma>();
 		this.semillasRestantes = 0;
-		this.casas = new ArrayList<Punto>();
+		this.casas = new LinkedList<Punto>();
 	}
 	
 	public void cargarPersonajes() {
-		Punto puntoAux = new Punto (0,0);
-		this.addFantasma(new FantasmaRojo(this, puntoAux));
-		this.addFantasma(new FantasmaAmarillo(this, puntoAux));
-		this.addFantasma(new FantasmaNaranja(this, puntoAux));
-		this.addFantasma(new FantasmaAzul(this, puntoAux));
-		this.addFantasma(new FantasmaInmune(this, puntoAux));
+		Punto casaRojo = this.obtenerUnaCasaVacia();
+		this.addFantasma(new FantasmaRojo(this, casaRojo));
+		
+		Punto casaAmarillo = this.obtenerUnaCasaVacia();
+		this.addFantasma(new FantasmaAmarillo(this, casaAmarillo));
+		
+		Punto casaNaranja = this.obtenerUnaCasaVacia();
+		this.addFantasma(new FantasmaNaranja(this, casaNaranja));
+		
+		Punto casaAzul = this.obtenerUnaCasaVacia();
+		this.addFantasma(new FantasmaAzul(this, casaAzul));
+		
+		Punto casaImune = this.obtenerUnaCasaVacia();
+		this.addFantasma(new FantasmaInmune(this, casaImune));
+
 		this.addPacman(new Pacman(this, this.inicioPacman));
 	}
+	
+	
+	public Punto obtenerUnaCasaVacia(){
+		try {
+			return this.casas.pop();
+		} catch (NoSuchElementException e) {
+			throw new CasasLlenasException();
+		}
+	}
+	
 
 	public boolean estaVacio(){
 		return this.casilleros.isEmpty();
 	}
 	
 	public void addFantasma(Fantasma fantasma){
-		for(Punto posicionCasa : casas){
-			Casa casa = (Casa) this.casilleros.get(posicionCasa);
-			if(casa.isOcupada()){
-				fantasma.setPosicion(posicionCasa);
-				this.fantasmas.add(fantasma);
-				return;
-			}
-			
-		}
-		throw new CasasLlenasException();
+			this.fantasmas.add(fantasma);
 	}
 
 	
@@ -134,7 +145,7 @@ public class Tablero {
 	}
 
 	public void agregarCasa (Punto nuevaCasa){
-		this.casas.add(nuevaCasa);
+		this.casas.push(nuevaCasa);
 	}
 	
 	public int getSemillasRestantes() {
