@@ -4,10 +4,12 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
-public class FantasmaAzul extends Fantasma {	
+public class FantasmaAzul extends Fantasma implements ObjetoVivo {	
 	
 	public FantasmaAzul(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
@@ -74,13 +76,18 @@ public class FantasmaAzul extends Fantasma {
 	}
 	public int getX() {
 		
-		return super.getPosicion().getPuntoX();
+		return 25 * super.getPosicion().getPuntoX();
+		
 	}
 
 
 	public int getY() {
 		
-		return super.getPosicion().getPuntoY();
+		return 25 * super.getPosicion().getPuntoY();
 	}
 	
+	public void vivir(){
+		
+		super.mover();
+	}
 }
