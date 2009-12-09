@@ -6,9 +6,11 @@ import java.util.LinkedList;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
+import ar.uba.fi.algo3.titiritero.*;
+
 enum Inteligencias{INTELIGENTE, TONTO};
 
-public class FantasmaRojo extends Fantasma {
+public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 
 	private int contadorInteligencia;
 	private Inteligencias intel;
@@ -20,7 +22,10 @@ public class FantasmaRojo extends Fantasma {
 		super(tablero, posicion);
 		this.intel = Inteligencias.INTELIGENTE;
 	}
-
+	
+	public void vivir(){
+		this.mover();
+	}
 		
 	public void mover(){
 		/*
@@ -104,12 +109,13 @@ public class FantasmaRojo extends Fantasma {
 	
 	public int getX() {
 		
-		return super.getPosicion().getPuntoX();
+		return 25 * super.getPosicion().getPuntoX();
+		
 	}
 
 
 	public int getY() {
 		
-		return super.getPosicion().getPuntoY();
+		return 25 * super.getPosicion().getPuntoY();
 	}
 }

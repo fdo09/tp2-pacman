@@ -6,6 +6,15 @@ import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import modelo.fijos.Casa;
+import modelo.fijos.Casillero;
+import modelo.fijos.Pared;
+import modelo.fijos.Punto;
+import modelo.fijos.PuntoDePoder;
+import modelo.fijos.Semilla;
+import modelo.fijos.Tablero;
+import modelo.moviles.*;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -22,6 +31,7 @@ public class MuestraTablero {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// Instanciamos
+		Tablero tablero;
 		PosicionTablero unTablero = new PosicionTablero(800,800);
 		ControladorJuego controlador = new ControladorJuego();
 	
@@ -32,29 +42,35 @@ public class MuestraTablero {
 		vistaTablero.setPosicionable(unTablero);
 
 		controlador.agregarDibujable(vistaTablero);
-		
+		Casillero casilleroAux = null;
+		Punto posicion;
+		tablero = new Tablero(32,32);
 		
 		File file = new File("xml/Tablero.xml");
 		try {
+			
 			int n = 0;
 			int r = 0;
+			int s = 0;
+			int i = 0;
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(file);
 			doc.getDocumentElement().normalize();
 			NodeList nodeLst = doc.getElementsByTagName("fila");
-			for ( int s = 0; s < nodeLst.getLength(); s++){
+			for ( s = 0; s < nodeLst.getLength(); s++){
 				Node fstNode = nodeLst.item(s);
 				if ( fstNode.getNodeType() == Node.ELEMENT_NODE){
 					
 					Element fstElmnt = (Element) fstNode;
 					NodeList fstNmElemLst = fstElmnt.getElementsByTagName("casillero");
 					r = 0;
-					for ( int i = 0; i < fstNmElemLst.getLength(); i++){
+					for ( i = 0; i < fstNmElemLst.getLength(); i++){
 						
 						Element fir = (Element) fstNmElemLst.item(i);
 						NodeList fstNm = fir.getChildNodes();
 						String tipoDeCasillero = ((Node)fstNm.item(0)).getNodeValue();
+						posicion = new Punto(i, s);
 						PosicionCasillero cas$i = new PosicionCasillero(r,n);
 						VistaCasillero vis$i = new VistaCasillero();
 						if ( tipoDeCasillero.equals("semilla")){
@@ -66,7 +82,7 @@ public class MuestraTablero {
 							VistaSemilla vistaSemilla = new VistaSemilla();
 							vistaSemilla.setPosicionable(cas$i);
 							controlador.agregarDibujable(vistaSemilla);
-							
+							casilleroAux = new Semilla(posicion, tablero);
 							
 											
 							
@@ -75,14 +91,15 @@ public class MuestraTablero {
 							
 							vis$i.setColor(Color.BLUE);
 							serVisible(controlador, cas$i, vis$i);
-							
+							casilleroAux = new Pared(posicion, tablero);
 						
 							
 						}else if (tipoDeCasillero.equals("casa")){
 							
 							vis$i.setColor(Color.GREEN);
 							serVisible(controlador, cas$i, vis$i);
-							
+							casilleroAux = new Casa(posicion, tablero);
+							tablero.agregarCasa(posicion);
 							
 														
 						}else if (tipoDeCasillero.equals("PuntoDePoder")){
@@ -94,30 +111,42 @@ public class MuestraTablero {
 							VistaPuntoDePoder vistaPuntoDePoder = new VistaPuntoDePoder();
 							vistaPuntoDePoder.setPosicionable(cas$i);
 							controlador.agregarDibujable(vistaPuntoDePoder);
-							
+							casilleroAux = new PuntoDePoder(posicion,tablero);
 							
 							
 						}
 						
-						
+						tablero.addCasillero(posicion, casilleroAux);
 						// System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
 						// System.out.println(tab.esTransitable(nuevo));
-						//if ( r == 1){ r = 25;}
-						//else {	r = r + 25; }
+						// if ( r == 1){ r = 25;}
+						// else {	r = r + 25; }
 						r = r + 25;
 					}
 			   }
 			  n = n + 25;
 	    	}
+		Punto nuevaDimension = new Punto(s, i);
+		tablero.setDimension(nuevaDimension);
 			
 		}
 		catch(Exception e){
 			System.out.println ("Error al procesar el fichero de favoritos: " + e.getMessage());
 		    e.printStackTrace();
 		
-		}		
+		}
+		Punto puntoPacman = new Punto(6,2);
+		Pacman pacman = new Pacman(tablero, puntoPacman);
+		tablero.addPacman(pacman);
+		Punto nuevoPuntoRojo = new Punto(2,1);
+		FantasmaRojo fantasmaRojo = new FantasmaRojo(tablero, nuevoPuntoRojo);
+		VistaFantasmaRojo nuevoRojo = new VistaFantasmaRojo();
+		nuevoRojo.setPosicionable(fantasmaRojo);
 		
+		controlador.agregarObjetoVivo(fantasmaRojo);
+		controlador.agregarDibujable(nuevoRojo);
 		controlador.agregarMouseClickObservador(vistaTablero);
+		
 		
 		controlador.setIntervaloSimulacion(20);
 		controlador.comenzarJuego();
