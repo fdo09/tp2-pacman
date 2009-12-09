@@ -5,8 +5,9 @@ import java.util.LinkedList;
 
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
+import ar.uba.fi.algo3.titiritero.*;
 
-public class FantasmaNaranja extends Fantasma {
+public class FantasmaNaranja extends Fantasma implements ObjetoVivo, Posicionable {
 	
 	public FantasmaNaranja(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
@@ -39,6 +40,9 @@ public class FantasmaNaranja extends Fantasma {
 		}
 	}
 	
+	public void vivir () {
+		this.mover();
+	}
 	
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		/*
@@ -96,12 +100,12 @@ public class FantasmaNaranja extends Fantasma {
 	
 	public int getX() {
 		
-		return super.getPosicion().getPuntoX();
+		return 25 * super.getPosicion().getPuntoX();
 	}
 
 
 	public int getY() {
 		
-		return super.getPosicion().getPuntoY();
+		return 25 * super.getPosicion().getPuntoY();
 	}
 }
