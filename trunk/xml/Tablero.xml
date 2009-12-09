@@ -94,7 +94,7 @@
     </fila>
     
     
-    <fila id="5">
+    <fila id="4">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">pared</casillero>
@@ -125,7 +125,7 @@
         <casillero num="28">pared</casillero>
     </fila>
     
-    <fila id="6">
+    <fila id="5">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">semilla</casillero>
@@ -156,6 +156,36 @@
         <casillero num="28">pared</casillero>
     </fila>
     
+    <fila id="6">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">semilla</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">pared</casillero>
+        <casillero num="7">semilla</casillero>
+        <casillero num="8">pared</casillero>
+        <casillero num="9">pared</casillero>
+        <casillero num="10">semilla</casillero>
+        <casillero num="11">pared</casillero>
+        <casillero num="12">pared</casillero>
+        <casillero num="13">pared</casillero>
+        <casillero num="14">pared</casillero>
+        <casillero num="15">pared</casillero>
+        <casillero num="16">pared</casillero>
+        <casillero num="17">pared</casillero>
+        <casillero num="18">pared</casillero>
+        <casillero num="19">semilla</casillero>
+        <casillero num="20">pared</casillero>
+        <casillero num="21">pared</casillero>
+        <casillero num="22">semilla</casillero>
+        <casillero num="23">pared</casillero>
+        <casillero num="24">pared</casillero>
+        <casillero num="25">pared</casillero>
+        <casillero num="26">pared</casillero>
+        <casillero num="27">semilla</casillero>
+        <casillero num="28">pared</casillero>
+    </fila>
     <fila id="7">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
@@ -189,36 +219,6 @@
     <fila id="8">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
-        <casillero num="3">pared</casillero>
-        <casillero num="4">pared</casillero>
-        <casillero num="5">pared</casillero>
-        <casillero num="6">pared</casillero>
-        <casillero num="7">semilla</casillero>
-        <casillero num="8">pared</casillero>
-        <casillero num="9">pared</casillero>
-        <casillero num="10">semilla</casillero>
-        <casillero num="11">pared</casillero>
-        <casillero num="12">pared</casillero>
-        <casillero num="13">pared</casillero>
-        <casillero num="14">pared</casillero>
-        <casillero num="15">pared</casillero>
-        <casillero num="16">pared</casillero>
-        <casillero num="17">pared</casillero>
-        <casillero num="18">pared</casillero>
-        <casillero num="19">semilla</casillero>
-        <casillero num="20">pared</casillero>
-        <casillero num="21">pared</casillero>
-        <casillero num="22">semilla</casillero>
-        <casillero num="23">pared</casillero>
-        <casillero num="24">pared</casillero>
-        <casillero num="25">pared</casillero>
-        <casillero num="26">pared</casillero>
-        <casillero num="27">semilla</casillero>
-        <casillero num="28">pared</casillero>
-    </fila>
-    <fila id="9">
-        <casillero num="1">pared</casillero>
-        <casillero num="2">semilla</casillero>
         <casillero num="3">semilla</casillero>
         <casillero num="4">semilla</casillero>
         <casillero num="5">semilla</casillero>
@@ -244,6 +244,36 @@
         <casillero num="25">semilla</casillero>
         <casillero num="26">semilla</casillero>
         <casillero num="27">semilla</casillero>
+        <casillero num="28">pared</casillero>
+    </fila>
+    <fila id="9">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">pared</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">pared</casillero>
+        <casillero num="7">semilla</casillero>
+        <casillero num="8">pared</casillero>
+        <casillero num="9">pared</casillero>
+        <casillero num="10">pared</casillero>
+        <casillero num="11">pared</casillero>
+        <casillero num="12">pared</casillero>
+        <casillero num="13">semilla</casillero>
+        <casillero num="14">pared</casillero>
+        <casillero num="15">pared</casillero>
+        <casillero num="16">semilla</casillero>
+        <casillero num="17">pared</casillero>
+        <casillero num="18">pared</casillero>
+        <casillero num="19">pared</casillero>
+        <casillero num="20">pared</casillero>
+        <casillero num="21">pared</casillero>
+        <casillero num="22">semilla</casillero>
+        <casillero num="23">pared</casillero>
+        <casillero num="24">pared</casillero>
+        <casillero num="25">pared</casillero>
+        <casillero num="26">pared</casillero>
+        <casillero num="27">pared</casillero>
         <casillero num="28">pared</casillero>
     </fila>
     <fila id="10">
@@ -276,38 +306,8 @@
         <casillero num="27">pared</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="11">
-        <casillero num="1">pared</casillero>
-        <casillero num="2">pared</casillero>
-        <casillero num="3">pared</casillero>
-        <casillero num="4">pared</casillero>
-        <casillero num="5">pared</casillero>
-        <casillero num="6">pared</casillero>
-        <casillero num="7">semilla</casillero>
-        <casillero num="8">pared</casillero>
-        <casillero num="9">pared</casillero>
-        <casillero num="10">pared</casillero>
-        <casillero num="11">pared</casillero>
-        <casillero num="12">pared</casillero>
-        <casillero num="13">semilla</casillero>
-        <casillero num="14">pared</casillero>
-        <casillero num="15">pared</casillero>
-        <casillero num="16">semilla</casillero>
-        <casillero num="17">pared</casillero>
-        <casillero num="18">pared</casillero>
-        <casillero num="19">pared</casillero>
-        <casillero num="20">pared</casillero>
-        <casillero num="21">pared</casillero>
-        <casillero num="22">semilla</casillero>
-        <casillero num="23">pared</casillero>
-        <casillero num="24">pared</casillero>
-        <casillero num="25">pared</casillero>
-        <casillero num="26">pared</casillero>
-        <casillero num="27">pared</casillero>
-        <casillero num="28">pared</casillero>
-    </fila>
     
-    <fila id="12">
+    <fila id="11">
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
         <casillero num="3">pared</casillero>
@@ -339,6 +339,97 @@
     </fila>
     
    
+    <fila id="12">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">pared</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">pared</casillero>
+        <casillero num="7">semilla</casillero>
+        <casillero num="8">pared</casillero>
+        <casillero num="9">pared</casillero>
+        <casillero num="10">semilla</casillero>
+        <casillero num="11">pared</casillero>
+        <casillero num="12">pared</casillero>
+        <casillero num="13">casa</casillero>
+        <casillero num="14">casa</casillero>
+        <casillero num="15">casa</casillero>
+        <casillero num="16">casa</casillero>
+        <casillero num="17">pared</casillero>
+        <casillero num="18">pared</casillero>
+        <casillero num="19">semilla</casillero>
+        <casillero num="20">pared</casillero>
+        <casillero num="21">pared</casillero>
+        <casillero num="22">semilla</casillero>
+        <casillero num="23">pared</casillero>
+        <casillero num="24">pared</casillero>
+        <casillero num="25">pared</casillero>
+        <casillero num="26">pared</casillero>
+        <casillero num="27">pared</casillero>
+        <casillero num="28">pared</casillero>
+    </fila>
+    <fila id="13">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">pared</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">pared</casillero>
+        <casillero num="7">semilla</casillero>
+        <casillero num="8">semilla</casillero>
+        <casillero num="9">semilla</casillero>
+        <casillero num="10">semilla</casillero>
+        <casillero num="11">pared</casillero>
+        <casillero num="12">pared</casillero>
+        <casillero num="13">pared</casillero>
+        <casillero num="14">pared</casillero>
+        <casillero num="15">pared</casillero>
+        <casillero num="16">pared</casillero>
+        <casillero num="17">pared</casillero>
+        <casillero num="18">pared</casillero>
+        <casillero num="19">semilla</casillero>
+        <casillero num="20">semilla</casillero>
+        <casillero num="21">semilla</casillero>
+        <casillero num="22">semilla</casillero>
+        <casillero num="23">pared</casillero>
+        <casillero num="24">pared</casillero>
+        <casillero num="25">pared</casillero>
+        <casillero num="26">pared</casillero>
+        <casillero num="27">pared</casillero>
+        <casillero num="28">pared</casillero>
+    </fila>
+    <fila id="14">
+        <casillero num="1">pared</casillero>
+        <casillero num="2">pared</casillero>
+        <casillero num="3">pared</casillero>
+        <casillero num="4">pared</casillero>
+        <casillero num="5">pared</casillero>
+        <casillero num="6">pared</casillero>
+        <casillero num="7">semilla</casillero>
+        <casillero num="8">pared</casillero>
+        <casillero num="9">pared</casillero>
+        <casillero num="10">semilla</casillero>
+        <casillero num="11">pared</casillero>
+        <casillero num="12">pared</casillero>
+        <casillero num="13">pared</casillero>
+        <casillero num="14">pared</casillero>
+        <casillero num="15">pared</casillero>
+        <casillero num="16">pared</casillero>
+        <casillero num="17">pared</casillero>
+        <casillero num="18">pared</casillero>
+        <casillero num="19">semilla</casillero>
+        <casillero num="20">pared</casillero>
+        <casillero num="21">pared</casillero>
+        <casillero num="22">semilla</casillero>
+        <casillero num="23">pared</casillero>
+        <casillero num="24">pared</casillero>
+        <casillero num="25">pared</casillero>
+        <casillero num="26">pared</casillero>
+        <casillero num="27">pared</casillero>
+        <casillero num="28">pared</casillero>
+    </fila>
+       
     <fila id="15">
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
@@ -377,97 +468,6 @@
         <casillero num="5">pared</casillero>
         <casillero num="6">pared</casillero>
         <casillero num="7">semilla</casillero>
-        <casillero num="8">semilla</casillero>
-        <casillero num="9">semilla</casillero>
-        <casillero num="10">semilla</casillero>
-        <casillero num="11">pared</casillero>
-        <casillero num="12">pared</casillero>
-        <casillero num="13">pared</casillero>
-        <casillero num="14">pared</casillero>
-        <casillero num="15">pared</casillero>
-        <casillero num="16">pared</casillero>
-        <casillero num="17">pared</casillero>
-        <casillero num="18">pared</casillero>
-        <casillero num="19">semilla</casillero>
-        <casillero num="20">semilla</casillero>
-        <casillero num="21">semilla</casillero>
-        <casillero num="22">semilla</casillero>
-        <casillero num="23">pared</casillero>
-        <casillero num="24">pared</casillero>
-        <casillero num="25">pared</casillero>
-        <casillero num="26">pared</casillero>
-        <casillero num="27">pared</casillero>
-        <casillero num="28">pared</casillero>
-    </fila>
-    <fila id="17">
-        <casillero num="1">pared</casillero>
-        <casillero num="2">pared</casillero>
-        <casillero num="3">pared</casillero>
-        <casillero num="4">pared</casillero>
-        <casillero num="5">pared</casillero>
-        <casillero num="6">pared</casillero>
-        <casillero num="7">semilla</casillero>
-        <casillero num="8">pared</casillero>
-        <casillero num="9">pared</casillero>
-        <casillero num="10">semilla</casillero>
-        <casillero num="11">pared</casillero>
-        <casillero num="12">pared</casillero>
-        <casillero num="13">pared</casillero>
-        <casillero num="14">pared</casillero>
-        <casillero num="15">pared</casillero>
-        <casillero num="16">pared</casillero>
-        <casillero num="17">pared</casillero>
-        <casillero num="18">pared</casillero>
-        <casillero num="19">semilla</casillero>
-        <casillero num="20">pared</casillero>
-        <casillero num="21">pared</casillero>
-        <casillero num="22">semilla</casillero>
-        <casillero num="23">pared</casillero>
-        <casillero num="24">pared</casillero>
-        <casillero num="25">pared</casillero>
-        <casillero num="26">pared</casillero>
-        <casillero num="27">pared</casillero>
-        <casillero num="28">pared</casillero>
-    </fila>
-       
-    <fila id="18">
-        <casillero num="1">pared</casillero>
-        <casillero num="2">pared</casillero>
-        <casillero num="3">pared</casillero>
-        <casillero num="4">pared</casillero>
-        <casillero num="5">pared</casillero>
-        <casillero num="6">pared</casillero>
-        <casillero num="7">semilla</casillero>
-        <casillero num="8">pared</casillero>
-        <casillero num="9">pared</casillero>
-        <casillero num="10">semilla</casillero>
-        <casillero num="11">pared</casillero>
-        <casillero num="12">pared</casillero>
-        <casillero num="13">casa</casillero>
-        <casillero num="14">casa</casillero>
-        <casillero num="15">casa</casillero>
-        <casillero num="16">casa</casillero>
-        <casillero num="17">pared</casillero>
-        <casillero num="18">pared</casillero>
-        <casillero num="19">semilla</casillero>
-        <casillero num="20">pared</casillero>
-        <casillero num="21">pared</casillero>
-        <casillero num="22">semilla</casillero>
-        <casillero num="23">pared</casillero>
-        <casillero num="24">pared</casillero>
-        <casillero num="25">pared</casillero>
-        <casillero num="26">pared</casillero>
-        <casillero num="27">pared</casillero>
-        <casillero num="28">pared</casillero>
-    </fila>
-    <fila id="19">
-        <casillero num="1">pared</casillero>
-        <casillero num="2">pared</casillero>
-        <casillero num="3">pared</casillero>
-        <casillero num="4">pared</casillero>
-        <casillero num="5">pared</casillero>
-        <casillero num="6">pared</casillero>
-        <casillero num="7">semilla</casillero>
         <casillero num="8">pared</casillero>
         <casillero num="9">pared</casillero>
         <casillero num="10">semilla</casillero>
@@ -490,7 +490,7 @@
         <casillero num="27">pared</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="20">
+    <fila id="17">
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
         <casillero num="3">pared</casillero>
@@ -520,7 +520,7 @@
         <casillero num="27">pared</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="21">
+    <fila id="18">
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
         <casillero num="3">pared</casillero>
@@ -550,7 +550,7 @@
         <casillero num="27">pared</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="22">
+    <fila id="19">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">semilla</casillero>
@@ -580,7 +580,7 @@
         <casillero num="27">semilla</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="23">
+    <fila id="20">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">pared</casillero>
@@ -610,7 +610,7 @@
         <casillero num="27">semilla</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="24">
+    <fila id="21">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">pared</casillero>
@@ -640,7 +640,7 @@
         <casillero num="27">semilla</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="25">
+    <fila id="22">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">semilla</casillero>
@@ -671,7 +671,7 @@
         <casillero num="28">pared</casillero>
     </fila>
     
-    <fila id="29">
+    <fila id="23">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">pared</casillero>
@@ -701,7 +701,7 @@
         <casillero num="27">semilla</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="30">
+    <fila id="24">
         <casillero num="1">pared</casillero>
         <casillero num="2">semilla</casillero>
         <casillero num="3">semilla</casillero>
@@ -731,7 +731,7 @@
         <casillero num="27">semilla</casillero>
         <casillero num="28">pared</casillero>
     </fila>
-    <fila id="31">
+    <fila id="25">
         <casillero num="1">pared</casillero>
         <casillero num="2">pared</casillero>
         <casillero num="3">pared</casillero>
