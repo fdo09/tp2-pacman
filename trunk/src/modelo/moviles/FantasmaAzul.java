@@ -32,9 +32,7 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(super.getPosicion())){
-			return posicionesOrdenadasPacman.peekFirst();
-		}
-		else {
+
 			Punto movimiento1 = posicionesOrdenadasPacman.pop();
 			try{
 				Punto movimiento2 = posicionesOrdenadasPacman.pop();
@@ -44,6 +42,8 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 				return movimiento1;
 			}
 		}
+		else
+			return posicionesOrdenadasPacman.pop();
 	}
 
 

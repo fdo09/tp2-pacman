@@ -35,6 +35,8 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 		 */
 		Punto nuevaPosicion;
 		Collection<Punto> adjacentesValidos = super.getTablero().getAdjacentesValidos(super.getPosicion());
+		adjacentesValidos.remove(this.posicionAnterior);
+		posicionAnterior = super.getPosicion();
 		this.definirInteligencia();
 		
 		switch (super.getEstado()){
