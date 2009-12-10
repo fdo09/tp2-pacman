@@ -24,17 +24,22 @@ public class Juego {
 	
 	public boolean juegoEnCurso(){
 		if(this.jugador.getCantVidas() == 0){
-			this.estadoJuego = EstadosJuego.PERDIDO;
+			this.cambiarEstadoDelJuego(EstadosJuego.PERDIDO);
 			return false;
 		}
 		else if(this.tablero.getSemillasRestantes() == 0){
-			this.estadoJuego = EstadosJuego.GANADO;
+			this.cambiarEstadoDelJuego(EstadosJuego.GANADO);
 			return false;
 		}
 		else
 			return true;
 	}
 	
+	private void cambiarEstadoDelJuego(EstadosJuego unEstado){
+		
+		this.estadoJuego = unEstado;
+				
+	}
 	
 	public static Juego getInstancia(){
 		return instancia;
