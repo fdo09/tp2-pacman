@@ -60,7 +60,7 @@ public class CargaTablero {
 					}
 			    }
 	    	}
-		    Punto nuevaDimension = new Punto(s, i);
+		    Punto nuevaDimension = new Punto(i, s);
 		    tablero.setDimension(nuevaDimension);
 			return tablero;
 		}

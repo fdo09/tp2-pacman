@@ -127,7 +127,7 @@ public class MuestraTablero {
 			   }
 			  n = n + 25;
 	    	}
-		Punto nuevaDimension = new Punto(s, i);
+		Punto nuevaDimension = new Punto(i, s);
 		tablero.setDimension(nuevaDimension);
 			
 		}

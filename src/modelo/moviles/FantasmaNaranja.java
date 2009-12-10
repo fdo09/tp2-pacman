@@ -14,32 +14,7 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo, Posicionabl
 								
 	}
 	
-	
-	/*Realiza un movimiento segun la estrategia asignada, este fantasma es capar de realizar apoyo
-	 * al fantasma que se encuentra mas cerca del Pacman, si el esta mas cerca que otro fantasma intentar�
-	 * atraparlo. A la hora de huir, se acercar� al fantasma que se encuentra mas lejos, si el esta mas lejos, 
-	 * seguir� huyendo.
-	 */
-	public void mover(){
-		Punto nuevaPosicion;
-		Collection<Punto> adjacentesValidos = this.getTablero().getAdjacentesValidos(super.getPosicion());
-		switch (super.getEstado()){
-		case ATRAPAR:
-			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
-			super.setPosicion(nuevaPosicion);
-			this.comer();
-			break;
-		case HUIR:
-			nuevaPosicion = this.calcularHuida(adjacentesValidos);	
-			super.setPosicion(nuevaPosicion);
-			this.serComido();
-			break;
-		case COMIDO:
-			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
-			this.setPosicion(nuevaPosicion);
-		}
-	}
-	
+
 	public void vivir () {
 		this.mover();
 	}
