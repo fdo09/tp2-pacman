@@ -18,25 +18,25 @@ public class EscuchadorDeKeyPress implements KeyPressedObservador {
 				case KeyEvent.VK_DOWN:
 					String dw = "DOWN";
 					pacman.setMovimiento(dw);
-					pacman.mover();
+					// pacman.mover();
 					break;
 				case KeyEvent.VK_UP:
 					String up = "UP";
 					pacman.setMovimiento(up);
-					pacman.mover();
+					// pacman.mover();
 					break;
 				case KeyEvent.VK_LEFT:
 					String izq = "IZQ";
 					pacman.setMovimiento(izq);
-					pacman.mover();
+					// pacman.mover();
 					break;
 				case KeyEvent.VK_RIGHT:
 					String der = "DER";
 					pacman.setMovimiento(der);
-					pacman.mover();
+					// pacman.mover();
 					break;
 				default:
-					  pacman.mover();
+					  // pacman.mover();
 					break;
 				}
 				

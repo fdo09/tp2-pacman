@@ -238,7 +238,7 @@ public class MuestraTablero {
 		controlador.agregarMouseClickObservador(vistaTablero);
 		
 		
-		controlador.setIntervaloSimulacion(300);
+		controlador.setIntervaloSimulacion(200);
 		controlador.comenzarJuego();
 		
 		
