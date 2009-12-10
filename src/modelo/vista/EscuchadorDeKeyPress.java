@@ -2,10 +2,11 @@ package modelo.vista;
 import modelo.moviles.*;
 import java.awt.event.*;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
-
+enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class EscuchadorDeKeyPress implements KeyPressedObservador {
 	
 	private Pacman pacman;
+	
 
 	
 	public EscuchadorDeKeyPress(Pacman pacman){
@@ -15,18 +16,27 @@ public class EscuchadorDeKeyPress implements KeyPressedObservador {
 	public void keyPressed (KeyEvent event){
 				switch(event.getKeyCode()){
 				case KeyEvent.VK_DOWN:
-					pacman.moverAbajo();
+					String dw = "DOWN";
+					pacman.setMovimiento(dw);
+					pacman.mover();
 					break;
 				case KeyEvent.VK_UP:
-					pacman.moverArriba();
+					String up = "UP";
+					pacman.setMovimiento(up);
+					pacman.mover();
 					break;
 				case KeyEvent.VK_LEFT:
-					pacman.moverIzquierda();
+					String izq = "IZQ";
+					pacman.setMovimiento(izq);
+					pacman.mover();
 					break;
 				case KeyEvent.VK_RIGHT:
-					pacman.moverDerecha();
+					String der = "DER";
+					pacman.setMovimiento(der);
+					pacman.mover();
 					break;
 				default:
+					  pacman.mover();
 					break;
 				}
 				

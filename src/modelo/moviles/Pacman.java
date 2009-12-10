@@ -40,8 +40,21 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 				}
 		
 		}
+	
+	public void setMovimiento(String direccion){
+		if ( direccion == "IZQ"){
+			this.direccion = Direccion.IZQUIERDA;
+		}else if ( direccion == "DOWN"){
+			this.direccion = Direccion.ABAJO;
+		}else if ( direccion == "UP"){
+			this.direccion = Direccion.ARRIBA;
+		}else if ( direccion == "DER"){
+			this.direccion = Direccion.DERECHA;
+		}
+		
+	}
 
-	public void moverIzquierda() {
+	private void moverIzquierda() {
 		
 		Punto vecino = this.getPosicion().getVecinoIzquierdo();
 		
@@ -53,7 +66,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		}
 	}
 	
-	public void moverArriba() {
+	private void moverArriba() {
 		
 		Punto vecino = this.getPosicion().getVecinoDeArriba();
 		
@@ -65,7 +78,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		}
 	}
 	
-	public void moverDerecha() {
+	private void moverDerecha() {
 		
 		Punto vecino = this.getPosicion().getVecinoDerecho();
 		
@@ -77,7 +90,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		}
 	}
 
-	public void moverAbajo() {
+	private void moverAbajo() {
 		
 		Punto vecino = this.getPosicion().getVecinoDeAbajo();
 		
