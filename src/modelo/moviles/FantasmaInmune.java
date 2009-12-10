@@ -44,10 +44,10 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 				return posicionesOrdenadasPacman.peekFirst();
 			}
 			else{
-				if(super.getPosicion().equals(destino))
+				if(super.getPosicion().equals(this.destino) || this.destino == null)
 					this.calcularPosicionDestino();
 				
-				LinkedList<Punto> posicionesOrdenadasDestino = destino.getPosicionesOrdenadas(adjacentesValidos);
+				LinkedList<Punto> posicionesOrdenadasDestino = this.destino.getPosicionesOrdenadas(adjacentesValidos);
 				
 				return posicionesOrdenadasDestino.peekFirst();
 			}
@@ -56,21 +56,26 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 
 	private void calcularPosicionDestino() {
 		Punto dimension = super.getTablero().getDimension();
-		Random generadorX = new Random(dimension.getPuntoX());
-		Random generadorY = new Random(dimension.getPuntoY());
-		Punto posicionAux;
-		
+		Punto posicionAux = null;
+		int maxX = dimension.getPuntoX();
+		int maxY = dimension.getPuntoY();
+		int valorEnteroX = 0;
+		int valorEnteroY = 0;
+	try{
 		do{
-			
-			int numAzarX = generadorX.nextInt();
-			
-			int numAzarY = generadorY.nextInt();
-			
-			posicionAux = new Punto(numAzarX, numAzarY);
-		
-		} while (!super.getTablero().esTransitable(posicionAux) || posicionAux == super.getPosicion());
-		
-		super.setPosicion(posicionAux);
+			valorEnteroX = (int) Math.floor(Math.random() * (maxX));
+			valorEnteroY = (int) Math.floor(Math.random() * (maxY));
+			posicionAux = new Punto(valorEnteroX, valorEnteroY);
+	
+		} while (!super.getTablero().esTransitable(posicionAux));
+	}
+	catch (NullPointerException e){
+		System.out.println(valorEnteroX);
+		System.out.println("-");
+		System.out.println(valorEnteroY);
+		throw new NullPointerException();
+	}
+		this.destino = posicionAux;
 	}
 
 
@@ -125,4 +130,5 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 		
 		super.mover();
 	}
+
 }
