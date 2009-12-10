@@ -41,7 +41,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		
 		}
 
-	private void moverIzquierda() {
+	public void moverIzquierda() {
 		
 		Punto vecino = this.getPosicion().getVecinoIzquierdo();
 		
@@ -53,7 +53,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		}
 	}
 	
-	private void moverArriba() {
+	public void moverArriba() {
 		
 		Punto vecino = this.getPosicion().getVecinoDeArriba();
 		
@@ -65,7 +65,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		}
 	}
 	
-	private void moverDerecha() {
+	public void moverDerecha() {
 		
 		Punto vecino = this.getPosicion().getVecinoDerecho();
 		
@@ -77,7 +77,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		}
 	}
 
-	private void moverAbajo() {
+	public void moverAbajo() {
 		
 		Punto vecino = this.getPosicion().getVecinoDeAbajo();
 		
@@ -140,7 +140,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 
 
 	public void vivir() {
-		this.moverIzquierda();
+		// this.moverIzquierda();
 		
 	}
 
