@@ -22,7 +22,6 @@ public class Tablero {
 	private ArrayList<Fantasma> fantasmas;
 	private Pacman pacman;
 	private LinkedList<Punto> casas;
-	private Punto inicioPacman;
 	private Punto dimension;
 	private int semillasRestantes;
 
@@ -52,7 +51,7 @@ public class Tablero {
 		Punto casaImune = this.obtenerUnaCasaVacia();
 		this.addFantasma(new FantasmaInmune(this, casaImune));
 
-		this.addPacman(new Pacman(this, this.inicioPacman));
+		//this.addPacman(new Pacman(this, this.inicioPacman));
 	}
 	
 	

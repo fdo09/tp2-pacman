@@ -2,6 +2,7 @@ package modelo.vista;
 
 import java.awt.Color;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -141,6 +142,40 @@ public class MuestraTablero {
 		vistaPacman.setPosicionable(pacman);
 		tablero.addPacman(pacman);
 		
+		tablero.cargarPersonajes();
+		
+		ArrayList<Fantasma> fantasmas = tablero.getFantasmas();
+		for(Fantasma f : fantasmas){
+			if(f.getClass().equals(FantasmaRojo.class)){
+				VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo();
+				vistaRojo.setPosicionable(f);
+				controlador.agregarDibujable(vistaRojo);
+			}
+			else if(f.getClass().equals(FantasmaAmarillo.class)){
+				VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo();
+			    vistaAmarillo.setPosicionable(f);
+			    controlador.agregarDibujable(vistaAmarillo);
+			}
+			else if(f.getClass().equals(FantasmaInmune.class)){
+				VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune();
+			    vistaInmune.setPosicionable(f);
+			    controlador.agregarDibujable(vistaInmune);
+			}
+			else if(f.getClass().equals(FantasmaNaranja.class)){
+				VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja();
+				vistaNaranja.setPosicionable(f);
+				controlador.agregarDibujable(vistaNaranja);
+			}
+			else if(f.getClass().equals(FantasmaAzul.class)){
+				VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
+				vistaAzul.setPosicionable(f);
+				controlador.agregarDibujable(vistaAzul);
+			}
+			controlador.agregarObjetoVivo(f);
+		
+		}
+		
+		/*
 		// Un Fantasma Rojo
 		Punto ubicacionRojo = new Punto(26,1);
 		FantasmaRojo fantasmaRojo = new FantasmaRojo(tablero, ubicacionRojo);
@@ -175,22 +210,26 @@ public class MuestraTablero {
 		VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
 		vistaAzul.setPosicionable(fantasmaAzul);
 		tablero.addFantasma(fantasmaAzul);
+		*/
 	    
 		controlador.agregarObjetoVivo(pacman);
+		/*
 		controlador.agregarObjetoVivo(fantasmaRojo);
 		controlador.agregarObjetoVivo(fantasmaAmarillo);
 		controlador.agregarObjetoVivo(fantasmaInmune);
 		controlador.agregarObjetoVivo(fantasmaNaranja);
 		controlador.agregarObjetoVivo(fantasmaAzul);
-		
+		*/
 		
 		
 		controlador.agregarDibujable(vistaPacman);
+		/*
 		controlador.agregarDibujable(vistaRojo);
 		controlador.agregarDibujable(vistaAmarillo);
 		controlador.agregarDibujable(vistaInmune);
 		controlador.agregarDibujable(vistaNaranja);
 		controlador.agregarDibujable(vistaAzul);
+		*/
 				
 		controlador.agregarMouseClickObservador(vistaTablero);
 		

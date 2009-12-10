@@ -3,6 +3,8 @@ package modelo.moviles;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+
 import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
@@ -11,11 +13,12 @@ import modelo.fijos.Punto;
 
 enum Estados{ATRAPAR, HUIR, COMIDO};
 
-public abstract class Fantasma extends Personaje implements Integrante{
+public abstract class Fantasma extends Personaje implements Integrante, ObjetoVivo{
 
 	private Estados estado;
 	private int puntos;
 	private Punto casa;
+	protected Punto posicionAnterior;
 	public static final int PUNTOS = 200;
 
 	public Fantasma(Tablero tablero, Punto posicion) {
@@ -23,6 +26,7 @@ public abstract class Fantasma extends Personaje implements Integrante{
 		this.setEstado(Estados.ATRAPAR);
 		this.puntos = PUNTOS;
 		this.casa = posicion;
+		this.posicionAnterior = posicion;
 	}
 	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
@@ -37,10 +41,12 @@ public abstract class Fantasma extends Personaje implements Integrante{
 		 */
 		Punto nuevaPosicion;
 		Collection<Punto> adjacentesValidos = this.getTablero().getAdjacentesValidos(this.getPosicion());
+		adjacentesValidos.remove(this.posicionAnterior);
 		
 		switch (this.getEstado()){
 		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
+			this.posicionAnterior = super.getPosicion();
 			this.setPosicion(nuevaPosicion);
 			this.comer();
 			break; //FEDE no lo borres
