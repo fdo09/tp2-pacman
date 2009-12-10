@@ -74,6 +74,9 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 			}
 		}
 	}
+	
+	//Metodos provisorios utilizados para la visibilidad.
+	
 	public int getX() {
 		
 		return 25 * super.getPosicion().getPuntoX();

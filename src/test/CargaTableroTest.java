@@ -14,6 +14,7 @@ import modelo.fijos.Tablero;
 public class CargaTableroTest extends TestCase {
 	private Tablero tab;
 	
+	
 protected void setUp() throws Exception {
 		
 	   CargaTablero cargador = new CargaTablero();
@@ -22,7 +23,6 @@ protected void setUp() throws Exception {
 		
 	}
 
-		
 	
 	public void testCargarTablero(){
 		assertFalse(tab.estaVacio());		

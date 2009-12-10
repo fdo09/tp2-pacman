@@ -21,6 +21,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	protected Punto posicionAnterior;
 	public static final int PUNTOS = 200;
 
+	
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
 		this.setEstado(Estados.ATRAPAR);
@@ -29,9 +30,11 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		this.posicionAnterior = posicion;
 	}
 	
+	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
 
 	protected abstract Punto calcularAtrapada(Collection<Punto> adjacentesValidos);
+	
 	
 	public void mover(){
 		/*
@@ -81,19 +84,14 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		}
 	}
 	
+	
 	public boolean esComible(){
 		return (this.getEstado() == Estados.HUIR);
 	}
 	
+	
 	protected Punto getCasa(){
 		return this.casa;
-	}
-	
-	protected Punto calcularRegreso(Collection<Punto> adjacentesValidos){
-		Punto destino = this.getCasa();
-		LinkedList<Punto> posicionesDestino = destino.getPosicionesOrdenadas(adjacentesValidos);
-		return posicionesDestino.pop();
-		
 	}
 
 	
@@ -103,52 +101,53 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 
 
 	public void cambiarEstado() {
-		
 		this.setEstado(Estados.HUIR);
-		
 	}
 
+	
 	protected LinkedList<Punto> getFantasmasOrdenadosPorDistancia() {
 		
 		LinkedList<Punto> posicionesDeFantasmas = getTablero().getPosicionesDeFantasmas();
-		
 		Punto posicionDelPacman = getTablero().getPacman().getPosicion();
-		
 		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
-		
 		posicionesDeFantasmasOrdenadas = posicionDelPacman.getPosicionesOrdenadas(posicionesDeFantasmas);
-		
 		return posicionesDeFantasmasOrdenadas;
 	}
+	
 
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
+	
 
 	public int getPuntos() {
 		return puntos;
 	}
+	
 
 	public void setTablero(Tablero tablero) {
 		super.setTablero(tablero);
 	}
 
+	
 	public Tablero getTablero() {
 		return super.getTablero();
 	}
+	
 
 	public void setEstado(Estados estado) {
 		this.estado = estado;
 	}
 
+	
 	public Estados getEstado() {
 		return estado;
 	}
 
+	
 	public void setPosicion(Punto posicion) {
 		super.setPosicion(posicion);
 	}
 
-	
 }
 	

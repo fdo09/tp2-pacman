@@ -50,7 +50,7 @@ public class Juego {
 	}
 
 	
-	public EstadosJuego obtenerEstado(){
+	public EstadosJuego getEstado(){
 		return this.estadoJuego;
 	}
 

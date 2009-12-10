@@ -19,17 +19,19 @@ public abstract class Casillero {
 	
 	public abstract void accionar();
 
+	
 	public void setFuePisado(boolean fuePisado) {
 		this.fuePisado = fuePisado;
 	}
 
-	public boolean fuePisado() {
-		return fuePisado;
-	}
 
 	public Tablero getTablero() {
 		return tablero;
 	}
 	
+	
+	public boolean fuePisado() {
+		return fuePisado;
+	}
 
 }

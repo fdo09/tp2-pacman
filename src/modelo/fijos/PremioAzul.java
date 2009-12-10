@@ -12,8 +12,10 @@ public class PremioAzul extends Premio {
 
 
 	public void accionar() {
+		
 		if(!fuePisado()){
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
+			super.setFuePisado(true);
 		}
 	}
 	
