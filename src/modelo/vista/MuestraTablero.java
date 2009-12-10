@@ -35,17 +35,22 @@ public class MuestraTablero {
 		Tablero tablero;
 		PosicionTablero unTablero = new PosicionTablero(800,800);
 		ControladorJuego controlador = new ControladorJuego();
+		tablero = new Tablero(32,32);
+		Punto puntoPacman = new Punto(15,21);
+		Pacman pacman = new Pacman(tablero, puntoPacman);
 	
 		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);
+		controlador.agregarKeyPressObservador(new EscuchadorDeKeyPress(pacman));
+		
 		VistaTablero vistaTablero = new VistaTablero();
 		vistaTablero.setPosicionable(unTablero);
 
 		controlador.agregarDibujable(vistaTablero);
 		Casillero casilleroAux = null;
 		Punto posicion;
-		tablero = new Tablero(32,32);
+		
 		
 		File file = new File("xml/Tablero.xml");
 		try {
@@ -136,8 +141,7 @@ public class MuestraTablero {
 		    e.printStackTrace();
 		
 		}
-		Punto puntoPacman = new Punto(15,21);
-		Pacman pacman = new Pacman(tablero, puntoPacman);
+		
 		VistaPacman vistaPacman = new VistaPacman();
 		vistaPacman.setPosicionable(pacman);
 		tablero.addPacman(pacman);
@@ -184,7 +188,7 @@ public class MuestraTablero {
 		tablero.addFantasma(fantasmaRojo);
 		
 		// Un Fantasma Amarillo
-		Punto ubicacionAmarillo = new Punto(2,1);
+		Punto ubicacionAmarillo = new Punto(12,14);
 		FantasmaAmarillo fantasmaAmarillo = new FantasmaAmarillo(tablero, ubicacionAmarillo);
 		VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo();
 	    vistaAmarillo.setPosicionable(fantasmaAmarillo);
@@ -198,14 +202,14 @@ public class MuestraTablero {
 		tablero.addFantasma(fantasmaInmune);
 	    
 	    // Un Fantasma Naranja
-		Punto ubicacionNaranja = new Punto(6,1);
+		Punto ubicacionNaranja = new Punto(12,10);
 		FantasmaNaranja fantasmaNaranja = new FantasmaNaranja(tablero, ubicacionNaranja);
 		VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja();
 		vistaNaranja.setPosicionable(fantasmaNaranja);
 		tablero.addFantasma(fantasmaNaranja);
 	    
 	 // Un Fantasma Azul
-		Punto ubicacionAzul = new Punto(12,11);
+		Punto ubicacionAzul = new Punto(12,14);
 		FantasmaAzul fantasmaAzul = new FantasmaAzul(tablero, ubicacionAzul);
 		VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
 		vistaAzul.setPosicionable(fantasmaAzul);
