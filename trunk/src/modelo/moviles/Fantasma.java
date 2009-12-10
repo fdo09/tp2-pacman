@@ -101,7 +101,14 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 
 
 	public void cambiarEstado() {
-		this.setEstado(Estados.HUIR);
+		
+		if(this.getEstado() == Estados.ATRAPAR){
+			this.setEstado(Estados.HUIR);
+		}
+		else{
+			this.setEstado(Estados.ATRAPAR);
+		}
+					
 	}
 
 	
