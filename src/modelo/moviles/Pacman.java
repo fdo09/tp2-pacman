@@ -154,7 +154,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 
 	public void vivir() {
 		// this.moverIzquierda();
-		
+		this.mover();
 	}
 
 	
