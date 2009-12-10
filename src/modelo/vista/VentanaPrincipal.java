@@ -8,11 +8,13 @@ import java.awt.event.WindowEvent;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Panel;
+import ar.uba.fi.algo3.titiritero.vista.*;
 
 public class VentanaPrincipal extends Frame {
 
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		this.controladorJuego = unControladorJuego;
+		this.addKeyListener(new KeyPressedController(controladorJuego));
 		this.setTitle("ALGO3 - MAN");
 		// this.setSize(300, 300);
 		this.setSize(705,655);
