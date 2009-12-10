@@ -51,8 +51,8 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 			this.serComido();
 			break;
 		case COMIDO:
-			nuevaPosicion = this.calcularRegreso(adjacentesValidos);
-			super.setPosicion(nuevaPosicion);
+			this.setPosicion(this.getPosicionInicial());
+			this.setEstado(Estados.ATRAPAR);
 		}
 	}
 
@@ -109,15 +109,14 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 			return posicionesOrdenadasPacman.peekFirst();
 	}
 	
+	//Metodos provisorios utilizados para la visibilidad.
+	
 	public int getX() {
-		
 		return 25 * super.getPosicion().getPuntoX();
-		
 	}
 
-
+	
 	public int getY() {
-		
 		return 25 * super.getPosicion().getPuntoY();
 	}
 }

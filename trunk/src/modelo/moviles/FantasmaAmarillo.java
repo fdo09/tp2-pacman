@@ -9,9 +9,11 @@ import ar.uba.fi.algo3.titiritero.*;
 
 public class FantasmaAmarillo extends Fantasma implements ObjetoVivo, Posicionable{	
 
+	
 	public FantasmaAmarillo(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
 	}
+	
 	
 	public void vivir(){
 		super.mover();
@@ -40,6 +42,8 @@ public class FantasmaAmarillo extends Fantasma implements ObjetoVivo, Posicionab
 	}
 
 
+	//Metodos provisorios utilizados para la visibilidad.	
+	
 	public int getX() {
 		
 		return 25 * super.getPosicion().getPuntoX();

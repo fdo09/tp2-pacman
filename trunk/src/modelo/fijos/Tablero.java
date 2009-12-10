@@ -50,8 +50,6 @@ public class Tablero {
 		
 		Punto casaImune = this.obtenerUnaCasaVacia();
 		this.addFantasma(new FantasmaInmune(this, casaImune));
-
-		//this.addPacman(new Pacman(this, this.inicioPacman));
 	}
 	
 	
@@ -68,38 +66,41 @@ public class Tablero {
 		return this.casilleros.isEmpty();
 	}
 	
+	
 	public void addFantasma(Fantasma fantasma){
 			this.fantasmas.add(fantasma);
 	}
 
 	
 	public void addPacman(Pacman pacman){
+		if(!this.esTransitable(pacman.getPosicion())){
+			throw new RuntimeException("La posicion de inicio del pacman es invalida");
+		}
 		this.pacman = pacman;
 	}
+	
 	
 	public Pacman getPacman() {
 		return this.pacman;
 	}
 	
+	
 	public void addCasillero(Punto punto, Casillero nuevo){
-		
 		this.casilleros.put(punto, nuevo);
 	}
 	
 
 	public Casillero getCasillero(Punto punto) {
-		
 		return this.casilleros.get(punto);
 	}
 	
+	
 	public ArrayList<Fantasma> getFantasmas(){
-		
 		return this.fantasmas;
 	}
 
 	
 	public boolean esTransitable(Punto unaPosicion) {
-		
 		Casillero casillero = this.casilleros.get(unaPosicion);
 		return casillero.transitable();
 	}
@@ -108,19 +109,14 @@ public class Tablero {
 	public Collection<Punto> getAdjacentesValidos(Punto centro){
 		
 		Collection<Punto> adjacentes = centro.getPuntosAdyacentes();
-		
 		Collection<Punto> adjacentesValidos = new ArrayList<Punto>();
-		
 		for(Punto punto : adjacentes){
 			
 			if (esTransitable(punto))
-				
 				adjacentesValidos.add(punto);
 		}
 		return adjacentesValidos;
 	}
-	
-	
 	
 
 	public LinkedList<Punto> getPosicionesDeFantasmas() {
@@ -128,33 +124,38 @@ public class Tablero {
 		LinkedList<Punto> posicionesDeFantasmas = new LinkedList<Punto>();
 		
 		for(Fantasma unFantasma : this.fantasmas ){
-			
 			posicionesDeFantasmas.add(unFantasma.getPosicion());
 			
-					
 		}
 		return posicionesDeFantasmas;
 	}
+	
+	
 	public Punto getDimension() {
 		return this.dimension;
 	}
+	
 	
 	public void setDimension(Punto nuevaDimension){
 		this.dimension = nuevaDimension;
 	}
 
+	
 	public void agregarCasa (Punto nuevaCasa){
 		this.casas.push(nuevaCasa);
 	}
+	
 	
 	public int getSemillasRestantes() {
 		return this.semillasRestantes;
 	}
 
+	
 	public void setSemillasRestantes(int semillasRestantes) {
 		this.semillasRestantes = semillasRestantes;
 	}
 
+	
 	public void restarSemilla() {
 		this.semillasRestantes -= 1;
 	}

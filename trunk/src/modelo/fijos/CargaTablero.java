@@ -25,6 +25,7 @@ public class CargaTablero {
 		File file = new File(path);
 		int s = 0;
 		int i = 0;
+		
 		try {
 			tablero = new Tablero(32,32);
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -35,28 +36,33 @@ public class CargaTablero {
 			
 			for ( s = 0; s < nodeLst.getLength(); s++){
 				Node fstNode = nodeLst.item(s);
+				
 				if ( fstNode.getNodeType() == Node.ELEMENT_NODE){
-					
 					Element fstElmnt = (Element) fstNode;
 					NodeList fstNmElemLst = fstElmnt.getElementsByTagName("casillero");
+					
 					for (  i = 0; i < fstNmElemLst.getLength(); i++){
 						Element fir = (Element) fstNmElemLst.item(i);
 						NodeList fstNm = fir.getChildNodes();
+						
 						posicion = new Punto(i, s);
 						String tipoDeCasillero = ((Node)fstNm.item(0)).getNodeValue();
+						
 						if ( tipoDeCasillero.equals("semilla")){
 							casilleroAux = new Semilla(posicion, tablero);
+							
 						}else if (tipoDeCasillero.equals("pared")){
 							casilleroAux = new Pared(posicion, tablero);
+							
 						}else if (tipoDeCasillero.equals("casa")){
 							casilleroAux = new Casa(posicion, tablero);
 							tablero.agregarCasa(posicion);
+							
 						}else if (tipoDeCasillero.equals("PuntoDePoder")){
 							casilleroAux = new PuntoDePoder(posicion,tablero);
+							
 						}
 						tablero.addCasillero(posicion, casilleroAux);
-						// System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
-						// System.out.println(tab.esTransitable(nuevo));
 					}
 			    }
 	    	}
@@ -67,13 +73,9 @@ public class CargaTablero {
 		catch(Exception e){
 			System.out.println ("Error al procesar el fichero de favoritos: " + e.getMessage());
 		    e.printStackTrace();
-		
+		    return null;
 		}		
-		
 	
-		
-		return null;
-		
 	}
 
 }

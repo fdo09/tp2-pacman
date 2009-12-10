@@ -31,7 +31,7 @@ public class FantasmaAzulTest extends TestCase {
 		   
 		//Agrego FantasmaAmarillo al tablero, sale desde su casa.
 		
-		Punto ubicacionAmarillo = new Punto(1,2);
+		Punto ubicacionAmarillo = new Punto(2,5);
 		  
 		fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
 		 
@@ -66,7 +66,7 @@ public class FantasmaAzulTest extends TestCase {
 	public void testAtrapar(){
 		
 		
-		Punto posicionEsperada = new Punto (5,4);
+		Punto posicionEsperada = new Punto (3,4);
 		
 		fantasmaAzul.mover();
 		
@@ -77,7 +77,7 @@ public class FantasmaAzulTest extends TestCase {
 		
 		//Evaluamos la posicion final del FantasmaAzul.
 		
-		int movimientos = 4;
+		int movimientos = 10;
 		
 		for(int i = 0; i<movimientos;i++){
 			
@@ -103,7 +103,7 @@ public class FantasmaAzulTest extends TestCase {
 		
 		//Comienzan los movimientos.
 		
-		Punto posicionEsperada = new Punto (3,4);
+		Punto posicionEsperada = new Punto (5,4);
 		
 		fantasmaAzul.mover();
 		
@@ -111,7 +111,7 @@ public class FantasmaAzulTest extends TestCase {
 		
 		//----------
 		
-		posicionEsperada = new Punto (1,5);
+		posicionEsperada = new Punto (6,2);
 		
 		int movimientos = 3;
 		

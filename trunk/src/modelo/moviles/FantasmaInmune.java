@@ -114,10 +114,11 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 		return false;
 	}
 	
+	
+	//Metodos provisorios utilizados para la visibilidad.
+	
 	public int getX() {
-		
 		return 25 * super.getPosicion().getPuntoX();
-		
 	}
 
 
