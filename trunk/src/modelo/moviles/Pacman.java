@@ -13,17 +13,19 @@ import modelo.fijos.Tablero;
 enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 
-	private Direccion direccion;
+	private Direccion direccionA;
+	private Direccion direccionB;
+	
 	
 	public Pacman (Tablero tablero ,Punto posicion){
 		super(tablero, posicion);
-		this.direccion = Direccion.IZQUIERDA;
+		this.direccionA = Direccion.IZQUIERDA;
 	}
 	
 	
 	public void mover() {
 		
-		switch (this.direccion){
+		switch (this.direccionA){
 		
 				case IZQUIERDA:
 					this.moverIzquierda();
@@ -43,13 +45,17 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 	
 	public void setMovimiento(String direccion){
 		if ( direccion == "IZQ"){
-			this.direccion = Direccion.IZQUIERDA;
+			this.direccionB = this.direccionA;
+			this.direccionA = Direccion.IZQUIERDA;
 		}else if ( direccion == "DOWN"){
-			this.direccion = Direccion.ABAJO;
+			this.direccionB = this.direccionA;
+			this.direccionA = Direccion.ABAJO;
 		}else if ( direccion == "UP"){
-			this.direccion = Direccion.ARRIBA;
+			this.direccionB = this.direccionA;
+			this.direccionA = Direccion.ARRIBA;
 		}else if ( direccion == "DER"){
-			this.direccion = Direccion.DERECHA;
+			this.direccionB = this.direccionA;
+			this.direccionA = Direccion.DERECHA;
 		}
 		
 	}
@@ -63,7 +69,15 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaIzquierda();
 			this.comer();
 			this.accionarCasillero();
+		}else if(this.direccionB == Direccion.DERECHA){
+			this.moverDerecha();
+		}else if(this.direccionB == Direccion.ARRIBA){
+			this.moverArriba();
+		}else if(this.direccionB == Direccion.ABAJO){
+			this.moverAbajo();
 		}
+	
+	
 	}
 	
 	private void moverArriba() {
@@ -75,6 +89,12 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaArriba();
 			this.comer();
 			this.accionarCasillero();
+		}else if(this.direccionB == Direccion.DERECHA){
+			this.moverDerecha();
+		}else if(this.direccionB == Direccion.IZQUIERDA){
+			this.moverIzquierda();
+		}else if(this.direccionB == Direccion.ABAJO){
+			this.moverAbajo();
 		}
 	}
 	
@@ -87,6 +107,12 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaDerecha();
 			this.comer();
 			this.accionarCasillero();
+		}else if(this.direccionB == Direccion.IZQUIERDA){
+			this.moverIzquierda();
+		}else if(this.direccionB == Direccion.ARRIBA){
+			this.moverArriba();
+		}else if(this.direccionB == Direccion.ABAJO){
+			this.moverAbajo();
 		}
 	}
 
@@ -99,6 +125,12 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaAbajo();
 			this.comer();
 			this.accionarCasillero();
+		}else if(this.direccionB == Direccion.DERECHA){
+			this.moverDerecha();
+		}else if(this.direccionB == Direccion.ARRIBA){
+			this.moverArriba();
+		}else if(this.direccionB == Direccion.IZQUIERDA){
+			this.moverIzquierda();
 		}
 	}
 	
@@ -153,8 +185,9 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 
 
 	public void vivir() {
-		// this.moverIzquierda();
-		this.mover();
+		
+			this.mover();
+		
 	}
 
 	
