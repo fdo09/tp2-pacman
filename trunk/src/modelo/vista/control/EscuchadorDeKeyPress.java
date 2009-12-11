@@ -1,4 +1,4 @@
-package modelo.vista;
+package modelo.vista.control;
 import modelo.moviles.*;
 import java.awt.event.*;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;

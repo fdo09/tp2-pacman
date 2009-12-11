@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import modelo.vista.control.Integrante;
+
 import ar.uba.fi.algo3.titiritero.Posicionable;
 
 public class PosicionTablero implements Posicionable, Iterable<Integrante>{

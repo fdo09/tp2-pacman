@@ -1,4 +1,4 @@
-package modelo.vista;
+package modelo.vista.fijos;
 
 import java.awt.Color;
 
