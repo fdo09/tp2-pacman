@@ -2,12 +2,14 @@ package modelo.vista.control;
 
 import java.awt.Color;
 import java.awt.Frame;
+import java.awt.Menu;
+import java.awt.MenuBar;
+import java.awt.MenuItem;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-import ar.uba.fi.algo3.titiritero.vista.Panel;
 import ar.uba.fi.algo3.titiritero.vista.*;
 
 public class VentanaPrincipal extends Frame {
@@ -25,6 +27,23 @@ public class VentanaPrincipal extends Frame {
 		this.add(panel);
 		
 		
+		//Creamos la barra de menus.
+		
+		MenuBar mbarra = new MenuBar();
+		Menu m = new Menu( "Archivo" );
+		m.add( new MenuItem( "Nuevo") );
+		m.add( new MenuItem( "Salir") );
+		mbarra.add( m );
+	 
+		m = new Menu( "Ayuda" );
+		m.add( new MenuItem( "Ayuda!" ) );
+		m.addSeparator();
+		m.add( new MenuItem( "Acerca de..." ) );
+		mbarra.add( m );
+	 
+		setMenuBar( mbarra );
+	
+	 
 		
 		
 		/*Button boton = new Button();
