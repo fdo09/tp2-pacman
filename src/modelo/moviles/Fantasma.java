@@ -8,7 +8,7 @@ import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
-import modelo.vista.Integrante;
+import modelo.vista.control.Integrante;
 import modelo.fijos.Punto;
 
 enum Estados{ATRAPAR, HUIR, COMIDO};
