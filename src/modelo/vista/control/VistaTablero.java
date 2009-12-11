@@ -1,4 +1,4 @@
-package modelo.vista;
+package modelo.vista.control;
 
 import java.awt.Color;
 
