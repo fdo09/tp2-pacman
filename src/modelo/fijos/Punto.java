@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import ar.uba.fi.algo3.titiritero.Posicionable;
+
 
 
 
@@ -15,7 +17,7 @@ import java.util.LinkedList;
  *
  */
 
-public class Punto  {
+public class Punto implements Posicionable {
 	
 	private int X;
 	private int Y;
@@ -212,6 +214,14 @@ public class Punto  {
 	public Punto getPosicion() {
 		Punto posicion = new Punto(this);
 		return posicion;
+	}
+
+	public int getX() {
+		return this.X;
+	}
+
+	public int getY() {
+		return this.Y;
 	}
 	
 

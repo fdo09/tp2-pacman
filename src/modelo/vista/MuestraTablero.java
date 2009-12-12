@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import modelo.fijos.CargaTablero;
 import modelo.fijos.Casa;
 import modelo.fijos.Casillero;
 import modelo.fijos.Pared;
@@ -51,7 +52,9 @@ public class MuestraTablero {
 		ControladorJuego controlador = new ControladorJuego();
 		
 		Tablero tablero;
-		tablero = new Tablero(32,32);
+		
+		CargaTablero cargaTablero = new CargaTablero();
+		tablero = cargaTablero.cargar("xml/Tablero.xml");
 		
 		Punto puntoPacman = new Punto(15,21);
 		Pacman pacman = new Pacman(tablero, puntoPacman);
@@ -122,9 +125,51 @@ public class MuestraTablero {
 		return vistaPacman;
 	}
 
-	private static void generarVistaDeCasilleros(ControladorJuego controlador,
-			Tablero tablero) {
+	private static void generarVistaDeCasilleros(ControladorJuego controlador, Tablero tablero) {
+		Punto dimension = tablero.getDimension();
+		for ( int x = 0; x < dimension.getPuntoX(); x++ ){
+			
+			for (int y = 0; y < dimension.getPuntoY(); y++ ){
+				
+				Punto posicionCasillero = new Punto (x,y);
+				Punto posicionPantalla = new Punto (x*25, y*25);
+				Casillero casilleroActual = tablero.getCasillero(posicionCasillero);
+				VistaCasillero vistaCasillero = new VistaCasillero();
+				
+				if (casilleroActual.getClass().equals(Semilla.class)){
+					vistaCasillero.setColor(Color.BLACK);
+					serVisible(controlador, posicionPantalla, vistaCasillero);
+					
+					VistaSemilla vistaSemilla = new VistaSemilla(casilleroActual);
+					vistaSemilla.setPosicionable(posicionPantalla);
+					controlador.agregarDibujable(vistaSemilla);
+				}
+				
+				else if (casilleroActual.getClass().equals(Pared.class)){
+					vistaCasillero.setColor(Color.BLUE);
+					serVisible(controlador, posicionPantalla, vistaCasillero);
+				}
+				
+				else if (casilleroActual.getClass().equals(Casa.class)){
+					vistaCasillero.setColor(Color.GREEN);
+					serVisible(controlador, posicionPantalla, vistaCasillero);
+				}
+				
+				else if (casilleroActual.getClass().equals(PuntoDePoder.class)){
+					vistaCasillero.setColor(Color.BLACK);
+					serVisible(controlador, posicionPantalla, vistaCasillero);
+					
+					VistaPuntoDePoder vistaPtoPoder = new VistaPuntoDePoder(casilleroActual);
+					vistaPtoPoder.setPosicionable(posicionPantalla);
+					controlador.agregarDibujable(vistaPtoPoder);
+				}
+			}
+		}
+		
+	}
+		/*
 		Casillero casilleroAux = null;
+
 		Punto posicion;
 		
 		
@@ -215,9 +260,10 @@ public class MuestraTablero {
 		
 		}
 	}
+	*/
 
 	private static void serVisible(ControladorJuego controlador,
-			PosicionCasillero cas$i, VistaCasillero vis$i) {
+			Punto cas$i, VistaCasillero vis$i) {
 		vis$i.setPosicionable(cas$i);
 		controlador.agregarDibujable(vis$i);
 	}
