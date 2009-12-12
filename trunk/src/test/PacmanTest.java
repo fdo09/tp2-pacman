@@ -69,6 +69,8 @@ public class PacmanTest extends TestCase {
 	
 	public void testSerComido(){
 		
+		
+		
 		pacman.serComido();
 		
 		assertEquals(pacman.getPosicionInicial(),pacman.getPosicion()); 
