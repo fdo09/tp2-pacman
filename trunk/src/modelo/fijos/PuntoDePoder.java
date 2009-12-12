@@ -32,7 +32,7 @@ public class PuntoDePoder extends Casillero{
 				
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
-		}
+		}this.cambiarEstadoDeFantasmas();
 
 	}
 
