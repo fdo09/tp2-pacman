@@ -24,8 +24,8 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		super(tablero, posicion);
 		this.setEstado(Estados.ATRAPAR);
 		this.puntos = PUNTOS;
-		this.casa = posicion;
-		this.posicionAnterior = posicion;
+		this.casa = new Punto (posicion);
+		this.posicionAnterior = new Punto (posicion);
 	}
 	
 	
@@ -43,14 +43,14 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		Punto nuevaPosicion;
 		Collection<Punto> adjacentesValidos = this.getTablero().getAdjacentesValidos(this.getPosicion());
 		adjacentesValidos.remove(this.posicionAnterior);
-		posicionAnterior = super.getPosicion();
+		posicionAnterior = new Punto (super.getPosicion());
 		
 		switch (this.getEstado()){
 		case ATRAPAR:
 			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
 			this.setPosicion(nuevaPosicion);
 			this.comer();
-			break; //FEDE no lo borres
+			break;
 		case HUIR:
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);
 			this.setPosicion(nuevaPosicion);

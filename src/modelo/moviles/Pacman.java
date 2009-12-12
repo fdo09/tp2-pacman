@@ -148,7 +148,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			
 			boolean posicionesIguales = (this.getPosicion().equals(unFantasma.getPosicion()));
 			if(!posicionesIguales){
-				return;
+				continue;
 			}
 			if(unFantasma.esComible()){
 				unFantasma.serComido();					

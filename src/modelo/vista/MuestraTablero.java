@@ -74,7 +74,7 @@ public class MuestraTablero {
 		    
 		controlador.agregarObjetoVivo(pacman);
 		controlador.agregarDibujable(vistaPacman);
-		controlador.setIntervaloSimulacion(200);
+		controlador.setIntervaloSimulacion(500);
 		controlador.comenzarJuego();
 		
 		

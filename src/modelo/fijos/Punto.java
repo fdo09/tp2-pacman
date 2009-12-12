@@ -30,9 +30,15 @@ public class Punto  {
 	public Punto(int X, int Y) {
 		this.X = X;
 		this.Y = Y;
-		this.hashCode = 0;
+		this.hashCode = this.hashCode();
 	}
 	
+	public Punto(Punto posicion) {
+		this.X = posicion.X;
+		this.Y = posicion.Y;
+		this.hashCode = this.hashCode();
+	}
+
 	public int hashCode(){
 		this.hashCode = this.X;
 		this.hashCode += this.Y;
@@ -96,17 +102,21 @@ public class Punto  {
 	
 	public void moverHaciaIzquierda() {
 		this.X--;
+		this.hashCode = this.hashCode();
 	}
 	public void moverHaciaArriba() {
 		this.Y--;
+		this.hashCode = this.hashCode();
 	}
 
 	public void moverHaciaDerecha() {
 		this.X++;
+		this.hashCode = this.hashCode();
 	}
 	
 	public void moverHaciaAbajo() {
 		this.Y++;
+		this.hashCode = this.hashCode();
 	}
 	
 	//Obtenemos los puntos vecinos a un punto.
@@ -158,6 +168,7 @@ public class Punto  {
 		
 		this.X = posicionOriginal.X;
 		this.Y = posicionOriginal.Y;
+		this.hashCode = this.hashCode();
 	}
 	
 	public LinkedList<Punto> getPosicionesOrdenadas(Collection<Punto> listaDeUbicaciones){
@@ -196,6 +207,11 @@ public class Punto  {
 			}
 		}
 		return ptoMasLejano;
+	}
+
+	public Punto getPosicion() {
+		Punto posicion = new Punto(this);
+		return posicion;
 	}
 	
 

@@ -10,15 +10,15 @@ public abstract class Personaje{
 	private Punto posicionInicial;
 	
 	public Personaje(Tablero tablero, Punto posicion){
-		this.setTablero(tablero);
-		this.setPosicion(posicion);
-		this.setPosicionInicial(posicion);
+		this.tablero = tablero;
+		this.posicion = posicion;
+		this.posicionInicial = new Punto(posicion);
 	}
 	
 	public abstract void mover();
 
 	public void setPosicion(Punto posicion) {
-		this.posicion = posicion;
+		this.posicion.nuevaPosicion(posicion);
 	}
 
 	public Punto getPosicion() {
@@ -34,7 +34,7 @@ public abstract class Personaje{
 	}
 
 	public void setPosicionInicial(Punto posicionInicial) {
-		this.posicionInicial = posicionInicial;
+		this.posicionInicial.nuevaPosicion(posicionInicial);
 	}
 
 	public Punto getPosicionInicial() {
