@@ -48,24 +48,83 @@ public class MuestraTablero {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// Instanciamos
-		Tablero tablero;
-		PosicionTablero unTablero = new PosicionTablero(800,800);
+		
 		ControladorJuego controlador = new ControladorJuego();
+		
+		Tablero tablero;
 		tablero = new Tablero(32,32);
+		
 		Punto puntoPacman = new Punto(15,21);
 		Pacman pacman = new Pacman(tablero, puntoPacman);
-	
+		controlador.agregarKeyPressObservador(new EscuchadorDeKeyPress(pacman));
+		
 		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);
-		controlador.agregarKeyPressObservador(new EscuchadorDeKeyPress(pacman));
 		
-		VistaTablero vistaTablero = new VistaTablero();
-		vistaTablero.setPosicionable(unTablero);
+			
+	
+		generarVistaDeCasilleros(controlador, tablero);
+		
+		VistaPacman vistaPacman = getVistaPacman(tablero, pacman);
+		
+		tablero.cargarPersonajes();
+		
+		generarVistaDeFantasmas(controlador, tablero);
+		
+		    
+		controlador.agregarObjetoVivo(pacman);
+		controlador.agregarDibujable(vistaPacman);
+		controlador.setIntervaloSimulacion(200);
+		controlador.comenzarJuego();
+		
+		
+		
+	}
 
-		controlador.agregarDibujable(vistaTablero);
+	private static void generarVistaDeFantasmas(ControladorJuego controlador,
+			Tablero tablero) {
+		ArrayList<Fantasma> fantasmas = tablero.getFantasmas();
+		for(Fantasma f : fantasmas){
+			if(f.getClass().equals(FantasmaRojo.class)){
+				VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo();
+				vistaRojo.setPosicionable(f);
+				controlador.agregarDibujable(vistaRojo);
+			}
+			else if(f.getClass().equals(FantasmaAmarillo.class)){
+				VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo();
+			    vistaAmarillo.setPosicionable(f);
+			    controlador.agregarDibujable(vistaAmarillo);
+			}
+			else if(f.getClass().equals(FantasmaInmune.class)){
+				VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune();
+			    vistaInmune.setPosicionable(f);
+			    controlador.agregarDibujable(vistaInmune);
+			}
+			else if(f.getClass().equals(FantasmaNaranja.class)){
+				VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja();
+				vistaNaranja.setPosicionable(f);
+				controlador.agregarDibujable(vistaNaranja);
+			}
+			else if(f.getClass().equals(FantasmaAzul.class)){
+				VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
+				vistaAzul.setPosicionable(f);
+				controlador.agregarDibujable(vistaAzul);
+			}
+			controlador.agregarObjetoVivo(f);
+		
+		}
+	}
+
+	private static VistaPacman getVistaPacman(Tablero tablero, Pacman pacman) {
+		VistaPacman vistaPacman = new VistaPacman();
+		vistaPacman.setPosicionable(pacman);
+		tablero.addPacman(pacman);
+		return vistaPacman;
+	}
+
+	private static void generarVistaDeCasilleros(ControladorJuego controlador,
+			Tablero tablero) {
 		Casillero casilleroAux = null;
 		Punto posicion;
 		
@@ -141,10 +200,7 @@ public class MuestraTablero {
 						}
 						
 						tablero.addCasillero(posicion, casilleroAux);
-						// System.out.println("Punto X = " + s +" Punto Y = "+ i + " Casillero = " + ((Node)fstNm.item(0)).getNodeValue());
-						// System.out.println(tab.esTransitable(nuevo));
-						// if ( r == 1){ r = 25;}
-						// else {	r = r + 25; }
+						
 						r = r + 25;
 					}
 			   }
@@ -159,108 +215,6 @@ public class MuestraTablero {
 		    e.printStackTrace();
 		
 		}
-		
-		VistaPacman vistaPacman = new VistaPacman();
-		vistaPacman.setPosicionable(pacman);
-		tablero.addPacman(pacman);
-		
-		tablero.cargarPersonajes();
-		
-		ArrayList<Fantasma> fantasmas = tablero.getFantasmas();
-		for(Fantasma f : fantasmas){
-			if(f.getClass().equals(FantasmaRojo.class)){
-				VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo();
-				vistaRojo.setPosicionable(f);
-				controlador.agregarDibujable(vistaRojo);
-			}
-			else if(f.getClass().equals(FantasmaAmarillo.class)){
-				VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo();
-			    vistaAmarillo.setPosicionable(f);
-			    controlador.agregarDibujable(vistaAmarillo);
-			}
-			else if(f.getClass().equals(FantasmaInmune.class)){
-				VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune();
-			    vistaInmune.setPosicionable(f);
-			    controlador.agregarDibujable(vistaInmune);
-			}
-			else if(f.getClass().equals(FantasmaNaranja.class)){
-				VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja();
-				vistaNaranja.setPosicionable(f);
-				controlador.agregarDibujable(vistaNaranja);
-			}
-			else if(f.getClass().equals(FantasmaAzul.class)){
-				VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
-				vistaAzul.setPosicionable(f);
-				controlador.agregarDibujable(vistaAzul);
-			}
-			controlador.agregarObjetoVivo(f);
-		
-		}
-		
-		/*
-		// Un Fantasma Rojo
-		Punto ubicacionRojo = new Punto(26,1);
-		FantasmaRojo fantasmaRojo = new FantasmaRojo(tablero, ubicacionRojo);
-		VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo();
-		vistaRojo.setPosicionable(fantasmaRojo);
-		tablero.addFantasma(fantasmaRojo);
-		
-		// Un Fantasma Amarillo
-		Punto ubicacionAmarillo = new Punto(12,14);
-		FantasmaAmarillo fantasmaAmarillo = new FantasmaAmarillo(tablero, ubicacionAmarillo);
-		VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo();
-	    vistaAmarillo.setPosicionable(fantasmaAmarillo);
-	    tablero.addFantasma(fantasmaAmarillo);
-		
-	    //Un Fantasma Inmune
-		Punto ubicacionInmune = new Punto(20,21);
-		FantasmaInmune fantasmaInmune = new FantasmaInmune(tablero, ubicacionInmune);
-		VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune();
-		vistaInmune.setPosicionable(fantasmaInmune);
-		tablero.addFantasma(fantasmaInmune);
-	    
-	    // Un Fantasma Naranja
-		Punto ubicacionNaranja = new Punto(12,10);
-		FantasmaNaranja fantasmaNaranja = new FantasmaNaranja(tablero, ubicacionNaranja);
-		VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja();
-		vistaNaranja.setPosicionable(fantasmaNaranja);
-		tablero.addFantasma(fantasmaNaranja);
-	    
-	 // Un Fantasma Azul
-		Punto ubicacionAzul = new Punto(12,14);
-		FantasmaAzul fantasmaAzul = new FantasmaAzul(tablero, ubicacionAzul);
-		VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
-		vistaAzul.setPosicionable(fantasmaAzul);
-		tablero.addFantasma(fantasmaAzul);
-		*/
-	    
-		controlador.agregarObjetoVivo(pacman);
-		/*
-		controlador.agregarObjetoVivo(fantasmaRojo);
-		controlador.agregarObjetoVivo(fantasmaAmarillo);
-		controlador.agregarObjetoVivo(fantasmaInmune);
-		controlador.agregarObjetoVivo(fantasmaNaranja);
-		controlador.agregarObjetoVivo(fantasmaAzul);
-		*/
-		
-		
-		controlador.agregarDibujable(vistaPacman);
-		/*
-		controlador.agregarDibujable(vistaRojo);
-		controlador.agregarDibujable(vistaAmarillo);
-		controlador.agregarDibujable(vistaInmune);
-		controlador.agregarDibujable(vistaNaranja);
-		controlador.agregarDibujable(vistaAzul);
-		*/
-				
-		controlador.agregarMouseClickObservador(vistaTablero);
-		
-		
-		controlador.setIntervaloSimulacion(200);
-		controlador.comenzarJuego();
-		
-		
-		
 	}
 
 	private static void serVisible(ControladorJuego controlador,
