@@ -18,10 +18,13 @@ public class VentanaPrincipal extends Frame {
 	private Menu menuArchivo;
 	private Menu menuAyuda;
 	private MenuItem nuevo;
+	
 	private MenuItem salir;
 	private MenuItem ayuda;
 	private MenuItem acercaDe;
-	
+	private ControladorJuego controladorJuego;
+	private static final long serialVersionUID = 1L;
+	private Panel panel;
 	
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		this.controladorJuego = unControladorJuego;
@@ -43,9 +46,11 @@ public class VentanaPrincipal extends Frame {
 		menuArchivo = new Menu( "Archivo" );
 		
 		nuevo = new MenuItem("Nuevo");
+	
 		salir = new MenuItem("Salir");
 		
 		menuArchivo.add(nuevo);
+
 		menuArchivo.add(salir);
 		
 		mbarra.add(menuArchivo);
@@ -61,8 +66,28 @@ public class VentanaPrincipal extends Frame {
 		
 		setMenuBar(mbarra);
 	
+		/*nuevo.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				controladorJuego.comenzarJuego();
+				
+				
+				}
+			});*/
+			
+		ayuda.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				Frame unaVentana = new Frame();
+				String titulo = "Reglas";
+				
+				@SuppressWarnings("unused")
+				Regla ayuda = new Regla(unaVentana, titulo);
+				
+				}
+			});
 		
-
+		
 		
 		
 		/*Button boton = new Button();
@@ -80,12 +105,11 @@ public class VentanaPrincipal extends Frame {
 		});
 	}
 
-	private ControladorJuego controladorJuego;
-	private static final long serialVersionUID = 1L;
-	private Panel panel;
+	
 	
 	public SuperficieDeDibujo getSuperficieDeDibujo() {
 		return this.panel;
+		
 	}
 	
 
