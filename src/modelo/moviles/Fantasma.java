@@ -1,5 +1,6 @@
 package modelo.moviles;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -57,7 +58,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 			this.serComido();
 			break;
 		case COMIDO:
-			this.setPosicion(this.getPosicionInicial());
+			this.volverACasa();
 			this.setEstado(Estados.ATRAPAR);
 		}
 	}
@@ -76,7 +77,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		Pacman pacman = this.getTablero().getPacman();
 		if(this.getPosicion().equals(pacman.getPosicion()))
 		{
-			this.setPosicion(super.getPosicionInicial());
+			this.volverACasa();
 			Juego.getInstancia().getJugador().ganarPuntos(Fantasma.PUNTOS);
 			this.estado = Estados.ATRAPAR;
 		}
@@ -109,13 +110,23 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 					
 	}
 
+	public void volverACasa(){
+		
+		this.setPosicion(super.getPosicionInicial());
+		}
+		
+	
 	
 	protected LinkedList<Punto> getFantasmasOrdenadosPorDistancia() {
 		
 		LinkedList<Punto> posicionesDeFantasmas = getTablero().getPosicionesDeFantasmas();
+		
 		Punto posicionDelPacman = getTablero().getPacman().getPosicion();
+		
 		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
+		
 		posicionesDeFantasmasOrdenadas = posicionDelPacman.getPosicionesOrdenadas(posicionesDeFantasmas);
+		
 		return posicionesDeFantasmasOrdenadas;
 	}
 	
