@@ -25,7 +25,7 @@ public class PuntoDePoder extends Casillero{
 		
 		if(!fuePisado()){
 			
-			int tiempo = 20;
+			int tiempo = 30;
 			
 			this.setFuePisado(true);
 			

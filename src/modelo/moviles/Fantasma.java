@@ -9,11 +9,9 @@ import modelo.fijos.Tablero;
 import modelo.vista.control.Integrante;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
-enum Estados{ATRAPAR, HUIR, COMIDO};
-
 public abstract class Fantasma extends Personaje implements Integrante, ObjetoVivo{
 
-	private Estados estado;
+	private Estado estado;
 	private int puntos;
 	private Punto casa;
 	protected Punto posicionAnterior;
@@ -22,7 +20,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		this.setEstado(Estados.ATRAPAR);
+		this.estado = Estado.atrapar();
 		this.puntos = PUNTOS;
 		this.casa = new Punto (posicion);
 		this.posicionAnterior = new Punto (posicion);
@@ -46,25 +44,20 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		adjacentesValidos.remove(this.posicionAnterior);
 		posicionAnterior = new Punto (super.getPosicion());
 		
-		switch (this.getEstado()){
-		case ATRAPAR:
-			
+		if (this.estado.equals(Estado.atrapar()))
 			this.atrapar(adjacentesValidos);
-			
-			break;
-		case HUIR:
-			
+		
+		else if (this.estado.equals(Estado.huir()))
 			this.huir(adjacentesValidos);
-			
-			break;
-		case COMIDO:
+		
+		else if (this.estado.equals(Estado.comido())){
 			this.volverACasa();
-			this.setEstado(Estados.ATRAPAR);
+			this.setEstado(Estado.atrapar());
 		}
 	}
 
 
-	private void atrapar(Collection<Punto> adjacentesValidos) {
+	protected void atrapar(Collection<Punto> adjacentesValidos) {
 		Punto nuevaPosicion;
 		nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
 		this.setPosicion(nuevaPosicion);
@@ -72,15 +65,16 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	}
 
 
-	private void huir(Collection<Punto> adjacentesValidos) {
+	protected void huir(Collection<Punto> adjacentesValidos) {
 		Punto nuevaPosicion;
-		if(tiempo>=0){
+		if (tiempo>0){
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);
 			this.setPosicion(nuevaPosicion);
 			this.serComido();
+			this.restarTiempo();
 		}else
-			this.setEstado(Estados.ATRAPAR);
-		this.restarTiempo();
+			this.setEstado(Estado.atrapar());
+		
 	}
 	
 	
@@ -110,13 +104,13 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		{
 			this.volverACasa();
 			Juego.getInstancia().getJugador().ganarPuntos(Fantasma.PUNTOS);
-			this.estado = Estados.ATRAPAR;
+			this.estado = Estado.atrapar();
 		}
 	}
 	
 	
 	public boolean esComible(){
-		return (this.getEstado() == Estados.HUIR);
+		return (this.getEstado().equals(Estado.huir()));
 	}
 	
 	
@@ -132,15 +126,11 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 
 	public void cambiarEstado(int unTiempo) {
 		
-		tiempo = unTiempo;
+		this.tiempo += unTiempo;
 		
-		if(this.getEstado() == Estados.ATRAPAR){
-			this.setEstado(Estados.HUIR);
-		}
-		else{
-			this.setEstado(Estados.ATRAPAR);
-		}
-					
+		if(this.getEstado().equals(Estado.atrapar())){
+			this.setEstado(Estado.huir());
+		}			
 	}
 
 	public void volverACasa(){
@@ -184,12 +174,12 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	}
 	
 
-	public void setEstado(Estados estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 
 	
-	public Estados getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 

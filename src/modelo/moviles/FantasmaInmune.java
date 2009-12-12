@@ -11,7 +11,7 @@ import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 
-    public static final int VISION = 10;
+    public static final int VISION = 200;
     Punto destino;	
 	
 			
