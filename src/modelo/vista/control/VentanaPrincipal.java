@@ -81,7 +81,7 @@ public class VentanaPrincipal extends Frame {
 				Frame unaVentana = new Frame();
 				
 				String titulo = "Reglas";
-				@SuppressWarnings("unused")
+				@SuppressWarnings("unused")// Solo necesitamos generar una nueva ventana.
 				Regla reglas = new Regla(unaVentana,titulo);
 				
 				}
@@ -93,7 +93,7 @@ public class VentanaPrincipal extends Frame {
 				Frame unaVentana = new Frame();
 			
 				String titulo = "Acerca de...";
-				@SuppressWarnings("unused")
+				@SuppressWarnings("unused") // Solo necesitamos generar una nueva ventana.
 				AcercaDe acercaDe = new AcercaDe(unaVentana,titulo);
 				
 				}
