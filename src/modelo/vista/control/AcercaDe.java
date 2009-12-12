@@ -42,9 +42,9 @@ public class AcercaDe extends Dialog {
 		area.setBackground(Color.WHITE);
 		
 				
-		String informaciónDeCreación;
+		String informacionDeCreacion;
 		
-		informaciónDeCreación = "Nombre del Juego: \n\t AlgoIII - Man \n" +
+		informacionDeCreacion = "Nombre del Juego: \n\t AlgoIII - Man \n" +
 			
 								"\n Autores:\n\t" +
 								"Palladoro Federico \n\t" + 
@@ -56,7 +56,7 @@ public class AcercaDe extends Dialog {
 				
 		
 		
-		area.setText(informaciónDeCreación);
+		area.setText(informacionDeCreacion);
 		area.setEditable(false);
 		
 		
