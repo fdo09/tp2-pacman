@@ -1,5 +1,7 @@
 package modelo.fijos;
 
+import modelo.moviles.Pacman;
+
 enum EstadosJuego{EN_CURSO,GANADO,PERDIDO}
 
 public class Juego {
@@ -16,6 +18,8 @@ public class Juego {
 		CargaTablero cargador = new CargaTablero();
 		this.tablero = cargador.cargar(ARCHIVO);
 		this.tablero.cargarPersonajes();
+		Pacman pacman = new Pacman (this.tablero, new Punto(15,21));
+		this.tablero.addPacman(pacman);
 		this.nivel = 1;
 		this.jugador = new Jugador("Player1", 3, 0);
 		this.estadoJuego = EstadosJuego.EN_CURSO;

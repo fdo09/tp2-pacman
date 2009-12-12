@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import modelo.fijos.CargaTablero;
 import modelo.fijos.Casa;
 import modelo.fijos.Casillero;
+import modelo.fijos.Juego;
 import modelo.fijos.Pared;
 import modelo.fijos.Punto;
 import modelo.fijos.PuntoDePoder;
@@ -40,13 +41,11 @@ public class MuestraTablero {
 		
 		ControladorJuego controlador = new ControladorJuego();
 		
-		Tablero tablero;
+		Juego juego = new Juego();
 		
-		CargaTablero cargaTablero = new CargaTablero();
-		tablero = cargaTablero.cargar("xml/Tablero.xml");
+		Tablero tablero = juego.getTablero();
+		Pacman pacman = tablero.getPacman();
 		
-		Punto puntoPacman = new Punto(15,21);
-		Pacman pacman = new Pacman(tablero, puntoPacman);
 		controlador.agregarKeyPressObservador(new EscuchadorDeKeyPress(pacman));
 		
 		VentanaPrincipal ventana = new VentanaPrincipal(controlador);
@@ -58,8 +57,6 @@ public class MuestraTablero {
 		generarVistaDeCasilleros(controlador, tablero);
 		
 		VistaPacman vistaPacman = getVistaPacman(tablero, pacman);
-		
-		tablero.cargarPersonajes();
 		
 		generarVistaDeFantasmas(controlador, tablero);
 		
@@ -108,9 +105,8 @@ public class MuestraTablero {
 	}
 
 	private static VistaPacman getVistaPacman(Tablero tablero, Pacman pacman) {
-		VistaPacman vistaPacman = new VistaPacman();
-		vistaPacman.setPosicionable(pacman);
-		tablero.addPacman(pacman);
+		VistaPacman vistaPacman = new VistaPacman(pacman);
+		vistaPacman.setPosicionable(pacman);;
 		return vistaPacman;
 	}
 
