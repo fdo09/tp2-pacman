@@ -94,6 +94,11 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		Pacman pacman = this.getTablero().getPacman();
 		if(this.getPosicion().equals(pacman.getPosicion())){
 			pacman.serComido();
+			Collection<Fantasma> fantasmas = super.getTablero().getFantasmas();
+			for(Fantasma fantasma : fantasmas){
+				
+				fantasma.volverACasa();
+			}
 		}
 	}
 	
