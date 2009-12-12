@@ -23,7 +23,6 @@ import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 import modelo.vista.control.EscuchadorDeKeyPress;
 import modelo.vista.control.VentanaPrincipal;
-import modelo.vista.control.VistaTablero;
 import modelo.vista.fijos.PosicionCasillero;
 import modelo.vista.fijos.VistaCasillero;
 import modelo.vista.fijos.VistaPuntoDePoder;
@@ -158,7 +157,7 @@ public class MuestraTablero {
 						VistaCasillero vis$i = new VistaCasillero();
 						if ( tipoDeCasillero.equals("semilla")){
 							
-							vis$i.setColor(Color.CYAN);
+							vis$i.setColor(Color.BLACK);
 							
 							serVisible(controlador, cas$i, vis$i);
 							
@@ -187,7 +186,7 @@ public class MuestraTablero {
 														
 						}else if (tipoDeCasillero.equals("PuntoDePoder")){
 							
-							vis$i.setColor(Color.CYAN);
+							vis$i.setColor(Color.BLACK);
 							
 							serVisible(controlador, cas$i, vis$i);
 							

@@ -1,14 +1,12 @@
 package modelo.vista.moviles;
 
-import java.awt.Color;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
-import ar.uba.fi.algo3.titiritero.vista.Circulo;
-
-public class VistaPacman extends Circulo {
+public class VistaPacman extends Imagen {
 
 	public VistaPacman() {
-		super(20);
-		this.setColor(Color.DARK_GRAY);
+		String nombreArchivoImagen = "ImagenesDePersonajes/pacman.jpg";
+		setNombreArchivoImagen(nombreArchivoImagen);
 		
 	}
 

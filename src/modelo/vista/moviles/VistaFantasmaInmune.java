@@ -1,14 +1,11 @@
 package modelo.vista.moviles;
 
-import java.awt.Color;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
-import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
-
-public class VistaFantasmaInmune extends Cuadrado {
+public class VistaFantasmaInmune extends Imagen {
 
 	public VistaFantasmaInmune() {
-		super(20, 20);
-		setColor(Color.GREEN);
-		
+		String nombreArchivoImagen = "ImagenesDePersonajes/verde.jpg";
+		setNombreArchivoImagen(nombreArchivoImagen);
 	}
 }
