@@ -18,22 +18,26 @@ public class VentanaPrincipal extends Frame {
 	private Menu menuArchivo;
 	private Menu menuAyuda;
 	private MenuItem nuevo;
-	
+	private MenuItem pausa;
 	private MenuItem salir;
-	private MenuItem ayuda;
+	private MenuItem reglas;
 	private MenuItem acercaDe;
 	private ControladorJuego controladorJuego;
 	private static final long serialVersionUID = 1L;
 	private Panel panel;
 	
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
+		
 		this.controladorJuego = unControladorJuego;
+		
 		this.addKeyListener(new KeyPressedController(controladorJuego));
+		
 		this.setTitle("ALGO3 - MAN");
-		// this.setSize(300, 300);
+		
 		this.setSize(705,655);
+		
 		this.setResizable(false);
-		// panel = new Panel(222,242,controladorJuego);
+		
 		panel = new Panel(666,726,controladorJuego);
 		
 		this.add(panel);
@@ -43,39 +47,64 @@ public class VentanaPrincipal extends Frame {
 		
 		MenuBar mbarra = new MenuBar();
 		
+		
+		//Añadimos un menu Archivo que contiene Nuevo y Salir.
+		
 		menuArchivo = new Menu( "Archivo" );
 		
 		nuevo = new MenuItem("Nuevo");
+		
+		pausa = new MenuItem ("Pausar");
 	
 		salir = new MenuItem("Salir");
 		
 		menuArchivo.add(nuevo);
 
+		menuArchivo.add(pausa);
+		
 		menuArchivo.add(salir);
 		
 		mbarra.add(menuArchivo);
 	 
+		//Añadimos un menu Ayuda que contiene Reglas y AcercaDe.
+		
 		menuAyuda = new Menu( "Ayuda" );
-		ayuda = new MenuItem("Reglas");
+		
+		reglas = new MenuItem("Reglas");
+		
 		acercaDe = new MenuItem("Acerca de..");
 		
 		mbarra.add(menuAyuda);
 		
-		menuAyuda.add(ayuda);
+		menuAyuda.add(reglas);
 		menuAyuda.add(acercaDe);
 		
 		setMenuBar(mbarra);
 	
+		
+		
+		//Asignamos las acciones de nuestros items del menu Archivo y Ayuda.
+		
+		
 		/*nuevo.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
+			
 				controladorJuego.comenzarJuego();
 				
 				
 				}
-			});*/
+		});*/
+		
+		pausa.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				controladorJuego.detenerJuego();
+				
+				}
+		});
 			
-		ayuda.addActionListener(new java.awt.event.ActionListener() {
+		reglas.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
 				Frame unaVentana = new Frame();
