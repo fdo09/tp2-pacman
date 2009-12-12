@@ -6,14 +6,14 @@ import modelo.moviles.Fantasma;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 
-public class PuntoDePoder extends Casillero implements ObjetoVivo{
+public class PuntoDePoder extends Casillero{
 
 	private static final int PUNTOS = 500;
-	private int tiempoCambioDeEstado;
+
 	
 	public PuntoDePoder(Punto ubicacion, Tablero tablero) {
 		super(ubicacion,tablero);		
-		this.tiempoCambioDeEstado = 10;
+		
 	}
 
 	
@@ -25,11 +25,13 @@ public class PuntoDePoder extends Casillero implements ObjetoVivo{
 	public void accionar() {
 		
 		if(!fuePisado()){
+			
+			this.setFuePisado(true);
+			
 			this.cambiarEstadoDeFantasmas();
 				
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
-			this.setFuePisado(true);
 		}
 
 	}
@@ -43,30 +45,8 @@ public class PuntoDePoder extends Casillero implements ObjetoVivo{
 
 		}
 	}
-	public void vivir(){
-		
-		int tiempoRestante = this.disminuirTiempo();
-		
-		boolean quedaTiempo = this.tiempoCambioDeEstado>= tiempoRestante;
-				
-		if(!quedaTiempo){
-			
-			this.cambiarEstadoDeFantasmas();
-			this.reiniciarCronometro();
-						
-		}
-		
-	}
-
-
-	private void reiniciarCronometro() {
-		this.tiempoCambioDeEstado = 10;
-		
-	}
-
-
-	private int disminuirTiempo() {
-		return this.tiempoCambioDeEstado -=1;
-	}
 	
+		
+
+
 }
