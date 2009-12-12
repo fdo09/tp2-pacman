@@ -1,6 +1,8 @@
 package modelo.vista.control;
 
-import modelo.fijos.*;
+import modelo.fijos.Casillero;
+import modelo.fijos.Punto;
+import modelo.fijos.Tablero;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 public class CargaVistaTablero {

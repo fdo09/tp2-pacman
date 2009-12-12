@@ -14,7 +14,13 @@ import modelo.fijos.Punto;
 import modelo.fijos.PuntoDePoder;
 import modelo.fijos.Semilla;
 import modelo.fijos.Tablero;
-import modelo.moviles.*;
+import modelo.moviles.Fantasma;
+import modelo.moviles.FantasmaAmarillo;
+import modelo.moviles.FantasmaAzul;
+import modelo.moviles.FantasmaInmune;
+import modelo.moviles.FantasmaNaranja;
+import modelo.moviles.FantasmaRojo;
+import modelo.moviles.Pacman;
 import modelo.vista.control.EscuchadorDeKeyPress;
 import modelo.vista.control.VentanaPrincipal;
 import modelo.vista.control.VistaTablero;
@@ -33,7 +39,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 

@@ -1,12 +1,12 @@
 package test;
 
+import junit.framework.TestCase;
 import modelo.fijos.CargaTablero;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
 import modelo.moviles.FantasmaAmarillo;
 import modelo.moviles.Pacman;
-import junit.framework.TestCase;
 
 public class FantasmaTest extends TestCase {
 

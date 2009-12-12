@@ -5,7 +5,6 @@ import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-
 import modelo.vista.control.VentanaPrincipalMini;
 import modelo.vista.control.VistaTablero;
 import modelo.vista.fijos.PosicionCasillero;
@@ -15,7 +14,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
