@@ -2,12 +2,12 @@ package modelo.vista.moviles;
 
 
 
-import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
-public class VistaFantasma extends Cuadrado {
+public class VistaFantasma extends Imagen {
 	
 	public VistaFantasma() {
-		super(20,20);
+		
 	}
 	
 
