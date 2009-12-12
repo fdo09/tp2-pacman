@@ -8,6 +8,8 @@ import java.awt.MenuItem;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.JOptionPane;
+
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
@@ -107,23 +109,19 @@ public class VentanaPrincipal extends Frame {
 		reglas.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
-				Frame unaVentana = new Frame();
+				;
 				
-				String titulo = "Reglas";
-				@SuppressWarnings("unused")// Solo necesitamos generar una nueva ventana.
-				Regla reglas = new Regla(unaVentana,titulo);
+				@SuppressWarnings("unused")//Solo se crea la instancia mostrando en pantalla.
+				Regla reglas = new Regla();
 				
 				}
 			});
 		
 		acercaDe.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				
-				Frame unaVentana = new Frame();
-			
-				String titulo = "Acerca de...";
-				@SuppressWarnings("unused") // Solo necesitamos generar una nueva ventana.
-				AcercaDe acercaDe = new AcercaDe(unaVentana,titulo);
+	
+				@SuppressWarnings("unused")//Solo se crea la instancia mostrando en pantalla.
+				AcercaDe acercaDe = new AcercaDe();
 				
 				}
 			});
