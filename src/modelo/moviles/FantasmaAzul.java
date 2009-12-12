@@ -4,10 +4,9 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public class FantasmaAzul extends Fantasma implements ObjetoVivo {	
 	

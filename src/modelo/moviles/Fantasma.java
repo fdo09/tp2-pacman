@@ -3,13 +3,11 @@ package modelo.moviles;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-
 import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.vista.control.Integrante;
-import modelo.fijos.Punto;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 enum Estados{ATRAPAR, HUIR, COMIDO};
 

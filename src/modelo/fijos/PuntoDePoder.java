@@ -2,9 +2,8 @@ package modelo.fijos;
 
 import java.util.ArrayList;
 
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-
 import modelo.moviles.Fantasma;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 
 public class PuntoDePoder extends Casillero implements ObjetoVivo{

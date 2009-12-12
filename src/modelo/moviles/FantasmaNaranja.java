@@ -5,7 +5,8 @@ import java.util.LinkedList;
 
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
-import ar.uba.fi.algo3.titiritero.*;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+import ar.uba.fi.algo3.titiritero.Posicionable;
 
 public class FantasmaNaranja extends Fantasma implements ObjetoVivo, Posicionable {
 	

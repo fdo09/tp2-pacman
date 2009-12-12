@@ -4,12 +4,10 @@ package modelo.moviles;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.Random;
-
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 

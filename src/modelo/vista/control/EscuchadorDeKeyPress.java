@@ -1,6 +1,7 @@
 package modelo.vista.control;
-import modelo.moviles.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+
+import modelo.moviles.Pacman;
 import ar.uba.fi.algo3.titiritero.KeyPressedObservador;
 enum Direccion{IZQUIERDA, ARRIBA, DERECHA, ABAJO};
 public class EscuchadorDeKeyPress implements KeyPressedObservador {
