@@ -79,15 +79,34 @@ public class VentanaPrincipal extends Frame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
 				Frame unaVentana = new Frame();
-				String titulo = "Reglas";
 				
+				String titulo = "Reglas";
 				@SuppressWarnings("unused")
-				Regla ayuda = new Regla(unaVentana, titulo);
+				Regla reglas = new Regla(unaVentana,titulo);
 				
 				}
 			});
 		
+		acercaDe.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				Frame unaVentana = new Frame();
+			
+				String titulo = "Acerca de...";
+				@SuppressWarnings("unused")
+				AcercaDe acercaDe = new AcercaDe(unaVentana,titulo);
+				
+				}
+			});
 		
+		salir.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				
+				dispose();
+				System.exit(0);
+			}
+		
+		});
 		
 		
 		/*Button boton = new Button();

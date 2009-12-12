@@ -14,17 +14,19 @@ public class Regla extends Dialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	public Regla(Frame unaVentana, String unString){
-		super(unaVentana, unString);
+	
+	
+	public Regla(Frame unaVentana, String titulo){
+		super(unaVentana, titulo);
+		
 		setVisible(true);
-		this.setSize(500,500);
+		this.setSize(700,400);
 		this.setLocation(200,100);
 		this.escribirTexto();
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				dispose();
-				System.exit(0);
+				
 			}
 		});
 		
@@ -81,7 +83,7 @@ public class Regla extends Dialog {
 		area.setText(reglas);
 		area.setEditable(false);
 		
-		//area.insert(parrafo2, PROPERTIES);
+		
 		this.add(area);
 	
 	}
