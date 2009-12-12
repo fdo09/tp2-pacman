@@ -1,6 +1,5 @@
 package modelo.moviles;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -19,7 +18,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	private Punto casa;
 	protected Punto posicionAnterior;
 	public static final int PUNTOS = 200;
-
+	private int tiempo;
 	
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
@@ -27,6 +26,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		this.puntos = PUNTOS;
 		this.casa = new Punto (posicion);
 		this.posicionAnterior = new Punto (posicion);
+		this.tiempo = 0;
 	}
 	
 	
@@ -41,29 +41,55 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		 * cada fantasma.
 		 * Luego de moverse verifica si esta en la misma posicion que el pacman para comerselo o ser comido por �l.
 		 */
-		Punto nuevaPosicion;
+		
 		Collection<Punto> adjacentesValidos = this.getTablero().getAdjacentesValidos(this.getPosicion());
 		adjacentesValidos.remove(this.posicionAnterior);
 		posicionAnterior = new Punto (super.getPosicion());
 		
 		switch (this.getEstado()){
 		case ATRAPAR:
-			nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
-			this.setPosicion(nuevaPosicion);
-			this.comer();
+			
+			this.atrapar(adjacentesValidos);
+			
 			break;
 		case HUIR:
-			nuevaPosicion = this.calcularHuida(adjacentesValidos);
-			this.setPosicion(nuevaPosicion);
-			this.serComido();
+			
+			this.huir(adjacentesValidos);
+			
 			break;
 		case COMIDO:
 			this.volverACasa();
 			this.setEstado(Estados.ATRAPAR);
 		}
 	}
+
+
+	private void atrapar(Collection<Punto> adjacentesValidos) {
+		Punto nuevaPosicion;
+		nuevaPosicion = this.calcularAtrapada(adjacentesValidos);
+		this.setPosicion(nuevaPosicion);
+		this.comer();
+	}
+
+
+	private void huir(Collection<Punto> adjacentesValidos) {
+		Punto nuevaPosicion;
+		if(tiempo>=0){
+			nuevaPosicion = this.calcularHuida(adjacentesValidos);
+			this.setPosicion(nuevaPosicion);
+			this.serComido();
+		}else
+			this.setEstado(Estados.ATRAPAR);
+		this.restarTiempo();
+	}
 	
 	
+	private void restarTiempo() {
+		this.tiempo--;
+		
+	}
+
+
 	protected void comer() {
 		Pacman pacman = this.getTablero().getPacman();
 		if(this.getPosicion().equals(pacman.getPosicion())){
@@ -99,7 +125,9 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	}
 
 
-	public void cambiarEstado() {
+	public void cambiarEstado(int unTiempo) {
+		
+		tiempo = unTiempo;
 		
 		if(this.getEstado() == Estados.ATRAPAR){
 			this.setEstado(Estados.HUIR);
@@ -164,6 +192,9 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	public void setPosicion(Punto posicion) {
 		super.setPosicion(posicion);
 	}
+
+
+	
 
 }
 	
