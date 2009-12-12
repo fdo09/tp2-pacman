@@ -1,12 +1,5 @@
 package modelo.vista.control;
 
-import java.awt.Color;
-import java.awt.Dialog;
-import java.awt.Frame;
-import java.awt.TextArea;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import javax.swing.JOptionPane;
 
 public class AcercaDe {
