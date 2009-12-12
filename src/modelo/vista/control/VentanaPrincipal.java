@@ -10,10 +10,19 @@ import java.awt.event.WindowEvent;
 
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-import ar.uba.fi.algo3.titiritero.vista.*;
+import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
+import ar.uba.fi.algo3.titiritero.vista.Panel;
 
 public class VentanaPrincipal extends Frame {
 
+	private Menu menuArchivo;
+	private Menu menuAyuda;
+	private MenuItem nuevo;
+	private MenuItem salir;
+	private MenuItem ayuda;
+	private MenuItem acercaDe;
+	
+	
 	public VentanaPrincipal(ControladorJuego unControladorJuego) {
 		this.controladorJuego = unControladorJuego;
 		this.addKeyListener(new KeyPressedController(controladorJuego));
@@ -30,20 +39,30 @@ public class VentanaPrincipal extends Frame {
 		//Creamos la barra de menus.
 		
 		MenuBar mbarra = new MenuBar();
-		Menu m = new Menu( "Archivo" );
-		m.add( new MenuItem( "Nuevo") );
-		m.add( new MenuItem( "Salir") );
-		mbarra.add( m );
+		
+		menuArchivo = new Menu( "Archivo" );
+		
+		nuevo = new MenuItem("Nuevo");
+		salir = new MenuItem("Salir");
+		
+		menuArchivo.add(nuevo);
+		menuArchivo.add(salir);
+		
+		mbarra.add(menuArchivo);
 	 
-		m = new Menu( "Ayuda" );
-		m.add( new MenuItem( "Ayuda!" ) );
-		m.addSeparator();
-		m.add( new MenuItem( "Acerca de..." ) );
-		mbarra.add( m );
-	 
-		setMenuBar( mbarra );
+		menuAyuda = new Menu( "Ayuda" );
+		ayuda = new MenuItem("Reglas");
+		acercaDe = new MenuItem("Acerca de..");
+		
+		mbarra.add(menuAyuda);
+		
+		menuAyuda.add(ayuda);
+		menuAyuda.add(acercaDe);
+		
+		setMenuBar(mbarra);
 	
-	 
+		
+
 		
 		
 		/*Button boton = new Button();
@@ -68,4 +87,7 @@ public class VentanaPrincipal extends Frame {
 	public SuperficieDeDibujo getSuperficieDeDibujo() {
 		return this.panel;
 	}
+	
+
+	
 }
