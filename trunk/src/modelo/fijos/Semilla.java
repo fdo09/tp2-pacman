@@ -18,8 +18,10 @@ public class Semilla extends Casillero {
 	public void accionar() {
 		
 		if (!fuePisado()){
-			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			setFuePisado(true);
+			
+			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
+			
 			Juego.getInstancia().getTablero().restarSemilla();;
 		}
 	}
