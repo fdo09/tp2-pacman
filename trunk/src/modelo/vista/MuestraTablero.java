@@ -63,7 +63,7 @@ public class MuestraTablero {
 		    
 		controlador.agregarObjetoVivo(pacman);
 		controlador.agregarDibujable(vistaPacman);
-		controlador.setIntervaloSimulacion(200);
+		controlador.setIntervaloSimulacion(300);
 		controlador.comenzarJuego();
 		
 		
@@ -75,27 +75,27 @@ public class MuestraTablero {
 		ArrayList<Fantasma> fantasmas = tablero.getFantasmas();
 		for(Fantasma f : fantasmas){
 			if(f.getClass().equals(FantasmaRojo.class)){
-				VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo();
+				VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo(f);
 				vistaRojo.setPosicionable(f);
 				controlador.agregarDibujable(vistaRojo);
 			}
 			else if(f.getClass().equals(FantasmaAmarillo.class)){
-				VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo();
+				VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo(f);
 			    vistaAmarillo.setPosicionable(f);
 			    controlador.agregarDibujable(vistaAmarillo);
 			}
 			else if(f.getClass().equals(FantasmaInmune.class)){
-				VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune();
+				VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune(f);
 			    vistaInmune.setPosicionable(f);
 			    controlador.agregarDibujable(vistaInmune);
 			}
 			else if(f.getClass().equals(FantasmaNaranja.class)){
-				VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja();
+				VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja(f);
 				vistaNaranja.setPosicionable(f);
 				controlador.agregarDibujable(vistaNaranja);
 			}
 			else if(f.getClass().equals(FantasmaAzul.class)){
-				VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul();
+				VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul(f);
 				vistaAzul.setPosicionable(f);
 				controlador.agregarDibujable(vistaAzul);
 			}
