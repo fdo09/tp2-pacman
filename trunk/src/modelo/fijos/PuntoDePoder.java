@@ -3,7 +3,6 @@ package modelo.fijos;
 import java.util.ArrayList;
 
 import modelo.moviles.Fantasma;
-import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 
 public class PuntoDePoder extends Casillero{
@@ -26,23 +25,24 @@ public class PuntoDePoder extends Casillero{
 		
 		if(!fuePisado()){
 			
+			int tiempo = 20;
+			
 			this.setFuePisado(true);
 			
-			this.cambiarEstadoDeFantasmas();
+			this.cambiarEstadoDeFantasmas(tiempo);
 				
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
-		}this.cambiarEstadoDeFantasmas();
+		}
 
 	}
 
 
-	private void cambiarEstadoDeFantasmas() {
+	private void cambiarEstadoDeFantasmas(int tiempo) {
 		ArrayList<Fantasma> fantasmas = super.getTablero().getFantasmas();
 		
 		for(Fantasma unFantasma : fantasmas){
-			unFantasma.cambiarEstado();
-
+			unFantasma.cambiarEstado(tiempo);
 		}
 	}
 	
