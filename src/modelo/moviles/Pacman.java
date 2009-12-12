@@ -154,11 +154,12 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 				unFantasma.serComido();					
 			}
 			else{
-				this.serComido();
 				for(Fantasma fantasma : fantasmas){
-				
+					
 					fantasma.volverACasa();
 				}
+				this.serComido();
+				
 			}
 			
 		}
