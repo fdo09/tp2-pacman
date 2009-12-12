@@ -1,11 +1,7 @@
 package modelo.vista;
 
 import java.awt.Color;
-import java.io.File;
 import java.util.ArrayList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import modelo.fijos.CargaTablero;
 import modelo.fijos.Casa;
@@ -24,7 +20,6 @@ import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 import modelo.vista.control.EscuchadorDeKeyPress;
 import modelo.vista.control.VentanaPrincipal;
-import modelo.vista.fijos.PosicionCasillero;
 import modelo.vista.fijos.VistaCasillero;
 import modelo.vista.fijos.VistaPuntoDePoder;
 import modelo.vista.fijos.VistaSemilla;
@@ -34,12 +29,6 @@ import modelo.vista.moviles.VistaFantasmaInmune;
 import modelo.vista.moviles.VistaFantasmaNaranja;
 import modelo.vista.moviles.VistaFantasmaRojo;
 import modelo.vista.moviles.VistaPacman;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 public class MuestraTablero {
@@ -77,7 +66,7 @@ public class MuestraTablero {
 		    
 		controlador.agregarObjetoVivo(pacman);
 		controlador.agregarDibujable(vistaPacman);
-		controlador.setIntervaloSimulacion(300);
+		controlador.setIntervaloSimulacion(200);
 		controlador.comenzarJuego();
 		
 		
