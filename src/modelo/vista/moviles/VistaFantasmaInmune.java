@@ -17,7 +17,7 @@ public class VistaFantasmaInmune extends Imagen {
 		this.fantasma = fantasma;
 	}
 	
-	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
+	/*public void dibujar(SuperficieDeDibujo superficeDeDibujo) {
 		Graphics grafico = (Graphics)superficeDeDibujo.getBuffer();
 		this.refrescarImagen();
 		grafico.drawImage(super.getImagen(), super.getPosicionable().getX(), super.getPosicionable().getY(), null);
@@ -28,9 +28,9 @@ public class VistaFantasmaInmune extends Imagen {
 			super.setNombreArchivoImagen("ImagenesDePersonajes/verde.JPG");
 
 		else if(this.fantasma.getEstado().equals(Estado.huir()))
-			super.setNombreArchivoImagen("ImagenesDePersonajes/rosa.JPG");
+			//super.setNombreArchivoImagen("ImagenesDePersonajes/rosa.JPG");
 
 		else if(this.fantasma.getEstado().equals(Estado.comido()))
-			super.setNombreArchivoImagen("ImagenesDePersonajes/verde.JPG");
-	}
+			//super.setNombreArchivoImagen("ImagenesDePersonajes/verde.JPG");
+	}*/
 }
