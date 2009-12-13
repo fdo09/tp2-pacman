@@ -2,6 +2,8 @@ package modelo.vista.control;
 
 import java.awt.Color;
 import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
@@ -10,8 +12,11 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JOptionPane;
 
+import modelo.fijos.Punto;
+
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
+import ar.uba.fi.algo3.titiritero.vista.Imagen;
 import ar.uba.fi.algo3.titiritero.vista.KeyPressedController;
 import ar.uba.fi.algo3.titiritero.vista.Panel;
 
@@ -82,8 +87,8 @@ public class VentanaPrincipal extends Frame {
 		menuAyuda.add(acercaDe);
 		
 		setMenuBar(mbarra);
-	
 		
+
 		
 		//Asignamos las acciones de nuestros items del menu Archivo y Ayuda.
 		
