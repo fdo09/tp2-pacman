@@ -14,7 +14,9 @@ import modelo.vista.control.EscuchadorDeKeyPress;
 import modelo.vista.control.VentanaPrincipal;
 import modelo.vista.fijos.VistaCasillero;
 import modelo.vista.fijos.VistaPuntoDePoder;
+import modelo.vista.fijos.VistaPuntos;
 import modelo.vista.fijos.VistaSemilla;
+import modelo.vista.fijos.VistaVidas;
 import modelo.vista.moviles.VistaFantasmaAmarillo;
 import modelo.vista.moviles.VistaFantasmaAzul;
 import modelo.vista.moviles.VistaFantasmaInmune;
@@ -46,12 +48,24 @@ public class AlgoMan {
 		controlador.agregarKeyPressObservador(new EscuchadorDeKeyPress(pacman));
 		generarVistaDeCasilleros(controlador, tablero);
 		generarVistaDePersonajes(controlador, tablero);
+		generarVistaDeDatos(controlador, tablero);
 		
 		controlador.setIntervaloSimulacion(300);
 		//controlador.comenzarJuego();
 		
 	}
 	
+	private static void generarVistaDeDatos(ControladorJuego controlador,
+			Tablero tablero) {
+		
+		VistaPuntos vPuntos = new VistaPuntos();
+		controlador.agregarDibujable(vPuntos);
+		
+		VistaVidas vVidas = new VistaVidas();
+		controlador.agregarDibujable(vVidas);
+		
+	}
+
 	private static void generarVistaDePersonajes(ControladorJuego controlador,
 			Tablero tablero) {
 		ArrayList<Fantasma> fantasmas = tablero.getFantasmas();
