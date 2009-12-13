@@ -12,13 +12,13 @@ public class VistaPacman extends Imagen {
 	private Pacman pacman;
 	
 	public VistaPacman() {
-		String nombreArchivoImagen = "ImagenesDePersonajes/pacmanIzquierda.jpg";
+		String nombreArchivoImagen = "ImagenesDePersonajes/pacmanIzquierda.JPG";
 		setNombreArchivoImagen(nombreArchivoImagen);
 		
 	}
 	
 	public VistaPacman(Pacman pacman){
-		String nombreArchivoImagen = "ImagenesDePersonajes/pacmanIzquierda.jpg";
+		String nombreArchivoImagen = "ImagenesDePersonajes/pacmanIzquierda.JPG";
 		setNombreArchivoImagen(nombreArchivoImagen);
 		this.pacman = pacman;
 	}
@@ -31,16 +31,16 @@ public class VistaPacman extends Imagen {
 
 	private void refrescarImagen() {
 		if(this.pacman.getDireccionA().equals(Direccion.izquierda()))
-			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanIzquierda.jpg");
+			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanIzquierda.JPG");
 
 		else if(this.pacman.getDireccionA().equals(Direccion.derecha()))
-			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanDerecha.jpg");
+			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanDerecha.JPG");
 
 		else if(this.pacman.getDireccionA().equals(Direccion.abajo()))
-			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanAbajo.jpg");
+			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanAbajo.JPG");
 
 		else if(this.pacman.getDireccionA().equals(Direccion.arriba()))
-			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanArriba.jpg");
+			super.setNombreArchivoImagen("ImagenesDePersonajes/pacmanArriba.JPG");
 	}
 
 }
