@@ -19,6 +19,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 	public Pacman (Tablero tablero ,Punto posicion){
 		super(tablero, posicion);
 		this.direccionA = Direccion.izquierda();
+		this.direccionB = Direccion.derecha();
 	}
 	
 	
@@ -36,17 +37,25 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 	
 	public void setMovimiento(String direccion){
 		if ( direccion == "IZQ"){
-			this.direccionB = this.direccionA;
-			this.direccionA = Direccion.izquierda();
+			if (!this.direccionA.equals(Direccion.izquierda())){
+				this.direccionB = this.direccionA;
+				this.direccionA = Direccion.izquierda();
+			}
 		}else if ( direccion == "DOWN"){
-			this.direccionB = this.direccionA;
-			this.direccionA = Direccion.abajo();
+			if (!this.direccionA.equals(Direccion.abajo())){
+				this.direccionB = this.direccionA;
+				this.direccionA = Direccion.abajo();
+			  }
 		}else if ( direccion == "UP"){
-			this.direccionB = this.direccionA;
-			this.direccionA = Direccion.arriba();
+			if (!this.direccionA.equals(Direccion.arriba())){
+				this.direccionB = this.direccionA;
+				this.direccionA = Direccion.arriba();
+			  }
 		}else if ( direccion == "DER"){
-			this.direccionB = this.direccionA;
-			this.direccionA = Direccion.derecha();
+			if (!this.direccionA.equals(Direccion.derecha())){
+				this.direccionB = this.direccionA;
+				this.direccionA = Direccion.derecha();
+			}
 		}
 		
 	}
@@ -60,12 +69,20 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaIzquierda();
 			this.comer();
 			this.accionarCasillero();
-		}else if(this.direccionB == Direccion.derecha()){
+		}else if(this.direccionB.equals(Direccion.derecha())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverDerecha();
-		}else if(this.direccionB == Direccion.arriba()){
+			
+		}else if(this.direccionB.equals(Direccion.arriba())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverArriba();
-		}else if(this.direccionB == Direccion.abajo()){
+		}else if(this.direccionB.equals(Direccion.abajo())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverAbajo();
+			
 		}
 	
 	
@@ -80,12 +97,21 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaArriba();
 			this.comer();
 			this.accionarCasillero();
-		}else if(this.direccionB == Direccion.derecha()){
+		}else if(this.direccionB.equals(Direccion.derecha())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverDerecha();
-		}else if(this.direccionB == Direccion.izquierda()){
+			
+		}else if(this.direccionB.equals(Direccion.izquierda())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverIzquierda();
-		}else if(this.direccionB == Direccion.abajo()){
+		
+		}else if(this.direccionB.equals(Direccion.abajo())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverAbajo();
+			
 		}
 	}
 	
@@ -98,12 +124,21 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaDerecha();
 			this.comer();
 			this.accionarCasillero();
-		}else if(this.direccionB == Direccion.izquierda()){
+		}else if(this.direccionB.equals(Direccion.izquierda())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverIzquierda();
-		}else if(this.direccionB == Direccion.arriba()){
+			
+		}else if(this.direccionB.equals(Direccion.arriba())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverArriba();
-		}else if(this.direccionB == Direccion.abajo()){
+			
+		}else if(this.direccionB.equals(Direccion.abajo())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverAbajo();
+
 		}
 	}
 
@@ -116,12 +151,21 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 			this.getPosicion().moverHaciaAbajo();
 			this.comer();
 			this.accionarCasillero();
-		}else if(this.direccionB == Direccion.derecha()){
+		}else if(this.direccionB.equals(Direccion.derecha())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverDerecha();
-		}else if(this.direccionB == Direccion.arriba()){
+			
+		}else if(this.direccionB.equals(Direccion.arriba())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverArriba();
-		}else if(this.direccionB == Direccion.izquierda()){
+			
+		}else if(this.direccionB.equals(Direccion.izquierda())){
+			// Prueba
+			this.direccionA = this.direccionB;
 			this.moverIzquierda();
+			
 		}
 	}
 	
