@@ -88,15 +88,16 @@ public class VentanaPrincipal extends Frame {
 		//Asignamos las acciones de nuestros items del menu Archivo y Ayuda.
 		
 		
-		/*nuevo.addActionListener(new java.awt.event.ActionListener() {
+		nuevo.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
+				;
 			
-				controladorJuego.comenzarJuego();
+				controladorJuego.comenzarJuegoAsyn();
 				
 				
 				}
-		});*/
+		});
 		
 		pausa.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
