@@ -32,7 +32,7 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 		 * Esto es para llevar un contador que modifique el estado de inteligencia del fantasma. La estrategia para atrapar
 		 * o huir depende de este estado de inteligencia		
 		 */
-		Punto nuevaPosicion;
+	
 		Collection<Punto> adjacentesValidos = super.getTablero().getAdjacentesValidos(super.getPosicion());
 		adjacentesValidos.remove(this.posicionAnterior);
 		posicionAnterior = new Punto(super.getPosicion());
