@@ -50,6 +50,7 @@ public class CargaTablero {
 						
 						if ( tipoDeCasillero.equals("semilla")){
 							casilleroAux = new Semilla(posicion, tablero);
+							tablero.aumentarSemilla();
 							
 						}else if (tipoDeCasillero.equals("pared")){
 							casilleroAux = new Pared(posicion, tablero);

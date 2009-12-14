@@ -53,15 +53,22 @@ public class AlgoMan {
 		
 		
 		//Carga de las vistas/controles
+		cargarVistas(controlador, tablero);
+		
+		AdministradorJuego administrador = new AdministradorJuego(controlador);
+		controlador.agregarObjetoVivo(administrador);
+		
+		controlador.setIntervaloSimulacion(100);
+		//controlador.comenzarJuego();
+		
+	}
+	
+	private static void cargarVistas(ControladorJuego controlador, Tablero tablero){
 		Pacman pacman = tablero.getPacman();
 		controlador.agregarKeyPressObservador(new EscuchadorDeKeyPress(pacman));
 		generarVistaDeCasilleros(controlador, tablero);
 		generarVistaDePersonajes(controlador, tablero);
 		generarVistaDeDatos(controlador, tablero);
-		
-		controlador.setIntervaloSimulacion(300);
-		//controlador.comenzarJuego();
-		
 	}
 	
 	private static void generarVistaDeDatos(ControladorJuego controlador,
