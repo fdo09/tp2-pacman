@@ -54,8 +54,32 @@ public class Juego{
 	
 	public void aumentarNivel(){
 		this.nivel += 1;
+		this.restablecerTablero();
 	}
 	
+	private void restablecerTablero() {
+		this.tablero.restablecerSemillasRestantes();
+		this.restablecerPosicionPersonajes();
+		Punto dimension = this.tablero.getDimension();
+		
+		for (int x = 0; x < dimension.getPuntoX(); x++){
+			for (int y = 0; y < dimension.getPuntoY(); y++){
+				Casillero casillero = this.tablero.getCasillero(new Punto(x,y));
+				casillero.setFuePisado(false);
+			}
+		}
+	}
+	
+	private void restablecerPosicionPersonajes(){
+		Pacman pacman = this.tablero.getPacman();
+		pacman.setPosicion(pacman.getPosicionInicial());
+		
+		for( Fantasma fant : this.tablero.getFantasmas()){
+			fant.volverACasa();
+		}
+	}
+
+
 	public int getNivel(){
 		return this.nivel;
 	}
