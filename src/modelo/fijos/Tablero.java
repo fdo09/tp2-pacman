@@ -23,6 +23,7 @@ public class Tablero {
 	private LinkedList<Punto> casas;
 	private Punto dimension;
 	private int semillasRestantes;
+	private int semillasIniciales;
 
 	      
 	public Tablero (int base, int altura){
@@ -31,6 +32,7 @@ public class Tablero {
 		this.casilleros = new HashMap<Punto, Casillero>(base*altura+1, 1);
 		this.fantasmas = new ArrayList<Fantasma>();
 		this.semillasRestantes = 0;
+		this.semillasIniciales = 0;
 		this.casas = new LinkedList<Punto>();
 	}
 	
@@ -148,10 +150,15 @@ public class Tablero {
 	public int getSemillasRestantes() {
 		return this.semillasRestantes;
 	}
+	
+	public void restablecerSemillasRestantes(){
+		this.semillasRestantes = this.semillasIniciales;
+	}
 
 	
 	public void aumentarSemilla() {
 		this.semillasRestantes += 1;
+		this.semillasIniciales += 1;
 	}
 
 	
