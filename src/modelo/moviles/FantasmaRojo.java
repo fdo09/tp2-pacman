@@ -40,9 +40,7 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 		this.definirInteligencia();
 		
 		if (super.getEstado().equals(Estado.comido())){
-			this.volverACasa();
-			super.setObjetivo(Objetivo.atrapar());
-			super.setEstado(Estado.vivo());
+			this.salirDeCasa();
 		}
 		
 		else if (super.getObjetivo().equals(Objetivo.atrapar()))

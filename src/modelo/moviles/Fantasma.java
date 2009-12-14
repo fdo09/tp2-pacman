@@ -16,7 +16,8 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	private Punto casa;
 	protected Punto posicionAnterior;
 	public static final int PUNTOS = 200;
-	private int tiempo;
+	private int tiempoPoder;
+	private int tiempoEnCasa;
 	
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
@@ -24,7 +25,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		this.puntos = PUNTOS;
 		this.casa = new Punto (posicion);
 		this.posicionAnterior = new Punto (posicion);
-		this.tiempo = 0;
+		this.tiempoPoder = 0;
 	}
 	
 	
@@ -45,9 +46,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		posicionAnterior = new Punto (super.getPosicion());
 		
 		if (super.getEstado().equals(Estado.comido())){
-			this.volverACasa();
-			this.objetivo = Objetivo.atrapar();
-			super.setEstado(Estado.vivo());
+			this.salirDeCasa();
 		}
 		
 		else if (this.objetivo.equals(Objetivo.atrapar()))
@@ -55,6 +54,15 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		
 		else if (this.objetivo.equals(Objetivo.huir()))
 			this.huir(adjacentesValidos);
+	}
+
+
+	protected void salirDeCasa() {
+		this.tiempoEnCasa--;
+		if ( this.tiempoEnCasa <= 0){
+			this.objetivo = Objetivo.atrapar();
+			super.setEstado(Estado.vivo());
+		}
 	}
 
 
@@ -68,7 +76,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 
 	protected void huir(Collection<Punto> adjacentesValidos) {
 		Punto nuevaPosicion;
-		if (tiempo>0){
+		if (tiempoPoder>0){
 			nuevaPosicion = this.calcularHuida(adjacentesValidos);
 			this.setPosicion(nuevaPosicion);
 			this.serComido();
@@ -80,7 +88,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	
 	
 	private void restarTiempo() {
-		this.tiempo--;
+		this.tiempoPoder--;
 		
 	}
 
@@ -91,7 +99,8 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 			pacman.serComido();
 			Collection<Fantasma> fantasmas = super.getTablero().getFantasmas();
 			for(Fantasma fantasma : fantasmas){
-				
+				// Cambio a estado comido para que se quede en su casa un tiempo.
+				fantasma.setEstado(Estado.comido());
 				fantasma.volverACasa();
 			}
 		}
@@ -104,6 +113,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		if(this.getPosicion().equals(pacman.getPosicion()))
 		{
 			Juego.getInstancia().getJugador().ganarPuntos(Fantasma.PUNTOS);
+			this.volverACasa();
 			super.setEstado(Estado.comido());
 		}
 	}
@@ -126,7 +136,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 
 	public void cambiarEstado(int unTiempo) {
 		
-		this.tiempo += unTiempo;
+		this.tiempoPoder += unTiempo;
 		
 		if(this.getObjetivo().equals(Objetivo.atrapar())){
 			this.objetivo = Objetivo.huir();
@@ -134,7 +144,8 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	}
 
 	public void volverACasa(){
-		this.tiempo = 0;
+		this.tiempoPoder = 0;
+		this.tiempoEnCasa = 15;
 		this.setPosicion(super.getPosicionInicial());
 		}
 		
