@@ -27,7 +27,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		
 		if (super.getEstado().equals(Estado.comido())){
 			try {
-				Thread.sleep(4000);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -199,11 +199,12 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 				unFantasma.serComido();					
 			}
 			else{
+				
+				this.serComido();
 				for(Fantasma fantasma : fantasmas){
 					
 					fantasma.volverACasa();
 				}
-				this.serComido();
 				
 			}
 			
