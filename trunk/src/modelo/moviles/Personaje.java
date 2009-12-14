@@ -8,11 +8,13 @@ public abstract class Personaje{
 	private Tablero tablero;
 	private Punto posicion;
 	private Punto posicionInicial;
+	private Estado estado;
 	
 	public Personaje(Tablero tablero, Punto posicion){
 		this.tablero = tablero;
 		this.posicion = posicion;
 		this.posicionInicial = new Punto(posicion);
+		this.estado = Estado.vivo();
 	}
 	
 	public abstract void mover();
@@ -39,6 +41,14 @@ public abstract class Personaje{
 
 	public Punto getPosicionInicial() {
 		return posicionInicial;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 	
 	
