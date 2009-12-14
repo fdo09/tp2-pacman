@@ -29,10 +29,10 @@ public class FantasmaRojoTest extends TestCase {
 		   Punto puntoRojo = new Punto(6,5);
 		   Punto puntoNaranja = new Punto(4,5);
 		   Punto puntoInmune = new Punto(5,5);
-		   fantasmaAzul = new FantasmaAzul(tab, puntoAzul);
-		   fantasmaRojo = new FantasmaRojo(tab, puntoRojo);
-		   fantasmaNaranja = new FantasmaNaranja(tab, puntoNaranja);
-		   fantasmaInmune = new FantasmaInmune(tab, puntoInmune);
+		   fantasmaAzul = new FantasmaAzul(tab, puntoAzul,0);
+		   fantasmaRojo = new FantasmaRojo(tab, puntoRojo,0);
+		   fantasmaNaranja = new FantasmaNaranja(tab, puntoNaranja,0);
+		   fantasmaInmune = new FantasmaInmune(tab, puntoInmune,0);
 		   tab.addFantasma(fantasmaAzul);
 		   tab.addFantasma(fantasmaRojo);
 		   tab.addFantasma(fantasmaNaranja);

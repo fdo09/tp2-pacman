@@ -18,14 +18,13 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 	public static final int CICLO_INTELIGENCIA = 40;
 	
 	
-	public FantasmaRojo(Tablero tablero, Punto posicion) {
+	public FantasmaRojo(Tablero tablero, Punto posicion, int velocidad) {
 		super(tablero, posicion);
+		super.setVelocidad(velocidad);
 		this.intel = Inteligencias.INTELIGENTE;
 	}
 	
-	public void vivir(){
-		this.mover();
-	}
+
 		
 	public void mover(){
 		/*

@@ -10,16 +10,15 @@ import ar.uba.fi.algo3.titiritero.Posicionable;
 
 public class FantasmaNaranja extends Fantasma implements ObjetoVivo, Posicionable {
 	
-	public FantasmaNaranja(Tablero tablero, Punto posicion) {
+
+	
+	public FantasmaNaranja(Tablero tablero, Punto posicion, int velocidad) {
 		super(tablero, posicion);
-								
+		super.setVelocidad(velocidad);
+					
 	}
 	
 
-	public void vivir () {
-		this.mover();
-	}
-	
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		/*
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.

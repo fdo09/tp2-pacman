@@ -13,14 +13,15 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 
     public static final int VISION = 200;
     Punto destino;	
-	
-			
-	public FantasmaInmune(Tablero tablero, Punto posicion){
-	
+		
+	public FantasmaInmune(Tablero tablero, Punto posicion, int velocidad) {
 		super(tablero, posicion);
+		super.setVelocidad(velocidad);
 		
 	}
+	
 
+	
 
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		/*
@@ -125,9 +126,6 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 		return 25 * super.getPosicion().getPuntoY();
 	}
 
-	public void vivir(){
-		
-		super.mover();
-	}
+
 
 }

@@ -29,7 +29,7 @@ public class FantasmaTest extends TestCase {
 		   
 		Punto ubicacionAmarillo = new Punto(3,5);
 		 		  
-		fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
+		fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo,0);
 		 
 		tab.addFantasma(fantasmaAmarillo);
 		   

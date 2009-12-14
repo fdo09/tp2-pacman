@@ -10,13 +10,15 @@ import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public class FantasmaAzul extends Fantasma implements ObjetoVivo {	
 	
-	public FantasmaAzul(Tablero tablero, Punto posicion) {
+	
+	
+	public FantasmaAzul(Tablero tablero, Punto posicion, int velocidad) {
 		super(tablero, posicion);
-		super.setPuntos(PUNTOS);
-						
+		super.setVelocidad(velocidad);
+			
 	}
 	
-	
+
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		/*
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
@@ -88,8 +90,5 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 		return 25 * super.getPosicion().getPuntoY();
 	}
 	
-	public void vivir(){
-		
-		super.mover();
-	}
+	
 }

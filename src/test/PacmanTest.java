@@ -22,7 +22,7 @@ public class PacmanTest extends TestCase {
 		   
 		   //Agrego FantasmaAmarillo al tablero
 		   Punto ubicacionAmarillo = new Punto(4,5);//Lo ubico en su casa.  
-		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
+		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo,0);
 		   tab.addFantasma(fantasmaAmarillo);
 		   
 		   //Agrego Pacman al tablero.
