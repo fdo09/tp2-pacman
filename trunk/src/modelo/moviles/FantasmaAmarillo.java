@@ -11,14 +11,13 @@ import ar.uba.fi.algo3.titiritero.Posicionable;
 public class FantasmaAmarillo extends Fantasma implements ObjetoVivo, Posicionable{	
 
 	
-	public FantasmaAmarillo(Tablero tablero, Punto posicion) {
+	
+	public FantasmaAmarillo(Tablero tablero, Punto posicion, int velocidad) {
 		super(tablero, posicion);
+		super.setVelocidad(velocidad);
+			
 	}
 	
-	
-	public void vivir(){
-		super.mover();
-	}
 
 
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {

@@ -36,19 +36,19 @@ public class Tablero {
 	
 	public void cargarPersonajes() {
 		Punto casaRojo = this.obtenerUnaCasaVacia();
-		this.addFantasma(new FantasmaRojo(this, casaRojo.getPosicion()));
+		this.addFantasma(new FantasmaRojo(this, casaRojo.getPosicion(),3));
 		
 		Punto casaAmarillo = this.obtenerUnaCasaVacia();
-		this.addFantasma(new FantasmaAmarillo(this, casaAmarillo.getPosicion()));
+		this.addFantasma(new FantasmaAmarillo(this, casaAmarillo.getPosicion(),3));
 		
 		Punto casaNaranja = this.obtenerUnaCasaVacia();
-		this.addFantasma(new FantasmaNaranja(this, casaNaranja.getPosicion()));
+		this.addFantasma(new FantasmaNaranja(this, casaNaranja.getPosicion(), 3));
 		
 		Punto casaAzul = this.obtenerUnaCasaVacia();
-		this.addFantasma(new FantasmaAzul(this, casaAzul.getPosicion()));
+		this.addFantasma(new FantasmaAzul(this, casaAzul.getPosicion(),3));
 		
 		Punto casaImune = this.obtenerUnaCasaVacia();
-		this.addFantasma(new FantasmaInmune(this, casaImune.getPosicion()));
+		this.addFantasma(new FantasmaInmune(this, casaImune.getPosicion(),2));
 	}
 	
 	

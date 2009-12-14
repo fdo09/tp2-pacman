@@ -18,6 +18,8 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	public static final int PUNTOS = 200;
 	private int tiempoPoder;
 	private int tiempoEnCasa;
+	private int velocidad;
+	private int velocidadActual;
 	
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
@@ -26,8 +28,50 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		this.casa = new Punto (posicion);
 		this.posicionAnterior = new Punto (posicion);
 		this.tiempoPoder = 0;
+		this.velocidadActual = 0;
+	
 	}
 	
+	public void vivir () {
+		
+		this.aumentarVelocidadActual();
+		if(this.velocidadActual == this.velocidad){
+			
+			this.mover();
+			this.velocidadActual = 0;
+		}
+		
+	}
+	
+	public void aumentarVelocidad(){
+		
+		this.velocidad--;
+		
+	}
+	
+	protected void aumentarVelocidadActual() {
+		this.velocidadActual++;
+		
+	}
+	
+	
+
+	public void setVelocidad(int velocidad) {
+		
+		int velocidadSegura = 1;
+		if(velocidad == 0){
+			this.velocidad = velocidadSegura;
+		}else{
+			this.velocidad = velocidad;
+		}
+	}
+
+	public int getVelocidad() {
+		return this.velocidad;
+	}
+	public int getVelocidadActual() {
+		return this.velocidadActual;
+	}
 	
 	protected abstract Punto calcularHuida(Collection<Punto> adjacentesValidos);
 
@@ -193,6 +237,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	public void setObjetivo(Objetivo objetivo) {
 		this.objetivo = objetivo;
 	}
+
 
 
 	

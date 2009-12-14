@@ -33,7 +33,7 @@ public class FantasmaAzulTest extends TestCase {
 		
 		Punto ubicacionAmarillo = new Punto(2,5);
 		  
-		fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
+		fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo,0);
 		 
 		tab.addFantasma(fantasmaAmarillo);
 		
@@ -43,7 +43,7 @@ public class FantasmaAzulTest extends TestCase {
 		   
 		Punto ubicacionAzul = new Punto(4,4);
 		 		  
-		fantasmaAzul = new FantasmaAzul(tab, ubicacionAzul);
+		fantasmaAzul = new FantasmaAzul(tab, ubicacionAzul,0);
 		 
 		tab.addFantasma(fantasmaAzul);
 		   

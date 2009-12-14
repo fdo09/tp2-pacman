@@ -1,5 +1,8 @@
 package modelo.fijos;
 
+import java.util.Collection;
+
+import modelo.moviles.Fantasma;
 import modelo.moviles.Pacman;
 
 enum EstadosJuego{EN_CURSO,GANADO,PERDIDO}
@@ -65,7 +68,15 @@ public class Juego {
 
 
 	public Tablero getTablero() {
-		return tablero;
+		return this.tablero;
 	}
 	
+	public void aumentarDificultad(){
+	
+		Collection<Fantasma> fantasmas = this.tablero.getFantasmas();
+		for(Fantasma unFantasma : fantasmas){
+			
+			unFantasma.aumentarVelocidad();
+		}
+	}
 }

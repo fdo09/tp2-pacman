@@ -29,7 +29,7 @@ private Tablero tab;
 		   
 		   Punto ubicacionNaranja = new Punto(1,4);
 		 		  
-		   fantasmaNaranja = new FantasmaNaranja(tab, ubicacionNaranja);
+		   fantasmaNaranja = new FantasmaNaranja(tab, ubicacionNaranja,0);
 		 
 		   tab.addFantasma(fantasmaNaranja);
 		   
@@ -38,7 +38,7 @@ private Tablero tab;
 		   
 		   Punto ubicacionAmarillo = new Punto(1,2);
 	 		  
-		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo);
+		   fantasmaAmarillo = new FantasmaAmarillo(tab, ubicacionAmarillo,0);
 		 
 		   tab.addFantasma(fantasmaAmarillo);
 		   
