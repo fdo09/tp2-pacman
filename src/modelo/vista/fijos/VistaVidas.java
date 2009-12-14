@@ -10,9 +10,9 @@ import ar.uba.fi.algo3.titiritero.vista.Imagen;
 public class VistaVidas extends Imagen{
 
 	public VistaVidas(){
-		String nombreArchivoImagen = "pacman.JPG";
+		String nombreArchivoImagen = "pacmanDerecha.JPG";
 		setNombreArchivoImagen(nombreArchivoImagen);
-		Punto posicionVidas = new Punto (23*25, 12*25);
+		Punto posicionVidas = new Punto (15*25, 26*25);
 		setPosicionable(posicionVidas);
 	}
 	
@@ -20,8 +20,8 @@ public class VistaVidas extends Imagen{
 		int vidas = Juego.getInstancia().getJugador().getCantVidas();
 		Graphics grafico = (Graphics)superficeDeDibujo.getBuffer();
 		for (int i = 1; i <= vidas; i++){
-			grafico.drawImage(super.getImagen(), super.getPosicionable().getX(), 
-					super.getPosicionable().getY() + i*25, null);
+			grafico.drawImage(super.getImagen(), super.getPosicionable().getX() + i*25, 
+					super.getPosicionable().getY(), null);
 		}
 	}
 	

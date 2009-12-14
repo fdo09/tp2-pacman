@@ -41,7 +41,7 @@ public class VentanaPrincipal extends Frame {
 		
 		this.setTitle("ALGO3 - MAN");
 		
-		this.setSize(705,675);
+		this.setSize(705,725);
 		
 		this.setResizable(false);
 		
