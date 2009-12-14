@@ -87,14 +87,14 @@ private Tablero tab;
 		
 		//Evaluamos la posicion final del fantasma, no hay otro posible movimiento mas que para abajo.
 		
-		movimientos = 2;
+		movimientos = 3;
 		
 		for(int i = 0; i<movimientos;i++){
 			
 			fantasmaNaranja.mover();
 		}
 		
-		Punto finalDelCamino = new Punto(6,6);
+		Punto finalDelCamino = new Punto(6,7);
 		
 		assertEquals(finalDelCamino, fantasmaNaranja.getPosicion());
 		
@@ -165,7 +165,7 @@ private Tablero tab;
 		
 		fantasmaNaranja.mover();
 			
-		Punto posicionFinal = new Punto(5,7);
+		Punto posicionFinal = new Punto(6,7);
 		
 		assertEquals(posicionFinal, fantasmaNaranja.getPosicion());
 		

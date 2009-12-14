@@ -85,11 +85,11 @@ public class FantasmaRojoTest extends TestCase {
 	
 	
 	public void testComerPacman(){
-		for ( int i = 0; i < 2 ; i++) fantasmaRojo.mover();
+		for ( int i = 0; i < 3 ; i++) fantasmaRojo.mover();
 		
-		Punto esperado = new Punto(6,3);
 		
-		assertEquals(esperado, fantasmaRojo.getPosicion());
+		assertEquals(pacman.getPosicion(), fantasmaRojo.getPosicion());
+		assertEquals(pacman.getPosicionInicial(), fantasmaRojo.getPosicion());
 		
 	}
 	
