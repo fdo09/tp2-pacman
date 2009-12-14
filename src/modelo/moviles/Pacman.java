@@ -25,6 +25,15 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 	
 	public void mover() {
 		
+		if (super.getEstado().equals(Estado.comido())){
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			super.setEstado(Estado.vivo());
+		}
+		
 		if(this.direccionA.equals(Direccion.izquierda()))
 			this.moverIzquierda();
 		else if(this.direccionA.equals(Direccion.arriba()))
@@ -205,6 +214,8 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		
 		Juego.getInstancia().getJugador().restarVida();
 		this.regresarAPosicionOriginal();
+		super.setEstado(Estado.comido());
+
 	}
 	
 	private void regresarAPosicionOriginal(){

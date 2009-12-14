@@ -3,7 +3,7 @@ package modelo.vista.moviles;
 import java.awt.Graphics;
 
 import modelo.moviles.Direccion;
-import modelo.moviles.Estado;
+import modelo.moviles.Objetivo;
 import modelo.moviles.Fantasma;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
@@ -25,13 +25,13 @@ public class VistaFantasmaAmarillo extends Imagen {
 	}
 
 	private void refrescarImagen() {
-		if(this.fantasma.getEstado().equals(Estado.atrapar()))
+		if(this.fantasma.getObjetivo().equals(Objetivo.atrapar()))
 			super.setNombreArchivoImagen("ImagenesDePersonajes/amarillo.JPG");
 
-		else if(this.fantasma.getEstado().equals(Estado.huir()))
+		else if(this.fantasma.getObjetivo().equals(Objetivo.huir()))
 			super.setNombreArchivoImagen("ImagenesDePersonajes/rosa.JPG");
 
-		else if(this.fantasma.getEstado().equals(Estado.comido()))
+		else if(this.fantasma.getObjetivo().equals(Objetivo.comido()))
 			super.setNombreArchivoImagen("ImagenesDePersonajes/amarillo.JPG");
 	}
 }

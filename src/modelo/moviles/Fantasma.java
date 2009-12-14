@@ -11,7 +11,7 @@ import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 
 public abstract class Fantasma extends Personaje implements Integrante, ObjetoVivo{
 
-	private Estado estado;
+	private Objetivo objetivo;
 	private int puntos;
 	private Punto casa;
 	protected Punto posicionAnterior;
@@ -20,7 +20,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	
 	public Fantasma(Tablero tablero, Punto posicion) {
 		super(tablero, posicion);
-		this.estado = Estado.atrapar();
+		this.objetivo = Objetivo.atrapar();
 		this.puntos = PUNTOS;
 		this.casa = new Punto (posicion);
 		this.posicionAnterior = new Punto (posicion);
@@ -44,16 +44,17 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		adjacentesValidos.remove(this.posicionAnterior);
 		posicionAnterior = new Punto (super.getPosicion());
 		
-		if (this.estado.equals(Estado.atrapar()))
+		if (super.getEstado().equals(Estado.comido())){
+			this.volverACasa();
+			this.objetivo = Objetivo.atrapar();
+			super.setEstado(Estado.vivo());
+		}
+		
+		else if (this.objetivo.equals(Objetivo.atrapar()))
 			this.atrapar(adjacentesValidos);
 		
-		else if (this.estado.equals(Estado.huir()))
+		else if (this.objetivo.equals(Objetivo.huir()))
 			this.huir(adjacentesValidos);
-		
-		else if (this.estado.equals(Estado.comido())){
-			this.volverACasa();
-			this.setEstado(Estado.atrapar());
-		}
 	}
 
 
@@ -73,7 +74,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 			this.serComido();
 			this.restarTiempo();
 		}else
-			this.setEstado(Estado.atrapar());
+			this.objetivo = Objetivo.atrapar();
 		
 	}
 	
@@ -102,15 +103,14 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		Pacman pacman = this.getTablero().getPacman();
 		if(this.getPosicion().equals(pacman.getPosicion()))
 		{
-			this.volverACasa();
 			Juego.getInstancia().getJugador().ganarPuntos(Fantasma.PUNTOS);
-			this.estado = Estado.atrapar();
+			super.setEstado(Estado.comido());
 		}
 	}
 	
 	
 	public boolean esComible(){
-		return (this.getEstado().equals(Estado.huir()));
+		return (this.objetivo.equals(Objetivo.huir()));
 	}
 	
 	
@@ -128,13 +128,13 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		
 		this.tiempo += unTiempo;
 		
-		if(this.getEstado().equals(Estado.atrapar())){
-			this.setEstado(Estado.huir());
+		if(this.getObjetivo().equals(Objetivo.atrapar())){
+			this.objetivo = Objetivo.huir();
 		}			
 	}
 
 	public void volverACasa(){
-		
+		this.tiempo = 0;
 		this.setPosicion(super.getPosicionInicial());
 		}
 		
@@ -162,30 +162,25 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	public int getPuntos() {
 		return puntos;
 	}
-	
-
-	public void setTablero(Tablero tablero) {
-		super.setTablero(tablero);
-	}
 
 	
 	public Tablero getTablero() {
 		return super.getTablero();
 	}
-	
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
-
-	
-	public Estado getEstado() {
-		return estado;
-	}
 
 	
 	public void setPosicion(Punto posicion) {
 		super.setPosicion(posicion);
+	}
+
+
+	public Objetivo getObjetivo() {
+		return objetivo;
+	}
+
+
+	public void setObjetivo(Objetivo objetivo) {
+		this.objetivo = objetivo;
 	}
 
 
