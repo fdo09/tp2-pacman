@@ -11,7 +11,7 @@ public class VistaPuntos extends Texto {
 
 	public VistaPuntos(){
 		super();
-		Punto posicion = new Punto(23*25 , 11*25);
+		Punto posicion = new Punto(5*25 , 26*25);
 		setPosicionable(posicion);
 		setFuente(Font.MONOSPACED, 14);
 	}

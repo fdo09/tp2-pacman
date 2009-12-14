@@ -145,7 +145,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 
 	public void volverACasa(){
 		this.tiempoPoder = 0;
-		this.tiempoEnCasa = 15;
+		this.tiempoEnCasa = 10;
 		this.setPosicion(super.getPosicionInicial());
 		}
 		

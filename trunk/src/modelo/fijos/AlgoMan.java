@@ -14,6 +14,7 @@ import modelo.moviles.Pacman;
 import modelo.vista.control.EscuchadorDeKeyPress;
 import modelo.vista.control.VentanaPrincipal;
 import modelo.vista.control.VistaPrincipal;
+import modelo.vista.fijos.VistaBarraDeDatos;
 import modelo.vista.fijos.VistaCasillero;
 import modelo.vista.fijos.VistaPuntoDePoder;
 import modelo.vista.fijos.VistaPuntos;
@@ -65,6 +66,9 @@ public class AlgoMan {
 	
 	private static void generarVistaDeDatos(ControladorJuego controlador,
 			Tablero tablero) {
+		
+		VistaBarraDeDatos vDatos = new VistaBarraDeDatos();
+		controlador.agregarDibujable(vDatos);
 		
 		VistaPuntos vPuntos = new VistaPuntos();
 		controlador.agregarDibujable(vPuntos);
