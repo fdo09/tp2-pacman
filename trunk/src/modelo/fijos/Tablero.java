@@ -150,8 +150,8 @@ public class Tablero {
 	}
 
 	
-	public void setSemillasRestantes(int semillasRestantes) {
-		this.semillasRestantes = semillasRestantes;
+	public void aumentarSemilla() {
+		this.semillasRestantes += 1;
 	}
 
 	
