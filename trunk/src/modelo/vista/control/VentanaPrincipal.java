@@ -98,12 +98,14 @@ public class VentanaPrincipal extends Frame {
 				
 				;
 				if(!controladorJuego.estaEnEjecucion()){
+					nuevo.setLabel("Continuar");
 					controladorJuego.comenzarJuegoAsyn();
+					
 				}
-				
 				
 				}
 		});
+
 		
 		pausa.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
