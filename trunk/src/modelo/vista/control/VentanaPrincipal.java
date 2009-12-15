@@ -97,8 +97,9 @@ public class VentanaPrincipal extends Frame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				
 				;
-			
-				controladorJuego.comenzarJuegoAsyn();
+				if(!controladorJuego.estaEnEjecucion()){
+					controladorJuego.comenzarJuegoAsyn();
+				}
 				
 				
 				}

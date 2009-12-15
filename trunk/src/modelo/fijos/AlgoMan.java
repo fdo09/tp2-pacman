@@ -45,6 +45,7 @@ public class AlgoMan {
 		
 		controlador.agregarDibujable(principal);
 		controlador.comenzarJuego(1);
+		controlador.detenerJuego();
 		
 		
 		// Carga del juego
