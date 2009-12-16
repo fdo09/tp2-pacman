@@ -6,9 +6,8 @@ import java.util.LinkedList;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
-import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public class FantasmaNaranja extends Fantasma implements ObjetoVivo, Posicionable {
+public class FantasmaNaranja extends Fantasma implements ObjetoVivo {
 	
 
 	
@@ -74,16 +73,7 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo, Posicionabl
 	}
 	
 	
-	//Metodos provisorios utilizados para la visibilidad.
 	
-	public int getX() {
-		
-		return 25 * super.getPosicion().getPuntoX();
-	}
+	
 
-
-	public int getY() {
-		
-		return 25 * super.getPosicion().getPuntoY();
-	}
 }

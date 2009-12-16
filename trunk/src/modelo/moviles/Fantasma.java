@@ -255,6 +255,16 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	}
 
 
+	public int getX() {
+		
+		return 25 * super.getPosicion().getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return 25 * super.getPosicion().getPuntoY();
+	}
 
 	
 
