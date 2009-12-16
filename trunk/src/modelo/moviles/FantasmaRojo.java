@@ -19,8 +19,8 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo, Posicionable {
 	
 	
 	public FantasmaRojo(Tablero tablero, Punto posicion, int velocidad) {
-		super(tablero, posicion);
-		super.setVelocidad(velocidad);
+		super(tablero, posicion, velocidad);
+	
 		this.intel = Inteligencias.INTELIGENTE;
 	}
 	

@@ -13,8 +13,8 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo, Posicionabl
 
 	
 	public FantasmaNaranja(Tablero tablero, Punto posicion, int velocidad) {
-		super(tablero, posicion);
-		super.setVelocidad(velocidad);
+		super(tablero, posicion, velocidad);
+		
 					
 	}
 	

@@ -3,6 +3,7 @@ package modelo.moviles;
 import java.util.Collection;
 import java.util.LinkedList;
 
+import modelo.excepciones.VelocInvalidaFantasException;
 import modelo.fijos.Juego;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
@@ -21,7 +22,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	private int velocidad;
 	private int velocidadActual;
 	
-	public Fantasma(Tablero tablero, Punto posicion) {
+	public Fantasma(Tablero tablero, Punto posicion, int velocidad) {
 		super(tablero, posicion);
 		this.objetivo = Objetivo.atrapar();
 		this.puntos = PUNTOS;
@@ -29,7 +30,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		this.posicionAnterior = new Punto (posicion);
 		this.tiempoPoder = 0;
 		this.velocidadActual = 0;
-	
+		this.setVelocidad(velocidad);
 	}
 	
 	public void vivir () {
@@ -57,18 +58,33 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	
 
 	public void setVelocidad(int velocidad) {
+		int velocidadMinima = 3;
 		
-		int velocidadSegura = 1;
-		if(velocidad == 0){
-			this.velocidad = velocidadSegura;
-		}else{
-			this.velocidad = velocidad;
+		int velocidadMaxima = 1;
+		
+		try{
+			if(velocidad> velocidadMinima)
+				throw new VelocInvalidaFantasException();
+		
+			else if(velocidad == 0){
+				this.velocidad = velocidadMaxima;
+			}
+			else{
+				this.velocidad = velocidad;
+			}
 		}
+		catch(VelocInvalidaFantasException e){
+			
+			this.velocidad = velocidadMinima;
+		}
+			
+			
 	}
 
 	public int getVelocidad() {
 		return this.velocidad;
 	}
+	
 	public int getVelocidadActual() {
 		return this.velocidadActual;
 	}

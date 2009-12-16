@@ -15,14 +15,11 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
     Punto destino;	
 		
 	public FantasmaInmune(Tablero tablero, Punto posicion, int velocidad) {
-		super(tablero, posicion);
-		super.setVelocidad(velocidad);
+		super(tablero, posicion, velocidad);
+		
 		
 	}
 	
-
-	
-
 	protected Punto calcularAtrapada(Collection<Punto> adjacentesValidos) {
 		/*
 		 * Elige entre todos los adjacentes validos cual es el mejor para moverse.
