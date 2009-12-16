@@ -13,8 +13,8 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 	
 	
 	public FantasmaAzul(Tablero tablero, Punto posicion, int velocidad) {
-		super(tablero, posicion);
-		super.setVelocidad(velocidad);
+		super(tablero, posicion, velocidad);
+		
 			
 	}
 	
