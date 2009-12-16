@@ -109,7 +109,8 @@ public class CargaVistaTablero {
 			for (int y = 0; y < dimension.getPuntoY(); y++ ){
 				
 				Punto posicionCasillero = new Punto (x,y);
-				Punto posicionPantalla = new Punto (x*25, y*25);
+				Casillero unCasillero = tablero.getCasillero(posicionCasillero);
+				Punto posicionPantalla = new Punto (unCasillero.getX(), unCasillero.getY());
 				Casillero casilleroActual = tablero.getCasillero(posicionCasillero);
 				VistaCasillero vistaCasillero = new VistaCasillero();
 				
