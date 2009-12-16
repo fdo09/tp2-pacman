@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="titiritero" basedir="." default="ejecutar">
+	<property name="build.dir" value="bin" />
+	<property name="tsrc.dir" value="titiritero/src"/>
+	<property name="psrc.dir" value="tp2-pacman/src"/>
+	<property name="xml.dir" value="tp2-pacman/xml"/>
+	<property name="xml.new" value="xml"/>
+	<property name="lib.dir" value="tp2-pacman/lib"/>
+	<property name="jpg.src" value="tp2-pacman/src/modelo/vista"/>
+	<property name="jpg.des" value="bin/modelo/vista"/>
+	<property name="classdir" value="bin"/>
+
+
+	<target name="setup">
+		<delete dir="${build.dir}"/>
+		<delete dir="${xml.new}"/>
+		<mkdir dir="${build.dir}"/>
+		<copy todir="${xml.new}">
+			<fileset dir="${xml.dir}"/>
+		</copy>
+	</target>
+		
+	<target name="pre-compile" depends="setup">
+	  <echo>Iniciando construcción del proyecto titiritero</echo>
+		<javac  srcdir="${tsrc.dir}"
+		        destdir="${build.dir}"
+			debug="off"
+			nowarn="on"
+			deprecation="off">
+		</javac>
+	</target>
+
+	<target name="compile" depends="pre-compile">
+	  <echo>Iniciando construcción del proyecto Pacman</echo>
+		<javac  srcdir="${psrc.dir}"
+		        destdir="${build.dir}"
+			debug="off"
+			nowarn="on"
+			deprecation="off" 
+			encoding="UTF-8">
+			<classpath>
+			    <pathelement location="${xml.dir}"/>
+			    <pathelement location="${lib.dir}"/>
+			    <pathelement location="${lib.dir}/junit.jar"/>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="pruebas" depends="compile" description="PruebasPacman">
+	        <echo>Iniciando las Pruebas  del proyecto Pacman</echo>
+			
+		<junit fork="true">
+			<classpath>
+				<pathelement location="${build.dir}"/>
+				<pathelement location="${lib.dir}/junit.jar"/>
+			</classpath>
+			<formatter type="brief" usefile="false"/>
+			<test name="test.CargaPersonajesTest"/>
+			<test name="test.CargaTableroTest"/>
+			<test name="test.FantasmaAmarilloTest"/>
+			<test name="test.FantasmaAzulTest"/>
+			<test name="test.FantasmaInmuneTest"/>
+			<test name="test.FantasmaNaranjaTest"/>
+			<test name="test.FantasmaRojoTest"/>
+			<test name="test.FantasmaTest"/>
+			<test name="test.PacmanTest"/>
+			<test name="test.PuntoTest"/>
+			<test name="test.TableroTest"/>
+		</junit>
+	</target>
+ 
+	
+	<target name="ejecutar" depends="pruebas">
+	        <echo>Iniciando el proyecto Pacman</echo>
+		<!-- Tengo Que Copiar Todos los Personajes jpg -->
+
+		<copy todir="${jpg.des}/moviles/ImagenesDePersonajes">
+		     <fileset dir="${jpg.src}/moviles/ImagenesDePersonajes"/>
+		</copy>
+
+		<copy file="${jpg.src}/fijos/pacmanDerecha.JPG" todir="${jpg.des}/fijos"/>	
+		<copy file="${jpg.src}/fijos/barraDatos.JPG" todir="${jpg.des}/fijos"/>	
+
+		<copy file="${jpg.src}/control/PAC-MAN.jpg" todir="${jpg.des}/control"/>	
+
+		<java fork="true" classname="modelo.fijos.AlgoMan">
+			<classpath>
+				<pathelement location="${classdir}"/>
+				<fileset dir="${xml.new}">
+					<include name="*.xml"/>
+				</fileset>
+			</classpath>
+		</java>
+	</target>		
+ 
+</project>
