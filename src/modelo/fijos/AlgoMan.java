@@ -1,6 +1,9 @@
 package modelo.fijos;
 
+import modelo.moviles.Pacman;
+import modelo.vista.control.CargaVistaPersonajes;
 import modelo.vista.control.CargaVistaTablero;
+import modelo.vista.control.EscuchadorDeKeyPress;
 import modelo.vista.control.VentanaPrincipal;
 import modelo.vista.control.VistaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -30,7 +33,13 @@ public class AlgoMan {
 		
 		
 		//Carga de las vistas/controles
+		
+		Pacman pacman = tablero.getPacman();
+		controlador.agregarKeyPressObservador(new EscuchadorDeKeyPress(pacman));
+		
 		CargaVistaTablero.cargaVistas(controlador, tablero);
+		CargaVistaPersonajes.cargaVistas(controlador, tablero);
+		
 		
 		AdministradorJuego administrador = new AdministradorJuego(controlador);
 		controlador.agregarObjetoVivo(administrador);
