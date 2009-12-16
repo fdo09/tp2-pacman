@@ -13,14 +13,14 @@ public class Juego{
 	private Tablero tablero;
 	private int nivel;
 	private Jugador jugador;
-	private EstadosJuego estadoJuego;
+	private static EstadosJuego estadoJuego;
 
 
 	public Juego(){
 		this.cargarElementos();
 		this.nivel = 1;
 		this.jugador = new Jugador("Player1", 3, 0);
-		this.estadoJuego = EstadosJuego.EN_CURSO;
+		Juego.estadoJuego = EstadosJuego.EN_CURSO;
 	}
 
 	
@@ -33,28 +33,19 @@ public class Juego{
 	}
 
 
-	public boolean juegoEnCurso(){
-		if(this.jugador.getCantVidas() == 0){
-			this.cambiarEstadoDelJuego(EstadosJuego.PERDIDO);
-			return false;
-		}
-		else if(this.tablero.getSemillasRestantes() == 0){
-			this.cambiarEstadoDelJuego(EstadosJuego.GANADO);
-			return false;
-		}
-		else
-			return true;
-	}
+
 	
-	private void cambiarEstadoDelJuego(EstadosJuego unEstado){
+	static void cambiarEstadoDelJuego(EstadosJuego unEstado){
 		
-		this.estadoJuego = unEstado;
+		estadoJuego = unEstado;
+			
 				
 	}
 	
 	public void aumentarNivel(){
 		this.nivel += 1;
 		this.restablecerTablero();
+		this.aumentarDificultad();
 	}
 	
 	private void restablecerTablero() {
@@ -99,7 +90,7 @@ public class Juego{
 
 	
 	public EstadosJuego getEstado(){
-		return this.estadoJuego;
+		return Juego.estadoJuego;
 	}
 
 
