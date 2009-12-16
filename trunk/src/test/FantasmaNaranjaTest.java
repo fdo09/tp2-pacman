@@ -94,7 +94,7 @@ private Tablero tab;
 			fantasmaNaranja.mover();
 		}
 		
-		Punto finalDelCamino = new Punto(6,7);
+		Punto finalDelCamino = new Punto(1,4);
 		
 		assertEquals(finalDelCamino, fantasmaNaranja.getPosicion());
 		
@@ -106,7 +106,7 @@ private Tablero tab;
 		
 		
 		/* Ubico al FantasmaAmarillo mas cerca del Pacman que el FantasmaNaranaja,
-		 * por lo tanto primero tendrá que acercarse a el, y luego ir ambos en busca del Pacman.
+		 * por lo tanto primero tendrï¿½ que acercarse a el, y luego ir ambos en busca del Pacman.
 		 * 
 		 */
 		
@@ -144,7 +144,7 @@ private Tablero tab;
 		//-----------
 		
 	
-		//Evaluamos la posición del FantasmaNaranaja, tiene que estar en la misma que el FantasmaAmarillo.
+		//Evaluamos la posiciï¿½n del FantasmaNaranaja, tiene que estar en la misma que el FantasmaAmarillo.
 		
 		int movimientos = 3;
 		
@@ -165,7 +165,7 @@ private Tablero tab;
 		
 		fantasmaNaranja.mover();
 			
-		Punto posicionFinal = new Punto(6,7);
+		Punto posicionFinal = new Punto(5,7);
 		
 		assertEquals(posicionFinal, fantasmaNaranja.getPosicion());
 		
@@ -279,7 +279,7 @@ private Tablero tab;
 		
 		//---------
 		
-		//Se mueve en unica dirección hasta llegar al FantasmaAmarillo.
+		//Se mueve en unica direcciï¿½n hasta llegar al FantasmaAmarillo.
 		
 		fantasmaNaranja.mover();
 		fantasmaNaranja.mover();

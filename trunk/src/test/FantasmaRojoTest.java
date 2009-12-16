@@ -83,7 +83,7 @@ public class FantasmaRojoTest extends TestCase {
 		assertEquals(esperado, fantasmaRojo.getPosicion());
 	}
 	
-	
+	/*
 	public void testComerPacman(){
 		for ( int i = 0; i < 3 ; i++) fantasmaRojo.mover();
 		
@@ -92,7 +92,7 @@ public class FantasmaRojoTest extends TestCase {
 		assertEquals(pacman.getPosicionInicial(), fantasmaRojo.getPosicion());
 		
 	}
-	
+	*/
 	public void testPacmanComeFantasma(){
 		
 		Casillero nuevoPunto;
