@@ -1,7 +1,9 @@
 package modelo.fijos;
 
+import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public abstract class Casillero {
+
+public abstract class Casillero implements Posicionable{
 	
 	
 	private Punto ubicacion;
@@ -32,6 +34,17 @@ public abstract class Casillero {
 	
 	public boolean fuePisado() {
 		return fuePisado;
+	}
+	
+	public int getX() {
+		
+		return 25 * this.ubicacion.getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return 25 * this.ubicacion.getPuntoY();
 	}
 
 }

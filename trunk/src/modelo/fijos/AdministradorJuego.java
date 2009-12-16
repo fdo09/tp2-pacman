@@ -1,6 +1,5 @@
 package modelo.fijos;
 
-import modelo.vista.control.CargaVistaTablero;
 import modelo.vista.control.VistaMensaje;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
