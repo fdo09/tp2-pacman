@@ -1,5 +1,6 @@
 package modelo.fijos;
 
+import modelo.vista.control.VistaJuegoPerdido;
 import modelo.vista.control.VistaMensaje;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
@@ -38,9 +39,11 @@ public class AdministradorJuego implements ObjetoVivo{
 						
 			Juego.cambiarEstadoDelJuego(EstadosJuego.PERDIDO);
 			
-			VistaMensaje juegoPerdido = new VistaMensaje("Game Over");
+			controlador.detenerJuego();
 			
-			controlador.agregarDibujable(juegoPerdido);
+			VistaJuegoPerdido juegoPerdido = new VistaJuegoPerdido();
+			
+			
 			
 		}
 		
