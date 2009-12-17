@@ -2,8 +2,6 @@ package modelo.vista.control;
 
 import java.awt.Component;
 
-import javax.swing.JOptionPane;
-
 
 public class VistaJuegoPerdido extends Mensaje{
 	
@@ -12,7 +10,7 @@ public class VistaJuegoPerdido extends Mensaje{
 	}
 
 
-	@Override
+	
 	protected String getTexto() {
 		String mensaje = "---------Game Over---------";
 		
@@ -20,7 +18,6 @@ public class VistaJuegoPerdido extends Mensaje{
 	}
 
 
-	@Override
 	protected String getTitulo() {
 		return "Mensaje";
 	}

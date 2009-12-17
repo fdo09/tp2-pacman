@@ -2,8 +2,6 @@ package modelo.vista.control;
 
 import java.awt.Component;
 
-import javax.swing.JOptionPane;
-
 public class Regla extends Mensaje{
 
 

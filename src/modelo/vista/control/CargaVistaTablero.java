@@ -56,7 +56,7 @@ public class CargaVistaTablero {
 				Casillero casilleroActual = tablero.getCasillero(posicionCasillero);
 				VistaCasillero vistaCasillero = new VistaCasillero();
 				
-				if (casilleroActual.getClass().equals(Semilla.class)){
+				if (casilleroActual instanceof Semilla){
 					vistaCasillero.setColor(Color.BLACK);
 					serVisible(controlador, posicionPantalla, vistaCasillero);
 					
@@ -65,17 +65,17 @@ public class CargaVistaTablero {
 					controlador.agregarDibujable(vistaSemilla);
 				}
 				
-				else if (casilleroActual.getClass().equals(Pared.class)){
+				else if (casilleroActual instanceof Pared){
 					vistaCasillero.setColor(Color.BLUE);
 					serVisible(controlador, posicionPantalla, vistaCasillero);
 				}
 				
-				else if (casilleroActual.getClass().equals(Casa.class)){
+				else if (casilleroActual instanceof Casa){
 					vistaCasillero.setColor(Color.GREEN);
 					serVisible(controlador, posicionPantalla, vistaCasillero);
 				}
 				
-				else if (casilleroActual.getClass().equals(PuntoDePoder.class)){
+				else if (casilleroActual instanceof PuntoDePoder){
 					vistaCasillero.setColor(Color.BLACK);
 					serVisible(controlador, posicionPantalla, vistaCasillero);
 					

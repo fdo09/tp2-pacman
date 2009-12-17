@@ -25,7 +25,7 @@ public class VistaVidas extends Imagen{
 				return "Vidas";
 			}
 		};
-		this.texto.setPosicionable(new Punto(21*25, 26*25));
+		this.texto.setPosicionable(new Punto(19*25, 26*25));
 	}
 	
 	public void dibujar(SuperficieDeDibujo superficeDeDibujo) {

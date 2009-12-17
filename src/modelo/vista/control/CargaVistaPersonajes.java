@@ -30,27 +30,27 @@ public class CargaVistaPersonajes {
 			Tablero tablero) {
 		ArrayList<Fantasma> fantasmas = tablero.getFantasmas();
 		for(Fantasma f : fantasmas){
-			if(f.getClass().equals(FantasmaRojo.class)){
+			if(f instanceof FantasmaRojo){
 				VistaFantasmaRojo vistaRojo = new VistaFantasmaRojo(f);
 				vistaRojo.setPosicionable(f);
 				controlador.agregarDibujable(vistaRojo);
 			}
-			else if(f.getClass().equals(FantasmaAmarillo.class)){
+			else if(f instanceof FantasmaAmarillo){
 				VistaFantasmaAmarillo vistaAmarillo = new VistaFantasmaAmarillo(f);
 			    vistaAmarillo.setPosicionable(f);
 			    controlador.agregarDibujable(vistaAmarillo);
 			}
-			else if(f.getClass().equals(FantasmaInmune.class)){
+			else if(f instanceof FantasmaInmune){
 				VistaFantasmaInmune vistaInmune = new VistaFantasmaInmune(f);
 			    vistaInmune.setPosicionable(f);
 			    controlador.agregarDibujable(vistaInmune);
 			}
-			else if(f.getClass().equals(FantasmaNaranja.class)){
+			else if(f instanceof FantasmaNaranja){
 				VistaFantasmaNaranja vistaNaranja = new VistaFantasmaNaranja(f);
 				vistaNaranja.setPosicionable(f);
 				controlador.agregarDibujable(vistaNaranja);
 			}
-			else if(f.getClass().equals(FantasmaAzul.class)){
+			else if(f instanceof FantasmaAzul){
 				VistaFantasmaAzul vistaAzul = new VistaFantasmaAzul(f);
 				vistaAzul.setPosicionable(f);
 				controlador.agregarDibujable(vistaAzul);
