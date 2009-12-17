@@ -1,8 +1,8 @@
 package modelo.fijos;
 
 import modelo.vista.fijos.VistaPremio;
-import modelo.vista.fijos.VistaPremioVida;
 import modelo.vista.fijos.VistaPremioRojo;
+import modelo.vista.fijos.VistaPremioVida;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 enum Premios{ROJO, AZUL}
