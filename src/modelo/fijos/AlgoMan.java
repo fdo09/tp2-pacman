@@ -45,7 +45,7 @@ public class AlgoMan {
 		controlador.agregarObjetoVivo(administrador);
 		
 		controlador.setIntervaloSimulacion(250);
-		//controlador.comenzarJuego();
+		
 		
 	}
 	

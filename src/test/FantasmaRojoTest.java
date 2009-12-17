@@ -6,6 +6,7 @@ import modelo.fijos.Casillero;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
+import modelo.moviles.FantasmaAmarillo;
 import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 
@@ -14,6 +15,7 @@ public class FantasmaRojoTest extends TestCase {
 	private Tablero tab;
 
 	private Fantasma fantasmaRojo;
+	private Fantasma fantasmaAmarillo;
 
 	private Pacman pacman;
 
@@ -24,6 +26,9 @@ public class FantasmaRojoTest extends TestCase {
 		
 		   Punto puntoRojo = new Punto(6,5);
 		   fantasmaRojo = new FantasmaRojo(tab, puntoRojo,0);
+		   
+		   Punto puntoAmarillo = new Punto(5,5);
+		   fantasmaAmarillo = new FantasmaAmarillo(tab, puntoAmarillo, 0);
 		 
 		   tab.addFantasma(fantasmaRojo);
 		
@@ -35,61 +40,77 @@ public class FantasmaRojoTest extends TestCase {
 			
 		}
 	
-	public void testAtrapar(){
-		assertFalse(fantasmaRojo.esComible());
+	public void testAtrapar(){		
 		
-	}	
-	
-	public void testPosicionEsperada(){
-		
+		Punto posicionEsperada = new Punto (6,4);
 		fantasmaRojo.mover();
+		assertTrue(posicionEsperada.equals(fantasmaRojo.getPosicion()));
+			
+			
+		//Evaluamos la posicion final del FantasmaAzul.
+			
+		int movimientos = 2;
+		for(int i = 0; i<movimientos;i++){	
+			fantasmaRojo.mover();
+		}
 		
-		Punto posicionEsperada = new Punto(6,4);
-		
-		assertEquals(posicionEsperada, fantasmaRojo.getPosicion());
-	}
+		Punto encuentroConPacman = new Punto(6,2);		
+		assertEquals(encuentroConPacman,fantasmaRojo.getPosicion());
+	
+		//-----------
+			
+	}		
+	
 	
 	
 	public void testHuir(){
-		  
-		Casillero nuevoPunto;
-		   
-		   	Punto nuevo = new Punto(5,2);
-		   
-		   	nuevoPunto = tab.getCasillero(nuevo);
+
+		//Reubico los fantasmas y el pacman.
+			
+		Punto nuevaUbicacionAmarillo = new Punto(4,4);
+		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
+		
+		Punto nuevaUbicacionAzul = new Punto(6,4);
+		fantasmaRojo.setPosicion(nuevaUbicacionAzul);
+		Punto nuevaUbicacionPacman = new Punto(4,7);
+		pacman.setPosicion(nuevaUbicacionPacman);
+			
+		//Acciono un punto de poder, para cambiar el estado del fantasma.
+		
+		Casillero unCasillero; 	
+		Punto unPunto = new Punto(5,2);
+		unCasillero = tab.getCasillero(unPunto); // Punto de poder
+		unCasillero.accionar();
 		   	
-		   	nuevoPunto.accionar();
+		//Comienzan los movimientos.
 		   	
-		   	assertTrue(fantasmaRojo.esComible());
-		   	
+	   	Punto posicionEsperada = new Punto (5,2);
+			
+		int movimientos = 3;
+			
+		for(int i = 1; i<=movimientos;i++){
+			fantasmaRojo.mover();
+		}
+		assertTrue(posicionEsperada.equals(fantasmaRojo.getPosicion()));
+			
+					   	
+	}
+	
+	public void testHuirEstado(){
+		
+		//Acciono un punto de poder, para cambiar el estado del fantasma.
+		Casillero unCasillero; 
+			
+	   	Punto unPunto = new Punto(5,2);
+	  	unCasillero = tab.getCasillero(unPunto); // Punto de poder
+	  	unCasillero.accionar();
+
+	   	assertTrue(fantasmaRojo.esComible());
 	}
 	
 	
 	
-	public void testnuevaPosicion(){
-		fantasmaRojo.mover();
 	
-		Punto nuevo = new Punto(6,4);
-		
-		assertEquals(nuevo, fantasmaRojo.getPosicion());
-		
-		fantasmaRojo.mover();
-		
-		Punto esperado = new Punto(6,3);
-		
-		assertEquals(esperado, fantasmaRojo.getPosicion());
-	}
-	
-	/*
-	public void testComerPacman(){
-		for ( int i = 0; i < 3 ; i++) fantasmaRojo.mover();
-		
-		
-		assertEquals(pacman.getPosicion(), fantasmaRojo.getPosicion());
-		assertEquals(pacman.getPosicionInicial(), fantasmaRojo.getPosicion());
-		
-	}
-	*/
 	public void testPacmanComeFantasma(){
 		
 		Casillero nuevoPunto;
