@@ -1,18 +1,17 @@
 package modelo.vista.control;
 
+import java.awt.Component;
+
 import javax.swing.JOptionPane;
 
-public class AcercaDe {
+public class AcercaDe extends Mensaje{
 
 	
-	public AcercaDe(){
-	
-		String informacion = this.getTexto();
-		JOptionPane.showMessageDialog(null,informacion, "Acerca de...", JOptionPane.INFORMATION_MESSAGE);
+	public AcercaDe(Component ventana){
+		super(ventana);
 	}
 	public String getTexto(){
 		
-				
 		String informacionDeCreacion;
 		
 		informacionDeCreacion = "NOMBRE DEL JUEGO: \n" +
@@ -29,6 +28,10 @@ public class AcercaDe {
 				
 		
 		return informacionDeCreacion;
+	}
+	@Override
+	protected String getTitulo() {
+		return "Acerca De";
 	}
 	
 }

@@ -16,7 +16,7 @@ public class PacmanTest extends TestCase {
 	private Pacman pacman;
 	protected void setUp() throws Exception {
 		
-			Juego.reiniciarJuego();
+			Juego.getInstancia().reiniciarJuego();
 		   CargaTablero cargador = new CargaTablero();
 		   tab = cargador.cargar("xml/miniTablero.xml");
 		   
@@ -58,7 +58,7 @@ public class PacmanTest extends TestCase {
 		
 		assertEquals(posicionPacman, pacman.getPosicion());
 		
-		//Debe volver a su casa que es la posición inicial(4,5)
+		//Debe volver a su casa que es la posiciï¿½n inicial(4,5)
 		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
 		
 		int puntosAcumulados = 750; //500 de punto de poder + 200 de fantasma + 50 de semilla

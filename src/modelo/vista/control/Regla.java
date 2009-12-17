@@ -1,22 +1,20 @@
 package modelo.vista.control;
 
+import java.awt.Component;
+
 import javax.swing.JOptionPane;
 
-public class Regla {
+public class Regla extends Mensaje{
 
 
-	
-	public Regla(){
-		
-		String reglas = this.getReglas();
-		JOptionPane.showMessageDialog(null,reglas, "Reglas", JOptionPane.INFORMATION_MESSAGE);
+	public Regla(Component ventana){
+		super(ventana);
 	}
-	public String getReglas(){
-		
+
 	
-		
+	public String getTexto(){
+			
 		String reglas = "Reglas\n";
-		
 		
 		String parrafo1;
 		String parrafo2;
@@ -25,37 +23,41 @@ public class Regla {
 		parrafo1 = 
 				
 				"\n --El juego consta de un Pacman y cinco Fantasmas.\n " +
-				"\n --Usted tendrá tres vidas durante el juego y la única forma de perder una es siendo atrapado por un Fantasma.\n";
+				"\n --Usted tendrï¿½ tres vidas durante el juego y la ï¿½nica forma de perder una es siendo atrapado por un Fantasma.\n";
 				
 		parrafo2=
-				"\n --Los Fantasmas intentarán atraparlo salvo que el Pacman coma un Punto de Poder,\n" +
+				"\n --Los Fantasmas intentarï¿½n atraparlo salvo que el Pacman coma un Punto de Poder,\n" +
 				
-				"en ese caso huirán de él.\n" +
+				"en ese caso huirï¿½n de ï¿½l.\n" +
 				
 				"\n --Usted posee los controles sobre el Pacman," +
 				
-				"podrá moverlo en las direcciones izquierda, arriba, deracha y abajo,\n " +
+				"podrï¿½ moverlo en las direcciones izquierda, arriba, deracha y abajo,\n " +
 				
-				"y deberá comer todas las semillas " +
+				"y deberï¿½ comer todas las semillas " +
 				
 				"que aparescan en pantalla para ganar el juego y pasar de nivel. \n" +
 				
-				"\n --Por cada Semilla comida sumará puntos. Además se encontrará con Puntos de Poder los cuales \n" +
+				"\n --Por cada Semilla comida sumarï¿½ puntos. Ademï¿½s se encontrarï¿½ con Puntos de Poder los cuales \n" +
 				
-				" le permitirán comer a los Fantasmas " +
+				" le permitirï¿½n comer a los Fantasmas " +
 				
-				" que también les dará más puntos,pero usted también debe saber \n" +
-				" que hay un Fantasma Inmune el cual nunca podrá ser comido,por lo que tendrá que huir de él.\n";
+				" que tambiï¿½n les darï¿½ mï¿½s puntos,pero usted tambiï¿½n debe saber \n" +
+				" que hay un Fantasma Inmune el cual nunca podrï¿½ ser comido,por lo que tendrï¿½ que huir de ï¿½l.\n";
 				
 		parrafo3=
-			 	"\n --Los Fantasma al ser comidos vuelven a sus casas e intentarán nuevamente atraparlo.\n" +
-			 	"\n --El pacman también podrá sumar mas puntos comiendo los premios que aparecerán en pantalla.\n" +
+			 	"\n --Los Fantasma al ser comidos vuelven a sus casas e intentarï¿½n nuevamente atraparlo.\n" +
+			 	"\n --El pacman tambiï¿½n podrï¿½ sumar mas puntos comiendo los premios que aparecerï¿½n en pantalla.\n" +
 			 	"\n --Estos pueden aparecer en cualquier momento del juego.\n";
 		
 		
 	   
 		return reglas += parrafo1 + parrafo2 + parrafo3;
 	
+	}
+
+	protected String getTitulo() {
+		return "Reglas";
 	}
 	
 

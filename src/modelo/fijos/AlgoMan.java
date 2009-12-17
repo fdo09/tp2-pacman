@@ -41,7 +41,7 @@ public class AlgoMan {
 		CargaVistaPersonajes.cargaVistas(controlador, tablero);
 		
 		
-		AdministradorJuego administrador = new AdministradorJuego(controlador);
+		AdministradorJuego administrador = new AdministradorJuego(controlador, ventana);
 		controlador.agregarObjetoVivo(administrador);
 		
 		controlador.setIntervaloSimulacion(250);

@@ -1,23 +1,28 @@
 package modelo.vista.control;
 
+import java.awt.Component;
+
 import javax.swing.JOptionPane;
 
-public class VistaJuegoPerdido {
-	
-	public VistaJuegoPerdido(){
-		String mensaje = this.getMensaje();
-		JOptionPane.showMessageDialog(null,mensaje, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 
+public class VistaJuegoPerdido extends Mensaje{
+	
+	public VistaJuegoPerdido(Component ventana){
+		super(ventana);
 	}
 
-		
-	public String getMensaje(){
-		
+
+	@Override
+	protected String getTexto() {
 		String mensaje = "---------Game Over---------";
 		
 		return mensaje;
-		
-	
+	}
+
+
+	@Override
+	protected String getTitulo() {
+		return "Mensaje";
 	}
 	
 }

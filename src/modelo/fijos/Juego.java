@@ -79,8 +79,10 @@ public class Juego{
 		return instancia;
 	}
 	
-	public static void reiniciarJuego(){
+	public void reiniciarJuego(){
 		instancia = new Juego();
+		this.restablecerTablero();
+		this.restablecerPosicionPersonajes();
 	}
 
 
