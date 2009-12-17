@@ -46,7 +46,10 @@ public class AdministradorJuego implements ObjetoVivo{
 		if(Juego.getInstancia().getJugador().getCantVidas() == 0){
 			Juego.cambiarEstadoDelJuego(EstadosJuego.PERDIDO);
 			controlador.detenerJuego();
+			
+			
 			VistaJuegoPerdido juegoPerdido = new VistaJuegoPerdido(this.ventana);
+			
 			VistaReiniciarJuego reiniciar = new VistaReiniciarJuego(this.ventana, this.controlador);
 		}
 	}

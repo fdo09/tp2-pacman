@@ -29,7 +29,7 @@ public class AlgoMan {
 		// Carga del juego
 		Juego nuevoJuego = Juego.getInstancia();
 		Tablero tablero = nuevoJuego.getTablero();
-		Jugador jugador = nuevoJuego.getJugador();
+		
 		
 		
 		//Carga de las vistas/controles
