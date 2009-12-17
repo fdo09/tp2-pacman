@@ -8,15 +8,15 @@ import modelo.moviles.Fantasma;
 public class PuntoDePoder extends Casillero{
 
 	private static final int PUNTOS = 500;
-	private int tiempoDeDuracion = 30;
+	private static int tiempoDeDuracion = 30;
 	
 	public int getTiempo() {
-		return this.tiempoDeDuracion;
+		return tiempoDeDuracion;
 	}
 
 
 	public void setTiempo(int tiempo) {
-		this.tiempoDeDuracion = tiempo;
+		tiempoDeDuracion = tiempo;
 	}
 
 
@@ -39,7 +39,7 @@ public class PuntoDePoder extends Casillero{
 			
 			this.setFuePisado(true);
 			
-			this.cambiarEstadoDeFantasmas(this.tiempoDeDuracion);
+			this.cambiarEstadoDeFantasmas(tiempoDeDuracion);
 				
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
@@ -56,7 +56,11 @@ public class PuntoDePoder extends Casillero{
 		}
 	}
 	
+	public static void cambiarDuracion(){
 		
+		int tiempo = 5;
+		tiempoDeDuracion -= tiempo;
+	}
 
 
 }
