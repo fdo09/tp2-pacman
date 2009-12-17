@@ -108,5 +108,7 @@ public class Juego{
 			
 			unFantasma.aumentarVelocidad();
 		}
+		
+		PuntoDePoder.cambiarDuracion();
 	}
 }
