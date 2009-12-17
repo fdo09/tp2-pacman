@@ -84,9 +84,10 @@ public class FantasmaAzulTest extends TestCase {
 			fantasmaAzul.mover();
 		}
 		
-		Punto encuentroConPacman = new Punto(4,4);
+		Punto encuentroConPacman = new Punto(6,7);
 		
 		assertEquals(encuentroConPacman,fantasmaAzul.getPosicion());
+		
 		
 		
 		//-----------

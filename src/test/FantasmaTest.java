@@ -48,16 +48,19 @@ public class FantasmaTest extends TestCase {
 	}
 
 	public void testRegresar() {
-		int tiempo = 0;
+		int tiempo = 20;
 		fantasmaAmarillo.cambiarEstado(tiempo);//Ahora huye
 		
 		Punto puntoDeChoque = new Punto(5,4);
-		
 		fantasmaAmarillo.setPosicion(puntoDeChoque);
-		
 		pacman.mover(); // se mueve a la izquierda y se choca con el fantasma.
 		
-		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
+		assertEquals(pacman.getPosicion(), fantasmaAmarillo.getPosicion());
+		
+		//Regresa a su casa
+		fantasmaAmarillo.mover();
+		
+		assertEquals(fantasmaAmarillo.getPosicion(), fantasmaAmarillo.getPosicionInicial());
 		
 	}
 }

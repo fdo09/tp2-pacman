@@ -41,6 +41,11 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo {
 			this.salirDeCasa();
 		}
 		
+		else if (super.getObjetivo().equals(Objetivo.aCasa())){
+			this.volverACasa();
+			super.setEstado(Estado.comido());
+		}
+		
 		else if (super.getObjetivo().equals(Objetivo.atrapar()))
 			this.atrapar(adjacentesValidos);
 		

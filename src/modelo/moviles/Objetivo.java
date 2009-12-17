@@ -1,6 +1,6 @@
 package modelo.moviles;
 
-enum Objetivos{ATRAPAR, HUIR, COMIDO};
+enum Objetivos{ATRAPAR, HUIR, COMIDO, A_CASA};
 
 public class Objetivo {
 	
@@ -37,6 +37,10 @@ public class Objetivo {
 		else
 			return false;
 	}
-	
+
+	public static Objetivo aCasa() {
+		Objetivo nuevoObjetivo = new Objetivo();
+		nuevoObjetivo.objetivo = Objetivos.A_CASA;
+		return nuevoObjetivo;	}
 }
 

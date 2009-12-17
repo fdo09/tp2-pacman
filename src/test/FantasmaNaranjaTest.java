@@ -94,7 +94,7 @@ private Tablero tab;
 			fantasmaNaranja.mover();
 		}
 		
-		Punto finalDelCamino = new Punto(1,4);
+		Punto finalDelCamino = new Punto(6,7);
 		
 		assertEquals(finalDelCamino, fantasmaNaranja.getPosicion());
 		
