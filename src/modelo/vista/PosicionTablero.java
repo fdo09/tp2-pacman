@@ -20,17 +20,17 @@ private List<Integrante> integrantes;
 	}
 
 	public int getX() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	public int getY() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	public Iterator<Integrante> iterator() {
-		// TODO Auto-generated method stub
+	
 		return this.integrantes.iterator();
 	}
 	
