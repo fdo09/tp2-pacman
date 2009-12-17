@@ -3,7 +3,6 @@ package modelo.vista;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import modelo.fijos.CargaTablero;
 import modelo.fijos.Casa;
 import modelo.fijos.Casillero;
 import modelo.fijos.Juego;
