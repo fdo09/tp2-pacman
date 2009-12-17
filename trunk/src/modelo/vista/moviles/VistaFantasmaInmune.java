@@ -1,7 +1,6 @@
 package modelo.vista.moviles;
 
 import modelo.moviles.Fantasma;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
 public class VistaFantasmaInmune extends VistaFantasma {
 

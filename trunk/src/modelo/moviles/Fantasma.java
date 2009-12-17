@@ -218,7 +218,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	protected LinkedList<Punto> getFantasmasOrdenadosPorDistancia() {
 		
 		ArrayList<Fantasma> fantasmas = getTablero().getFantasmas();
-		LinkedList<Punto> posicionesFantasmas = new LinkedList();
+		LinkedList<Punto> posicionesFantasmas = new LinkedList<Punto>();
 		Punto posicionDelPacman = getTablero().getPacman().getPosicion();
 		
 		for (Fantasma fant : fantasmas){

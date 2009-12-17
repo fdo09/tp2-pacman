@@ -3,6 +3,7 @@ package modelo.fijos;
 import modelo.vista.control.VentanaPrincipal;
 import modelo.vista.control.VistaJuegoPerdido;
 import modelo.vista.control.VistaMensaje;
+import modelo.vista.fijos.VistaReiniciarJuego;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.ObjetoVivo;
 

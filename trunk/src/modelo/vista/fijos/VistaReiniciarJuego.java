@@ -1,7 +1,8 @@
-package modelo.fijos;
+package modelo.vista.fijos;
 
 import javax.swing.JOptionPane;
 
+import modelo.fijos.Juego;
 import modelo.vista.control.VentanaPrincipal;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 

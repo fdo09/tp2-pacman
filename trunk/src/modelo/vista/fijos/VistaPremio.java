@@ -3,19 +3,16 @@ package modelo.vista.fijos;
 import java.awt.Graphics;
 
 import modelo.fijos.Casillero;
-import modelo.fijos.Premio;
 import modelo.fijos.Punto;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
-public class VistaPremio extends Imagen{
+public abstract class VistaPremio extends Imagen{
 	
 	private Casillero premio;
 	
 	
 	public VistaPremio(Casillero premioActual, Punto posicion) {
-		String nombreArchivoImagen = "manzana2.JPG";
-		setNombreArchivoImagen(nombreArchivoImagen);
 		this.premio = premioActual;
 		this.setPosicionable(posicion);
 	}

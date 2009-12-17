@@ -5,7 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-import modelo.excepciones.*;
+
+import modelo.excepciones.CasasLlenasException;
 import modelo.moviles.Fantasma;
 import modelo.moviles.FantasmaAmarillo;
 import modelo.moviles.FantasmaAzul;

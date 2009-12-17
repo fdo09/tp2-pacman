@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import modelo.fijos.Casillero;
-
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
 import ar.uba.fi.algo3.titiritero.vista.Circulo;
 

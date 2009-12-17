@@ -1,6 +1,7 @@
 package modelo.fijos;
 
 import java.util.Collection;
+
 import modelo.moviles.Fantasma;
 import modelo.moviles.Pacman;
 
