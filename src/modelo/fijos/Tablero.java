@@ -62,11 +62,6 @@ public class Tablero {
 		}
 	}
 	
-
-	public boolean estaVacio(){
-		return this.casilleros.isEmpty();
-	}
-	
 	
 	public void addFantasma(Fantasma fantasma){
 			this.fantasmas.add(fantasma);
@@ -117,18 +112,6 @@ public class Tablero {
 				adjacentesValidos.add(punto);
 		}
 		return adjacentesValidos;
-	}
-	
-
-	public LinkedList<Punto> getPosicionesDeFantasmas() {
-		
-		LinkedList<Punto> posicionesDeFantasmas = new LinkedList<Punto>();
-		
-		for(Fantasma unFantasma : this.fantasmas ){
-			posicionesDeFantasmas.add(unFantasma.getPosicion());
-			
-		}
-		return posicionesDeFantasmas;
 	}
 	
 	

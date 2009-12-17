@@ -13,18 +13,20 @@ public class AdministradorJuego implements ObjetoVivo{
 	private Tablero tablero;
 	private ControladorJuego controlador;
 	private VentanaPrincipal ventana;
+	private ControladorPremios controladorPremios;
 	
 	public AdministradorJuego(ControladorJuego controlador, VentanaPrincipal ventana){
 		this.tablero = Juego.getInstancia().getTablero();
 		this.controlador = controlador;
 		this.ventana = ventana;
+		this.controladorPremios = new ControladorPremios(controlador);
 	}
 
 	
 	public void vivir() {
 		this.controlarNivel();
 		this.controlarVidas();
-		
+		this.controlarPremios();
 	}
 
 	
@@ -60,12 +62,15 @@ public class AdministradorJuego implements ObjetoVivo{
 			Juego.setEstadoDelJuego(EstadosJuego.PERDIDO);
 			controlador.detenerJuego();
 			
-			
 			@SuppressWarnings("unused")//Al instanciar se muestra en pantalla.
 			VistaJuegoPerdido juegoPerdido = new VistaJuegoPerdido(this.ventana);
 			
 			@SuppressWarnings("unused")////Al instanciar se muestra en pantalla.
 			VistaReiniciarJuego reiniciar = new VistaReiniciarJuego(this.ventana, this.controlador);
 		}
+	}
+	
+	public void controlarPremios(){
+		this.controladorPremios.controlar();
 	}
 }

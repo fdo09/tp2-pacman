@@ -1,5 +1,6 @@
 package modelo.moviles;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -216,14 +217,16 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	
 	protected LinkedList<Punto> getFantasmasOrdenadosPorDistancia() {
 		
-		LinkedList<Punto> posicionesDeFantasmas = getTablero().getPosicionesDeFantasmas();
-		
+		ArrayList<Fantasma> fantasmas = getTablero().getFantasmas();
+		LinkedList<Punto> posicionesFantasmas = new LinkedList();
 		Punto posicionDelPacman = getTablero().getPacman().getPosicion();
 		
+		for (Fantasma fant : fantasmas){
+			posicionesFantasmas.push(fant.getPosicion());
+		}
+		
 		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
-		
-		posicionesDeFantasmasOrdenadas = posicionDelPacman.getPosicionesOrdenadas(posicionesDeFantasmas);
-		
+		posicionesDeFantasmasOrdenadas = posicionDelPacman.getPosicionesOrdenadas(posicionesFantasmas);
 		return posicionesDeFantasmasOrdenadas;
 	}
 	

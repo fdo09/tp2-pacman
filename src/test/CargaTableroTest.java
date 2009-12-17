@@ -24,10 +24,6 @@ protected void setUp() throws Exception {
 	}
 
 	
-	public void testCargarTablero(){
-		assertFalse(tab.estaVacio());		
-		}
-	
 	public void testPruebaDeCarga(){
 		Punto nuevo = new Punto(1,2);
 		Casillero casillaver = tab.getCasillero(nuevo);
