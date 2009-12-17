@@ -2,10 +2,10 @@ package modelo.vista.control;
 
 import java.awt.Component;
 
-public class AcercaDe extends Mensaje{
+public class VistaAcercaDe extends VistaMensaje{
 
 	
-	public AcercaDe(Component ventana){
+	public VistaAcercaDe(Component ventana){
 		super(ventana);
 	}
 	public String getTexto(){

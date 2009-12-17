@@ -2,9 +2,9 @@ package modelo.fijos;
 
 import java.awt.Component;
 
-import modelo.vista.control.Mensaje;
+import modelo.vista.control.VistaMensaje;
 
-public class VistaJuegoGanado extends Mensaje {
+public class VistaJuegoGanado extends VistaMensaje {
 
 	public VistaJuegoGanado(Component ventana){
 		super(ventana);
