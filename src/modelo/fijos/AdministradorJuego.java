@@ -32,10 +32,23 @@ public class AdministradorJuego implements ObjetoVivo{
 		
 		if (this.tablero.getSemillasRestantes() == 0){
 			
-			Juego.cambiarEstadoDelJuego(EstadosJuego.GANADO);
+			
 			VistaMensaje nuevoNivel = new VistaMensaje("Felicidades ha avanzado de nivel");
 			controlador.agregarDibujable(nuevoNivel);		
 			Juego.getInstancia().aumentarNivel();
+			
+			int nivelFinal = 4;
+			
+			if(Juego.getInstancia().getNivel() == nivelFinal){
+				
+				Juego.cambiarEstadoDelJuego(EstadosJuego.GANADO);
+				
+				@SuppressWarnings("unused")//Al instanciar se muestra en pantalla.
+				VistaJuegoGanado juegoGanado = new VistaJuegoGanado(this.ventana);
+				
+				@SuppressWarnings("unused")//Al instanciar se muestra en pantalla.
+				VistaReiniciarJuego reiniciar = new VistaReiniciarJuego(this.ventana, this.controlador);
+			}
 		}
 			
 	}
