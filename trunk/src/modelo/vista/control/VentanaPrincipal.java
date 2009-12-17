@@ -55,7 +55,7 @@ public class VentanaPrincipal extends Frame {
 		MenuBar mbarra = new MenuBar();
 		
 		
-		//Añadimos un menu Archivo que contiene Nuevo y Salir.
+		//Aï¿½adimos un menu Archivo que contiene Nuevo y Salir.
 		
 		menuArchivo = new Menu( "Archivo" );
 		
@@ -73,7 +73,7 @@ public class VentanaPrincipal extends Frame {
 		
 		mbarra.add(menuArchivo);
 	 
-		//Añadimos un menu Ayuda que contiene Reglas y AcercaDe.
+		//Aï¿½adimos un menu Ayuda que contiene Reglas y AcercaDe.
 		
 		menuAyuda = new Menu( "Ayuda" );
 		
@@ -121,7 +121,7 @@ public class VentanaPrincipal extends Frame {
 				;
 				
 				@SuppressWarnings("unused")//Solo se crea la instancia mostrando en pantalla.
-				Regla reglas = new Regla();
+				Regla reglas = new Regla(panel);
 				
 				}
 			});
@@ -130,7 +130,7 @@ public class VentanaPrincipal extends Frame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 	
 				@SuppressWarnings("unused")//Solo se crea la instancia mostrando en pantalla.
-				AcercaDe acercaDe = new AcercaDe();
+				AcercaDe acercaDe = new AcercaDe(panel);
 				
 				}
 			});
@@ -164,7 +164,12 @@ public class VentanaPrincipal extends Frame {
 	
 	public SuperficieDeDibujo getSuperficieDeDibujo() {
 		return this.panel;
-		
+	}	
+	
+	
+	public void cerrarJuego(){
+		dispose();
+		System.exit(0);
 	}
 	
 
