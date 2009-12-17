@@ -6,9 +6,6 @@ import modelo.fijos.Casillero;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
-import modelo.moviles.FantasmaAzul;
-import modelo.moviles.FantasmaInmune;
-import modelo.moviles.FantasmaNaranja;
 import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 

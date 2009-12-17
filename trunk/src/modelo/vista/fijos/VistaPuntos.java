@@ -1,6 +1,5 @@
 package modelo.vista.fijos;
 
-import java.awt.Color;
 import java.awt.Font;
 
 import modelo.fijos.Juego;
