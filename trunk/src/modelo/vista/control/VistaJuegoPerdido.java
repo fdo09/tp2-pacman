@@ -3,7 +3,7 @@ package modelo.vista.control;
 import java.awt.Component;
 
 
-public class VistaJuegoPerdido extends Mensaje{
+public class VistaJuegoPerdido extends VistaMensaje{
 	
 	public VistaJuegoPerdido(Component ventana){
 		super(ventana);

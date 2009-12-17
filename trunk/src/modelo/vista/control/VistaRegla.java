@@ -2,10 +2,10 @@ package modelo.vista.control;
 
 import java.awt.Component;
 
-public class Regla extends Mensaje{
+public class VistaRegla extends VistaMensaje{
 
 
-	public Regla(Component ventana){
+	public VistaRegla(Component ventana){
 		super(ventana);
 	}
 

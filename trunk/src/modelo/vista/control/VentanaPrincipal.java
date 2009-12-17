@@ -116,7 +116,7 @@ public class VentanaPrincipal extends Frame {
 				;
 				
 				@SuppressWarnings("unused")//Solo se crea la instancia mostrando en pantalla.
-				Regla reglas = new Regla(panel);
+				VistaRegla reglas = new VistaRegla(panel);
 				
 				}
 			});
@@ -125,7 +125,7 @@ public class VentanaPrincipal extends Frame {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 	
 				@SuppressWarnings("unused")//Solo se crea la instancia mostrando en pantalla.
-				AcercaDe acercaDe = new AcercaDe(panel);
+				VistaAcercaDe acercaDe = new VistaAcercaDe(panel);
 				
 				}
 			});
