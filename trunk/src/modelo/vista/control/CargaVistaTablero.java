@@ -1,7 +1,5 @@
 package modelo.vista.control;
 
-import java.awt.Color;
-
 import modelo.fijos.Casa;
 import modelo.fijos.Casillero;
 import modelo.fijos.Pared;
