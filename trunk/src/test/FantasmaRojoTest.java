@@ -6,7 +6,6 @@ import modelo.fijos.Casillero;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 import modelo.moviles.Fantasma;
-import modelo.moviles.FantasmaAmarillo;
 import modelo.moviles.FantasmaRojo;
 import modelo.moviles.Pacman;
 
@@ -15,7 +14,6 @@ public class FantasmaRojoTest extends TestCase {
 	private Tablero tab;
 
 	private Fantasma fantasmaRojo;
-	private Fantasma fantasmaAmarillo;
 
 	private Pacman pacman;
 
@@ -27,9 +25,6 @@ public class FantasmaRojoTest extends TestCase {
 		   Punto puntoRojo = new Punto(6,5);
 		   fantasmaRojo = new FantasmaRojo(tab, puntoRojo,0);
 		   
-		   Punto puntoAmarillo = new Punto(5,5);
-		   fantasmaAmarillo = new FantasmaAmarillo(tab, puntoAmarillo, 0);
-		 
 		   tab.addFantasma(fantasmaRojo);
 		
 		   Punto puntoPacman = new Punto(6,2);
@@ -65,13 +60,13 @@ public class FantasmaRojoTest extends TestCase {
 	
 	public void testHuir(){
 
-		//Reubico los fantasmas y el pacman.
+		//Reubico al fantasmas y el pacman.
 			
-		Punto nuevaUbicacionAmarillo = new Punto(4,4);
-		fantasmaAmarillo.setPosicion(nuevaUbicacionAmarillo);
+
 		
-		Punto nuevaUbicacionAzul = new Punto(6,4);
-		fantasmaRojo.setPosicion(nuevaUbicacionAzul);
+		Punto nuevaUbicacionRojo = new Punto(6,4);
+		fantasmaRojo.setPosicion(nuevaUbicacionRojo);
+		
 		Punto nuevaUbicacionPacman = new Punto(4,7);
 		pacman.setPosicion(nuevaUbicacionPacman);
 			

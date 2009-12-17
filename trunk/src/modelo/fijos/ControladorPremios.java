@@ -11,7 +11,7 @@ public class ControladorPremios {
 	
 	
 	public static final int DURACION_PREMIO = 20;
-	public static final int ESPERA_PREMIO = 20;
+	public static final int ESPERA_PREMIO = 60;
 	private ControladorJuego controlador;
 	private Casillero premioActual;
 	private Premios ultimoPremio;
