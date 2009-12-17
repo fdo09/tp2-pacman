@@ -37,11 +37,11 @@ public class AdministradorJuego implements ObjetoVivo{
 			controlador.agregarDibujable(nuevoNivel);		
 			Juego.getInstancia().aumentarNivel();
 			
-			int nivelFinal = 4;
+			int nivelFinal = Juego.getInstancia().getCantNiveles();
 			
 			if(Juego.getInstancia().getNivel() == nivelFinal){
 				
-				Juego.cambiarEstadoDelJuego(EstadosJuego.GANADO);
+				Juego.setEstadoDelJuego(EstadosJuego.GANADO);
 				
 				@SuppressWarnings("unused")//Al instanciar se muestra en pantalla.
 				VistaJuegoGanado juegoGanado = new VistaJuegoGanado(this.ventana);
@@ -57,7 +57,7 @@ public class AdministradorJuego implements ObjetoVivo{
 	public void controlarVidas(){
 		
 		if(Juego.getInstancia().getJugador().getCantVidas() == 0){
-			Juego.cambiarEstadoDelJuego(EstadosJuego.PERDIDO);
+			Juego.setEstadoDelJuego(EstadosJuego.PERDIDO);
 			controlador.detenerJuego();
 			
 			

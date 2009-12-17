@@ -3,7 +3,7 @@ package modelo.moviles;
 import modelo.fijos.Punto;
 import modelo.fijos.Tablero;
 
-public abstract class Personaje{
+public abstract class Personaje {
 
 	private Tablero tablero;
 	private Punto posicion;
@@ -50,6 +50,18 @@ public abstract class Personaje{
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
+	
+	public int getX() {
+		
+		return 25 * this.posicion.getPuntoX();
+	}
+
+
+	public int getY() {
+		
+		return 25 * this.posicion.getPuntoY();
+	}
+
 	
 	
 }
