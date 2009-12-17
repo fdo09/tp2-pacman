@@ -48,8 +48,10 @@ public class AdministradorJuego implements ObjetoVivo{
 			controlador.detenerJuego();
 			
 			
+			@SuppressWarnings("unused")//Al instanciar se muestra en pantalla.
 			VistaJuegoPerdido juegoPerdido = new VistaJuegoPerdido(this.ventana);
 			
+			@SuppressWarnings("unused")////Al instanciar se muestra en pantalla.
 			VistaReiniciarJuego reiniciar = new VistaReiniciarJuego(this.ventana, this.controlador);
 		}
 	}
