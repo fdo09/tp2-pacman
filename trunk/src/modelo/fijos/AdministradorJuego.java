@@ -36,8 +36,11 @@ public class AdministradorJuego implements ObjetoVivo{
 		if (this.tablero.getSemillasRestantes() == 0){
 			
 			
-			VistaMensaje nuevoNivel = new VistaMensaje("Felicidades ha avanzado de nivel");
-			controlador.agregarDibujable(nuevoNivel);		
+			@SuppressWarnings("unused")//Al instanciar se abre automaticamente la ventana.
+			
+			VistaMensajeNuevoNivel nuevoNivel = new VistaMensajeNuevoNivel(this.ventana);
+					
+			
 			Juego.getInstancia().aumentarNivel();
 			
 			int nivelFinal = Juego.getInstancia().getCantNiveles();

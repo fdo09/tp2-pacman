@@ -4,9 +4,9 @@ import java.awt.Component;
 
 import javax.swing.JOptionPane;
 
-public abstract class Mensaje {
+public abstract class VistaMensaje {
 	
-	public Mensaje (Component ventana){
+	public VistaMensaje (Component ventana){
 		
 		JOptionPane.showMessageDialog(ventana, this.getTexto(), this.getTitulo(), JOptionPane.INFORMATION_MESSAGE);
 	}
