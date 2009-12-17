@@ -1,11 +1,11 @@
 package modelo.fijos;
 
 
-public class PremioAzul extends Premio {
+public class PremioVida extends Premio {
 
 	
 	
-	public PremioAzul(Punto ubicacion, Tablero tablero) {
+	public PremioVida(Punto ubicacion, Tablero tablero) {
 
 		super(ubicacion,tablero);	
 		

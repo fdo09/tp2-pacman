@@ -1,7 +1,7 @@
 package modelo.fijos;
 
 import modelo.vista.fijos.VistaPremio;
-import modelo.vista.fijos.VistaPremioAzul;
+import modelo.vista.fijos.VistaPremioVida;
 import modelo.vista.fijos.VistaPremioRojo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
@@ -60,19 +60,19 @@ public class ControladorPremios {
 			this.agregarVistaPremioRojo();
 		}
 		else if (this.ultimoPremio == Premios.ROJO){
-			Premio premioAzul = new PremioAzul(this.posicionPremio, tablero);
-			tablero.addCasillero(this.posicionPremio, premioAzul);
-			this.premioActual = premioAzul;
+			Premio premioVida = new PremioVida(this.posicionPremio, tablero);
+			tablero.addCasillero(this.posicionPremio, premioVida);
+			this.premioActual = premioVida;
 			this.ultimoPremio = Premios.AZUL;
-			this.agregarVistaPremioAzul();
+			this.agregarVistaPremioVida();
 		}
 		
 		
 	}
 
-	private void agregarVistaPremioAzul() {
+	private void agregarVistaPremioVida() {
 		Punto posicionVista = new Punto ( this.posicionPremio.getPuntoX() * 25, this.posicionPremio.getPuntoY() *25 );
-		this.vista = new VistaPremioAzul(this.premioActual, posicionVista);
+		this.vista = new VistaPremioVida(this.premioActual, posicionVista);
 		this.controlador.agregarDibujable(vista);
 		
 	}
