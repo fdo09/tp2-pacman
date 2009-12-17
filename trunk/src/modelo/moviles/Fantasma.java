@@ -109,6 +109,11 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 			this.salirDeCasa();
 		}
 		
+		else if (this.objetivo.equals(Objetivo.aCasa())){
+			this.volverACasa();
+			super.setEstado(Estado.comido());
+		}
+		
 		else if (this.objetivo.equals(Objetivo.atrapar()))
 			this.atrapar(adjacentesValidos);
 		
@@ -159,9 +164,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 			pacman.serComido();
 			Collection<Fantasma> fantasmas = super.getTablero().getFantasmas();
 			for(Fantasma fantasma : fantasmas){
-				// Cambio a estado comido para que se quede en su casa un tiempo.
-				fantasma.setEstado(Estado.comido());
-				fantasma.volverACasa();
+				fantasma.setObjetivo(Objetivo.aCasa());
 			}
 		}
 	}
@@ -173,7 +176,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		if(this.getPosicion().equals(pacman.getPosicion()))
 		{
 			Juego.getInstancia().getJugador().ganarPuntos(Fantasma.PUNTOS);
-			this.volverACasa();
+			this.setObjetivo(Objetivo.aCasa());
 		}
 	}
 	

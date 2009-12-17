@@ -58,7 +58,9 @@ public class PacmanTest extends TestCase {
 		
 		assertEquals(posicionPacman, pacman.getPosicion());
 		
+		
 		//Debe volver a su casa que es la posici�n inicial(4,5)
+		fantasmaAmarillo.mover();
 		assertEquals(fantasmaAmarillo.getPosicionInicial(), fantasmaAmarillo.getPosicion());
 		
 		int puntosAcumulados = 750; //500 de punto de poder + 200 de fantasma + 50 de semilla

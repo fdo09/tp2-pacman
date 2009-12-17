@@ -9,7 +9,7 @@ public class VistaReiniciarJuego{
 	
 	public VistaReiniciarJuego(VentanaPrincipal ventana, ControladorJuego controlador){
 		
-		String mensaje = "Desea iniciar un juego nuevo. Elija NO para salir del juego";
+		String mensaje = "Desea iniciar un juego nuevo? Elija NO para salir del juego";
 		int eleccion = JOptionPane.showConfirmDialog
 			(ventana, mensaje, "Reiniciar Juego", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 		// NO = 1 || SI = 0
