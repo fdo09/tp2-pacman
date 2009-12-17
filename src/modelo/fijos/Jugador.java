@@ -2,22 +2,22 @@ package modelo.fijos;
 
 public class Jugador {
 
-	private String nombre;
+
 	private int cantVidas;
 	private int puntos;
 	
 	
 	public Jugador(){
 		
-		this.nombre = "Jugador Desconocido";
+		
 		this.cantVidas = 3;
 		this.puntos = 0;		
 	}
 
 	
-	public Jugador(String nombre, int cantDeVidas, int puntos){
+	public Jugador(int cantDeVidas, int puntos){
 		
-		this.nombre = nombre;
+	
 		this.cantVidas = cantDeVidas;
 		this.puntos = puntos;
 	}
@@ -48,8 +48,5 @@ public class Jugador {
 	}
 
 	
-	public String getNombre() {
-		return this.nombre;
-	}
 
 }

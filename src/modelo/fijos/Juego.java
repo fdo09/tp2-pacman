@@ -19,7 +19,7 @@ public class Juego{
 	public Juego(){
 		this.cargarElementos();
 		this.nivel = 1;
-		this.jugador = new Jugador("Player1", 3, 0);
+		this.jugador = new Jugador(3, 0);
 		Juego.estadoJuego = EstadosJuego.EN_CURSO;
 	}
 
