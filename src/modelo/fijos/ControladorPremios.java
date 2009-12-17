@@ -1,6 +1,8 @@
 package modelo.fijos;
 
 import modelo.vista.fijos.VistaPremio;
+import modelo.vista.fijos.VistaPremioAzul;
+import modelo.vista.fijos.VistaPremioRojo;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 enum Premios{ROJO, AZUL}
@@ -55,20 +57,30 @@ public class ControladorPremios {
 			tablero.addCasillero(this.posicionPremio, premioRojo);
 			this.premioActual = premioRojo;
 			this.ultimoPremio = Premios.ROJO;
+			this.agregarVistaPremioRojo();
 		}
 		else if (this.ultimoPremio == Premios.ROJO){
 			Premio premioAzul = new PremioAzul(this.posicionPremio, tablero);
 			tablero.addCasillero(this.posicionPremio, premioAzul);
 			this.premioActual = premioAzul;
 			this.ultimoPremio = Premios.AZUL;
+			this.agregarVistaPremioAzul();
 		}
 		
-		this.agregarVistaPremio();
+		
 	}
 
-	private void agregarVistaPremio() {
+	private void agregarVistaPremioAzul() {
 		Punto posicionVista = new Punto ( this.posicionPremio.getPuntoX() * 25, this.posicionPremio.getPuntoY() *25 );
-		this.vista = new VistaPremio(this.premioActual, posicionVista);
+		this.vista = new VistaPremioAzul(this.premioActual, posicionVista);
+		this.controlador.agregarDibujable(vista);
+		
+	}
+
+
+	private void agregarVistaPremioRojo() {
+		Punto posicionVista = new Punto ( this.posicionPremio.getPuntoX() * 25, this.posicionPremio.getPuntoY() *25 );
+		this.vista = new VistaPremioRojo(this.premioActual, posicionVista);
 		this.controlador.agregarDibujable(vista);
 		
 	}
@@ -80,15 +92,7 @@ public class ControladorPremios {
 			return;
 		}
 		
-		Tablero tablero = Juego.getInstancia().getTablero();
-		
-		/*
-		Semilla semilla = new Semilla(tablero.getPacman().getPosicion(), tablero);
-		semilla.setFuePisado(true);
-		tablero.addCasillero(tablero.getPacman().getPosicion(), semilla);
-		*/
 		this.premioActual = null;
-		
 		this.removerVista();
 	}
 
@@ -98,26 +102,4 @@ public class ControladorPremios {
 		
 	}
 	
-	/*
-	private Punto calcularPosicionPremio() {
-		Tablero tablero = Juego.getInstancia().getTablero();
-		Punto dimension = tablero.getDimension();
-		Casillero casillero = null;
-		Punto posicionAux = null;
-		int maxX = dimension.getPuntoX();
-		int maxY = dimension.getPuntoY();
-		int valorEnteroX = 0;
-		int valorEnteroY = 0;
-		do{
-			valorEnteroX = (int) Math.floor(Math.random() * (maxX));
-			valorEnteroY = (int) Math.floor(Math.random() * (maxY));
-			posicionAux = new Punto(valorEnteroX, valorEnteroY);
-			
-			casillero = tablero.getCasillero(posicionAux);
-	
-		} while (!tablero.esTransitable(posicionAux) || !(casillero instanceof Semilla) );
-
-		return posicionAux;
-	}
-	*/
 }
