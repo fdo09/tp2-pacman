@@ -24,10 +24,7 @@ public class TableroTest extends TestCase {
 		  Punto nuevo = new Punto(2,2);
 		  assertTrue(tab.esTransitable(nuevo));
 	  }
-	  
-	  public void testEstaVacio(){
-		  assertFalse(tab.estaVacio());
-	  }
+
 	  
 	  public void testAddCasillero(){
 		  Punto nuevo = new Punto(31,31);

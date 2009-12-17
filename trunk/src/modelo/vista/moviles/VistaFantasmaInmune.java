@@ -3,13 +3,14 @@ package modelo.vista.moviles;
 import modelo.moviles.Fantasma;
 import ar.uba.fi.algo3.titiritero.vista.Imagen;
 
-public class VistaFantasmaInmune extends Imagen {
+public class VistaFantasmaInmune extends VistaFantasma {
 
-	private Fantasma fantasma;
+	
 
 	public VistaFantasmaInmune(Fantasma fantasma) {
-		String nombreArchivoImagen = "ImagenesDePersonajes/verde.JPG";
-		setNombreArchivoImagen(nombreArchivoImagen);
-		this.fantasma = fantasma;
+		super(fantasma);
+		super.setImagenAtrapar("ImagenesDePersonajes/verde.JPG");
+		super.setImagenComido("ImagenesDePersonajes/verde.JPG");
+		super.setImagenHuir("ImagenesDePersonajes/verde.JPG");
 	}
 }
