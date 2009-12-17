@@ -37,24 +37,24 @@ public class Tablero {
 	}
 	
 	public void cargarPersonajes() {
-		Punto casaRojo = this.obtenerUnaCasaVacia();
+		Punto casaRojo = this.getUnaCasaVacia();
 		this.addFantasma(new FantasmaRojo(this, casaRojo.getPosicion(),3));
 		
-		Punto casaAmarillo = this.obtenerUnaCasaVacia();
+		Punto casaAmarillo = this.getUnaCasaVacia();
 		this.addFantasma(new FantasmaAmarillo(this, casaAmarillo.getPosicion(),3));
 		
-		Punto casaNaranja = this.obtenerUnaCasaVacia();
+		Punto casaNaranja = this.getUnaCasaVacia();
 		this.addFantasma(new FantasmaNaranja(this, casaNaranja.getPosicion(), 3));
 		
-		Punto casaAzul = this.obtenerUnaCasaVacia();
+		Punto casaAzul = this.getUnaCasaVacia();
 		this.addFantasma(new FantasmaAzul(this, casaAzul.getPosicion(),3));
 		
-		Punto casaImune = this.obtenerUnaCasaVacia();
+		Punto casaImune = this.getUnaCasaVacia();
 		this.addFantasma(new FantasmaInmune(this, casaImune.getPosicion(),2));
 	}
 	
 	
-	public Punto obtenerUnaCasaVacia(){
+	public Punto getUnaCasaVacia(){
 		try {
 			return this.casas.pop();
 		} catch (NoSuchElementException e) {

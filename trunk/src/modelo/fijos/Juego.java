@@ -14,6 +14,7 @@ public class Juego{
 	private int nivel;
 	private Jugador jugador;
 	private static EstadosJuego estadoJuego;
+	private static final int cantidadDeNiveles = 4;
 
 
 	public Juego(){
@@ -35,7 +36,7 @@ public class Juego{
 
 
 	
-	static void cambiarEstadoDelJuego(EstadosJuego unEstado){
+	public static void setEstadoDelJuego(EstadosJuego unEstado){
 		
 		estadoJuego = unEstado;
 			
@@ -44,13 +45,13 @@ public class Juego{
 	
 	public void aumentarNivel(){
 		this.nivel += 1;
-		this.restablecerTablero();
+		this.reestablecerTablero();
 		this.aumentarDificultad();
 	}
 	
-	private void restablecerTablero() {
+	private void reestablecerTablero() {
 		this.tablero.restablecerSemillasRestantes();
-		this.restablecerPosicionPersonajes();
+		this.reestablecerPosicionPersonajes();
 		Punto dimension = this.tablero.getDimension();
 		
 		for (int x = 0; x < dimension.getPuntoX(); x++){
@@ -61,7 +62,7 @@ public class Juego{
 		}
 	}
 	
-	private void restablecerPosicionPersonajes(){
+	private void reestablecerPosicionPersonajes(){
 		Pacman pacman = this.tablero.getPacman();
 		pacman.setPosicion(pacman.getPosicionInicial());
 		
@@ -81,8 +82,8 @@ public class Juego{
 	
 	public void reiniciarJuego(){
 		instancia = new Juego();
-		this.restablecerTablero();
-		this.restablecerPosicionPersonajes();
+		this.reestablecerTablero();
+		this.reestablecerPosicionPersonajes();
 	}
 
 
@@ -110,5 +111,10 @@ public class Juego{
 		}
 		
 		PuntoDePoder.cambiarDuracion();
+	}
+
+
+	public int getCantNiveles() {
+		return cantidadDeNiveles;
 	}
 }

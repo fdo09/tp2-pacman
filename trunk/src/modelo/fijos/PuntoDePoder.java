@@ -10,6 +10,14 @@ public class PuntoDePoder extends Casillero{
 	private static final int PUNTOS = 500;
 	private static int tiempoDeDuracion = 30;
 	
+	
+
+
+	public PuntoDePoder(Punto ubicacion, Tablero tablero) {
+		super(ubicacion,tablero);		
+		
+	}
+
 	public int getTiempo() {
 		return tiempoDeDuracion;
 	}
@@ -18,13 +26,6 @@ public class PuntoDePoder extends Casillero{
 	public void setTiempo(int tiempo) {
 		tiempoDeDuracion = tiempo;
 	}
-
-
-	public PuntoDePoder(Punto ubicacion, Tablero tablero) {
-		super(ubicacion,tablero);		
-		
-	}
-
 	
 	public boolean transitable(){
 		return true;

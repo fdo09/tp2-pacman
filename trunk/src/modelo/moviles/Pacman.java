@@ -223,21 +223,11 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		return direccionA;
 	}
 	
-	//Metodos provisorios utilizados para la visibilidad.
-
-	public int getX() {
-		return 25 * super.getPosicion().getPuntoX();
-	}
-
-
-	public int getY() {
-		return 25 * super.getPosicion().getPuntoY();
-	}
-
+	
 
 	public void vivir() {
 		
-			this.mover();
+		this.mover();
 		
 	}
 

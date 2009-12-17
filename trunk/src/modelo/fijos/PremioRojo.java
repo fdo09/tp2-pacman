@@ -8,7 +8,7 @@ public class PremioRojo extends Premio {
 	public PremioRojo(Punto ubicacion, Tablero tablero) {
 
 		super(ubicacion,tablero);
-		super.setFuePisado(false);
+		
 		
 	}
 	
