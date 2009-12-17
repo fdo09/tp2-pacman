@@ -2,7 +2,6 @@ package modelo.vista.fijos;
 
 import modelo.fijos.Casillero;
 import modelo.fijos.Punto;
-import modelo.vista.fijos.VistaPremio;
 
 public class VistaPremioAzul extends VistaPremio {
 	
