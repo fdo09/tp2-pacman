@@ -11,6 +11,10 @@ import modelo.fijos.Semilla;
 import modelo.fijos.Tablero;
 import modelo.vista.fijos.VistaBarraDeDatos;
 import modelo.vista.fijos.VistaCasillero;
+import modelo.vista.fijos.VistaCasilleroCasa;
+import modelo.vista.fijos.VistaCasilleroPared;
+import modelo.vista.fijos.VistaCasilleroPuntoDePoder;
+import modelo.vista.fijos.VistaCasilleroSemilla;
 import modelo.vista.fijos.VistaPuntoDePoder;
 import modelo.vista.fijos.VistaPuntos;
 import modelo.vista.fijos.VistaSemilla;
@@ -54,30 +58,33 @@ public class CargaVistaTablero {
 				Casillero unCasillero = tablero.getCasillero(posicionCasillero);
 				Punto posicionPantalla = new Punto (unCasillero.getX(), unCasillero.getY());
 				Casillero casilleroActual = tablero.getCasillero(posicionCasillero);
-				VistaCasillero vistaCasillero = new VistaCasillero();
+				
 				
 				if (casilleroActual instanceof Semilla){
-					vistaCasillero.setColor(Color.BLACK);
-					serVisible(controlador, posicionPantalla, vistaCasillero);
 					
-					VistaSemilla vistaSemilla = new VistaSemilla(casilleroActual);
-					vistaSemilla.setPosicionable(posicionPantalla);
-					controlador.agregarDibujable(vistaSemilla);
+					VistaCasilleroSemilla vCasilleroSemilla = new VistaCasilleroSemilla();
+					serVisible(controlador, posicionPantalla, vCasilleroSemilla);
+					
+					VistaSemilla vSemilla = new VistaSemilla(casilleroActual);
+					vSemilla.setPosicionable(posicionPantalla);
+					controlador.agregarDibujable(vSemilla);
 				}
 				
 				else if (casilleroActual instanceof Pared){
-					vistaCasillero.setColor(Color.BLUE);
-					serVisible(controlador, posicionPantalla, vistaCasillero);
+					
+					VistaCasilleroPared vCasilleroPared = new VistaCasilleroPared();
+					serVisible(controlador, posicionPantalla, vCasilleroPared);
 				}
 				
 				else if (casilleroActual instanceof Casa){
-					vistaCasillero.setColor(Color.GREEN);
-					serVisible(controlador, posicionPantalla, vistaCasillero);
+					
+					VistaCasilleroCasa vCasilleroCasa = new VistaCasilleroCasa();
+					serVisible(controlador, posicionPantalla, vCasilleroCasa);
 				}
 				
 				else if (casilleroActual instanceof PuntoDePoder){
-					vistaCasillero.setColor(Color.BLACK);
-					serVisible(controlador, posicionPantalla, vistaCasillero);
+					VistaCasilleroPuntoDePoder vCasilleroPuntoDePoder = new VistaCasilleroPuntoDePoder();
+					serVisible(controlador, posicionPantalla, vCasilleroPuntoDePoder);
 					
 					VistaPuntoDePoder vistaPtoPoder = new VistaPuntoDePoder(casilleroActual);
 					vistaPtoPoder.setPosicionable(posicionPantalla);
@@ -89,9 +96,9 @@ public class CargaVistaTablero {
 	}
 	
 	private static void serVisible(ControladorJuego controlador,
-			Punto cas$i, VistaCasillero vis$i) {
-		vis$i.setPosicionable(cas$i);
-		controlador.agregarDibujable(vis$i);
+			Punto casillero, VistaCasillero vista) {
+		vista.setPosicionable(casillero);
+		controlador.agregarDibujable(vista);
 	}
 			
 
