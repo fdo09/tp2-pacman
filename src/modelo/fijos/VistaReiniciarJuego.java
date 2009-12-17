@@ -1,12 +1,9 @@
 package modelo.fijos;
 
-import java.awt.Component;
-
 import javax.swing.JOptionPane;
 
-import ar.uba.fi.algo3.titiritero.ControladorJuego;
-
 import modelo.vista.control.VentanaPrincipal;
+import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
 public class VistaReiniciarJuego{
 	
