@@ -13,7 +13,7 @@ public class VistaMensajeNuevoNivel extends VistaMensaje {
 
 	
 	protected String getTexto() {
-		int nivelSiguiente =  Juego.getInstancia().getNivel() + 1;
+		int nivelSiguiente =  Juego.getInstancia().getNivel() ;
 		
 		String mensaje = "Enhorabuena haz comido todas las semillas... pasas al nivel " +  nivelSiguiente; 
 					
