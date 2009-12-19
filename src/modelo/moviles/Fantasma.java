@@ -47,7 +47,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	
 	public void aumentarVelocidad(){
 		
-		this.velocidad--;
+		this.setVelocidad(this.velocidad--);
 		
 	}
 	
@@ -199,7 +199,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 
 	public void cambiarEstado(int unTiempo) {
 		
-		this.tiempoPoder += unTiempo;
+		this.tiempoPoder = unTiempo;
 		
 		if(this.getObjetivo().equals(Objetivo.atrapar())){
 			this.objetivo = Objetivo.huir();

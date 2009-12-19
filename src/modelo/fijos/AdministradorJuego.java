@@ -31,8 +31,10 @@ public class AdministradorJuego implements ObjetoVivo{
 
 	
 	private void controlarNivel() {
+
 		
 		if (this.tablero.getSemillasRestantes() == 0){
+			
 			
 			
 			@SuppressWarnings("unused")//Al instanciar se abre automaticamente la ventana.

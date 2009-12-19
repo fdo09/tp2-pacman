@@ -149,6 +149,8 @@ public class Tablero {
 	public void restarSemilla() {
 		this.semillasRestantes -= 1;
 	}
-	
+	public void setSemilla(int unValor){
+		this.semillasRestantes = unValor;
+	}
 	
 }

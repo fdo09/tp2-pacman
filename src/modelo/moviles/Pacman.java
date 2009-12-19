@@ -229,6 +229,7 @@ public class Pacman extends Personaje implements Posicionable, ObjetoVivo{
 		
 		this.mover();
 		
+		
 	}
 
 	
