@@ -25,6 +25,8 @@ public class Tablero {
 	private Punto dimension;
 	private int semillasRestantes;
 	private int semillasIniciales;
+	private Punto posicionPremioRojo;
+	private Punto posicionPremioVida;
 
 	      
 	public Tablero (int base, int altura){
@@ -163,8 +165,22 @@ public class Tablero {
 	public void restarSemilla() {
 		this.semillasRestantes -= 1;
 	}
-	public void setSemilla(int unValor){
-		this.semillasRestantes = unValor;
+
+	public void setPosicionPremioVida(Punto posicionPremioVida) {
+		this.posicionPremioVida = posicionPremioVida;
 	}
+
+	public Punto getPosicionPremioVida() {
+		return posicionPremioVida;
+	}
+
+	public void setPosicionPremioRojo(Punto posicionPremioRojo) {
+		this.posicionPremioRojo = posicionPremioRojo;
+	}
+
+	public Punto getPosicionPremioRojo() {
+		return posicionPremioRojo;
+	}
+	
 	
 }

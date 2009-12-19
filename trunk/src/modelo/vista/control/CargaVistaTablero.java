@@ -3,6 +3,8 @@ package modelo.vista.control;
 import modelo.fijos.Casa;
 import modelo.fijos.Casillero;
 import modelo.fijos.Pared;
+import modelo.fijos.PremioRojo;
+import modelo.fijos.PremioVida;
 import modelo.fijos.Punto;
 import modelo.fijos.PuntoDePoder;
 import modelo.fijos.Semilla;
@@ -11,8 +13,11 @@ import modelo.vista.fijos.VistaBarraDeDatos;
 import modelo.vista.fijos.VistaCasillero;
 import modelo.vista.fijos.VistaCasilleroCasa;
 import modelo.vista.fijos.VistaCasilleroPared;
+import modelo.vista.fijos.VistaCasilleroPremio;
 import modelo.vista.fijos.VistaCasilleroPuntoDePoder;
 import modelo.vista.fijos.VistaCasilleroSemilla;
+import modelo.vista.fijos.VistaPremioRojo;
+import modelo.vista.fijos.VistaPremioVida;
 import modelo.vista.fijos.VistaPuntoDePoder;
 import modelo.vista.fijos.VistaPuntos;
 import modelo.vista.fijos.VistaSemilla;
@@ -87,6 +92,24 @@ public class CargaVistaTablero {
 					VistaPuntoDePoder vistaPtoPoder = new VistaPuntoDePoder(casilleroActual);
 					vistaPtoPoder.setPosicionable(posicionPantalla);
 					controlador.agregarDibujable(vistaPtoPoder);
+				}
+				
+				else if (casilleroActual instanceof PremioRojo){
+					VistaCasilleroPremio vCasillero = new VistaCasilleroPremio();
+					serVisible(controlador, posicionPantalla, vCasillero);
+					
+					VistaPremioRojo vPremio = new VistaPremioRojo(casilleroActual, posicionPantalla);
+					vPremio.setPosicionable(posicionPantalla);
+					controlador.agregarDibujable(vPremio);
+				}
+				
+				else if (casilleroActual instanceof PremioVida){
+					VistaCasilleroPremio vCasillero = new VistaCasilleroPremio();
+					serVisible(controlador, posicionPantalla, vCasillero);
+					
+					VistaPremioVida vPremio = new VistaPremioVida(casilleroActual, posicionPantalla);
+					vPremio.setPosicionable(posicionPantalla);
+					controlador.agregarDibujable(vPremio);
 				}
 			}
 		}

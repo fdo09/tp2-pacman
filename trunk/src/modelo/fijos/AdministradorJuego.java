@@ -19,7 +19,7 @@ public class AdministradorJuego implements ObjetoVivo{
 		this.tablero = Juego.getInstancia().getTablero();
 		this.controlador = controlador;
 		this.ventana = ventana;
-		this.controladorPremios = new ControladorPremios(controlador);
+		this.controladorPremios = new ControladorPremios();
 	}
 
 	
