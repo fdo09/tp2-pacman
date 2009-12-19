@@ -21,31 +21,31 @@ public class VistaRegla extends VistaMensaje{
 		parrafo1 = 
 				
 				"\n --El juego consta de un Pacman y cinco Fantasmas.\n " +
-				"\n --Usted tendrá tres vidas durante el juego y la única forma de perder una es siendo atrapado por un Fantasma.\n";
+				"\n --Usted tendra tres vidas durante el juego y la unica forma de perder una es siendo atrapado por un Fantasma.\n";
 				
 		parrafo2=
-				"\n --Los Fantasmas intentarán atraparlo salvo que el Pacman coma un Punto de Poder,\n" +
+				"\n --Los Fantasmas intentaran atraparlo salvo que el Pacman coma un Punto de Poder,\n" +
 				
-				"en ese caso huirán de él.\n" +
+				"en ese caso huiran de el.\n" +
 				
 				"\n --Usted posee los controles sobre el Pacman," +
 				
-				"podrá moverlo en las direcciones izquierda, arriba, deracha y abajo,\n " +
+				"podra moverlo en las direcciones izquierda, arriba, deracha y abajo,\n " +
 				
-				"y debería comer todas las semillas " +
+				"y deberia comer todas las semillas " +
 				
 				"que aparescan en pantalla para ganar el juego y pasar de nivel. \n" +
 				
-				"\n --Por cada Semilla comida sumará puntos. Además se encontrará con Puntos de Poder los cuales \n" +
+				"\n --Por cada Semilla comida sumara puntos. Ademas se encontrara con Puntos de Poder los cuales \n" +
 				
-				" cambiará el estado de los fantasmas dando la posibilidad de comerlos. \n " +
+				" cambiara el estado de los fantasmas dando la posibilidad de comerlos. \n " +
 				
-				" \n --Ellos también les dará más puntos, pero usted también debe saber que hay un Fantasma Inmune \n" +
-				"el cual nunca podrá ser comido,por lo que tendrá que huir de él.\n";
+				" \n --Ellos tambien les dara mas puntos, pero usted tambien debe saber que hay un Fantasma Inmune \n" +
+				"el cual nunca podra ser comido,por lo que tendrá que huir de el.\n";
 				
 		parrafo3=
-			 	"\n --Los Fantasma al ser comidos vuelven a sus casas e intentarán nuevamente atraparlo.\n" +
-			 	"\n --El pacman también podrá sumar mas puntos comiendo los premios que aparecerán en pantalla.\n" +
+			 	"\n --Los Fantasma al ser comidos vuelven a sus casas e intentaran nuevamente atraparlo.\n" +
+			 	"\n --El pacman tambien podra sumar mas puntos comiendo los premios que apareceran en pantalla.\n" +
 			 	"\n --Estos pueden aparecer en cualquier momento del juego.\n";
 		
 		

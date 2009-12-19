@@ -36,10 +36,6 @@ public class AdministradorJuego implements ObjetoVivo{
 		if (this.tablero.getSemillasRestantes() == 0){
 			
 			
-			
-			@SuppressWarnings("unused")//Al instanciar se abre automaticamente la ventana.
-			
-			VistaMensajeNuevoNivel nuevoNivel = new VistaMensajeNuevoNivel(this.ventana);
 					
 			
 			Juego.getInstancia().aumentarNivel();
@@ -55,6 +51,11 @@ public class AdministradorJuego implements ObjetoVivo{
 				
 				@SuppressWarnings("unused")//Al instanciar se muestra en pantalla.
 				VistaReiniciarJuego reiniciar = new VistaReiniciarJuego(this.ventana, this.controlador);
+			}
+			else{
+				@SuppressWarnings("unused")//Al instanciar se abre automaticamente la ventana.
+				
+				VistaMensajeNuevoNivel nuevoNivel = new VistaMensajeNuevoNivel(this.ventana);
 			}
 		}
 			
