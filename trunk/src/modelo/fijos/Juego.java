@@ -95,11 +95,19 @@ public class Juego{
 	
 	public void reiniciarJuego(){
 		estadoJuego = EstadosJuego.EN_CURSO;
+		this.reestablecerObjetivoDeFantasmas();
+		this.reestablecerVelocidades();
 		this.reestablecerTablero();
 		this.reestablecerDatos();
 	}
 
-
+	private void reestablecerVelocidades(){
+		for( Fantasma fantasma : this.tablero.getFantasmas()){
+			for(int i=1; i<Juego.getInstancia().getNivel();i++){
+				fantasma.disminuirVelocidad();
+			}
+		}
+	}
 	private void reestablecerDatos() {
 		this.nivel = 1;
 		this.jugador.resetearPuntos();

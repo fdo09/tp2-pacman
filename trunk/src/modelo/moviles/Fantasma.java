@@ -21,6 +21,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	private int velocidad;
 	private int velocidadActual;
 	
+	
 	public Fantasma(Tablero tablero, Punto posicion, int velocidad) {
 		super(tablero, posicion);
 		this.objetivo = Objetivo.atrapar();
@@ -30,6 +31,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		this.tiempoPoder = 0;
 		this.velocidadActual = 0;
 		this.setVelocidad(velocidad);
+	
 	}
 	
 	public void vivir () {
@@ -56,7 +58,11 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		
 	}
 	
-	
+	public void disminuirVelocidad(){
+		this.velocidadActual = 0;
+		int veloc = this.velocidad += 1;
+		this.setVelocidad(veloc);
+	}
 
 	public void setVelocidad(int velocidad) {
 		int velocidadMinima = 3;
