@@ -26,7 +26,7 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas cercano al pacman. En caso de que no haya 
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
 		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
@@ -55,7 +55,7 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 		 * En cambio si no es el mas cercano, devuelve el segundo adjacente mas lejano al pacman. En caso de que no haya 
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
 		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
