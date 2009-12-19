@@ -35,9 +35,6 @@ public class AdministradorJuego implements ObjetoVivo{
 		
 		if (this.tablero.getSemillasRestantes() == 0){
 			
-			
-					
-			
 			Juego.getInstancia().aumentarNivel();
 			
 			int nivelFinal = Juego.getInstancia().getCantNiveles();
