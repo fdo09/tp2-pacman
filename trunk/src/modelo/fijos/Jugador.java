@@ -55,7 +55,7 @@ public class Jugador {
 	
 	public void sumarVida(){
 		int cantVidasMaximas = 3;
-		if(this.cantVidas <= cantVidasMaximas)
+		if(this.cantVidas < cantVidasMaximas)
 			this.cantVidas += 1;
 		
 	}
