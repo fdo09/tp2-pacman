@@ -64,22 +64,6 @@ public class ControladorPremios {
 		
 	}
 
-	/*
-	private void agregarVistaPremioVida() {
-		Punto posicionVista = new Punto ( this.posicionPremio.getPuntoX() * 25, this.posicionPremio.getPuntoY() *25 );
-		this.vista = new VistaPremioVida(this.premioActual, posicionVista);
-		this.controlador.agregarDibujable(vista);
-		
-	}
-
-
-	private void agregarVistaPremioRojo() {
-		Punto posicionVista = new Punto ( this.posicionPremio.getPuntoX() * 25, this.posicionPremio.getPuntoY() *25 );
-		this.vista = new VistaPremioRojo(this.premioActual, posicionVista);
-		this.controlador.agregarDibujable(vista);
-		
-	}
-	*/
 
 	private void removerPremio() {
 		Tablero tablero = Juego.getInstancia().getTablero();
@@ -87,10 +71,4 @@ public class ControladorPremios {
 		tablero.getCasillero(this.posicionPremioVida).setFuePisado(true);
 	}
 
-	/*
-	private void removerVista() {
-		this.controlador.removerDibujable(this.vista);
-		
-	}
-	*/
 }
