@@ -80,6 +80,7 @@
 
 		<copy file="${jpg.src}\fijos\pacmanDerecha.JPG" todir="${jpg.des}\fijos"/>	
 		<copy file="${jpg.src}\fijos\barraDatos.JPG" todir="${jpg.des}\fijos"/>	
+		<copy file="${jpg.src}\fijos\manzana2.JPG" todir="${jpg.des}\fijos"/>	
 
 		<copy file="${jpg.src}\control\PAC-MAN.jpg" todir="${jpg.des}\control"/>	
 
