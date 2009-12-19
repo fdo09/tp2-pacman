@@ -3,6 +3,7 @@ package modelo.fijos;
 import java.util.Collection;
 
 import modelo.moviles.Fantasma;
+import modelo.moviles.Objetivo;
 import modelo.moviles.Pacman;
 
 enum EstadosJuego{EN_CURSO,GANADO,PERDIDO}
@@ -47,9 +48,20 @@ public class Juego{
 	public void aumentarNivel(){
 		this.nivel += 1;
 		this.reestablecerTablero();
+		this.establecerObjetivoDeFantasmas();
 		this.aumentarDificultad();
 	}
 	
+	private void establecerObjetivoDeFantasmas() {
+		Collection<Fantasma> fantasmas = this.tablero.getFantasmas();
+		for(Fantasma unFantasma : fantasmas){
+				
+			unFantasma.setObjetivo(Objetivo.atrapar());
+		}
+		
+	}
+
+
 	private void reestablecerTablero() {
 		this.tablero.restablecerSemillasRestantes();
 		this.reestablecerPosicionPersonajes();
