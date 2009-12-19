@@ -115,6 +115,20 @@ public class Tablero {
 		return adjacentesValidos;
 	}
 	
+	public LinkedList<Punto> getFantasmasOrdenadosPorDistancia() {
+		
+		ArrayList<Fantasma> fantasmas = this.getFantasmas();
+		LinkedList<Punto> posicionesFantasmas = new LinkedList<Punto>();
+		Punto posicionDelPacman = this.getPacman().getPosicion();
+		
+		for (Fantasma fant : fantasmas){
+			posicionesFantasmas.push(fant.getPosicion());
+		}
+		
+		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
+		posicionesDeFantasmasOrdenadas = posicionDelPacman.getPosicionesOrdenadas(posicionesFantasmas);
+		return posicionesDeFantasmasOrdenadas;
+	}
 	
 	public Punto getDimension() {
 		return this.dimension;

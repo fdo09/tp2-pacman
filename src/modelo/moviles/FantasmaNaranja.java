@@ -24,7 +24,7 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo {
 		 * En esta estrategia, si este fantasma es el mas cercano al pacman, devulve el adjacente mas ceracno al pacman.
 		 * En cambio si no es el mas cercano, devuelve el adjacente mas cercano al fantasma mas cercano. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
 		
 		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
 		
@@ -51,7 +51,7 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo {
 		 * En esta estrategia, si este fantasma es el mas lejano al pacman, devulve el adjacente mas lejano al pacman.
 		 * En cambio si no es el mas lejano, devuelve el adjacente mas cercano al fantasma mas cercano. 
 		 */
-		LinkedList<Punto> fantasmasOrdenados = this.getFantasmasOrdenadosPorDistancia(); 
+		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
 		
 		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
 		
