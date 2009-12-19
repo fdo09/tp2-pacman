@@ -59,6 +59,14 @@ public class CargaTablero {
 							casilleroAux = new Casa(posicion, tablero);
 							tablero.agregarCasa(posicion);
 							
+						}else if (tipoDeCasillero.equals("premioRojo")){
+							casilleroAux = new PremioRojo(posicion, tablero);
+							tablero.setPosicionPremioRojo(posicion);
+							
+						}else if (tipoDeCasillero.equals("premioVida")){
+							casilleroAux = new PremioVida(posicion, tablero);
+							tablero.setPosicionPremioVida(posicion);
+							
 						}else if (tipoDeCasillero.equals("PuntoDePoder")){
 							casilleroAux = new PuntoDePoder(posicion,tablero);
 							

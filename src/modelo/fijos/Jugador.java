@@ -5,6 +5,7 @@ public class Jugador {
 
 	private int cantVidas;
 	private int puntos;
+	private int cantVidasInicial;
 	
 	
 	public Jugador(){
@@ -19,6 +20,7 @@ public class Jugador {
 		
 	
 		this.cantVidas = cantDeVidas;
+		this.cantVidasInicial = cantDeVidas;
 		this.puntos = puntos;
 	}
 	
@@ -35,6 +37,14 @@ public class Jugador {
 
 	public void ganarPuntos(int unValor) {
 		this.puntos += unValor;
+	}
+	
+	public void resetearPuntos(){
+		this.puntos = 0;
+	}
+	
+	public void resetearVidas(){
+		this.cantVidas = this.cantVidasInicial;
 	}
 	
 	

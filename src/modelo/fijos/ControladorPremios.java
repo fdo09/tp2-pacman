@@ -5,34 +5,30 @@ import modelo.vista.fijos.VistaPremioRojo;
 import modelo.vista.fijos.VistaPremioVida;
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 
-enum Premios{ROJO, AZUL}
+enum Premios{ROJO, VIDA}
 
 public class ControladorPremios {
 	
 	
 	public static final int DURACION_PREMIO = 20;
 	public static final int ESPERA_PREMIO = 60;
-	private ControladorJuego controlador;
-	private Casillero premioActual;
 	private Premios ultimoPremio;
-	private Punto posicionPremio;
 	private int tiempoPremio;
-	private VistaPremio vista;
+	private Punto posicionPremioVida;
+	private Punto posicionPremioRojo;
 	
-	public ControladorPremios(ControladorJuego controlador){
-		this.controlador = controlador;
+	public ControladorPremios(){
 		this.tiempoPremio = DURACION_PREMIO + ESPERA_PREMIO;
-		this.ultimoPremio = Premios.AZUL;
-		this.premioActual = null;
-		this.vista = null;
-		this.posicionPremio = Juego.getInstancia().getTablero().getPacman().getPosicionInicial().getVecinoIzquierdo();
+		this.ultimoPremio = Premios.VIDA;
+		this.posicionPremioRojo = Juego.getInstancia().getTablero().getPosicionPremioRojo();
+		this.posicionPremioVida = Juego.getInstancia().getTablero().getPosicionPremioVida();
 	}
 	
 	
 	public void controlar(){
 		// Sin premio en el tablero
 		if (this.tiempoPremio > DURACION_PREMIO)
-			this.removerPremioActual();
+			this.removerPremio();
 		
 		// Con el premio en el tablero
 		else
@@ -48,28 +44,27 @@ public class ControladorPremios {
 	private void agregarPremio() {
 		
 		Tablero tablero = Juego.getInstancia().getTablero();
-		if (this.premioActual != null){
+		boolean isPremioRojo = ! (tablero.getCasillero(this.posicionPremioRojo).fuePisado());
+		boolean isPremioVida = ! (tablero.getCasillero(this.posicionPremioVida).fuePisado());
+		
+		if (isPremioRojo || isPremioVida ){
 			return;
 		}
 		
-		if (this.ultimoPremio == Premios.AZUL){
-			Premio premioRojo = new PremioRojo(this.posicionPremio, tablero);
-			tablero.addCasillero(this.posicionPremio, premioRojo);
-			this.premioActual = premioRojo;
+		if (this.ultimoPremio == Premios.VIDA){
+			tablero.getCasillero(this.posicionPremioRojo).setFuePisado(false);
 			this.ultimoPremio = Premios.ROJO;
-			this.agregarVistaPremioRojo();
 		}
+		
 		else if (this.ultimoPremio == Premios.ROJO){
-			Premio premioVida = new PremioVida(this.posicionPremio, tablero);
-			tablero.addCasillero(this.posicionPremio, premioVida);
-			this.premioActual = premioVida;
-			this.ultimoPremio = Premios.AZUL;
-			this.agregarVistaPremioVida();
+			tablero.getCasillero(this.posicionPremioVida).setFuePisado(false);
+			this.ultimoPremio = Premios.VIDA;
 		}
 		
 		
 	}
 
+	/*
 	private void agregarVistaPremioVida() {
 		Punto posicionVista = new Punto ( this.posicionPremio.getPuntoX() * 25, this.posicionPremio.getPuntoY() *25 );
 		this.vista = new VistaPremioVida(this.premioActual, posicionVista);
@@ -84,22 +79,18 @@ public class ControladorPremios {
 		this.controlador.agregarDibujable(vista);
 		
 	}
+	*/
 
-
-	private void removerPremioActual() {
-		// Premio ya esta removido
-		if (premioActual == null){
-			return;
-		}
-		
-		this.premioActual = null;
-		this.removerVista();
+	private void removerPremio() {
+		Tablero tablero = Juego.getInstancia().getTablero();
+		tablero.getCasillero(this.posicionPremioRojo).setFuePisado(true);
+		tablero.getCasillero(this.posicionPremioVida).setFuePisado(true);
 	}
 
-
+	/*
 	private void removerVista() {
 		this.controlador.removerDibujable(this.vista);
 		
 	}
-	
+	*/
 }

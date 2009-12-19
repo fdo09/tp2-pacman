@@ -94,9 +94,16 @@ public class Juego{
 	}
 	
 	public void reiniciarJuego(){
-		instancia = new Juego();
+		estadoJuego = EstadosJuego.EN_CURSO;
 		this.reestablecerTablero();
-		this.reestablecerPosicionPersonajes();
+		this.reestablecerDatos();
+	}
+
+
+	private void reestablecerDatos() {
+		this.nivel = 1;
+		this.jugador.resetearPuntos();
+		this.jugador.resetearVidas();
 	}
 
 
