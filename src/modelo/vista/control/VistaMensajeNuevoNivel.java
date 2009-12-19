@@ -1,7 +1,8 @@
-package modelo.fijos;
+package modelo.vista.control;
 
 import java.awt.Component;
 
+import modelo.fijos.Juego;
 import modelo.vista.control.VistaMensaje;
 
 public class VistaMensajeNuevoNivel extends VistaMensaje {
