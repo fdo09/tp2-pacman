@@ -40,7 +40,7 @@ public class PuntoDePoder extends Casillero{
 			
 			this.setFuePisado(true);
 			
-			this.cambiarEstadoDeFantasmas(tiempoDeDuracion);
+			this.cambiarObjetivoDeFantasmas(tiempoDeDuracion);
 				
 			Juego.getInstancia().getJugador().ganarPuntos(PUNTOS);
 			
@@ -49,11 +49,11 @@ public class PuntoDePoder extends Casillero{
 	}
 
 
-	private void cambiarEstadoDeFantasmas(int tiempo) {
+	private void cambiarObjetivoDeFantasmas(int tiempo) {
 		ArrayList<Fantasma> fantasmas = super.getTablero().getFantasmas();
 		
 		for(Fantasma unFantasma : fantasmas){
-			unFantasma.cambiarEstado(tiempo);
+			unFantasma.cambiarObjetivo(tiempo);
 		}
 	}
 	

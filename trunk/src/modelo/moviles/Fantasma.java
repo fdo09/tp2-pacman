@@ -180,6 +180,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 		{
 			Juego.getInstancia().getJugador().ganarPuntos(Fantasma.PUNTOS);
 			this.setObjetivo(Objetivo.aCasa());
+			
 		}
 	}
 	
@@ -199,7 +200,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	}
 
 
-	public void cambiarEstado(int unTiempo) {
+	public void cambiarObjetivo(int unTiempo) {
 		
 		this.tiempoPoder = unTiempo;
 		
@@ -211,6 +212,7 @@ public abstract class Fantasma extends Personaje implements Integrante, ObjetoVi
 	public void volverACasa(){
 		this.tiempoPoder = 0;
 		this.tiempoEnCasa = 10;
+		this.setObjetivo(Objetivo.atrapar());
 		this.setEstado(Estado.comido());
 		this.setPosicion(super.getPosicionInicial());
 		}

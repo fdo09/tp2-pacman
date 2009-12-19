@@ -49,7 +49,7 @@ public class FantasmaTest extends TestCase {
 
 	public void testRegresar() {
 		int tiempo = 20;
-		fantasmaAmarillo.cambiarEstado(tiempo);//Ahora huye
+		fantasmaAmarillo.cambiarObjetivo(tiempo);//Ahora huye
 		
 		Punto puntoDeChoque = new Punto(5,4);
 		fantasmaAmarillo.setPosicion(puntoDeChoque);
