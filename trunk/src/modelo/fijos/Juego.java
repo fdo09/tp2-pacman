@@ -48,11 +48,11 @@ public class Juego{
 	public void aumentarNivel(){
 		this.nivel += 1;
 		this.reestablecerTablero();
-		this.establecerObjetivoDeFantasmas();
+		this.reestablecerObjetivoDeFantasmas();
 		this.aumentarDificultad();
 	}
 	
-	private void establecerObjetivoDeFantasmas() {
+	private void reestablecerObjetivoDeFantasmas() {
 		Collection<Fantasma> fantasmas = this.tablero.getFantasmas();
 		for(Fantasma unFantasma : fantasmas){
 				

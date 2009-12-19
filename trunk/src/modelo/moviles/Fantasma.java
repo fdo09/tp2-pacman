@@ -1,8 +1,6 @@
 package modelo.moviles;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedList;
 
 import modelo.excepciones.VelocInvalidaFantasException;
 import modelo.fijos.Juego;
