@@ -183,7 +183,7 @@ public class Punto implements Posicionable {
 			
 			puntoAux = this.calcularPosicionLejana(listaDeUbicaciones);
 			
-			pilaPosiciones.push(puntoAux);
+			pilaPosiciones.addFirst(puntoAux);
 			
 			listaDeUbicaciones.remove(puntoAux);
 		}

@@ -26,7 +26,7 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo {
 		 */
 		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
 		
-		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
+		Punto fantasmaMasCercano = fantasmasOrdenados.removeFirst();
 		
 		if (fantasmaMasCercano.equals(super.getPosicion())){
 			
@@ -34,13 +34,13 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo {
 			
 			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 			
-			return posicionesOrdenadasPacman.peekFirst();
+			return posicionesOrdenadasPacman.removeFirst();
 		}
 		else {
 			
 			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasCercano.getPosicionesOrdenadas(adjacentesValidos);
 			
-			return posicionesAFantasmaCercano.peekFirst();
+			return posicionesAFantasmaCercano.removeFirst();
 		}
 	}
 
@@ -53,7 +53,7 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo {
 		 */
 		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
 		
-		Punto fantasmaMasLejano = fantasmasOrdenados.peekLast();
+		Punto fantasmaMasLejano = fantasmasOrdenados.removeLast();
 		
 		if (fantasmaMasLejano.equals(super.getPosicion())){
 			
@@ -61,13 +61,13 @@ public class FantasmaNaranja extends Fantasma implements ObjetoVivo {
 			
 			LinkedList<Punto> posicionesAPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 			
-			return posicionesAPacman.peekLast();
+			return posicionesAPacman.removeLast();
 		}
 		else {
 			
 			LinkedList<Punto> posicionesAFantasmaCercano = fantasmaMasLejano.getPosicionesOrdenadas(adjacentesValidos);
 			
-			return posicionesAFantasmaCercano.peekFirst();
+			return posicionesAFantasmaCercano.removeFirst();
 		}
 			
 	}

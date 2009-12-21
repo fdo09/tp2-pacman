@@ -27,16 +27,16 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
 		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
-		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
+		Punto fantasmaMasCercano = fantasmasOrdenados.removeFirst();
 		
 		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(super.getPosicion())){
 
-			Punto movimiento1 = posicionesOrdenadasPacman.pop();
+			Punto movimiento1 = posicionesOrdenadasPacman.removeFirst();
 			try{
-				Punto movimiento2 = posicionesOrdenadasPacman.pop();
+				Punto movimiento2 = posicionesOrdenadasPacman.removeFirst();
 				return movimiento2;
 			}
 			catch(NoSuchElementException error){
@@ -44,7 +44,7 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 			}
 		}
 		else
-			return posicionesOrdenadasPacman.pop();
+			return posicionesOrdenadasPacman.removeFirst();
 	}
 
 
@@ -56,13 +56,13 @@ public class FantasmaAzul extends Fantasma implements ObjetoVivo {
 		 * una segunda posicion valida, devuelve la primera. 
 		 */
 		LinkedList<Punto> fantasmasOrdenados = super.getTablero().getFantasmasOrdenadosPorDistancia(); 
-		Punto fantasmaMasCercano = fantasmasOrdenados.peekFirst();
+		Punto fantasmaMasCercano = fantasmasOrdenados.removeFirst();
 		
 		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 
 		if(fantasmaMasCercano.equals(super.getPosicion())){
-			return posicionesOrdenadasPacman.peekLast();
+			return posicionesOrdenadasPacman.removeLast();
 		}
 		else {
 			Punto movimiento1 = posicionesOrdenadasPacman.removeLast();

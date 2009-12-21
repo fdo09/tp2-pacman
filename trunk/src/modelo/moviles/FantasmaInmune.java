@@ -37,7 +37,7 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 				
 				LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 				
-				return posicionesOrdenadasPacman.peekFirst();
+				return posicionesOrdenadasPacman.removeFirst();
 			}
 			else{
 				if(super.getPosicion().equals(this.destino) || this.destino == null)
@@ -45,7 +45,7 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 				
 				LinkedList<Punto> posicionesOrdenadasDestino = this.destino.getPosicionesOrdenadas(adjacentesValidos);
 				
-				return posicionesOrdenadasDestino.peekFirst();
+				return posicionesOrdenadasDestino.removeFirst();
 			}
 	}
 
@@ -92,7 +92,7 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 			
 			LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 			
-			return posicionesOrdenadasPacman.peekLast();
+			return posicionesOrdenadasPacman.removeLast();
 		}
 		else{
 			if(super.getPosicion().equals(destino))
@@ -100,7 +100,7 @@ public class FantasmaInmune extends Fantasma implements ObjetoVivo  {
 			
 			LinkedList<Punto> posicionesOrdenadasDestino = destino.getPosicionesOrdenadas(adjacentesValidos);
 			
-			return posicionesOrdenadasDestino.peekLast();
+			return posicionesOrdenadasDestino.removeLast();
 		}
 	}
 	

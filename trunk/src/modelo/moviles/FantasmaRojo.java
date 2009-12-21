@@ -81,9 +81,9 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo {
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 		
 		if(this.intel == Inteligencias.INTELIGENTE)
-			return posicionesOrdenadasPacman.peekFirst();
+			return posicionesOrdenadasPacman.removeFirst();
 		else
-			return posicionesOrdenadasPacman.peekLast();
+			return posicionesOrdenadasPacman.removeLast();
 
 	}
 
@@ -101,9 +101,9 @@ public class FantasmaRojo extends Fantasma implements ObjetoVivo {
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
 		
 		if(this.intel == Inteligencias.INTELIGENTE)
-			return posicionesOrdenadasPacman.peekLast();
+			return posicionesOrdenadasPacman.removeLast();
 		else
-			return posicionesOrdenadasPacman.peekFirst();
+			return posicionesOrdenadasPacman.removeFirst();
 	}
 	
 	
