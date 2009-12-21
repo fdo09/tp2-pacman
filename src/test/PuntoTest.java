@@ -199,7 +199,7 @@ public class PuntoTest extends TestCase {
 		
 		LinkedList<Punto> listaOrdenada = punto1.getPosicionesOrdenadas(listaDePuntos);
 		
-		Punto elementoEsperado = listaOrdenada.pop();
+		Punto elementoEsperado = listaOrdenada.removeFirst();
 		
 		//El elemento a menor distancia es el punto2.
 		
@@ -207,12 +207,12 @@ public class PuntoTest extends TestCase {
 		
 		
 		//Le sigue el punto3
-		elementoEsperado = listaOrdenada.pop();
+		elementoEsperado = listaOrdenada.removeFirst();
 		
 		assertEquals(elementoEsperado,punto3);
 		
 		//Por último el punto4.
-		elementoEsperado = listaOrdenada.pop();
+		elementoEsperado = listaOrdenada.removeFirst();
 		
 		assertEquals(elementoEsperado,punto4);
 		

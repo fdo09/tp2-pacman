@@ -59,7 +59,7 @@ public class Tablero {
 	
 	public Punto getUnaCasaVacia(){
 		try {
-			return this.casas.pop();
+			return this.casas.removeFirst();
 		} catch (NoSuchElementException e) {
 			throw new CasasLlenasException();
 		}
@@ -124,7 +124,7 @@ public class Tablero {
 		Punto posicionDelPacman = this.getPacman().getPosicion();
 		
 		for (Fantasma fant : fantasmas){
-			posicionesFantasmas.push(fant.getPosicion());
+			posicionesFantasmas.addFirst(fant.getPosicion());
 		}
 		
 		LinkedList<Punto> posicionesDeFantasmasOrdenadas;
@@ -143,7 +143,7 @@ public class Tablero {
 
 	
 	public void agregarCasa (Punto nuevaCasa){
-		this.casas.push(nuevaCasa);
+		this.casas.addFirst(nuevaCasa);
 	}
 	
 	

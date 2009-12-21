@@ -26,7 +26,7 @@ public class FantasmaAmarillo extends Fantasma implements ObjetoVivo{
 		 */
 		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
-		return posicionesOrdenadasPacman.peekFirst();
+		return posicionesOrdenadasPacman.removeFirst();
 	}
 
 
@@ -37,7 +37,7 @@ public class FantasmaAmarillo extends Fantasma implements ObjetoVivo{
 		 */
 		Punto posicionPacman = super.getTablero().getPacman().getPosicion();
 		LinkedList<Punto> posicionesOrdenadasPacman = posicionPacman.getPosicionesOrdenadas(adjacentesValidos);
-		return posicionesOrdenadasPacman.peekLast();
+		return posicionesOrdenadasPacman.removeLast();
 	}
 
 
