@@ -12,7 +12,7 @@ public class VistaPuntos extends Texto {
 		super();
 		Punto posicion = new Punto(2*25 , 26*25);
 		setPosicionable(posicion);
-		setFuente(Font.MONOSPACED, 14);
+		setFuente("bold", 14);
 	}
 	
 	
